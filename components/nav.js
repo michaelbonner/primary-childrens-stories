@@ -13,7 +13,13 @@ const Nav = () => {
       <nav className="flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200">
         <button
           className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-          onClick={() => setActiveTab("about")}
+          onClick={() => {
+            if (activeTab === "about") {
+              setActiveTab("");
+            } else {
+              setActiveTab("about");
+            }
+          }}
         >
           <svg
             viewBox="0 0 100 100"
@@ -26,7 +32,13 @@ const Nav = () => {
         </button>
         <button
           className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-          onClick={() => setActiveTab("search")}
+          onClick={() => {
+            if (activeTab === "search") {
+              setActiveTab("");
+            } else {
+              setActiveTab("search");
+            }
+          }}
         >
           <svg
             viewBox="0 0 100 100"
@@ -39,7 +51,13 @@ const Nav = () => {
         </button>
         <button
           className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-          onClick={() => setActiveTab("submit")}
+          onClick={() => {
+            if (activeTab === "submit") {
+              setActiveTab("");
+            } else {
+              setActiveTab("submit");
+            }
+          }}
         >
           <svg
             viewBox="0 0 100 100"
