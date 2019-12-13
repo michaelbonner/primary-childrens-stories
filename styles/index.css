@@ -4,4 +4,6 @@
 
 body {
   @apply text-gray-800;
+  background-image: url("/pch-background.svg");
+  background-size: cover;
 }

@@ -57,12 +57,15 @@ const Home = () => {
           <div className="relative z-10">
             {stories.map(story => {
               return (
-                <div key={story.sys.id}>
+                <div
+                  key={story.sys.id}
+                  className="inline-block bg-white border-green-500 mr-2 px-4 py-2 rounded-full"
+                >
                   <button
                     href={`/?id=${story.sys.id}`}
                     onClick={() => setActiveStory(story)}
                   >
-                    {story.fields.title}
+                    View {story.fields.title}
                   </button>
                 </div>
               );
