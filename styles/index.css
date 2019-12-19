@@ -68,7 +68,5 @@
 
 body {
   @apply text-gray-800;
-  background-image: url("/pch-background.svg");
-  background-size: cover;
   font-family: "Frutiger LT Std", sans-serif;
 }

@@ -54,7 +54,7 @@ const Home = () => {
         <div className="container mx-auto relative h-screen">
           <Nav />
           <MiniMap />
-          <div className="relative z-10">
+          <div className="fixed z-10 w-full">
             {stories.map(story => {
               return (
                 <div
@@ -74,14 +74,12 @@ const Home = () => {
         </div>
         <div
           className={
-            activeStory
-              ? "absolute z-20 inset-0 bg-gray-600 opacity-50"
-              : "hidden"
+            activeStory ? "fixed z-20 inset-0 bg-gray-600 opacity-50" : "hidden"
           }
         />
         <div
           className={
-            activeStory ? "absolute z-30 w-full py-8 inset-y-0" : "hidden"
+            activeStory ? "fixed z-30 w-full py-8 inset-y-0" : "hidden"
           }
           onClick={() => {
             setActiveStory(null);
