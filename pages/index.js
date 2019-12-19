@@ -51,7 +51,7 @@ const Home = () => {
       </Head>
 
       <Map>
-        <div className="container mx-auto relative h-screen">
+        <div className="relative h-screen">
           <Nav />
           <MiniMap />
           <div className="fixed z-10 w-full">
