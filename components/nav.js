@@ -6,11 +6,11 @@ const Nav = () => {
   return (
     <div>
       <div className="flex justify-end">
-        <div className="inline-block py-6 px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg">
+        <div className="inline-block py-6 px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md">
           Share
         </div>
       </div>
-      <nav className="flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200">
+      <nav className="flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md">
         <button
           className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
           onClick={() => {
