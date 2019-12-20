@@ -48,7 +48,7 @@ const Map = ({ children }) => {
                 alt="map background"
                 draggable="false"
                 className="absolute z-0"
-                src="/pch-background.jpg"
+                src="/pch-background.svg"
               />
               {stories.map(story => {
                 return (
