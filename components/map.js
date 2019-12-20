@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import useContentfulContent from "../shared/hooks/useContentfulContent";
@@ -10,19 +10,21 @@ const Map = ({ children }) => {
     height: 2400
   };
 
+  const mapInnerContainer = useRef(null);
+
   const stories = useContentfulContent();
   const [activeStory, setActiveStory] = useState(null);
   const size = useWindowSize();
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
-  const [scale, setScale] = useState(1.5);
+  const [scale, setScale] = useState(1.8);
 
   useEffect(() => {
     if (size.width < 760) {
       setScale(8);
     }
     setTranslation({
-      x: size.width / 2 - bgImageDimensions.width / 2 + 40,
-      y: size.height / 2 - bgImageDimensions.height / 2 + 80
+      x: 0 - (size.width * (scale - 1)) / 2 + 40,
+      y: 0 - (size.height * (scale - 1)) / 2 - 40
     });
   }, []);
 
@@ -32,18 +34,22 @@ const Map = ({ children }) => {
       <div className="absolute inset-0 z-0 h-screen w-full">
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
+            onChange={props => {
+              setScale(props.scale);
+              setTranslation(props.translation);
+            }}
             scale={scale}
             translation={translation}
             translationBounds={{
-              xMin: 0 - bgImageDimensions.width + size.width,
+              xMin: scale === 1 ? 0 : 0 - size.width * (scale - 1),
               xMax: 0,
-              yMin: 0 - bgImageDimensions.height + size.height,
+              yMin: scale === 1 ? 0 : 0 - size.height * (scale - 1),
               yMax: 0
             }}
             minScale={1}
-            maxScale={10}
+            maxScale={4}
           >
-            <div className="w-screen h-screen">
+            <div ref={mapInnerContainer}>
               <img
                 alt="map background"
                 draggable="false"
@@ -54,10 +60,14 @@ const Map = ({ children }) => {
                 return (
                   <div
                     key={story.sys.id}
-                    className="absolute"
+                    className="relative"
                     style={{
-                      left: story.fields.xCoordinate,
-                      top: story.fields.yCoordinate
+                      left:
+                        (size.width / bgImageDimensions.width) *
+                        story.fields.xCoordinate,
+                      top:
+                        (size.height / bgImageDimensions.height) *
+                        story.fields.yCoordinate
                     }}
                   >
                     <button
@@ -66,7 +76,7 @@ const Map = ({ children }) => {
                     >
                       <img
                         alt={story.fields.title}
-                        className="w-8 h-16"
+                        className="w-6"
                         src="/pins/orange.svg"
                       />
                     </button>
