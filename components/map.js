@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import useContentfulContent from "../shared/hooks/useContentfulContent";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import StoryOverlay from "./StoryOverlay";
 
 const Map = ({ children }) => {
   const bgImageDimensions = {
@@ -12,11 +12,13 @@ const Map = ({ children }) => {
 
   const mapInnerContainer = useRef(null);
 
-  const stories = useContentfulContent();
+  const stories = useContentfulContent().stories;
   const [activeStory, setActiveStory] = useState(null);
   const size = useWindowSize();
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1.8);
+
+  console.log(stories);
 
   useEffect(() => {
     if (size.width < 760) {
@@ -87,30 +89,7 @@ const Map = ({ children }) => {
           </MapInteractionCSS>
         </div>
       </div>
-      <div
-        className={
-          activeStory ? "fixed z-20 inset-0 bg-gray-600 opacity-50" : "hidden"
-        }
-      />
-      <div
-        className={activeStory ? "fixed z-30 w-full py-8 inset-y-0" : "hidden"}
-        onClick={() => {
-          setActiveStory(null);
-        }}
-      >
-        <div className="flex">
-          <div
-            className="bg-white w-full md:w-1/2 mx-auto py-8 px-4"
-            dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(
-                activeStory && activeStory.fields
-                  ? activeStory.fields.story
-                  : ""
-              )
-            }}
-          />
-        </div>
-      </div>
+      <StoryOverlay activeStory={activeStory} setActiveStory={setActiveStory} />
     </div>
   );
 };

@@ -24,7 +24,23 @@ const useContentfulContent = () => {
     console.log(`Error getting Entries for ${contentType.name}.`);
   }
 
+  async function fetchStoryBySlug(slug) {
+    const entries = await client.getEntries({
+      content_type: "story",
+      "fields.slug[in]": slug
+    });
+    if (entries.items) return entries.items;
+    console.log(`Error getting Entries for story`);
+  }
+
+  async function fetchByEntryId(entryId) {
+    const entry = await client.getEntry(entryId);
+    if (entry) return entry;
+    console.log(`Error getting Entries for story`);
+  }
+
   const [stories, setStories] = useState([]);
+  const [contentTypes, setContentTypes] = useState([]);
 
   useEffect(() => {
     async function getPosts() {
@@ -35,6 +51,11 @@ const useContentfulContent = () => {
     getPosts();
   }, []);
 
-  return stories;
+  return {
+    contentTypes,
+    fetchByEntryId,
+    fetchStoryBySlug,
+    stories
+  };
 };
 export default useContentfulContent;
