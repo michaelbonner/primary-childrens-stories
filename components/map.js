@@ -18,8 +18,6 @@ const Map = ({ children }) => {
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1.8);
 
-  console.log(stories);
-
   useEffect(() => {
     if (size.width < 760) {
       setScale(8);

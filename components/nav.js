@@ -1,14 +1,36 @@
 import React, { useState } from "react";
+import Facebook from "../components/facebook";
+import Twitter from "../components/twitter";
 
 const Nav = () => {
   const [activeTab, setActiveTab] = useState("");
+  const [shareOpen, setShareOpen] = useState(false);
 
   return (
     <div>
-      <div className="fixed right-0 top-0 flex justify-end mr-8">
-        <div className="inline-block py-6 px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md">
+      <div className="fixed right-0 top-0 flex flex-col justify-end mr-8 w-24 text-center">
+        <button
+          className="inline-block py-6 px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
+          onClick={() => {
+            setShareOpen(!shareOpen);
+          }}
+        >
           Share
-        </div>
+        </button>
+        <button
+          className={`${
+            shareOpen ? "flex" : "hidden"
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20`}
+        >
+          <Facebook className="w-8 fill-current" />
+        </button>
+        <button
+          className={`${
+            shareOpen ? "flex" : "hidden"
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10`}
+        >
+          <Twitter className="w-8 fill-current" />
+        </button>
       </div>
       <nav className="mt-16 flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md">
         <button
