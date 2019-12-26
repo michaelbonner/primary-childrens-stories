@@ -12,7 +12,8 @@ const Map = ({ children }) => {
   const [stories, setStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
-  const [scale, setScale] = useState(1.8);
+  const [initialScale, setInitialScale] = useState(1.8);
+  const [scale, setScale] = useState(initialScale);
 
   const contentfulContent = useContentfulContent();
   const size = useWindowSize();
@@ -27,6 +28,7 @@ const Map = ({ children }) => {
   useEffect(() => {
     if (size.width < 760) {
       setScale(8);
+      setInitialScale(8);
     }
     setTranslation({
       x: 0 - (size.width * (scale - 1)) / 2 + 40,
@@ -54,8 +56,10 @@ const Map = ({ children }) => {
             }}
             minScale={1}
             maxScale={4}
+            disablePan={activeStory ? true : false}
+            disableZoom={activeStory ? true : false}
           >
-            <div ref={mapInnerContainer}>
+            <div className="relative" ref={mapInnerContainer}>
               <img
                 alt="map background"
                 draggable="false"
@@ -66,23 +70,20 @@ const Map = ({ children }) => {
                 return (
                   <div
                     key={story.sys.id}
-                    className="relative"
+                    className="absolute"
                     style={{
-                      left:
-                        (size.width / bgImageDimensions.width) *
-                        story.fields.xCoordinate,
-                      top:
-                        (size.height / bgImageDimensions.height) *
-                        story.fields.yCoordinate
+                      left: story.fields.xCoordinate / initialScale,
+                      top: story.fields.yCoordinate / initialScale
                     }}
                   >
                     <button
                       href={`/?id=${story.sys.id}`}
                       onClick={() => setActiveStory(story)}
+                      onTouchEnd={() => setActiveStory(story)}
                     >
                       <img
                         alt={story.fields.title}
-                        className="w-6"
+                        className="w-2 md:w-6"
                         src="/pins/orange.svg"
                       />
                     </button>

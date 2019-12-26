@@ -18,7 +18,11 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   });
 
   useEffect(() => {
-    if (activeStory && activeStory.fields.media.length) {
+    if (
+      activeStory &&
+      activeStory.fields.media &&
+      activeStory.fields.media.length
+    ) {
       setMedia(
         activeStory.fields.media.map(media => {
           return {
@@ -54,7 +58,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
           activeStory ? "fixed z-30 w-full py-8 md:py-16 inset-y-0" : "hidden"
         }
       >
-        <div className="flex h-screen md:pb-32">
+        <div className="flex h-screen md:pb-32 pb-12 px-3">
           <div className="relative bg-white w-full md:w-2/3 xl:w-1/2 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md">
             <div className="absolute left:0 lg:right-0 top-0 -ml-6 lg:ml-0 mt-2 lg:mt-1 lg:-mr-12">
               <button
