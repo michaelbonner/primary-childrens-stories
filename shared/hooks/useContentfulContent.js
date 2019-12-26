@@ -2,6 +2,10 @@ import client from "../contentful";
 import { useState, useEffect } from "react";
 
 const useContentfulContent = () => {
+  const [stories, setStories] = useState([]);
+  const [contentTypes, setContentTypes] = useState([]);
+  const [categories, setCategories] = useState([]);
+
   async function fetchContentTypes() {
     const types = await client.getContentTypes();
     if (types.items) return types.items;
@@ -39,19 +43,24 @@ const useContentfulContent = () => {
     console.log(`Error getting Entries for story`);
   }
 
-  const [stories, setStories] = useState([]);
-  const [contentTypes, setContentTypes] = useState([]);
-
   useEffect(() => {
     async function getPosts() {
       const contentTypes = await fetchContentTypes();
-      const allStories = await fetchEntriesForContentType(contentTypes[0]);
+      setContentTypes(contentTypes);
+      const allStories = await fetchEntriesForContentType(
+        contentTypes.filter(contentType => contentType.name === "Story")[0]
+      );
       setStories([...allStories]);
+      const allCategories = await fetchEntriesForContentType(
+        contentTypes.filter(contentType => contentType.name === "Category")[0]
+      );
+      setCategories([...allCategories]);
     }
     getPosts();
   }, []);
 
   return {
+    categories,
     contentTypes,
     fetchByEntryId,
     fetchStoryBySlug,

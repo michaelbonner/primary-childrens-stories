@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Facebook from "../components/facebook";
 import Twitter from "../components/twitter";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import useContentfulContent from "../shared/hooks/useContentfulContent";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 const Nav = () => {
   const [activeTab, setActiveTab] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
+  const contentfulContent = useContentfulContent();
+  const [aboutTabContent, setAboutTabContent] = useState("");
+
+  useEffect(() => {
+    contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
+      setAboutTabContent(content.fields.content);
+    });
+  }, []);
 
   return (
     <div>
@@ -44,9 +54,11 @@ const Nav = () => {
         </TwitterShareButton>
       </div>
       <div className="px-4">
-        <nav className="mt-16 flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md">
+        <nav className="relative mt-16 flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md z-30">
           <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
+            className={`${
+              activeTab === "about" ? "text-gray-900" : "text-gray-600"
+            } w-1/3 py-3 px-8 text-sm font-medium uppercase focus:outline-none`}
             onClick={() => {
               if (activeTab === "about") {
                 setActiveTab("");
@@ -65,7 +77,9 @@ const Nav = () => {
             <span className="inline-block mt-1">About</span>
           </button>
           <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
+            className={`${
+              activeTab === "search" ? "text-gray-900" : "text-gray-600"
+            } w-1/3 py-3 px-8 text-sm font-medium uppercase focus:outline-none`}
             onClick={() => {
               if (activeTab === "search") {
                 setActiveTab("");
@@ -84,7 +98,9 @@ const Nav = () => {
             <span className="inline-block mt-1">Search</span>
           </button>
           <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
+            className={`${
+              activeTab === "submit" ? "text-gray-900" : "text-gray-600"
+            } w-1/3 py-3 px-8 text-sm font-medium uppercase focus:outline-none`}
             onClick={() => {
               if (activeTab === "submit") {
                 setActiveTab("");
@@ -109,22 +125,10 @@ const Nav = () => {
               ? "w-full md:w-1/3 mx-auto text-gray-600 rounded-lg bg-gray-100 p-4"
               : "hidden"
           }`}
-        >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-            scelerisque fringilla nibh at scelerisque. Praesent efficitur erat
-            sem, in pulvinar massa pulvinar sit amet. Suspendisse potenti.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Aliquam et tempor nulla, eu porta nibh. Nam
-            consectetur, neque quis tincidunt euismod, nulla sapien mollis diam,
-            vel posuere ligula elit vitae quam. Cras sodales magna consectetur,
-            interdum augue sit amet, viverra libero. Sed sollicitudin nibh ac
-            est pretium ultrices. Nulla faucibus posuere elit, quis interdum leo
-            rutrum ac. Fusce consequat pellentesque neque, ut maximus mauris
-            malesuada at. Donec laoreet porta est, eu rhoncus purus imperdiet
-            eget.
-          </p>
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: documentToHtmlString(aboutTabContent)
+          }}
+        ></div>
         <div
           className={`${
             activeTab === "search"
@@ -132,84 +136,23 @@ const Nav = () => {
               : "hidden"
           }`}
         >
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
+          {contentfulContent.categories.map(category => (
+            <button
+              className={`w-1/3 py-3 px-8 text-sm font-medium uppercase focus:outline-none`}
+              key={category.sys.id}
+              onClick={() => setActiveTab("search")}
             >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
-            >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
-            >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
-            >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
-            >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
-          <button
-            className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
-            onClick={() => setActiveTab("search")}
-          >
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current w-6 h- mx-auto"
-            >
-              <circle cx="50" cy="50" r="50" />
-            </svg>
-            <span className="inline-block mt-1">Category</span>
-          </button>
+              <svg
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+                className="fill-current w-6 h- mx-auto"
+                style={{ color: category.fields.color }}
+              >
+                <circle cx="50" cy="50" r="50" />
+              </svg>
+              <span className="inline-block mt-1">{category.fields.name}</span>
+            </button>
+          ))}
         </div>
         <div
           className={`${

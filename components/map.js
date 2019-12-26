@@ -66,30 +66,28 @@ const Map = ({ children }) => {
                 className="absolute z-0"
                 src="/pch-background.svg"
               />
-              {stories.map(story => {
-                return (
-                  <div
-                    key={story.sys.id}
-                    className="absolute"
-                    style={{
-                      left: story.fields.xCoordinate / initialScale,
-                      top: story.fields.yCoordinate / initialScale
-                    }}
+              {stories.map(story => (
+                <div
+                  key={story.sys.id}
+                  className="absolute"
+                  style={{
+                    left: story.fields.xCoordinate / initialScale,
+                    top: story.fields.yCoordinate / initialScale
+                  }}
+                >
+                  <button
+                    href={`/?id=${story.sys.id}`}
+                    onClick={() => setActiveStory(story)}
+                    onTouchEnd={() => setActiveStory(story)}
                   >
-                    <button
-                      href={`/?id=${story.sys.id}`}
-                      onClick={() => setActiveStory(story)}
-                      onTouchEnd={() => setActiveStory(story)}
-                    >
-                      <img
-                        alt={story.fields.title}
-                        className="w-2 md:w-6"
-                        src="/pins/orange.svg"
-                      />
-                    </button>
-                  </div>
-                );
-              })}
+                    <img
+                      alt={story.fields.title}
+                      className="w-2 md:w-6"
+                      src={`/pins/${story.fields.category.fields.color}.svg`}
+                    />
+                  </button>
+                </div>
+              ))}
             </div>
           </MapInteractionCSS>
         </div>
