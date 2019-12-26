@@ -7,6 +7,7 @@ import Twitter from "./twitter";
 const StoryOverlay = ({ activeStory, setActiveStory }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [hostName, setHostName] = useState("");
+  const [media, setMedia] = useState([]);
 
   useEffect(() => {
     setHostName(
@@ -15,6 +16,28 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
         : "https://primary-childrens-stories.now.sh"
     );
   });
+
+  useEffect(() => {
+    if (activeStory && activeStory.fields.media.length) {
+      setMedia(
+        activeStory.fields.media.map(media => {
+          return {
+            type: media.fields.file.contentType,
+            url: media.fields.file.url,
+            title: media.fields.title,
+            details: media.fields.file.details
+          };
+        })
+      );
+    }
+  }, [activeStory]);
+
+  const printMedia = media => {
+    if (media.type.startsWith("image")) {
+      return <img src={media.url} title={media.title} />;
+    }
+    return media.url;
+  };
 
   return (
     <>
@@ -27,7 +50,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
         }}
       />
       <div
-        className={activeStory ? "fixed z-30 w-full py-8 inset-y-0" : "hidden"}
+        className={
+          activeStory ? "fixed z-30 w-full py-8 md:py-16 inset-y-0" : "hidden"
+        }
       >
         <div className="flex h-screen md:pb-32">
           <div className="relative bg-white w-full md:w-2/3 xl:w-1/2 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md">
@@ -68,16 +93,20 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               </TwitterShareButton>
             </div>
             <div className="h-full py-12">
-              <div
-                className="story-content h-full overflow-y-scroll"
-                dangerouslySetInnerHTML={{
-                  __html: documentToHtmlString(
-                    activeStory && activeStory.fields
-                      ? activeStory.fields.story
-                      : ""
-                  )
-                }}
-              />
+              <div className="story-content h-full overflow-y-scroll">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: documentToHtmlString(
+                      activeStory && activeStory.fields
+                        ? activeStory.fields.story
+                        : ""
+                    )
+                  }}
+                />
+                {media.map(item => {
+                  return printMedia(item);
+                })}
+              </div>
             </div>
           </div>
         </div>
