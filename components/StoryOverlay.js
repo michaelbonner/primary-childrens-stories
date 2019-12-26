@@ -33,6 +33,8 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
           };
         })
       );
+    } else {
+      setMedia([]);
     }
   }, [activeStory]);
 
