@@ -4,7 +4,7 @@ import "./boat.css";
 const Boat = ({ width, height, left, top }) => {
   return (
     <svg
-      className="relative inline-block z-30"
+      className="absolute inline-block z-30"
       id="boat"
       style={{
         width: `${width}px`,

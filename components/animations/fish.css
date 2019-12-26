@@ -1,5 +1,5 @@
 #fish {
-  animation: spin 4s ease-in-out infinite;
+  animation: spinFish 4s ease-in-out infinite;
 }
 .st0 {
   fill: url(#SVGID_1_);
@@ -33,7 +33,7 @@
   fill: url(#SVGID_7_);
 }
 
-@keyframes spin {
+@keyframes spinFish {
   0% {
     opacity: 1;
     transform: rotate(0deg) translateY(-30px);
@@ -43,10 +43,11 @@
   }
   30% {
     opacity: 0;
+    transform: rotate(180deg) translateY(-11px);
   }
   50% {
     opacity: 0;
-    transform: rotate(200deg) translateY(0px);
+    transform: rotate(250deg) translateY(0px);
   }
   65% {
     opacity: 1;

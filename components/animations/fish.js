@@ -5,14 +5,13 @@ const Fish = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="relative inline-block z-30"
+        className="absolute inline-block z-30"
         id="fish"
         style={{
           width: `${width}px`,
           height: `${height}px`,
           left: `${left}px`,
-          top: `${top}px`,
-          transform: `translateY(${height / 2}px)`
+          top: `${top}px`
         }}
         version="1.1"
         viewBox="0 0 60 70"
@@ -174,8 +173,8 @@ const Fish = ({ width, height, left, top }) => {
         style={{
           width: `${width * 2.2}px`,
           height: `${height}px`,
-          left: `${left - width * 1.5}px`,
-          top: `${top + height / 2}px`,
+          left: `${left - width / 2}px`,
+          top: `${top + height / 3}px`,
           background: "#422F91"
         }}
       />

@@ -1,41 +1,41 @@
 #fishColorful {
   animation: spin 3.8s ease-in-out infinite;
 }
-.st0 {
+#fishColorful .st0 {
   fill: url(#SVGID_1_);
 }
-.st1 {
+#fishColorful .st1 {
   fill: url(#SVGID_2_);
 }
-.st2 {
+#fishColorful .st2 {
   fill: url(#SVGID_3_);
 }
-.st3 {
+#fishColorful .st3 {
   fill: url(#SVGID_4_);
 }
-.st4 {
+#fishColorful .st4 {
   fill: url(#SVGID_5_);
 }
-.st5 {
+#fishColorful .st5 {
   fill: url(#SVGID_6_);
 }
-.st6 {
+#fishColorful .st6 {
   fill: url(#SVGID_7_);
 }
-.st7 {
+#fishColorful .st7 {
   fill: #231f20;
 }
-.st8 {
+#fishColorful .st8 {
   opacity: 0.6;
   fill: url(#SVGID_8_);
 }
-.st9 {
+#fishColorful .st9 {
   fill: url(#SVGID_9_);
 }
-.st10 {
+#fishColorful .st10 {
   fill: #d6de23;
 }
-.st11 {
+#fishColorful .st11 {
   fill: url(#SVGID_10_);
 }
 
