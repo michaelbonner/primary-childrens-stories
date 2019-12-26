@@ -71,7 +71,7 @@ const Map = ({ children }) => {
               {stories.map(story => (
                 <div
                   key={story.sys.id}
-                  className="absolute"
+                  className="absolute z-50"
                   style={{
                     left: story.fields.xCoordinate / initialScale,
                     top: story.fields.yCoordinate / initialScale

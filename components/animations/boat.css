@@ -1,0 +1,33 @@
+#boat {
+  animation: bob 8s ease-in infinite;
+}
+.st0 {
+  fill: #ffffff;
+}
+.st1 {
+  fill: url(#SVGID_1_);
+}
+.st2 {
+  fill: #423091;
+}
+.st3 {
+  fill: url(#SVGID_2_);
+}
+
+@keyframes bob {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  25% {
+    transform: rotate(0deg) translate(5px, -5px);
+  }
+  50% {
+    transform: rotate(-5deg) translate(10px, -3px);
+  }
+  25% {
+    transform: rotate(0deg) translate(5px, -5px);
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
