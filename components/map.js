@@ -31,10 +31,10 @@ const Map = ({ children }) => {
       setScale(8);
       setInitialScale(8);
     }
-    // setTranslation({
-    //   x: 0 - (size.width * (scale - 1)) / 2 + 40,
-    //   y: 0 - (size.height * (scale - 1)) / 2 - 40
-    // });
+    setTranslation({
+      x: 0 - (size.width * (scale - 1)) / 2 + 40,
+      y: 0 - (size.height * (scale - 1)) / 2 - 40
+    });
   }, []);
 
   return (
