@@ -9,7 +9,7 @@ const Nav = () => {
 
   return (
     <div>
-      <div className="fixed right-0 top-0 flex flex-col justify-end mr-8 w-24 text-center">
+      <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-24 text-center">
         <button
           className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
           onClick={() => {
@@ -43,7 +43,7 @@ const Nav = () => {
           <Twitter className="w-8 fill-current" />
         </TwitterShareButton>
       </div>
-      <div className="px-2">
+      <div className="px-4">
         <nav className="mt-16 flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md">
           <button
             className="w-1/3 py-3 px-8 text-sm font-medium uppercase"
