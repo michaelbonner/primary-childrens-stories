@@ -9,14 +9,20 @@ const Map = ({ children }) => {
     width: 3200,
     height: 2400
   };
-
-  const mapInnerContainer = useRef(null);
-
-  const stories = useContentfulContent().stories;
+  const [stories, setStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
-  const size = useWindowSize();
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1.8);
+
+  const contentfulContent = useContentfulContent();
+  const size = useWindowSize();
+  const mapInnerContainer = useRef(null);
+
+  useEffect(() => {
+    setStories(contentfulContent.stories);
+    // @debug
+    // setActiveStory(contentfulContent.stories[0]);
+  }, [contentfulContent]);
 
   useEffect(() => {
     if (size.width < 760) {
