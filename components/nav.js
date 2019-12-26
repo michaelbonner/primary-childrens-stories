@@ -18,36 +18,30 @@ const Nav = () => {
         >
           Share
         </button>
-        <button
+        <FacebookShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
           } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20`}
+          url={
+            process.browser
+              ? window.location.href
+              : "https://primary-childrens-stories.michaelbonner.now.sh/"
+          }
         >
-          <FacebookShareButton
-            url={
-              process.browser
-                ? window.location.href
-                : "https://primary-childrens-stories.michaelbonner.now.sh/"
-            }
-          >
-            <Facebook className="w-8 fill-current" />
-          </FacebookShareButton>
-        </button>
-        <button
+          <Facebook className="w-8 fill-current" />
+        </FacebookShareButton>
+        <TwitterShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
           } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10`}
+          url={
+            process.browser
+              ? window.location.href
+              : "https://primary-childrens-stories.michaelbonner.now.sh/"
+          }
         >
-          <TwitterShareButton
-            url={
-              process.browser
-                ? window.location.href
-                : "https://primary-childrens-stories.michaelbonner.now.sh/"
-            }
-          >
-            <Twitter className="w-8 fill-current" />
-          </TwitterShareButton>
-        </button>
+          <Twitter className="w-8 fill-current" />
+        </TwitterShareButton>
       </div>
       <nav className="mt-16 flex w-full md:w-1/3 mx-auto text-gray-600 text-center rounded-lg bg-gray-200 shadow-md">
         <button
