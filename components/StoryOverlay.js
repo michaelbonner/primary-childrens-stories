@@ -72,7 +72,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
             </div>
             <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
               <button
-                className="inline-block py-6 px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
+                className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
                 onClick={() => {
                   setShareOpen(!shareOpen);
                 }}
