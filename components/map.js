@@ -3,6 +3,7 @@ import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import useContentfulContent from "../shared/hooks/useContentfulContent";
 import StoryOverlay from "./StoryOverlay";
+import Animations from "./animations";
 
 const Map = ({ children }) => {
   const bgImageDimensions = {
@@ -66,6 +67,7 @@ const Map = ({ children }) => {
                 className="absolute z-0"
                 src="/pch-background.svg"
               />
+              <Animations scale={initialScale} />
               {stories.map(story => (
                 <div
                   key={story.sys.id}

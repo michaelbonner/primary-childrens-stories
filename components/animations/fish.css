@@ -1,0 +1,58 @@
+#fish {
+  animation: spin 4s ease-in-out infinite;
+}
+.st0 {
+  fill: url(#SVGID_1_);
+}
+.st1 {
+  fill: #d6de23;
+}
+.st2 {
+  fill: url(#SVGID_2_);
+}
+.st3 {
+  fill: url(#SVGID_3_);
+}
+.st4 {
+  fill: #c2c32f;
+}
+.st5 {
+  fill: url(#SVGID_4_);
+}
+.st6 {
+  fill: #231f20;
+}
+.st7 {
+  opacity: 0.6;
+  fill: url(#SVGID_5_);
+}
+.st8 {
+  fill: url(#SVGID_6_);
+}
+.st9 {
+  fill: url(#SVGID_7_);
+}
+
+@keyframes spin {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(-30px);
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(200deg) translateY(0px);
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg) translateY(-30px);
+  }
+}
