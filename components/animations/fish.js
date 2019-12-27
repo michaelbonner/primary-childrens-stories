@@ -171,7 +171,7 @@ const Fish = ({ width, height, left, top }) => {
       <div
         className="absolute inline-block z-40"
         style={{
-          width: `${width * 2}px`,
+          width: `${width * 2.2}px`,
           height: `${height}px`,
           left: `${left - width / 2}px`,
           top: `${top + height / 3}px`,
