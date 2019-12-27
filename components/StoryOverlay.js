@@ -40,7 +40,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
 
   const printMedia = media => {
     if (media.type.startsWith("image")) {
-      return <img src={media.url} title={media.title} />;
+      return <img key={media.url} src={media.url} title={media.title} />;
     }
     return media.url;
   };

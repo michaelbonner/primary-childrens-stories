@@ -5,7 +5,7 @@ const Fish = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-30"
+        className="absolute z-30"
         id="fish"
         style={{
           width: `${width}px`,
@@ -169,9 +169,9 @@ const Fish = ({ width, height, left, top }) => {
         </g>
       </svg>
       <div
-        className="relative inline-block z-40"
+        className="absolute inline-block z-40"
         style={{
-          width: `${width * 2.2}px`,
+          width: `${width * 2}px`,
           height: `${height}px`,
           left: `${left - width / 2}px`,
           top: `${top + height / 3}px`,

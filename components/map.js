@@ -15,10 +15,23 @@ const Map = ({ children }) => {
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1.8);
   const [scale, setScale] = useState(initialScale);
+  const [isBgLoaded, setIsBgLoaded] = useState(false);
 
   const contentfulContent = useContentfulContent();
   const size = useWindowSize();
-  const mapInnerContainer = useRef(null);
+  const mapImage = useRef(null);
+
+  const [multiplier, setMultiplier] = useState({
+    x: size.width / bgImageDimensions.width,
+    y: size.height / bgImageDimensions.height
+  });
+
+  useEffect(() => {
+    setMultiplier({
+      x: mapImage.current.width / bgImageDimensions.width,
+      y: mapImage.current.height / bgImageDimensions.height
+    });
+  }, [scale, size, mapImage]);
 
   useEffect(() => {
     setStories(contentfulContent.stories);
@@ -37,6 +50,10 @@ const Map = ({ children }) => {
     });
   }, []);
 
+  const bgLoaded = () => {
+    setIsBgLoaded(true);
+  };
+
   return (
     <div>
       <div className="fixed z-10 w-full">{children}</div>
@@ -50,9 +67,9 @@ const Map = ({ children }) => {
             scale={scale}
             translation={translation}
             translationBounds={{
-              xMin: scale === 1 ? 0 : 0 - size.width * (scale - 1),
+              xMin: 0 - size.width * (scale - 1),
               xMax: 0,
-              yMin: scale === 1 ? 0 : 0 - size.height * (scale - 1),
+              yMin: 0 - size.height * (scale - 1),
               yMax: 0
             }}
             minScale={1}
@@ -60,21 +77,25 @@ const Map = ({ children }) => {
             disablePan={activeStory ? true : false}
             disableZoom={activeStory ? true : false}
           >
-            <div className="relative" ref={mapInnerContainer}>
+            <div className="relative">
               <img
                 alt="map background"
                 draggable="false"
                 className="absolute z-0"
                 src="/pch-background.svg"
+                ref={mapImage}
+                onLoad={bgLoaded}
               />
-              <Animations scale={initialScale} />
+              {isBgLoaded && (
+                <Animations scale={initialScale} mapImage={mapImage} />
+              )}
               {stories.map(story => (
                 <div
                   key={story.sys.id}
                   className="absolute z-50"
                   style={{
-                    left: story.fields.xCoordinate / initialScale,
-                    top: story.fields.yCoordinate / initialScale
+                    left: multiplier.x * story.fields.xCoordinate,
+                    top: multiplier.y * story.fields.yCoordinate
                   }}
                 >
                   <button
