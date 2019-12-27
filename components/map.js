@@ -14,8 +14,9 @@ const Map = ({ children }) => {
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1.8);
-  const [scale, setScale] = useState(initialScale);
+  const [scale, setScale] = useState(1.8);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
+  const [pinDimensions, setPinDimensions] = useState([37, 57]);
 
   const contentfulContent = useContentfulContent();
   const size = useWindowSize();
@@ -48,9 +49,14 @@ const Map = ({ children }) => {
       x: 0 - (size.width * (scale - 1)) / 2 + 40,
       y: 0 - (size.height * (scale - 1)) / 2 - 40
     });
+    setPinDimensions([37 / scale, 57 / scale]);
   }, []);
 
   const bgLoaded = () => {
+    setMultiplier({
+      x: mapImage.current.width / bgImageDimensions.width,
+      y: mapImage.current.height / bgImageDimensions.height
+    });
     setIsBgLoaded(true);
   };
 
@@ -63,6 +69,7 @@ const Map = ({ children }) => {
             onChange={props => {
               setScale(props.scale);
               setTranslation(props.translation);
+              setPinDimensions([37 / scale, 57 / scale]);
             }}
             scale={scale}
             translation={translation}
@@ -89,28 +96,32 @@ const Map = ({ children }) => {
               {isBgLoaded && (
                 <Animations scale={initialScale} mapImage={mapImage} />
               )}
-              {stories.map(story => (
-                <div
-                  key={story.sys.id}
-                  className="absolute z-50"
-                  style={{
-                    left: multiplier.x * story.fields.xCoordinate,
-                    top: multiplier.y * story.fields.yCoordinate
-                  }}
-                >
-                  <button
-                    href={`/?id=${story.sys.id}`}
-                    onClick={() => setActiveStory(story)}
-                    onTouchEnd={() => setActiveStory(story)}
+              {isBgLoaded &&
+                stories.map(story => (
+                  <div
+                    key={story.sys.id}
+                    className="absolute z-50"
+                    style={{
+                      left: multiplier.x * story.fields.xCoordinate,
+                      top: multiplier.y * story.fields.yCoordinate
+                    }}
                   >
-                    <img
-                      alt={story.fields.title}
-                      className="w-2 md:w-6"
-                      src={`/pins/${story.fields.category.fields.color}.svg`}
-                    />
-                  </button>
-                </div>
-              ))}
+                    <button
+                      href={`/?id=${story.sys.id}`}
+                      onClick={() => setActiveStory(story)}
+                      onTouchEnd={() => setActiveStory(story)}
+                    >
+                      <img
+                        alt={story.fields.title}
+                        style={{
+                          width: `${pinDimensions[0]}px`,
+                          height: `${pinDimensions[1]}px`
+                        }}
+                        src={`/pins/${story.fields.category.fields.color}.svg`}
+                      />
+                    </button>
+                  </div>
+                ))}
             </div>
           </MapInteractionCSS>
         </div>
