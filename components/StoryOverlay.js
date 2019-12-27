@@ -74,7 +74,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
             </div>
             <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
               <button
-                className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
+                className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none"
                 onClick={() => {
                   setShareOpen(!shareOpen);
                 }}
@@ -84,7 +84,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               <FacebookShareButton
                 className={`${
                   shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20`}
+                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                 url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
               >
                 <Facebook className="w-8 fill-current" />
@@ -92,7 +92,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               <TwitterShareButton
                 className={`${
                   shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10`}
+                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10 focus:outline-none`}
                 url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
               >
                 <Twitter className="w-8 fill-current" />
