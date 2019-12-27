@@ -19,9 +19,9 @@ const Nav = () => {
 
   return (
     <div>
-      <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-24 text-center">
+      <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-24 text-center z-50">
         <button
-          className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30"
+          className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none"
           onClick={() => {
             setShareOpen(!shareOpen);
           }}
@@ -31,7 +31,7 @@ const Nav = () => {
         <FacebookShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
-          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20`}
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
           url={
             process.browser
               ? window.location.href
@@ -43,7 +43,7 @@ const Nav = () => {
         <TwitterShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
-          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10`}
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10 focus:outline-none`}
           url={
             process.browser
               ? window.location.href

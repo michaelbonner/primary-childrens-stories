@@ -49,7 +49,6 @@ const Map = ({ children }) => {
       x: 0 - (size.width * (scale - 1)) / 2 + 40,
       y: 0 - (size.height * (scale - 1)) / 2 - 40
     });
-    setPinDimensions([37 / scale, 57 / scale]);
   }, []);
 
   const bgLoaded = () => {
@@ -57,6 +56,7 @@ const Map = ({ children }) => {
       x: mapImage.current.width / bgImageDimensions.width,
       y: mapImage.current.height / bgImageDimensions.height
     });
+    setPinDimensions([37 / scale, 57 / scale]);
     setIsBgLoaded(true);
   };
 
