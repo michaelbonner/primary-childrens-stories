@@ -3,35 +3,35 @@
     animation: spinFish 4s ease-in-out infinite;
   }
 }
-.st0 {
+#fish .st0 {
   fill: url(#SVGID_1_);
 }
-.st1 {
+#fish .st1 {
   fill: #d6de23;
 }
-.st2 {
+#fish .st2 {
   fill: url(#SVGID_2_);
 }
-.st3 {
+#fish .st3 {
   fill: url(#SVGID_3_);
 }
-.st4 {
+#fish .st4 {
   fill: #c2c32f;
 }
-.st5 {
+#fish .st5 {
   fill: url(#SVGID_4_);
 }
-.st6 {
+#fish .st6 {
   fill: #231f20;
 }
-.st7 {
+#fish .st7 {
   opacity: 0.6;
   fill: url(#SVGID_5_);
 }
-.st8 {
+#fish .st8 {
   fill: url(#SVGID_6_);
 }
-.st9 {
+#fish .st9 {
   fill: url(#SVGID_7_);
 }
 
