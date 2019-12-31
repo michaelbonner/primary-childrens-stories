@@ -1,5 +1,7 @@
-#fish {
-  animation: spinFish 4s ease-in-out infinite;
+@media (min-width: 761px) {
+  #fish {
+    animation: spinFish 4s ease-in-out infinite;
+  }
 }
 .st0 {
   fill: url(#SVGID_1_);

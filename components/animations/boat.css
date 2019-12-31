@@ -1,5 +1,7 @@
-#boat {
-  animation: bob 8s ease-in infinite;
+@media (min-width: 761px) {
+  #boat {
+    animation: bob 8s ease-in infinite;
+  }
 }
 .st0 {
   fill: #ffffff;

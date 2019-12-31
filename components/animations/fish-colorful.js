@@ -202,7 +202,7 @@ const FishColorful = ({ width, height, left, top }) => {
       </svg>
 
       <div
-        className="absolute inline-block z-40"
+        className="absolute z-40 hidden md:inline-block"
         style={{
           width: `${width * 2}px`,
           height: `${height}px`,

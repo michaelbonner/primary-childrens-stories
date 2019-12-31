@@ -1,5 +1,7 @@
-#fishColorful {
-  animation: spin 3.8s ease-in-out infinite;
+@media (min-width: 761px) {
+  #fishColorful {
+    animation: spin 3.8s ease-in-out infinite;
+  }
 }
 #fishColorful .st0 {
   fill: url(#SVGID_1_);
