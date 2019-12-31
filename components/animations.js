@@ -3,6 +3,7 @@ import Fish from "./animations/fish.js";
 import FishColorful from "./animations/fish-colorful.js";
 import Boat from "./animations/boat.js";
 import useWindowSize from "../shared/hooks/useWindowSize.js";
+import Croc from "./animations/croc.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -40,6 +41,18 @@ const Animations = ({ scale, mapImage }) => {
         height={120 * multiplier.y}
         left={1150 * multiplier.x}
         top={965 * multiplier.y}
+      />
+      <Croc
+        width={90 * multiplier.x}
+        height={48 * multiplier.y}
+        left={1080 * multiplier.x}
+        top={1940 * multiplier.y}
+      />
+      <Croc
+        width={90 * multiplier.x}
+        height={48 * multiplier.y}
+        left={1500 * multiplier.x}
+        top={1855 * multiplier.y}
       />
     </>
   );
