@@ -1,0 +1,77 @@
+#gopher .st0 {
+  fill: url(#GOPHER_SVGID_1_);
+}
+#gopher .st1 {
+  fill: url(#GOPHER_SVGID_2_);
+}
+#gopher .st2 {
+  fill: #ffffff;
+}
+#gopher .st3 {
+  fill: url(#GOPHER_SVGID_3_);
+}
+#gopher .st4 {
+  fill: url(#GOPHER_SVGID_4_);
+}
+#gopher .st5 {
+  fill: url(#GOPHER_SVGID_5_);
+}
+#gopher .st6 {
+  fill: url(#GOPHER_SVGID_6_);
+}
+#gopher .st7 {
+  fill: url(#GOPHER_SVGID_7_);
+}
+#gopher .st8 {
+  fill: #231f20;
+}
+#gopher .st9 {
+  opacity: 0.6;
+  fill: url(#GOPHER_SVGID_8_);
+}
+#gopher .st10 {
+  opacity: 0.6;
+  fill: url(#GOPHER_SVGID_9_);
+}
+#gopher .st11 {
+  fill: url(#GOPHER_SVGID_10_);
+}
+#gopher .st12 {
+  fill: url(#GOPHER_SVGID_11_);
+}
+#gopher .st13 {
+  fill: url(#GOPHER_SVGID_12_);
+}
+#gopher .st14 {
+  fill: url(#GOPHER_SVGID_13_);
+}
+
+@media (min-width: 761px) {
+  #gopher {
+    animation: revealGopher 4s ease-out infinite;
+  }
+}
+
+@keyframes revealGopher {
+  0% {
+    transform: translateY(14px);
+  }
+  20% {
+    transform: translateY(16px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(16px);
+  }
+  100% {
+    transform: translateY(14px);
+  }
+}

@@ -6,6 +6,7 @@ import useWindowSize from "../shared/hooks/useWindowSize.js";
 import Croc from "./animations/croc.js";
 import Mouse from "./animations/mouse.js";
 import Windmill from "./animations/windmill.js";
+import Gopher from "./animations/gopher.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -73,6 +74,18 @@ const Animations = ({ scale, mapImage }) => {
         height={122 * multiplier.y}
         left={1835 * multiplier.x}
         top={538 * multiplier.y}
+      />
+      <Gopher
+        width={30 * multiplier.x}
+        height={49 * multiplier.y}
+        left={2187 * multiplier.x}
+        top={1223 * multiplier.y}
+      />
+      <Gopher
+        width={30 * multiplier.x}
+        height={49 * multiplier.y}
+        left={2141 * multiplier.x}
+        top={1035 * multiplier.y}
       />
     </>
   );
