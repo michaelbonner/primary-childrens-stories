@@ -46,16 +46,16 @@ const Animations = ({ scale, mapImage }) => {
         top={965 * multiplier.y}
       />
       <Croc
-        width={90 * multiplier.x}
-        height={48 * multiplier.y}
+        width={70 * multiplier.x}
+        height={36 * multiplier.y}
         left={1080 * multiplier.x}
-        top={1940 * multiplier.y}
+        top={1960 * multiplier.y}
       />
       <Croc
-        width={90 * multiplier.x}
-        height={48 * multiplier.y}
+        width={70 * multiplier.x}
+        height={36 * multiplier.y}
         left={1500 * multiplier.x}
-        top={1855 * multiplier.y}
+        top={1875 * multiplier.y}
       />
       <Mouse
         width={36 * multiplier.x}
