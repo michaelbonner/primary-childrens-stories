@@ -1,5 +1,7 @@
-#croc {
-  animation: revealCroc 4s ease-in infinite;
+@media (min-width: 761px) {
+  #croc {
+    animation: revealCroc 4s ease-in infinite;
+  }
 }
 .croc0 {
   fill: url(#CROCSVGID_1_);

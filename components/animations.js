@@ -4,6 +4,8 @@ import FishColorful from "./animations/fish-colorful.js";
 import Boat from "./animations/boat.js";
 import useWindowSize from "../shared/hooks/useWindowSize.js";
 import Croc from "./animations/croc.js";
+import Mouse from "./animations/mouse.js";
+import Windmill from "./animations/windmill.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -53,6 +55,24 @@ const Animations = ({ scale, mapImage }) => {
         height={48 * multiplier.y}
         left={1500 * multiplier.x}
         top={1855 * multiplier.y}
+      />
+      <Mouse
+        width={36 * multiplier.x}
+        height={57 * multiplier.y}
+        left={478 * multiplier.x}
+        top={135 * multiplier.y}
+      />
+      <Mouse
+        width={36 * multiplier.x}
+        height={57 * multiplier.y}
+        left={1185 * multiplier.x}
+        top={300 * multiplier.y}
+      />
+      <Windmill
+        width={122 * multiplier.x}
+        height={122 * multiplier.y}
+        left={1835 * multiplier.x}
+        top={538 * multiplier.y}
       />
     </>
   );
