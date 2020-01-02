@@ -19,7 +19,7 @@ const Mouse = ({ width, height, left, top }) => {
         xmlns="http://www.w3.org/2000/svg"
         y="0px"
       >
-        <g>
+        <g id="gopherAnimation">
           <g>
             <linearGradient
               id="MOUSE_SVGID_1_"
@@ -128,7 +128,6 @@ const Mouse = ({ width, height, left, top }) => {
             <stop offset="0" style={{ stopColor: "#E3F4FC" }} />
             <stop offset="0.6856" style={{ stopColor: "#239AC3" }} />
           </linearGradient>
-          <ellipse className="st7" cx="24.5" cy="60.4" rx="17.9" ry="3" />
           <linearGradient
             id="MOUSE_SVGID_8_"
             gradientUnits="userSpaceOnUse"
@@ -280,6 +279,7 @@ const Mouse = ({ width, height, left, top }) => {
             <path className="st18" d="M11.6,27.7c1.9,2.8,5.1,4.6,8.8,4.6" />
           </g>
         </g>
+        <ellipse className="st7" cx="24.5" cy="60.4" rx="17.9" ry="3" />
       </svg>
       <div
         className="absolute z-40 hidden md:inline-block"

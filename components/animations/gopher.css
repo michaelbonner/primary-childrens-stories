@@ -47,7 +47,7 @@
 }
 
 @media (min-width: 761px) {
-  #gopher {
+  #gopherAnimation {
     animation: revealGopher 4s ease-out infinite;
   }
 }
