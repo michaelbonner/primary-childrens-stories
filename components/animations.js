@@ -9,6 +9,7 @@ import Windmill from "./animations/windmill.js";
 import Gopher from "./animations/gopher.js";
 import Toucan from "./animations/toucan.js";
 import OrangeFish from "./animations/orange-fish.js";
+import MountainsBirds from "./animations/mountains-birds.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -106,6 +107,12 @@ const Animations = ({ scale, mapImage }) => {
         height={63 * multiplier.y}
         left={2462 * multiplier.x}
         top={1624 * multiplier.y}
+      />
+      <MountainsBirds
+        width={700 * multiplier.x}
+        height={270 * multiplier.y}
+        left={500 * multiplier.x}
+        top={815 * multiplier.y}
       />
     </>
   );
