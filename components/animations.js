@@ -7,6 +7,7 @@ import Croc from "./animations/croc.js";
 import Mouse from "./animations/mouse.js";
 import Windmill from "./animations/windmill.js";
 import Gopher from "./animations/gopher.js";
+import Toucan from "./animations/toucan.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -86,6 +87,12 @@ const Animations = ({ scale, mapImage }) => {
         height={49 * multiplier.y}
         left={2141 * multiplier.x}
         top={1035 * multiplier.y}
+      />
+      <Toucan
+        width={146 * multiplier.x}
+        height={166 * multiplier.y}
+        left={2057 * multiplier.x}
+        top={1960 * multiplier.y}
       />
     </>
   );

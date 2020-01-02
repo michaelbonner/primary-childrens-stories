@@ -1,0 +1,61 @@
+.toucan0 {
+  fill: url(#TOUCAN_SVGID_1_);
+}
+.toucan1 {
+  fill: #231f20;
+}
+.toucan2 {
+  fill: url(#TOUCAN_SVGID_2_);
+}
+.toucan3 {
+  fill: url(#TOUCAN_SVGID_3_);
+}
+.toucan4 {
+  fill: url(#TOUCAN_SVGID_4_);
+}
+.toucan5 {
+  fill: url(#TOUCAN_SVGID_5_);
+}
+.toucan6 {
+  fill: url(#TOUCAN_SVGID_6_);
+}
+.toucan7 {
+  fill: url(#TOUCAN_SVGID_7_);
+}
+.toucan8 {
+  fill: url(#TOUCAN_SVGID_8_);
+}
+.toucan9 {
+  fill: #f9ec31;
+}
+.toucan10 {
+  fill: url(#TOUCAN_SVGID_9_);
+}
+.toucan11 {
+  opacity: 0.6;
+  fill: url(#TOUCAN_SVGID_10_);
+}
+.toucan12 {
+  fill: url(#TOUCAN_SVGID_11_);
+}
+.toucan13 {
+  fill: url(#TOUCAN_SVGID_12_);
+}
+.toucan14 {
+  fill: url(#TOUCAN_SVGID_13_);
+}
+.toucan15 {
+  fill: url(#TOUCAN_SVGID_14_);
+}
+.toucan16 {
+  fill: url(#TOUCAN_SVGID_15_);
+}
+.toucan17 {
+  fill: url(#TOUCAN_SVGID_16_);
+}
+
+@media (min-width: 761px) {
+  #toucanOnTree.flipped {
+    transform: scaleX(-1) translateX(-50%);
+  }
+}
