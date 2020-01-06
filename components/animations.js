@@ -10,6 +10,13 @@ import Gopher from "./animations/gopher.js";
 import Toucan from "./animations/toucan.js";
 import OrangeFish from "./animations/orange-fish.js";
 import MountainsBirds from "./animations/mountains-birds.js";
+import Bear from "./animations/bear.js";
+import Crab from "./animations/crab.js";
+import Crane from "./animations/crane.js";
+import Deer from "./animations/deer.js";
+import Frog from "./animations/frog.js";
+import Rams from "./animations/rams.js";
+import Squirrel from "./animations/squirrel.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -30,6 +37,7 @@ const Animations = ({ scale, mapImage }) => {
   }, [scale, size, mapImage]);
   return (
     <>
+      {/* CSS animations */}
       <Fish
         width={60 * multiplier.x}
         height={70 * multiplier.y}
@@ -113,6 +121,50 @@ const Animations = ({ scale, mapImage }) => {
         height={270 * multiplier.y}
         left={500 * multiplier.x}
         top={815 * multiplier.y}
+      />
+
+      {/* Lottie animations */}
+      <Bear
+        width={72 * multiplier.x}
+        height={112 * multiplier.y}
+        left={1052 * multiplier.x}
+        top={648 * multiplier.y}
+      />
+      <Crab
+        width={140 * multiplier.x}
+        height={100 * multiplier.y}
+        left={306 * multiplier.x}
+        top={1071 * multiplier.y}
+      />
+      <Crane
+        width={184 * multiplier.x}
+        height={212 * multiplier.y}
+        left={1561 * multiplier.x}
+        top={1541 * multiplier.y}
+      />
+      <Deer
+        width={152 * multiplier.x}
+        height={142 * multiplier.y}
+        left={1900 * multiplier.x}
+        top={789 * multiplier.y}
+      />
+      <Frog
+        width={330 * multiplier.x}
+        height={254 * multiplier.y}
+        left={1745 * multiplier.x}
+        top={1350 * multiplier.y}
+      />
+      <Rams
+        width={263 * multiplier.x}
+        height={88 * multiplier.y}
+        left={1227 * multiplier.x}
+        top={1315 * multiplier.y}
+      />
+      <Squirrel
+        width={220 * multiplier.x}
+        height={88 * multiplier.y}
+        left={800 * multiplier.x}
+        top={1100 * multiplier.y}
       />
     </>
   );
