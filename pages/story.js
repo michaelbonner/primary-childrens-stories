@@ -3,8 +3,6 @@ import Head from "next/head";
 import Nav from "../components/nav";
 import "../styles/index.css";
 import Map from "../components/map";
-import MiniMap from "../components/mini-map";
-import client from "../shared/contentful";
 
 const Story = () => {
   return (
@@ -17,7 +15,6 @@ const Story = () => {
       <Map>
         <div className="container mx-auto relative h-screen">
           <Nav />
-          <MiniMap />
         </div>
       </Map>
     </div>

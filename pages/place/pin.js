@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import Nav from "../components/nav";
-import Map from "../components/map";
+import MapSimple from "../../components/map-simple";
 
-import "../styles/index.css";
+const Pin = () => {
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener("mousedown", handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
 
-const Home = () => {
+  const handleClick = e => {
+    alert(`x: ${e.pageX} | y: ${e.pageY} `);
+    console.log(e);
+    // if (node.current.contains(e.target)) {
+    //   // inside click
+    //   return;
+    // }
+  };
+
   return (
     <div>
       <Head>
@@ -30,13 +45,9 @@ const Home = () => {
         />
       </Head>
 
-      <Map>
-        <div className="relative">
-          <Nav />
-        </div>
-      </Map>
+      <MapSimple />
     </div>
   );
 };
 
-export default Home;
+export default Pin;
