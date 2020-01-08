@@ -10,10 +10,14 @@ const Nav = () => {
   const [shareOpen, setShareOpen] = useState(false);
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
+  const [submitTabContent, setSubmitTabContent] = useState("");
 
   useEffect(() => {
     contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
       setAboutTabContent(content.fields.content);
+    });
+    contentfulContent.fetchByEntryId("1ZTYTOO0n0PIHlo1dUtD0v").then(content => {
+      setSubmitTabContent(content.fields.content);
     });
   }, []);
 
@@ -161,7 +165,11 @@ const Nav = () => {
               : "hidden"
           }`}
         >
-          <p>We'd love to hear your story</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: documentToHtmlString(submitTabContent)
+            }}
+          />
           <a
             href="https://intermountainhealthcare.org/"
             className="inline-block bg-blue-400 text-blue-100 mt-2 py-2 px-4 rounded uppercase"
