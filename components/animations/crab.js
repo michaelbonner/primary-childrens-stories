@@ -24,7 +24,12 @@ const Crab = ({ width, height, left, top }) => {
         top: `${top}px`
       }}
     >
-      <Lottie options={defaultOptions} height={height} width={width} />
+      <Lottie
+        ariaRole="figure"
+        options={defaultOptions}
+        height={height}
+        width={width}
+      />
     </div>
   );
 };
