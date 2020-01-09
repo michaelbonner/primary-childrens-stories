@@ -79,7 +79,7 @@ const Map = ({ children }) => {
               yMin: 0 - size.height * (scale - 1),
               yMax: 0
             }}
-            minScale={1}
+            minScale={1.8}
             maxScale={4}
             disablePan={activeStory ? true : false}
             disableZoom={activeStory ? true : false}
