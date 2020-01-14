@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useContentfulContent from "../../shared/hooks/useContentfulContent";
 import { useEffect, useState } from "react";
-import StoryOverlay from "../../components/StoryOverlay";
+import StoryOverlay from "../../components/story-overlay";
 
 const Story = () => {
   const contentfulContent = useContentfulContent();

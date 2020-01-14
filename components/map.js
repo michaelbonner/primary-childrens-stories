@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import useContentfulContent from "../shared/hooks/useContentfulContent";
-import StoryOverlay from "./StoryOverlay";
+import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
+import StoryPin from "./story-pin";
 
 const Map = ({ children }) => {
   const bgImageDimensions = {
@@ -59,7 +60,6 @@ const Map = ({ children }) => {
     setPinDimensions([37 / scale, 57 / scale]);
     setIsBgLoaded(true);
   };
-
   return (
     <div>
       <div className="fixed z-10 w-full">{children}</div>
@@ -100,31 +100,21 @@ const Map = ({ children }) => {
                 <Animations scale={initialScale} mapImage={mapImage} />
               )}
               {isBgLoaded &&
-                stories.map(story => (
-                  <div
-                    key={story.sys.id}
-                    className="absolute z-50"
-                    style={{
-                      left: multiplier.x * story.fields.xCoordinate,
-                      top: multiplier.y * story.fields.yCoordinate
-                    }}
-                  >
-                    <button
-                      href={`/?id=${story.sys.id}`}
-                      onClick={() => setActiveStory(story)}
-                      onTouchEnd={() => setActiveStory(story)}
-                    >
-                      <img
-                        alt={story.fields.title}
-                        style={{
-                          width: `${pinDimensions[0]}px`,
-                          height: `${pinDimensions[1]}px`
-                        }}
-                        src={`/pins/${story.fields.category.fields.color}.svg`}
-                      />
-                    </button>
-                  </div>
-                ))}
+                stories.map(story => {
+                  return (
+                    <StoryPin
+                      key={story.sys.id}
+                      id={story.sys.id}
+                      left={multiplier.x * story.fields.xCoordinate}
+                      top={multiplier.y * story.fields.yCoordinate}
+                      setActiveStory={setActiveStory}
+                      title={story.fields.title}
+                      pinColor={story.fields.category.fields.color}
+                      pinDimensions={pinDimensions}
+                    />
+                  );
+                })}
+              ))}
             </div>
           </MapInteractionCSS>
         </div>
