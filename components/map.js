@@ -76,7 +76,10 @@ const Map = ({ children }) => {
             translationBounds={{
               xMin: 0 - size.width * (scale - 1),
               xMax: 0,
-              yMin: 0 - size.height * (scale - 1),
+              yMin:
+                0 -
+                bgImageDimensions.height * multiplier.y * scale +
+                size.height,
               yMax: 0
             }}
             minScale={1.8}
