@@ -108,6 +108,7 @@ const Map = ({ children }) => {
                       left={multiplier.x * story.fields.xCoordinate}
                       top={multiplier.y * story.fields.yCoordinate}
                       setActiveStory={setActiveStory}
+                      story={story}
                       title={story.fields.title}
                       pinColor={story.fields.category.fields.color}
                       pinDimensions={pinDimensions}

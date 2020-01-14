@@ -1,7 +1,16 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
 
-const StoryPin = ({ id, left, pinColor, pinDimensions, title, top }) => {
+const StoryPin = ({
+  id,
+  left,
+  pinColor,
+  pinDimensions,
+  setActiveStory,
+  story,
+  title,
+  top
+}) => {
   const pinAnimation = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
     <animated.div

@@ -66,6 +66,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               <button
                 className="lg:-mr-32 bg-white px-6 py-4 shadow-lg rounded-lg font-bold text-gray-600"
                 onClick={() => {
+                  setShareOpen(false);
                   setActiveStory(null);
                 }}
               >
