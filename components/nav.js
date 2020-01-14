@@ -35,7 +35,7 @@ const Nav = () => {
         <FacebookShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
-          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
           url={
             process.browser
               ? window.location.href
@@ -47,7 +47,7 @@ const Nav = () => {
         <TwitterShareButton
           className={`${
             shareOpen ? "flex" : "hidden"
-          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10 focus:outline-none`}
+          } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-10 focus:outline-none`}
           url={
             process.browser
               ? window.location.href

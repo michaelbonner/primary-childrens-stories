@@ -85,7 +85,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               <FacebookShareButton
                 className={`${
                   shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                 url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
               >
                 <Facebook className="w-8 fill-current" />
@@ -93,7 +93,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
               <TwitterShareButton
                 className={`${
                   shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-300 hover:bg-gray-400 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-10 focus:outline-none`}
+                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                 url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
               >
                 <Twitter className="w-8 fill-current" />
