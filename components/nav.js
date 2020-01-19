@@ -59,7 +59,7 @@ const Nav = () => {
     <div>
       <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-20 text-center z-50">
         <button
-          className="inline-block py-3 md:pt-8 md:pb-2 px-2 bg-gray-200 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
+          className="inline-block py-3 md:pt-8 md:pb-2 px-2 bg-white text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
           onClick={() => {
             setShareOpen(!shareOpen);
           }}
@@ -92,8 +92,8 @@ const Nav = () => {
         )}
       </div>
       <div className="px-4">
-        <nav className="relative mt-16 flex flex-wrap w-full md:w-1/2 xl:w-1/3 mx-auto text-blue-600 text-center z-30">
-          <div className="w-full md:w-auto rounded-lg bg-gray-200 shadow-md px-4 py-1">
+        <nav className="relative mt-16 flex flex-wrap w-full md:w-2/3 lg:w-1/2 max-w-2xl mx-auto text-blue-600 text-center z-30">
+          <div className="w-full md:w-auto rounded-lg bg-white shadow-md px-4 py-1">
             <img
               alt="Primary Children's Hospital"
               className="mx-auto"
@@ -101,7 +101,7 @@ const Nav = () => {
               style={{ width: "180px", height: "70px" }}
             />
           </div>
-          <div className="w-full md:w-auto rounded-lg bg-gray-200 shadow-md md:ml-2 mt-2 md:mt-0 items-center flex-1">
+          <div className="w-full md:w-auto rounded-lg bg-white shadow-md md:ml-2 -mt-3 md:mt-0 items-center flex-1">
             <NavButton text="About" link="about" />
             <NavButton text="Search" link="search" />
             <NavButton text="Submit" link="submit" />
