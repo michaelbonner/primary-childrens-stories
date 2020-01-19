@@ -92,7 +92,7 @@ const Map = ({ children }) => {
                 alt="map background"
                 draggable="false"
                 className="absolute z-0"
-                src="/pch-background.svg"
+                src="/images/pch-background.svg"
                 ref={mapImage}
                 onLoad={bgLoaded}
               />

@@ -104,18 +104,6 @@ const Animations = ({ scale, mapImage }) => {
         left={2057 * multiplier.x}
         top={1960 * multiplier.y}
       />
-      <OrangeFish
-        width={50 * multiplier.x}
-        height={63 * multiplier.y}
-        left={976 * multiplier.x}
-        top={2110 * multiplier.y}
-      />
-      <OrangeFish
-        width={50 * multiplier.x}
-        height={63 * multiplier.y}
-        left={2462 * multiplier.x}
-        top={1624 * multiplier.y}
-      />
       <MountainsBirds
         width={700 * multiplier.x}
         height={270 * multiplier.y}
