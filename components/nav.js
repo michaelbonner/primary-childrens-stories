@@ -48,7 +48,7 @@ const Nav = () => {
 
     return (
       <div
-        className={`w-full md:w-1/2 xl:w-1/3 mt-2 mx-auto py-12 px-12 text-center text-gray-600 rounded-lg bg-gray-100 shadow-md`}
+        className={`w-full md:w-1/2 xl:w-1/3 mt-2 mx-auto py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-lg bg-gray-100 shadow-md`}
       >
         {children}
       </div>
@@ -92,15 +92,16 @@ const Nav = () => {
         )}
       </div>
       <div className="px-4">
-        <nav className="relative mt-16 flex w-full md:w-1/2 xl:w-1/3 mx-auto text-blue-600 text-center z-30">
-          <div className="rounded-lg bg-gray-200 shadow-md px-4 py-1">
+        <nav className="relative mt-16 flex flex-wrap w-full md:w-1/2 xl:w-1/3 mx-auto text-blue-600 text-center z-30">
+          <div className="w-full md:w-auto rounded-lg bg-gray-200 shadow-md px-4 py-1">
             <img
-              src="/images/primary-childrens-hospital-logo.svg"
               alt="Primary Children's Hospital"
+              className="mx-auto"
+              src="/images/primary-childrens-hospital-logo.svg"
               style={{ width: "180px", height: "70px" }}
             />
           </div>
-          <div className="rounded-lg bg-gray-200 shadow-md ml-2 items-center flex-1">
+          <div className="w-full md:w-auto rounded-lg bg-gray-200 shadow-md md:ml-2 mt-2 md:mt-0 items-center flex-1">
             <NavButton text="About" link="about" />
             <NavButton text="Search" link="search" />
             <NavButton text="Submit" link="submit" />
