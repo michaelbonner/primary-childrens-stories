@@ -25,6 +25,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
     ) {
       setMedia(
         activeStory.fields.media.map(media => {
+          if (!media.fields) {
+            return;
+          }
           return {
             type: media.fields.file.contentType,
             url: media.fields.file.url,
@@ -39,6 +42,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   }, [activeStory]);
 
   const printMedia = media => {
+    if (!media) {
+      return;
+    }
     if (media.type.startsWith("image")) {
       return <img key={media.url} src={media.url} title={media.title} />;
     }
@@ -101,6 +107,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
             </div>
             <div className="h-full py-12">
               <div className="story-content h-full overflow-y-scroll">
+                {media.map(item => {
+                  return printMedia(item);
+                })}
                 <div
                   dangerouslySetInnerHTML={{
                     __html: documentToHtmlString(
@@ -110,9 +119,6 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                     )
                   }}
                 />
-                {media.map(item => {
-                  return printMedia(item);
-                })}
               </div>
             </div>
           </div>

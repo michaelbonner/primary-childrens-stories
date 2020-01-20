@@ -128,6 +128,9 @@ const Map = ({ children }) => {
               )}
               {isBgLoaded &&
                 stories.map(story => {
+                  const pinColor = story.fields.categories
+                    ? story.fields.categories[0].fields.color
+                    : "red";
                   return (
                     <StoryPin
                       key={story.sys.id}
@@ -137,7 +140,7 @@ const Map = ({ children }) => {
                       setActiveStory={setActiveStory}
                       story={story}
                       title={story.fields.title}
-                      pinColor={story.fields.category.fields.color}
+                      pinColor={pinColor}
                       pinDimensions={pinDimensions}
                     />
                   );

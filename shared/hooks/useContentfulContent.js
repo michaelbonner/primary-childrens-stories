@@ -54,7 +54,17 @@ const useContentfulContent = () => {
       const allCategories = await fetchEntriesForContentType(
         contentTypes.filter(contentType => contentType.name === "Category")[0]
       );
-      setCategories([...allCategories]);
+      setCategories([
+        ...allCategories.sort((a, b) => {
+          console.log(a);
+          if (a.fields.order > b.fields.order) {
+            return 1;
+          } else if (a.fields.order < b.fields.order) {
+            return -1;
+          }
+          return 0;
+        })
+      ]);
     }
     getPosts();
   }, []);

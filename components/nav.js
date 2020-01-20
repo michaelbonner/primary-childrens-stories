@@ -6,12 +6,27 @@ import useContentfulContent from "../shared/hooks/useContentfulContent";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import YoutubeEmbed from "./youtube-embed";
 
+const colorMap = {
+  all: "#14113d",
+  red: "#e54446",
+  orange: "#f7941d",
+  yellow: "#f2cc16",
+  "pale-orange": "#f3c678",
+  green: "#17aa62",
+  "pale-blue": "#579fd7",
+  "pale-green": "#82cba9",
+  blue: "#36618e",
+  fuchsia: "#c51b73",
+  purple: "#7a2879"
+};
+
 const Nav = () => {
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("search");
   const [shareOpen, setShareOpen] = useState(false);
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
   const [submitTabContent, setSubmitTabContent] = useState("");
+  const [activeCategories, setActiveCategories] = useState([]);
 
   useEffect(() => {
     contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
@@ -48,7 +63,7 @@ const Nav = () => {
 
     return (
       <div
-        className={`w-full md:w-1/2 xl:w-1/3 mt-2 mx-auto py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-lg bg-gray-100 shadow-md`}
+        className={`w-full md:w-2/3 lg:w-1/2 max-w-2xl mt-2 mx-auto py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-lg bg-white shadow-md`}
       >
         {children}
       </div>
@@ -117,23 +132,65 @@ const Nav = () => {
           ></div>
         </TabContentWrapper>
         <TabContentWrapper tabLink="search">
-          {contentfulContent.categories.map(category => (
-            <button
-              className={`w-1/3 py-3 px-8 text-sm font-medium focus:outline-none`}
-              key={category.sys.id}
-              onClick={() => setActiveTab("search")}
-            >
-              <svg
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-                className="fill-current w-6 h- mx-auto"
-                style={{ color: category.fields.color }}
+          <div className="flex flex-wrap">
+            <div className="w-1/3 h-16 p-1">
+              <button
+                className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                  activeCategories.includes("all")
+                    ? "text-white"
+                    : "text-gray-700"
+                }`}
+                onClick={() => {
+                  activeCategories.includes("all")
+                    ? setActiveCategories(
+                        activeCategories.filter(
+                          activeCategory => activeCategory !== "all"
+                        )
+                      )
+                    : setActiveCategories([...activeCategories, "all"]);
+                }}
+                style={{
+                  background: activeCategories.includes("all")
+                    ? colorMap.all
+                    : "white"
+                }}
               >
-                <circle cx="50" cy="50" r="50" />
-              </svg>
-              <span className="inline-block mt-1">{category.fields.name}</span>
-            </button>
-          ))}
+                <span className="inline-block mt-1">All</span>
+              </button>
+            </div>
+            {contentfulContent.categories.map(category => (
+              <div className="w-1/3 h-16 p-1" key={category.sys.id}>
+                <button
+                  className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                    activeCategories.includes(category.sys.id)
+                      ? "text-white"
+                      : "text-gray-700"
+                  }`}
+                  onClick={() => {
+                    activeCategories.includes(category.sys.id)
+                      ? setActiveCategories(
+                          activeCategories.filter(
+                            activeCategory => activeCategory !== category.sys.id
+                          )
+                        )
+                      : setActiveCategories([
+                          ...activeCategories,
+                          category.sys.id
+                        ]);
+                  }}
+                  style={{
+                    background: activeCategories.includes(category.sys.id)
+                      ? colorMap[category.fields.color]
+                      : "white"
+                  }}
+                >
+                  <span className="inline-block mt-1">
+                    {category.fields.name}
+                  </span>
+                </button>
+              </div>
+            ))}
+          </div>
         </TabContentWrapper>
         <TabContentWrapper tabLink="submit">
           <div
