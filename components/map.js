@@ -11,11 +11,16 @@ const Map = ({ children }) => {
     width: 3200,
     height: 2400
   };
+  const intermountainPinLocation = {
+    x: 1535,
+    y: 735
+  };
   const [stories, setStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
-  const [initialScale, setInitialScale] = useState(1.8);
-  const [scale, setScale] = useState(1.8);
+  const [initialScale, setInitialScale] = useState(1);
+  const [scale, setScale] = useState(1);
+  const [minScale, setMinScale] = useState(1);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([37, 57]);
 
@@ -42,21 +47,28 @@ const Map = ({ children }) => {
   }, [contentfulContent]);
 
   useEffect(() => {
-    if (size.width < 760) {
-      setScale(8);
-      setInitialScale(8);
+    if (size.width < 768) {
+      setMinScale(0.5);
+      setScale(0.5);
+      setInitialScale(0.5);
+    } else {
+      setTranslation({
+        x: 0 - (intermountainPinLocation.x - size.width / 2) * scale,
+        y: 0 - (intermountainPinLocation.y - size.height / 2) * scale
+      });
     }
-    setTranslation({
-      x: 0 - (size.width * (scale - 1)) / 2 + 40,
-      y: 0 - (size.height * (scale - 1)) / 2 - 40
-    });
   }, []);
 
+  useEffect(() => {
+    if (size.width < 768) {
+      setTranslation({
+        x: 0 - (intermountainPinLocation.x - size.width) * scale,
+        y: 0 - (intermountainPinLocation.y - size.height) * scale
+      });
+    }
+  }, [minScale]);
+
   const bgLoaded = () => {
-    setMultiplier({
-      x: mapImage.current.width / bgImageDimensions.width,
-      y: mapImage.current.height / bgImageDimensions.height
-    });
     setPinDimensions([37 / scale, 57 / scale]);
     setIsBgLoaded(true);
   };
@@ -74,7 +86,8 @@ const Map = ({ children }) => {
             scale={scale}
             translation={translation}
             translationBounds={{
-              xMin: 0 - size.width * (scale - 1),
+              xMin:
+                0 - bgImageDimensions.width * multiplier.x * scale + size.width,
               xMax: 0,
               yMin:
                 0 -
@@ -82,19 +95,33 @@ const Map = ({ children }) => {
                 size.height,
               yMax: 0
             }}
-            minScale={1.8}
+            minScale={minScale}
             maxScale={4}
             disablePan={activeStory ? true : false}
             disableZoom={activeStory ? true : false}
+            showControls={true}
+            controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
+            btnClass={`relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
           >
-            <div className="relative">
+            <div
+              className="relative"
+              style={{
+                width: bgImageDimensions.width,
+                height: bgImageDimensions.height
+              }}
+            >
               <img
                 alt="map background"
                 draggable="false"
                 className="absolute z-0"
                 src="/images/pch-background.svg"
                 ref={mapImage}
+                id={`mapImage`}
                 onLoad={bgLoaded}
+                style={{
+                  width: bgImageDimensions.width,
+                  height: bgImageDimensions.height
+                }}
               />
               {isBgLoaded && (
                 <Animations scale={initialScale} mapImage={mapImage} />
@@ -115,7 +142,6 @@ const Map = ({ children }) => {
                     />
                   );
                 })}
-              ))}
             </div>
           </MapInteractionCSS>
         </div>
