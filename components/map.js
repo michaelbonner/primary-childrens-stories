@@ -20,7 +20,7 @@ const Map = ({ children }) => {
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
   const [scale, setScale] = useState(1);
-  const [minScale, setMinScale] = useState(1);
+  const [minScale, setMinScale] = useState(0.75);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([37, 57]);
 
