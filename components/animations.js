@@ -90,13 +90,13 @@ const Animations = ({ scale, mapImage }) => {
         width={30 * multiplier.x}
         height={49 * multiplier.y}
         left={2187 * multiplier.x}
-        top={1223 * multiplier.y}
+        top={1120 * multiplier.y}
       />
       <Gopher
         width={30 * multiplier.x}
         height={49 * multiplier.y}
         left={2141 * multiplier.x}
-        top={1035 * multiplier.y}
+        top={935 * multiplier.y}
       />
       <Toucan
         width={146 * multiplier.x}
@@ -133,8 +133,8 @@ const Animations = ({ scale, mapImage }) => {
       <Deer
         width={152 * multiplier.x}
         height={142 * multiplier.y}
-        left={1900 * multiplier.x}
-        top={789 * multiplier.y}
+        left={1800 * multiplier.x}
+        top={770 * multiplier.y}
       />
       <Frog
         width={330 * multiplier.x}

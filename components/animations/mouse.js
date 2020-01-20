@@ -288,7 +288,7 @@ const Mouse = ({ width, height, left, top }) => {
           height: `${height * 0.6}px`,
           left: `${left}px`,
           top: `${top + height * 0.8}px`,
-          background: "#fff"
+          background: "#E0F3FB"
         }}
       />
     </>
