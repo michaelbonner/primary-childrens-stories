@@ -21,7 +21,7 @@ const colorMap = {
 };
 
 const Nav = () => {
-  const [activeTab, setActiveTab] = useState("search");
+  const [activeTab, setActiveTab] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
