@@ -4,7 +4,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute z-30"
+        className="absolute z-20"
         id="mouse"
         style={{
           width: `${width}px`,

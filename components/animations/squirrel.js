@@ -15,7 +15,7 @@ const Squirrel = ({ width, height, left, top }) => {
   };
   return (
     <div
-      className="absolute inline-block z-30"
+      className="absolute inline-block z-20"
       id="squirrel"
       style={{
         width: `${width}px`,

@@ -15,7 +15,7 @@ const Chameleon = ({ width, height, left, top }) => {
   };
   return (
     <div
-      className="absolute inline-block z-30"
+      className="absolute inline-block z-20"
       id="chameleon"
       style={{
         width: `${width}px`,

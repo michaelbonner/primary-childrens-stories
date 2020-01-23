@@ -12,7 +12,7 @@ const Toucan = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-30"
+        className="absolute inline-block z-20"
         id="toucan"
         style={{
           width: `${width}px`,

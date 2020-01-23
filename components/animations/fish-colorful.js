@@ -5,7 +5,7 @@ const FishColorful = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-30"
+        className="absolute inline-block z-20"
         id="fishColorful"
         style={{
           width: `${width}px`,

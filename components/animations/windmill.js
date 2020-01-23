@@ -5,7 +5,7 @@ const Windmill = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute z-30"
+        className="absolute z-20"
         id="windmill"
         style={{
           width: `${width}px`,

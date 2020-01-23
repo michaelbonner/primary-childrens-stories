@@ -15,7 +15,7 @@ const Frog = ({ width, height, left, top }) => {
   };
   return (
     <div
-      className="absolute inline-block z-30"
+      className="absolute inline-block z-20"
       id="frog"
       style={{
         width: `${width}px`,
