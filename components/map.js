@@ -105,7 +105,7 @@ const Map = ({ children }) => {
             disableZoom={activeStory ? true : false}
             showControls={true}
             controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
-            btnClass={`relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
+            btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
           >
             <div
               className="relative"
