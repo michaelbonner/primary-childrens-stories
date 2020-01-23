@@ -136,7 +136,7 @@ const Nav = () => {
         </TabContentWrapper>
         <TabContentWrapper tabLink="search">
           <div className="flex flex-wrap">
-            <div className="w-1/3 h-16 p-1">
+            <div className="w-1/2 lg:w-1/3 h-16 p-1">
               <button
                 className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
                   activeCategory === "all" ? "text-white" : "text-gray-700"
@@ -152,7 +152,7 @@ const Nav = () => {
               </button>
             </div>
             {contentfulContent.categories.map(category => (
-              <div className="w-1/3 h-16 p-1" key={category.sys.id}>
+              <div className="w-1/2 lg:w-1/3 h-16 p-1" key={category.sys.id}>
                 <button
                   className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
                     activeCategory === category.sys.id
