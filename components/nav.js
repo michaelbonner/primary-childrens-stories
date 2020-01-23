@@ -108,7 +108,10 @@ const Nav = () => {
       </div>
       <div className="px-4">
         <nav className="relative mt-16 flex flex-wrap w-full md:w-2/3 lg:w-1/2 max-w-2xl mx-auto text-blue-600 text-center z-30">
-          <div className="w-full md:w-auto rounded-lg bg-white shadow-md px-4 py-1">
+          <div
+            className="w-full md:w-auto rounded-lg bg-white shadow-md px-4 py-1"
+            id="primaryChildrensLogo"
+          >
             <img
               alt="Primary Children's Hospital"
               className="mx-auto"
