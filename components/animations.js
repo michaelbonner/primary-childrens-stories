@@ -8,7 +8,6 @@ import Mouse from "./animations/mouse.js";
 import Windmill from "./animations/windmill.js";
 import Gopher from "./animations/gopher.js";
 import Toucan from "./animations/toucan.js";
-import OrangeFish from "./animations/orange-fish.js";
 import MountainsBirds from "./animations/mountains-birds.js";
 import Bear from "./animations/bear.js";
 import Crab from "./animations/crab.js";
@@ -87,7 +86,7 @@ const Animations = ({ scale, mapImage }) => {
       <Windmill
         width={122 * multiplier.x}
         height={122 * multiplier.y}
-        left={1835 * multiplier.x}
+        left={1825 * multiplier.x}
         top={538 * multiplier.y}
       />
       <Gopher
