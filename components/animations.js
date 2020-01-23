@@ -120,10 +120,10 @@ const Animations = ({ scale, mapImage }) => {
 
       {/* Lottie animations */}
       <Bear
-        width={72 * multiplier.x}
-        height={112 * multiplier.y}
-        left={1052 * multiplier.x}
-        top={648 * multiplier.y}
+        width={90 * multiplier.x}
+        height={150 * multiplier.y}
+        left={1062 * multiplier.x}
+        top={595 * multiplier.y}
       />
       <Crab
         width={140 * multiplier.x}
