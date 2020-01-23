@@ -6,7 +6,7 @@
 	.st0{fill:#005DAA;}
 	.st1{fill:#4E84C4;}
 	.st2{fill:#8DC640;}
-	.st3{font-family:'FrutigerLTStd-Bold';}
+	.st3{font-family:'Frutiger LT Std';font-weight:bold}
 	.st4{font-size:12.2192px;}
 </style>
 <g>

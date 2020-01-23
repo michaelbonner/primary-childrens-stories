@@ -1,65 +1,9 @@
 @font-face {
   font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-LightCn.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-LightCn.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
   src: url("/fonts/FrutigerLTStd-Bold.woff2") format("woff2"),
     url("/fonts/FrutigerLTStd-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-Roman.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-Roman.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-BoldCn.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-BoldCn.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-Black.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-Light.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-Cn.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-Cn.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Frutiger LT Std";
-  src: url("/fonts/FrutigerLTStd-Italic.woff2") format("woff2"),
-    url("/fonts/FrutigerLTStd-Italic.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
 }
 
 @tailwind base;
@@ -68,7 +12,7 @@
 
 body {
   @apply text-gray-800;
-  font-family: "Frutiger LT Std", sans-serif;
+  font-family: "Public Sans", sans-serif;
 }
 
 img {
