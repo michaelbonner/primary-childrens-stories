@@ -1,7 +1,6 @@
 import React from "react";
-import "./mouse.css";
 
-const Mouse = ({ width, height, left, top }) => {
+const Mouse = ({ animationLength, width, height, left, top }) => {
   return (
     <>
       <svg
@@ -291,6 +290,102 @@ const Mouse = ({ width, height, left, top }) => {
           background: "#E0F3FB"
         }}
       />
+      <style jsx>{`
+        #mouse {
+        }
+        #mouse .st0 {
+          fill: url(#MOUSE_SVGID_1_);
+        }
+        #mouse .st1 {
+          fill: url(#MOUSE_SVGID_2_);
+        }
+        #mouse .st2 {
+          fill: #ffffff;
+        }
+        #mouse .st3 {
+          fill: url(#MOUSE_SVGID_3_);
+        }
+        #mouse .st4 {
+          fill: url(#MOUSE_SVGID_4_);
+        }
+        #mouse .st5 {
+          fill: url(#MOUSE_SVGID_5_);
+        }
+        #mouse .st6 {
+          fill: url(#MOUSE_SVGID_6_);
+        }
+        #mouse .st7 {
+          fill: url(#MOUSE_SVGID_7_);
+        }
+        #mouse .st8 {
+          fill: url(#MOUSE_SVGID_8_);
+        }
+        #mouse .st9 {
+          fill: url(#MOUSE_SVGID_9_);
+        }
+        #mouse .st10 {
+          fill: url(#MOUSE_SVGID_10_);
+        }
+        #mouse .st11 {
+          fill: url(#MOUSE_SVGID_11_);
+        }
+        #mouse .st12 {
+          fill: url(#MOUSE_SVGID_12_);
+        }
+        #mouse .st13 {
+          fill: url(#MOUSE_SVGID_13_);
+        }
+        #mouse .st14 {
+          fill: #231f20;
+        }
+        #mouse .st15 {
+          opacity: 0.6;
+          fill: url(#MOUSE_SVGID_14_);
+        }
+        #mouse .st16 {
+          fill: url(#MOUSE_SVGID_15_);
+        }
+        #mouse .st17 {
+          opacity: 0.6;
+          fill: url(#MOUSE_SVGID_16_);
+        }
+        #mouse .st18 {
+          fill: none;
+          stroke: #231f20;
+          stroke-width: 0.5;
+          stroke-miterlimit: 10;
+        }
+
+        @media (min-width: 761px) {
+          #gopherAnimation {
+            animation: revealMouse ${animationLength}s ease-out infinite;
+          }
+        }
+
+        @keyframes revealMouse {
+          0% {
+            transform: translateY(14px);
+          }
+          20% {
+            transform: translateY(16px);
+          }
+          40% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(0);
+          }
+          60% {
+            transform: translateY(0);
+          }
+          80% {
+            transform: translateY(16px);
+          }
+          100% {
+            transform: translateY(14px);
+          }
+        }
+      `}</style>
     </>
   );
 };

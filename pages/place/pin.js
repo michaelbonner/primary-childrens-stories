@@ -14,7 +14,6 @@ const Pin = () => {
 
   const handleClick = e => {
     alert(`x: ${e.pageX} | y: ${e.pageY} `);
-    console.log(e);
     // if (node.current.contains(e.target)) {
     //   // inside click
     //   return;

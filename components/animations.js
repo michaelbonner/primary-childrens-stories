@@ -69,12 +69,14 @@ const Animations = ({ scale, mapImage }) => {
         top={1875 * multiplier.y}
       />
       <Mouse
+        animationLength={3.2}
         width={36 * multiplier.x}
         height={57 * multiplier.y}
         left={478 * multiplier.x}
         top={135 * multiplier.y}
       />
       <Mouse
+        animationLength={3.8}
         width={36 * multiplier.x}
         height={57 * multiplier.y}
         left={1185 * multiplier.x}
@@ -87,12 +89,14 @@ const Animations = ({ scale, mapImage }) => {
         top={538 * multiplier.y}
       />
       <Gopher
+        animationLength={3.4}
         width={30 * multiplier.x}
         height={49 * multiplier.y}
         left={2187 * multiplier.x}
         top={1120 * multiplier.y}
       />
       <Gopher
+        animationLength={3.7}
         width={30 * multiplier.x}
         height={49 * multiplier.y}
         left={2141 * multiplier.x}

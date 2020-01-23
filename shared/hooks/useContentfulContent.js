@@ -56,7 +56,6 @@ const useContentfulContent = () => {
       );
       setCategories([
         ...allCategories.sort((a, b) => {
-          console.log(a);
           if (a.fields.order > b.fields.order) {
             return 1;
           } else if (a.fields.order < b.fields.order) {

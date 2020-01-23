@@ -79,9 +79,13 @@ const Map = ({ children }) => {
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={props => {
-              setScale(props.scale);
-              setTranslation(props.translation);
-              setPinDimensions([37 / scale, 57 / scale]);
+              if (scale !== props.scale) {
+                setScale(props.scale);
+                setPinDimensions([37 / props.scale, 57 / props.scale]);
+              }
+              if (translation !== props.translation) {
+                setTranslation(props.translation);
+              }
             }}
             scale={scale}
             translation={translation}
