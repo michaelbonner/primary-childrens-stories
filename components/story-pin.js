@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 const StoryPin = ({
@@ -11,13 +11,23 @@ const StoryPin = ({
   title,
   top
 }) => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  const contentProps = useSpring({
+    transform: isAnimated
+      ? "translateY(-5px), scale(1.15)"
+      : "translateY(0px) scale(1)"
+  });
+
   return (
-    <div
-      className="absolute z-50"
+    <animated.div
+      className="absolute z-30"
       style={{
         left,
-        top
+        top,
+        ...contentProps
       }}
+      onMouseEnter={() => setIsAnimated(true)}
+      onMouseLeave={() => setIsAnimated(false)}
     >
       <button
         href={`/?id=${id}`}
@@ -33,7 +43,7 @@ const StoryPin = ({
           src={`/pins/${pinColor}.svg`}
         />
       </button>
-    </div>
+    </animated.div>
   );
 };
 export default StoryPin;
