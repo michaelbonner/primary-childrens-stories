@@ -11,14 +11,12 @@ const StoryPin = ({
   title,
   top
 }) => {
-  const pinAnimation = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
-    <animated.div
+    <div
       className="absolute z-50"
       style={{
         left,
-        top,
-        ...pinAnimation
+        top
       }}
     >
       <button
@@ -35,7 +33,7 @@ const StoryPin = ({
           src={`/pins/${pinColor}.svg`}
         />
       </button>
-    </animated.div>
+    </div>
   );
 };
 export default StoryPin;

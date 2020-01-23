@@ -5,6 +5,7 @@ import useContentfulContent from "../shared/hooks/useContentfulContent";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import StoryPin from "./story-pin";
+import { useTrail, animated } from "react-spring";
 
 const Map = ({ children }) => {
   const bgImageDimensions = {
@@ -72,6 +73,12 @@ const Map = ({ children }) => {
     setPinDimensions([37 / scale, 57 / scale]);
     setIsBgLoaded(true);
   };
+
+  const trail = useTrail(stories.length, {
+    from: { opacity: 0, transform: "translate3d(0,-50px,0)" },
+    to: { opacity: 1, transform: "translate3d(0,0px,0)" }
+  });
+
   return (
     <div>
       <div className="fixed z-10 w-full">{children}</div>
@@ -131,22 +138,23 @@ const Map = ({ children }) => {
                 <Animations scale={initialScale} mapImage={mapImage} />
               )}
               {isBgLoaded &&
-                stories.map(story => {
-                  const pinColor = story.fields.categories
-                    ? story.fields.categories[0].fields.color
+                trail.map((props, index) => {
+                  const pinColor = stories[index].fields.categories
+                    ? stories[index].fields.categories[0].fields.color
                     : "red";
                   return (
-                    <StoryPin
-                      key={story.sys.id}
-                      id={story.sys.id}
-                      left={multiplier.x * story.fields.xCoordinate}
-                      top={multiplier.y * story.fields.yCoordinate}
-                      setActiveStory={setActiveStory}
-                      story={story}
-                      title={story.fields.title}
-                      pinColor={pinColor}
-                      pinDimensions={pinDimensions}
-                    />
+                    <animated.div key={stories[index].sys.id} style={props}>
+                      <StoryPin
+                        id={stories[index].sys.id}
+                        left={multiplier.x * stories[index].fields.xCoordinate}
+                        top={multiplier.y * stories[index].fields.yCoordinate}
+                        setActiveStory={setActiveStory}
+                        story={stories[index]}
+                        title={stories[index].fields.title}
+                        pinColor={pinColor}
+                        pinDimensions={pinDimensions}
+                      />
+                    </animated.div>
                   );
                 })}
             </div>
