@@ -58,12 +58,14 @@ const Animations = ({ scale, mapImage }) => {
         top={965 * multiplier.y}
       />
       <Croc
+        animationLength={3.6}
         width={70 * multiplier.x}
         height={36 * multiplier.y}
         left={1080 * multiplier.x}
         top={1960 * multiplier.y}
       />
       <Croc
+        animationLength={4.2}
         width={70 * multiplier.x}
         height={36 * multiplier.y}
         left={1500 * multiplier.x}

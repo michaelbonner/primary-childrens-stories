@@ -1,7 +1,6 @@
 import React from "react";
-import "./croc.css";
 
-const Croc = ({ width, height, left, top }) => {
+const Croc = ({ animationLength, width, height, left, top }) => {
   return (
     <>
       <svg
@@ -203,6 +202,71 @@ const Croc = ({ width, height, left, top }) => {
           background: "#23BBAC"
         }}
       />
+      <style jsx="true">{`
+        @media (min-width: 761px) {
+          #croc {
+            animation: revealCroc ${animationLength}s ease-in infinite;
+          }
+        }
+        .croc0 {
+          fill: url(#CROCSVGID_1_);
+        }
+        .croc1 {
+          fill: url(#CROCSVGID_2_);
+        }
+        .croc2 {
+          fill: url(#CROCSVGID_3_);
+        }
+        .croc3 {
+          fill: url(#CROCSVGID_4_);
+        }
+        .croc4 {
+          fill: url(#CROCSVGID_5_);
+        }
+        .croc5 {
+          fill: url(#CROCSVGID_6_);
+        }
+        .croc6 {
+          fill: url(#CROCSVGID_7_);
+        }
+        .croc7 {
+          fill: #231f20;
+        }
+        .croc8 {
+          opacity: 0.6;
+          fill: url(#CROCSVGID_8_);
+        }
+        .croc9 {
+          fill: #f1f1f2;
+        }
+        .croc10 {
+          fill: #21baab;
+        }
+
+        @keyframes revealCroc {
+          0% {
+            transform: translateY(10px);
+          }
+          20% {
+            transform: translateY(10px);
+          }
+          40% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(0);
+          }
+          60% {
+            transform: translateY(0);
+          }
+          80% {
+            transform: translateY(10px);
+          }
+          100% {
+            transform: translateY(10px);
+          }
+        }
+      `}</style>
     </>
   );
 };
