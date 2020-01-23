@@ -17,6 +17,8 @@ import Deer from "./animations/deer.js";
 import Frog from "./animations/frog.js";
 import Rams from "./animations/rams.js";
 import Squirrel from "./animations/squirrel.js";
+import Tiger from "./animations/tiger.js";
+import Chameleon from "./animations/chameleon.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -157,6 +159,18 @@ const Animations = ({ scale, mapImage }) => {
         height={80 * multiplier.y}
         left={2225 * multiplier.x}
         top={580 * multiplier.y}
+      />
+      <Tiger
+        width={180 * multiplier.x}
+        height={75 * multiplier.y}
+        left={70 * multiplier.x}
+        top={1672 * multiplier.y}
+      />
+      <Chameleon
+        width={264 * multiplier.x}
+        height={82 * multiplier.y}
+        left={2250 * multiplier.x}
+        top={1984 * multiplier.y}
       />
     </>
   );
