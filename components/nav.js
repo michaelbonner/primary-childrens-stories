@@ -26,7 +26,7 @@ const Nav = () => {
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
   const [submitTabContent, setSubmitTabContent] = useState("");
-  const [activeCategories, setActiveCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
     contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
@@ -139,23 +139,13 @@ const Nav = () => {
             <div className="w-1/3 h-16 p-1">
               <button
                 className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
-                  activeCategories.includes("all")
-                    ? "text-white"
-                    : "text-gray-700"
+                  activeCategory === "all" ? "text-white" : "text-gray-700"
                 }`}
                 onClick={() => {
-                  activeCategories.includes("all")
-                    ? setActiveCategories(
-                        activeCategories.filter(
-                          activeCategory => activeCategory !== "all"
-                        )
-                      )
-                    : setActiveCategories([...activeCategories, "all"]);
+                  setActiveCategory("all");
                 }}
                 style={{
-                  background: activeCategories.includes("all")
-                    ? colorMap.all
-                    : "white"
+                  background: activeCategory === "all" ? colorMap.all : "white"
                 }}
               >
                 <span className="inline-block mt-1">All</span>
@@ -165,26 +155,18 @@ const Nav = () => {
               <div className="w-1/3 h-16 p-1" key={category.sys.id}>
                 <button
                   className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
-                    activeCategories.includes(category.sys.id)
+                    activeCategory === category.sys.id
                       ? "text-white"
                       : "text-gray-700"
                   }`}
                   onClick={() => {
-                    activeCategories.includes(category.sys.id)
-                      ? setActiveCategories(
-                          activeCategories.filter(
-                            activeCategory => activeCategory !== category.sys.id
-                          )
-                        )
-                      : setActiveCategories([
-                          ...activeCategories,
-                          category.sys.id
-                        ]);
+                    setActiveCategory(category.sys.id);
                   }}
                   style={{
-                    background: activeCategories.includes(category.sys.id)
-                      ? colorMap[category.fields.color]
-                      : "white"
+                    background:
+                      activeCategory === category.sys.id
+                        ? colorMap[category.fields.color]
+                        : "white"
                   }}
                 >
                   <span className="inline-block mt-1">
