@@ -134,16 +134,17 @@ const Map = ({ children }) => {
                   height: bgImageDimensions.height
                 }}
               />
-              {isBgLoaded && (
-                <Animations scale={initialScale} mapImage={mapImage} />
-              )}
               {isBgLoaded &&
                 trail.map((props, index) => {
                   const pinColor = stories[index].fields.categories
                     ? stories[index].fields.categories[0].fields.color
                     : "red";
                   return (
-                    <animated.div key={stories[index].sys.id} style={props}>
+                    <animated.div
+                      className="relative z-30"
+                      key={stories[index].sys.id}
+                      style={props}
+                    >
                       <StoryPin
                         id={stories[index].sys.id}
                         left={multiplier.x * stories[index].fields.xCoordinate}
@@ -157,6 +158,9 @@ const Map = ({ children }) => {
                     </animated.div>
                   );
                 })}
+              {isBgLoaded && (
+                <Animations scale={initialScale} mapImage={mapImage} />
+              )}
             </div>
           </MapInteractionCSS>
         </div>
