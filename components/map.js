@@ -7,7 +7,7 @@ import Animations from "./animations";
 import StoryPin from "./story-pin";
 import { useTrail, animated } from "react-spring";
 
-const Map = ({ children }) => {
+const Map = ({ children, activeCategory, setActiveCategory }) => {
   const bgImageDimensions = {
     width: 3200,
     height: 2400
@@ -17,6 +17,7 @@ const Map = ({ children }) => {
     y: 735
   };
   const [stories, setStories] = useState([]);
+  const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
@@ -69,12 +70,25 @@ const Map = ({ children }) => {
     }
   }, [minScale]);
 
+  useEffect(() => {
+    if (activeCategory === "all") {
+      setFilteredStories(stories);
+    } else {
+      const filtered = stories.filter(story => {
+        return story.fields.categories
+          .map(category => category.sys.id)
+          .includes(activeCategory);
+      });
+      setFilteredStories(filtered);
+    }
+  }, [activeCategory, stories]);
+
   const bgLoaded = () => {
     setPinDimensions([37 / scale, 57 / scale]);
     setIsBgLoaded(true);
   };
 
-  const trail = useTrail(stories.length, {
+  const trail = useTrail(filteredStories.length, {
     from: { opacity: 0, transform: "translate3d(0,-50px,0)" },
     to: { opacity: 1, transform: "translate3d(0,0px,0)" }
   });
@@ -136,22 +150,28 @@ const Map = ({ children }) => {
               />
               {isBgLoaded &&
                 trail.map((props, index) => {
-                  const pinColor = stories[index].fields.categories
-                    ? stories[index].fields.categories[0].fields.color
+                  const pinColor = filteredStories[index].fields.categories
+                    ? filteredStories[index].fields.categories[0].fields.color
                     : "red";
                   return (
                     <animated.div
                       className="relative z-30"
-                      key={stories[index].sys.id}
+                      key={filteredStories[index].sys.id}
                       style={props}
                     >
                       <StoryPin
-                        id={stories[index].sys.id}
-                        left={multiplier.x * stories[index].fields.xCoordinate}
-                        top={multiplier.y * stories[index].fields.yCoordinate}
+                        id={filteredStories[index].sys.id}
+                        left={
+                          multiplier.x *
+                          filteredStories[index].fields.xCoordinate
+                        }
+                        top={
+                          multiplier.y *
+                          filteredStories[index].fields.yCoordinate
+                        }
                         setActiveStory={setActiveStory}
-                        story={stories[index]}
-                        title={stories[index].fields.title}
+                        story={filteredStories[index]}
+                        title={filteredStories[index].fields.title}
                         pinColor={pinColor}
                         pinDimensions={pinDimensions}
                       />

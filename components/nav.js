@@ -20,13 +20,12 @@ const colorMap = {
   purple: "#7a2879"
 };
 
-const Nav = () => {
+const Nav = ({ activeCategory, setActiveCategory }) => {
   const [activeTab, setActiveTab] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
   const [submitTabContent, setSubmitTabContent] = useState("");
-  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
     contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
