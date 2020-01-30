@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
+import { CookiesProvider } from "react-cookie";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -35,7 +36,9 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <CookiesProvider>
+        <Component {...pageProps} />
+      </CookiesProvider>
     </>
   );
 }

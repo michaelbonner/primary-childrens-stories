@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
+import { useTrail, animated } from "react-spring";
 import useContentfulContent from "../shared/hooks/useContentfulContent";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import StoryPin from "./story-pin";
-import { useTrail, animated } from "react-spring";
 import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
+import { useCookies } from "react-cookie";
+import { toDate, addYears } from "date-fns";
 
 const Map = ({ activeCategory, setActiveCategory }) => {
   const bgImageDimensions = {
@@ -19,7 +21,8 @@ const Map = ({ activeCategory, setActiveCategory }) => {
     y: 735
   };
 
-  const [isOverlay, setIsOverlay] = useState(true);
+  const [cookies, setCookie] = useCookies(["name"]);
+  const [hideOverlay, setHideOverlay] = useState(false);
   const [stories, setStories] = useState([]);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
@@ -38,6 +41,10 @@ const Map = ({ activeCategory, setActiveCategory }) => {
     x: size.width / bgImageDimensions.width,
     y: size.height / bgImageDimensions.height
   });
+
+  useEffect(() => {
+    setHideOverlay(cookies.hideOverlay);
+  }, [cookies]);
 
   useEffect(() => {
     setMultiplier({
@@ -113,23 +120,26 @@ const Map = ({ activeCategory, setActiveCategory }) => {
     }
   };
 
+  const dismissOverlay = () => {
+    const expires = toDate(addYears(new Date(), 1));
+    setHideOverlay(true);
+    setCookie("hideOverlay", true, {
+      path: "/",
+      expires
+    });
+  };
+
   return (
     <div>
-      {isOverlay && (
+      {!hideOverlay && (
         <>
           <div
             className="absolute opacity-50 bg-white inset-0 z-50"
-            onClick={() => {
-              setIsOverlay(false);
-              localStorage.setItem("dismissed-overlay", true);
-            }}
+            onClick={dismissOverlay}
           />
           <div
             className="absolute inset-0 z-50 flex items-center justify-center px-4"
-            onClick={() => {
-              setIsOverlay(false);
-              localStorage.setItem("dismissed-overlay", true);
-            }}
+            onClick={dismissOverlay}
           >
             <div className="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg leading-loose text-center px-12 pt-8 pb-4 shadow-lg">
               <WelcomeMap
