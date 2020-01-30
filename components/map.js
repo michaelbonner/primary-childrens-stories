@@ -134,11 +134,11 @@ const Map = ({ activeCategory, setActiveCategory }) => {
       {!hideOverlay && (
         <>
           <div
-            className="absolute opacity-50 bg-white inset-0 z-50"
+            className="fixed opacity-50 bg-white inset-0 z-50"
             onClick={dismissOverlay}
           />
           <div
-            className="absolute inset-0 z-50 flex items-center justify-center px-4 pt-4 pb-16"
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 pt-4 pb-8"
             onClick={dismissOverlay}
           >
             <div className="w-full h-full lg:h-auto overflow-y-scroll md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg leading-loose text-center px-12 pt-8 pb-4 shadow-lg">
