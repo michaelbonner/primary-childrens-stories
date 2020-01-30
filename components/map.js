@@ -141,9 +141,12 @@ const Map = ({ activeCategory, setActiveCategory }) => {
             className="fixed inset-0 z-50 flex items-center justify-center px-4 pt-4 pb-8"
             onClick={dismissOverlay}
           >
-            <div className="w-full h-full lg:h-auto overflow-y-scroll md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg leading-loose text-center px-12 pt-8 pb-4 shadow-lg">
+            <div className="relative flex flex-col justify-between w-full h-full lg:h-auto overflow-y-scroll md:w-2/3 lg:w-1/2 xl:w-2/5 px-12 pb-4 bg-white rounded-lg leading-loose text-center shadow-lg">
+              <div className="absolute right-0 top-0 px-4 py-2">
+                <button className="p-2 font-bold text-gray-600">X</button>
+              </div>
               <WelcomeMap className="mx-auto max-w-full inline-block z-20 w-2/3" />
-              <p className="text-lg max-w-md m-auto -mt-8 lg:-mt-16">
+              <p className="text-lg max-w-md m-auto -mt-2 lg:-mt-16">
                 Discover newfound hope from the countlessvictories of children
                 throughout this landscape. Better yet, add your child’s story to
                 uplift otherfamilies in the community.
