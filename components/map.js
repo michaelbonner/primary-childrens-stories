@@ -7,6 +7,7 @@ import Animations from "./animations";
 import StoryPin from "./story-pin";
 import { useTrail, animated } from "react-spring";
 import Nav from "./nav";
+import WelcomeMap from "./animations/welcome-map";
 
 const Map = ({ activeCategory, setActiveCategory }) => {
   const bgImageDimensions = {
@@ -17,6 +18,8 @@ const Map = ({ activeCategory, setActiveCategory }) => {
     x: 1535,
     y: 735
   };
+
+  const [isOverlay, setIsOverlay] = useState(true);
   const [stories, setStories] = useState([]);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
@@ -112,6 +115,44 @@ const Map = ({ activeCategory, setActiveCategory }) => {
 
   return (
     <div>
+      {isOverlay && (
+        <>
+          <div
+            className="absolute opacity-50 bg-white inset-0 z-50"
+            onClick={() => {
+              setIsOverlay(false);
+              localStorage.setItem("dismissed-overlay", true);
+            }}
+          />
+          <div
+            className="absolute inset-0 z-50 flex items-center justify-center px-4"
+            onClick={() => {
+              setIsOverlay(false);
+              localStorage.setItem("dismissed-overlay", true);
+            }}
+          >
+            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg leading-loose text-center px-12 pt-8 pb-4 shadow-lg">
+              <WelcomeMap
+                className="mx-auto max-w-full inline-block z-20"
+                width={500}
+                height={280}
+              />
+              <p className="text-lg max-w-md m-auto -mt-4">
+                Discover newfound hope from the countlessvictories of children
+                throughout this landscape. Better yet, add your child’s story to
+                uplift otherfamilies in the community.
+              </p>
+              <div className="w-full mt-4">
+                <img
+                  alt={`Primary Children's Hospital`}
+                  className="max-w-xs mx-auto"
+                  src="/images/primary-childrens-hospital-logo.svg"
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
       <div className="fixed z-10 w-full">
         <div className="relative">
           <Nav
