@@ -15,9 +15,10 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
         ? `https://${window.location.hostname}`
         : "https://primary-childrens-stories.now.sh"
     );
-  });
+  }, []);
 
   useEffect(() => {
+    console.log(activeStory);
     if (
       activeStory &&
       activeStory.fields.media &&
@@ -115,8 +116,8 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                 <Twitter className="w-8 fill-current" />
               </TwitterShareButton>
             </div>
-            <div className="h-full py-12">
-              <div className="story-content h-full overflow-y-scroll">
+            <div className="h-full pt-12 flex flex-col">
+              <div className="story-content overflow-y-scroll flex-1">
                 {media.map(item => {
                   return printMedia(item);
                 })}
@@ -125,6 +126,19 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                     __html: documentToHtmlString(
                       activeStory && activeStory.fields
                         ? activeStory.fields.story
+                        : ""
+                    )
+                  }}
+                />
+              </div>
+              <div className="mt-6">
+                <div
+                  className="story-content"
+                  dangerouslySetInnerHTML={{
+                    __html: documentToHtmlString(
+                      activeStory && activeStory.fields
+                        ? activeStory.fields.categories[0].fields
+                            .storyFooterText
                         : ""
                     )
                   }}
