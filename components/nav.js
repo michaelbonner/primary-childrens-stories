@@ -74,7 +74,7 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
 
   return (
     <div>
-      <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-20 text-center z-50">
+      <div className="fixed left:0 lg:left-auto lg:right-0 top-0 flex flex-col justify-end ml-4 lg:ml-0 mr-4 md:mr-8 w-16 lg:w-20 text-center z-50 mt-16 lg:mt-0">
         <button
           className="hidden lg:inline-block py-3 md:pt-8 md:pb-2 px-2 bg-white text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
           onClick={() => {
@@ -85,7 +85,9 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
         </button>
         {shareOpen && (
           <FacebookShareButton
-            className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm rounded-b-lg shadow-md z-20 focus:outline-none`}
+            className={`
+              flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm rounded-b-lg shadow-md z-20 focus:outline-none
+            `}
             url={
               process.browser
                 ? window.location.href
@@ -116,7 +118,7 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
           >
             <div className="inline-block lg:hidden self-start">
               <button
-                className="bg-gray-200 inline-block pt-6 pb-3 px-3 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-thin italic"
+                className="bg-gray-200 inline-block pt-6 pb-4 px-3 w-16 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-thin italic"
                 onClick={() => {
                   setShareOpen(!shareOpen);
                 }}
