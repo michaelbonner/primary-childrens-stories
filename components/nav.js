@@ -20,7 +20,7 @@ const colorMap = {
   purple: "#7a2879"
 };
 
-const Nav = ({ activeCategory, setActiveCategory }) => {
+const Nav = ({ activeCategory, recenterMap, setActiveCategory }) => {
   const [activeTab, setActiveTab] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
@@ -131,6 +131,7 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
               className="mx-auto"
               src="/images/primary-childrens-hospital-logo.svg"
               style={{ width: "180px", height: "70px" }}
+              onClick={recenterMap}
             />
             <button
               onClick={() => {

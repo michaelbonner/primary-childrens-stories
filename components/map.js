@@ -6,8 +6,9 @@ import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import StoryPin from "./story-pin";
 import { useTrail, animated } from "react-spring";
+import Nav from "./nav";
 
-const Map = ({ children, activeCategory, setActiveCategory }) => {
+const Map = ({ activeCategory, setActiveCategory }) => {
   const bgImageDimensions = {
     width: 3200,
     height: 2400
@@ -93,9 +94,33 @@ const Map = ({ children, activeCategory, setActiveCategory }) => {
     to: { opacity: 1, transform: "translate3d(0,0px,0)" }
   });
 
+  const recenterMap = () => {
+    if (size.width < 768) {
+      setScale(0.5);
+      setTranslation({
+        x: 0 - (intermountainPinLocation.x - size.width / 2) * 0.5,
+        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5
+      });
+    } else {
+      setScale(1);
+      setTranslation({
+        x: 0 - (intermountainPinLocation.x - size.width / 2),
+        y: 0 - (intermountainPinLocation.y - size.height / 2)
+      });
+    }
+  };
+
   return (
     <div>
-      <div className="fixed z-10 w-full">{children}</div>
+      <div className="fixed z-10 w-full">
+        <div className="relative">
+          <Nav
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            recenterMap={recenterMap}
+          />
+        </div>
+      </div>
       <div className="absolute inset-0 z-0 h-screen w-full">
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
