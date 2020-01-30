@@ -18,7 +18,6 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   }, []);
 
   useEffect(() => {
-    console.log(activeStory);
     if (
       activeStory &&
       activeStory.fields.media &&
