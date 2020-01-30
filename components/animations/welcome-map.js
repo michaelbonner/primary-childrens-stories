@@ -6,8 +6,6 @@ const WelcomeMap = ({ width, height, className }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    width: width,
-    height: height,
     maxWidth: "100%",
     animationData: animationData.default,
     rendererSettings: {
@@ -18,10 +16,8 @@ const WelcomeMap = ({ width, height, className }) => {
   return (
     <div
       className={className}
-      id="welcommap"
+      id="welcomeMap"
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
         maxWidth: "100%"
       }}
     >
