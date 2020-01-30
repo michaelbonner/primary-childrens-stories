@@ -8,6 +8,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [hostName, setHostName] = useState("");
   const [media, setMedia] = useState([]);
+  const [body, setBody] = useState("");
+  const [url, setUrl] = useState("");
+  const [footerText, setFooterText] = useState("");
 
   useEffect(() => {
     setHostName(
@@ -20,6 +23,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   useEffect(() => {
     if (
       activeStory &&
+      activeStory.fields &&
       activeStory.fields.media &&
       activeStory.fields.media.length
     ) {
@@ -38,6 +42,52 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
       );
     } else {
       setMedia([]);
+    }
+
+    if (activeStory && activeStory !== "main") {
+      setBody(
+        documentToHtmlString(
+          activeStory && activeStory.fields ? activeStory.fields.story : ""
+        )
+      );
+      setFooterText(
+        documentToHtmlString(
+          activeStory && activeStory.fields
+            ? activeStory.fields.categories[0].fields.storyFooterText
+            : ""
+        )
+      );
+      setUrl(`${hostName}/story/${activeStory && activeStory.sys.id}`);
+    } else {
+      setBody(
+        `
+        <div>
+        <img
+          alt="Primary Children's Hospital"
+          class="max-w-xs mx-auto"
+          src="/images/primary-childrens-hospital-logo.svg"
+        />
+        </div>
+        <p>
+          Primary Children’s Hospital is recognized as one of the nation’s best 
+          children’s hospitals. For nearly a century, we’ve helped countless kids 
+          win. Located in Salt Lake City, Utah, we provide more than 60 medical 
+          and surgical pediatric specialties and offer care to more than 1 million 
+          children living in a 400,000 square-mile service area—one of the largest 
+          geographic areas of any children’s hospital.
+        </p>`
+      );
+      setFooterText(
+        `<p>
+          <a
+            href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/"
+            title="Primary Chilren's Website"
+          >
+            Learn how our services can help your child here.
+          </a>
+        </p>`
+      );
+      setUrl(hostName);
     }
   }, [activeStory]);
 
@@ -89,61 +139,57 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                 X
               </button>
             </div>
-            <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
-              <button
-                className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none"
-                onClick={() => {
-                  setShareOpen(!shareOpen);
-                }}
-              >
-                Share
-              </button>
-              <FacebookShareButton
-                className={`${
-                  shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
-                url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
-              >
-                <Facebook className="w-8 fill-current" />
-              </FacebookShareButton>
-              <TwitterShareButton
-                className={`${
-                  shareOpen ? "flex" : "hidden"
-                } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
-                url={`${hostName}/story/${activeStory && activeStory.sys.id}`}
-              >
-                <Twitter className="w-8 fill-current" />
-              </TwitterShareButton>
-            </div>
-            <div className="h-full pt-12 flex flex-col">
-              <div className="story-content overflow-y-scroll flex-1">
-                {media.map(item => {
-                  return printMedia(item);
-                })}
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: documentToHtmlString(
-                      activeStory && activeStory.fields
-                        ? activeStory.fields.story
-                        : ""
-                    )
-                  }}
-                />
-              </div>
-              <div className="mt-6">
-                <div
-                  className="story-content"
-                  dangerouslySetInnerHTML={{
-                    __html: documentToHtmlString(
-                      activeStory && activeStory.fields
-                        ? activeStory.fields.categories[0].fields
-                            .storyFooterText
-                        : ""
-                    )
-                  }}
-                />
-              </div>
-            </div>
+            {activeStory && (
+              <>
+                <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
+                  <button
+                    className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none"
+                    onClick={() => {
+                      setShareOpen(!shareOpen);
+                    }}
+                  >
+                    Share
+                  </button>
+                  <FacebookShareButton
+                    className={`${
+                      shareOpen ? "flex" : "hidden"
+                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    url={url}
+                  >
+                    <Facebook className="w-8 fill-current" />
+                  </FacebookShareButton>
+                  <TwitterShareButton
+                    className={`${
+                      shareOpen ? "flex" : "hidden"
+                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    url={url}
+                  >
+                    <Twitter className="w-8 fill-current" />
+                  </TwitterShareButton>
+                </div>
+                <div className="h-full pt-12 flex flex-col">
+                  <div className="story-content overflow-y-scroll flex-1">
+                    {media.map(item => {
+                      return printMedia(item);
+                    })}
+                    <div
+                      className="text-lg leading-relaxed"
+                      dangerouslySetInnerHTML={{
+                        __html: body
+                      }}
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <div
+                      className="story-content"
+                      dangerouslySetInnerHTML={{
+                        __html: footerText
+                      }}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

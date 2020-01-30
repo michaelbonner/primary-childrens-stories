@@ -147,9 +147,10 @@ const Map = ({ activeCategory, setActiveCategory }) => {
               </div>
               <WelcomeMap className="mx-auto max-w-full inline-block z-20 w-2/3" />
               <p className="text-lg max-w-md m-auto -mt-2 lg:-mt-16">
-                Discover newfound hope from the countlessvictories of children
-                throughout this landscape. Better yet, add your child’s story to
-                uplift otherfamilies in the community.
+                Discover newfound hope from the countless victories of children
+                throughout this landscape. Better yet, add your child’s story or
+                your own story as a previous patient, to uplift other families
+                in the community.
               </p>
               <div className="w-full mt-4">
                 <img
@@ -255,6 +256,14 @@ const Map = ({ activeCategory, setActiveCategory }) => {
                 })}
               {isBgLoaded && (
                 <Animations scale={initialScale} mapImage={mapImage} />
+              )}
+              {isBgLoaded && (
+                <button
+                  className="w-64 h-64 z-40 absolute opacity-0"
+                  style={{ left: "1430px", top: "690px" }}
+                  onClick={() => setActiveStory("main")}
+                  onTouchEnd={() => setActiveStory("main")}
+                />
               )}
             </div>
           </MapInteractionCSS>
