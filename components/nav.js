@@ -65,7 +65,7 @@ const Nav = ({ activeCategory, recenterMap, setActiveCategory }) => {
       <div
         className={`w-full md:w-2/3 lg:w-1/2 max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
       >
-        <div className="py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-b-large lg:rounded-lg bg-white shadow-md">
+        <div className="py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-b-lg lg:rounded-lg bg-white shadow-md">
           {children}
         </div>
       </div>
