@@ -22,6 +22,7 @@ const colorMap = {
 
 const Nav = ({ activeCategory, setActiveCategory }) => {
   const [activeTab, setActiveTab] = useState("");
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const contentfulContent = useContentfulContent();
   const [aboutTabContent, setAboutTabContent] = useState("");
@@ -41,7 +42,7 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
       <button
         className={`${
           activeTab === link ? "text-blue-800" : "text-blue-600"
-        } w-1/3 py-3 px-8 text-base font-bold focus:outline-none h-full`}
+        } w-1/3 py-3 px-8 text-base font-light lg:font-bold italic lg:not-italic focus:outline-none h-full`}
         onClick={() => {
           if (activeTab === link) {
             setActiveTab("");
@@ -62,9 +63,11 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
 
     return (
       <div
-        className={`w-full md:w-2/3 lg:w-1/2 max-w-2xl mt-2 mx-auto py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-lg bg-white shadow-md`}
+        className={`w-full md:w-2/3 lg:w-1/2 max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
       >
-        {children}
+        <div className="py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-b-large lg:rounded-lg bg-white shadow-md">
+          {children}
+        </div>
       </div>
     );
   };
@@ -73,7 +76,7 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
     <div>
       <div className="fixed right-0 top-0 flex flex-col justify-end mr-4 md:mr-8 w-20 text-center z-50">
         <button
-          className="inline-block py-3 md:pt-8 md:pb-2 px-2 bg-white text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
+          className="hidden lg:inline-block py-3 md:pt-8 md:pb-2 px-2 bg-white text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
           onClick={() => {
             setShareOpen(!shareOpen);
           }}
@@ -105,20 +108,73 @@ const Nav = ({ activeCategory, setActiveCategory }) => {
           </TwitterShareButton>
         )}
       </div>
-      <div className="px-4">
-        <nav className="relative mt-16 flex flex-wrap w-full md:w-2/3 lg:w-1/2 max-w-2xl mx-auto text-blue-600 text-center z-30">
+      <div className="p-0 lg:px-4">
+        <nav className="relative mt-0 lg:mt-16 flex flex-wrap w-full md:w-2/3 lg:w-1/2 max-w-2xl mx-auto text-blue-600 text-center z-30">
           <div
-            className="w-full md:w-auto rounded-lg bg-white shadow-md px-4 py-1"
+            className="relative flex w-full items-center md:w-auto lg:rounded-lg bg-white shadow-md px-4 pb-1 lg:py-1"
             id="primaryChildrensLogo"
           >
+            <div className="inline-block lg:hidden self-start">
+              <button
+                className="bg-gray-200 inline-block pt-6 pb-3 px-3 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-thin italic"
+                onClick={() => {
+                  setShareOpen(!shareOpen);
+                }}
+              >
+                Share
+              </button>
+            </div>
             <img
               alt="Primary Children's Hospital"
               className="mx-auto"
               src="/images/primary-childrens-hospital-logo.svg"
               style={{ width: "180px", height: "70px" }}
             />
+            <button
+              onClick={() => {
+                if (isMobileNavOpen && activeTab) {
+                  setActiveTab("");
+                }
+                setIsMobileNavOpen(!isMobileNavOpen);
+              }}
+              className="inline-block lg:hidden"
+            >
+              <svg
+                className="w-10 h-10"
+                version="1.1"
+                id="hamburger"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                viewBox="0 0 34 28.5"
+                style={{ enableBackground: "new 0 0 34 28.5" }}
+                xmlSpace="preserve"
+              >
+                <g>
+                  <path
+                    style={{ fill: "#4E84C4" }}
+                    d="M30.6,6.7H4.4c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2h26.2c1.1,0,2,0.9,2,2v0
+		C32.6,5.8,31.7,6.7,30.6,6.7z"
+                  />
+                  <path
+                    style={{ fill: "#4E84C4" }}
+                    d="M30.6,16.1H4.4c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2h26.2c1.1,0,2,0.9,2,2v0
+		C32.6,15.2,31.7,16.1,30.6,16.1z"
+                  />
+                  <path
+                    style={{ fill: "#4E84C4" }}
+                    d="M30.6,25.5H4.4c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2h26.2c1.1,0,2,0.9,2,2v0
+		C32.6,24.7,31.7,25.5,30.6,25.5z"
+                  />
+                </g>
+              </svg>
+            </button>
           </div>
-          <div className="w-full md:w-auto rounded-lg bg-white shadow-md md:ml-2 -mt-3 md:mt-0 items-center flex-1">
+          <div
+            className={`${
+              isMobileNavOpen ? "inline-block" : "hidden"
+            } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-lg bg-white lg:shadow-md items-center flex-1`}
+          >
             <NavButton text="About" link="about" />
             <NavButton text="Search" link="search" />
             <NavButton text="Submit" link="submit" />
