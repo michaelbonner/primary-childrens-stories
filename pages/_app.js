@@ -3,6 +3,8 @@ import Head from "next/head";
 import TagManager from "react-gtm-module";
 import { CookiesProvider } from "react-cookie";
 
+import "../styles/index.css";
+
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     TagManager.initialize({
@@ -20,12 +22,8 @@ function MyApp({ Component, pageProps }) {
         />
         <meta property="og:type" content="website" />
         <meta
-          property="og:title"
-          content="Primary Children's Hospital Stories"
-        />
-        <meta
           property="og:description"
-          content="A map showcasing some of Primary Children's Hospital's success stories"
+          content="Primary Children’s Hospital is recognized as one of the nation’s best children’s hospitals. For nearly a century, we’ve helped countless kids win."
         />
         <meta
           property="og:image"

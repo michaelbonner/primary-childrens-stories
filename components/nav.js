@@ -186,7 +186,7 @@ const Nav = ({ activeCategory, recenterMap, setActiveCategory }) => {
         <TabContentWrapper tabLink="about">
           <YoutubeEmbed youtubeId={"Q-lhnGPj_tk"} />
           <div
-            className="mt-4"
+            className="mt-4 story-content"
             dangerouslySetInnerHTML={{
               __html: documentToHtmlString(aboutTabContent)
             }}

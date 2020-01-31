@@ -1,44 +1,8 @@
-import StoryOverlay from "../../components/story-overlay";
 import client from "../../shared/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { useState, useEffect } from "react";
 import Head from "next/head";
 
-import "../../styles/index.css";
-
-const Story = ({ story }) => {
-  const [media, setMedia] = useState([]);
-
-  useEffect(() => {
-    if (story.fields && story.fields.media && story.fields.media.length) {
-      setMedia(
-        story.fields.media.map(media => {
-          if (!media.fields) {
-            return;
-          }
-          return {
-            type: media.fields.file.contentType,
-            url: media.fields.file.url,
-            title: media.fields.title,
-            details: media.fields.file.details
-          };
-        })
-      );
-    } else {
-      setMedia([]);
-    }
-  }, []);
-
-  const body = documentToHtmlString(
-    story && story.fields ? story.fields.story : ""
-  );
-
-  const footerText = documentToHtmlString(
-    story && story.fields
-      ? story.fields.categories[0].fields.storyFooterText
-      : ""
-  );
-
+const Story = ({ story, body, footerText, media }) => {
   const printMedia = media => {
     if (!media) {
       return;
@@ -59,7 +23,11 @@ const Story = ({ story }) => {
   return (
     <div>
       <Head>
-        <title>{story.fields.title || "Primary Children's Hospital"}</title>
+        <title>{`${story.fields.title} | Primary Children's Hospital Stories`}</title>
+        <meta
+          property="og:title"
+          content={`${story.fields.title} | Primary Children's Hospital Stories`}
+        />
       </Head>
       <div className="story-content container mx-auto my-4">
         {media.map(item => {
@@ -74,10 +42,39 @@ const Story = ({ story }) => {
 
 Story.getInitialProps = async function(context) {
   const { entryId } = context.query;
-  const storyData = await client.getEntry(entryId);
+  const story = await client.getEntry(entryId);
+
+  const body = documentToHtmlString(
+    story && story.fields ? story.fields.story : ""
+  );
+
+  const footerText = documentToHtmlString(
+    story && story.fields
+      ? story.fields.categories[0].fields.storyFooterText
+      : ""
+  );
+
+  let media = [];
+
+  if (story.fields && story.fields.media && story.fields.media.length) {
+    media = story.fields.media.map(media => {
+      if (!media.fields) {
+        return;
+      }
+      return {
+        type: media.fields.file.contentType,
+        url: media.fields.file.url,
+        title: media.fields.title,
+        details: media.fields.file.details
+      };
+    });
+  }
 
   return {
-    story: storyData
+    story,
+    body,
+    footerText,
+    media
   };
 };
 
