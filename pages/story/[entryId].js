@@ -61,7 +61,7 @@ const Story = ({ story }) => {
       <Head>
         <title>{story.fields.title || "Primary Children's Hospital"}</title>
       </Head>
-      <div className="story-content">
+      <div className="story-content container mx-auto my-4">
         {media.map(item => {
           return printMedia(item);
         })}
