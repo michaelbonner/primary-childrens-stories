@@ -20,22 +20,17 @@ const colorMap = {
   purple: "#7a2879"
 };
 
-const Nav = ({ activeCategory, recenterMap, setActiveCategory }) => {
+const Nav = ({
+  activeCategory,
+  recenterMap,
+  setActiveCategory,
+  categories,
+  aboutTabContent,
+  submitTabContent
+}) => {
   const [activeTab, setActiveTab] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
-  const contentfulContent = useContentfulContent();
-  const [aboutTabContent, setAboutTabContent] = useState("");
-  const [submitTabContent, setSubmitTabContent] = useState("");
-
-  useEffect(() => {
-    contentfulContent.fetchByEntryId("6xDZ66kDnvo24xY91qO7FA").then(content => {
-      setAboutTabContent(content.fields.content);
-    });
-    contentfulContent.fetchByEntryId("1ZTYTOO0n0PIHlo1dUtD0v").then(content => {
-      setSubmitTabContent(content.fields.content);
-    });
-  }, []);
 
   const NavButton = ({ link, text }) => {
     return (
@@ -209,7 +204,7 @@ const Nav = ({ activeCategory, recenterMap, setActiveCategory }) => {
                 <span className="inline-block mt-1">All</span>
               </button>
             </div>
-            {contentfulContent.categories.map(category => (
+            {categories.map(category => (
               <div className="w-1/2 lg:w-1/3 h-16 p-1" key={category.sys.id}>
                 <button
                   className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${

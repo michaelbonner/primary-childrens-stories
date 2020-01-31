@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import { useTrail, animated } from "react-spring";
-import useContentfulContent from "../shared/hooks/useContentfulContent";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import StoryPin from "./story-pin";
@@ -11,7 +10,14 @@ import WelcomeMap from "./animations/welcome-map";
 import { useCookies } from "react-cookie";
 import { toDate, addYears } from "date-fns";
 
-const Map = ({ activeCategory, setActiveCategory }) => {
+const Map = ({
+  activeCategory,
+  setActiveCategory,
+  stories,
+  categories,
+  aboutTabContent,
+  submitTabContent
+}) => {
   const bgImageDimensions = {
     width: 3200,
     height: 2400
@@ -23,7 +29,6 @@ const Map = ({ activeCategory, setActiveCategory }) => {
 
   const [cookies, setCookie] = useCookies(["name"]);
   const [hideOverlay, setHideOverlay] = useState(false);
-  const [stories, setStories] = useState([]);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
@@ -33,7 +38,6 @@ const Map = ({ activeCategory, setActiveCategory }) => {
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([37, 57]);
 
-  const contentfulContent = useContentfulContent();
   const size = useWindowSize();
   const mapImage = useRef(null);
 
@@ -52,12 +56,6 @@ const Map = ({ activeCategory, setActiveCategory }) => {
       y: mapImage.current.height / bgImageDimensions.height
     });
   }, [scale, size, mapImage]);
-
-  useEffect(() => {
-    setStories(contentfulContent.stories);
-    // @debug
-    // setActiveStory(contentfulContent.stories[0]);
-  }, [contentfulContent]);
 
   useEffect(() => {
     if (size.width < 768) {
@@ -169,6 +167,9 @@ const Map = ({ activeCategory, setActiveCategory }) => {
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
             recenterMap={recenterMap}
+            categories={categories}
+            aboutTabContent={aboutTabContent}
+            submitTabContent={submitTabContent}
           />
         </div>
       </div>
