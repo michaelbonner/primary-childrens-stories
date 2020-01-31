@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Facebook from "../components/facebook";
 import Twitter from "../components/twitter";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
-import useContentfulContent from "../shared/hooks/useContentfulContent";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import YoutubeEmbed from "./youtube-embed";
 
