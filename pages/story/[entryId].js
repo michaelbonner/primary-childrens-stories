@@ -28,6 +28,10 @@ const Story = ({ story, body, footerText, media }) => {
           property="og:title"
           content={`${story.fields.title} | Primary Children's Hospital Stories`}
         />
+        <meta
+          property="og:url"
+          content={`https://primary-childrens-stories.michaelbonner.now.sh/story/${story.sys.id}`}
+        />
       </Head>
       <div className="story-content container mx-auto my-4">
         {media.map(item => {

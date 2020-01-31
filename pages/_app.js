@@ -16,10 +16,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          property="og:url"
-          content="https://primary-childrens-stories.michaelbonner.now.sh/"
-        />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"

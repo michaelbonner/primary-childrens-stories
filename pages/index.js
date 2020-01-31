@@ -12,6 +12,10 @@ const Home = () => {
           property="og:title"
           content="Primary Children's Hospital Stories"
         />
+        <meta
+          property="og:url"
+          content={`https://primary-childrens-stories.michaelbonner.now.sh/`}
+        />
       </Head>
 
       <Map
