@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Facebook from "../components/facebook";
 import Twitter from "../components/twitter";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import YoutubeEmbed from "./youtube-embed";
+import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
 
 const colorMap = {
   all: "#14113d",
@@ -27,9 +28,12 @@ const Nav = ({
   aboutTabContent,
   submitTabContent
 }) => {
+  const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+
+  useOnClickOutside(ref, () => setActiveTab(""));
 
   const NavButton = ({ link, text }) => {
     return (
@@ -58,6 +62,7 @@ const Nav = ({
     return (
       <div
         className={`w-full md:w-2/3 lg:w-1/2 max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
+        ref={ref}
       >
         <div className="py-4 md:py-12 px-4 md:px-12 text-center text-gray-600 rounded-b-lg lg:rounded-lg bg-white shadow-md">
           {children}
