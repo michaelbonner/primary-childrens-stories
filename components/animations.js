@@ -190,9 +190,9 @@ const Animations = ({ scale, mapImage }) => {
       />
       <Rams
         width={263 * multiplier.x}
-        height={88 * multiplier.y}
+        height={128 * multiplier.y}
         left={1227 * multiplier.x}
-        top={1315 * multiplier.y}
+        top={1305 * multiplier.y}
       />
       <Squirrel
         width={200 * multiplier.x}
