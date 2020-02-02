@@ -22,6 +22,7 @@ import Windmill from "./animations/windmill.js";
 import BirdsCastle from "./animations/birds-castle.js";
 import BirdsHills from "./animations/birds-hills.js";
 import FishSplash from "./animations/fish-splash.js";
+import Whale from "./animations/whale.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -236,6 +237,12 @@ const Animations = ({ scale, mapImage }) => {
         height={75 * multiplier.y}
         left={70 * multiplier.x}
         top={1672 * multiplier.y}
+      />
+      <Whale
+        width={240 * multiplier.x}
+        height={240 * multiplier.y}
+        left={2570 * multiplier.x}
+        top={970 * multiplier.y}
       />
     </>
   );
