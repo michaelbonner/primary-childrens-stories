@@ -155,6 +155,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                       shareOpen ? "flex" : "hidden"
                     } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                     url={url}
+                    resetButtonStyle={false}
                   >
                     <Facebook className="w-8 fill-current" />
                   </FacebookShareButton>
@@ -163,6 +164,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                       shareOpen ? "flex" : "hidden"
                     } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                     url={url}
+                    resetButtonStyle={false}
                   >
                     <Twitter className="w-8 fill-current" />
                   </TwitterShareButton>

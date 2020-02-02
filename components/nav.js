@@ -87,6 +87,7 @@ const Nav = ({
                 ? window.location.href
                 : "https://primary-childrens-stories.michaelbonner.now.sh/"
             }
+            resetButtonStyle={false}
           >
             <Facebook className="w-8 fill-current" />
           </FacebookShareButton>
@@ -99,6 +100,7 @@ const Nav = ({
                 ? window.location.href
                 : "https://primary-childrens-stories.michaelbonner.now.sh/"
             }
+            resetButtonStyle={false}
           >
             <Twitter className="w-8 fill-current" />
           </TwitterShareButton>
