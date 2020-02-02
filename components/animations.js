@@ -57,6 +57,18 @@ const Animations = ({ scale, mapImage }) => {
         left={1150 * multiplier.x}
         top={965 * multiplier.y}
       />
+      <Boat
+        width={56 * multiplier.x}
+        height={96 * multiplier.y}
+        left={58 * multiplier.x}
+        top={1410 * multiplier.y}
+      />
+      <Boat
+        width={56 * multiplier.x}
+        height={96 * multiplier.y}
+        left={2678 * multiplier.x}
+        top={1479 * multiplier.y}
+      />
       <Croc
         animationLength={3.6}
         width={70 * multiplier.x}
