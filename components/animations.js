@@ -196,7 +196,7 @@ const Animations = ({ scale, mapImage }) => {
       />
       <Squirrel
         width={200 * multiplier.x}
-        height={80 * multiplier.y}
+        height={120 * multiplier.y}
         left={2225 * multiplier.x}
         top={580 * multiplier.y}
       />
