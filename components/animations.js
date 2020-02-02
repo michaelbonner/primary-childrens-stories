@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
-import Fish from "./animations/fish.js";
-import FishColorful from "./animations/fish-colorful.js";
-import Boat from "./animations/boat.js";
 import useWindowSize from "../shared/hooks/useWindowSize.js";
-import Croc from "./animations/croc.js";
-import Mouse from "./animations/mouse.js";
-import Windmill from "./animations/windmill.js";
-import Gopher from "./animations/gopher.js";
-import Toucan from "./animations/toucan.js";
-import MountainsBirds from "./animations/mountains-birds.js";
+import Armadillo from "./animations/armadillo.js";
 import Bear from "./animations/bear.js";
+import Boat from "./animations/boat.js";
+import Chameleon from "./animations/chameleon.js";
 import Crab from "./animations/crab.js";
 import Crane from "./animations/crane.js";
+import Croc from "./animations/croc.js";
 import Deer from "./animations/deer.js";
+import Fish from "./animations/fish.js";
+import FishColorful from "./animations/fish-colorful.js";
 import Frog from "./animations/frog.js";
+import Gopher from "./animations/gopher.js";
+import MountainsBirds from "./animations/mountains-birds.js";
+import Mouse from "./animations/mouse.js";
 import Rams from "./animations/rams.js";
 import Squirrel from "./animations/squirrel.js";
 import Tiger from "./animations/tiger.js";
-import Chameleon from "./animations/chameleon.js";
+import Toucan from "./animations/toucan.js";
+import Windmill from "./animations/windmill.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -131,6 +132,12 @@ const Animations = ({ scale, mapImage }) => {
       />
 
       {/* Lottie animations */}
+      <Armadillo
+        width={270 * multiplier.x}
+        height={194.4 * multiplier.y}
+        left={695 * multiplier.x}
+        top={1750 * multiplier.y}
+      />
       <Bear
         width={90 * multiplier.x}
         height={150 * multiplier.y}
