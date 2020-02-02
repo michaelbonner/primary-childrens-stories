@@ -65,3 +65,7 @@ img {
 .story-content a {
   @apply text-blue-400;
 }
+
+.story-content p {
+  @apply mt-2;
+}

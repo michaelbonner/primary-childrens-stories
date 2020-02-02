@@ -3,7 +3,7 @@ import Head from "next/head";
 import Map from "../components/map";
 import client from "../shared/contentful";
 
-const Home = ({ stories, categories }) => {
+const Home = ({ stories, categories, aboutTabContent, submitTabContent }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   return (
     <div>
@@ -24,6 +24,8 @@ const Home = ({ stories, categories }) => {
         setActiveCategory={setActiveCategory}
         stories={stories}
         categories={categories}
+        aboutTabContent={aboutTabContent}
+        submitTabContent={submitTabContent}
       />
     </div>
   );
@@ -40,7 +42,7 @@ Home.getInitialProps = async () => {
 
   const fetchAboutTabContent = await client.getEntry("6xDZ66kDnvo24xY91qO7FA");
   const aboutTabContent = fetchAboutTabContent.fields.content;
-  const fetchSubmitTabContent = await client.getEntry("6xDZ66kDnvo24xY91qO7FA");
+  const fetchSubmitTabContent = await client.getEntry("1ZTYTOO0n0PIHlo1dUtD0v");
   const submitTabContent = fetchSubmitTabContent.fields.content;
 
   return {
