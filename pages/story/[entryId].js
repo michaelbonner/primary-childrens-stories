@@ -14,13 +14,19 @@ const Story = ({ story, title, body, footerText, media, url }) => {
       return;
     }
     if (media.type.startsWith("image")) {
+      return <img key={media.url} src={media.url} title={media.title} />;
+    }
+    if (media.type.startsWith("video")) {
       return (
-        <img
-          className="max-w-full"
+        <video
+          width="100%"
           key={media.url}
-          src={media.url}
-          title={media.title}
-        />
+          controls
+          controlsList="nodownload"
+          onContextMenu={e => e.preventDefault()}
+        >
+          <source src={media.url} />
+        </video>
       );
     }
     return media.url;
