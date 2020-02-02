@@ -4,7 +4,12 @@ import { FacebookShareButton, TwitterShareButton } from "react-share";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 
-const StoryOverlay = ({ activeStory, setActiveStory, hostname }) => {
+const StoryOverlay = ({
+  activeCategory,
+  activeStory,
+  setActiveStory,
+  hostname
+}) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [media, setMedia] = useState([]);
   const [title, setTitle] = useState("");
@@ -45,13 +50,24 @@ const StoryOverlay = ({ activeStory, setActiveStory, hostname }) => {
           activeStory && activeStory.fields ? activeStory.fields.story : ""
         )
       );
-      setFooterText(
-        documentToHtmlString(
-          activeStory && activeStory.fields
-            ? activeStory.fields.categories[0].fields.storyFooterText
-            : ""
-        )
-      );
+
+      if (activeCategory !== "all") {
+        setFooterText(
+          documentToHtmlString(
+            activeStory.fields.categories.filter(
+              category => category.sys.id === activeCategory
+            )[0].fields.storyFooterText
+          )
+        );
+      } else {
+        setFooterText(
+          documentToHtmlString(
+            activeStory && activeStory.fields
+              ? activeStory.fields.categories[0].fields.storyFooterText
+              : ""
+          )
+        );
+      }
       setUrl(`https://${hostname}/story/${activeStory && activeStory.sys.id}`);
     } else {
       setTitle(``);

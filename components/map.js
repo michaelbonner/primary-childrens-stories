@@ -229,9 +229,16 @@ const Map = ({
               />
               {isBgLoaded &&
                 trail.map((props, index) => {
-                  const pinColor = filteredStories[index].fields.categories
-                    ? filteredStories[index].fields.categories[0].fields.color
-                    : "red";
+                  let pinColor;
+                  if (activeCategory !== "all") {
+                    pinColor = categories.filter(
+                      category => category.sys.id === activeCategory
+                    )[0].fields.color;
+                  } else {
+                    pinColor = filteredStories[index].fields.categories
+                      ? filteredStories[index].fields.categories[0].fields.color
+                      : "red";
+                  }
                   return (
                     <animated.div
                       className="relative z-30"
@@ -273,9 +280,10 @@ const Map = ({
         </div>
       </div>
       <StoryOverlay
+        activeCategory={activeCategory}
         activeStory={activeStory}
-        setActiveStory={setActiveStory}
         hostname={hostname}
+        setActiveStory={setActiveStory}
       />
     </div>
   );
