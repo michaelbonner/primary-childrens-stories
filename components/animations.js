@@ -208,9 +208,9 @@ const Animations = ({ scale, mapImage }) => {
       />
       <Chameleon
         width={264 * multiplier.x}
-        height={82 * multiplier.y}
+        height={200 * multiplier.y}
         left={2250 * multiplier.x}
-        top={1984 * multiplier.y}
+        top={1924 * multiplier.y}
       />
     </>
   );
