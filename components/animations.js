@@ -171,10 +171,10 @@ const Animations = ({ scale, mapImage }) => {
         top={1541 * multiplier.y}
       />
       <Deer
-        width={152 * multiplier.x}
-        height={142 * multiplier.y}
+        width={170 * multiplier.x}
+        height={170 * multiplier.y}
         left={1800 * multiplier.x}
-        top={770 * multiplier.y}
+        top={740 * multiplier.y}
       />
       <Frog
         width={286.1794 * multiplier.x}
