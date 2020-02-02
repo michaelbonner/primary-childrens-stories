@@ -21,6 +21,7 @@ import Toucan from "./animations/toucan.js";
 import Windmill from "./animations/windmill.js";
 import BirdsCastle from "./animations/birds-castle.js";
 import BirdsHills from "./animations/birds-hills.js";
+import FishSplash from "./animations/fish-splash.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -42,12 +43,6 @@ const Animations = ({ scale, mapImage }) => {
   return (
     <>
       {/* CSS animations */}
-      <Fish
-        width={60 * multiplier.x}
-        height={70 * multiplier.y}
-        left={640 * multiplier.x}
-        top={490 * multiplier.y}
-      />
       <FishColorful
         width={60 * multiplier.x}
         height={70 * multiplier.y}
@@ -158,6 +153,12 @@ const Animations = ({ scale, mapImage }) => {
         left={1062 * multiplier.x}
         top={595 * multiplier.y}
       />
+      <Chameleon
+        width={264 * multiplier.x}
+        height={200 * multiplier.y}
+        left={2250 * multiplier.x}
+        top={1924 * multiplier.y}
+      />
       <Crab
         width={140 * multiplier.x}
         height={100 * multiplier.y}
@@ -175,6 +176,36 @@ const Animations = ({ scale, mapImage }) => {
         height={170 * multiplier.y}
         left={1800 * multiplier.x}
         top={740 * multiplier.y}
+      />
+      <FishSplash
+        width={250 * multiplier.x}
+        height={250 * multiplier.y}
+        left={530 * multiplier.x}
+        top={400 * multiplier.y}
+      />
+      <FishSplash
+        width={250 * multiplier.x}
+        height={250 * multiplier.y}
+        left={110 * multiplier.x}
+        top={1080 * multiplier.y}
+      />
+      <FishSplash
+        width={250 * multiplier.x}
+        height={250 * multiplier.y}
+        left={350 * multiplier.x}
+        top={1750 * multiplier.y}
+      />
+      <FishSplash
+        width={250 * multiplier.x}
+        height={250 * multiplier.y}
+        left={2610 * multiplier.x}
+        top={1900 * multiplier.y}
+      />
+      <FishSplash
+        width={250 * multiplier.x}
+        height={250 * multiplier.y}
+        left={2900 * multiplier.x}
+        top={150 * multiplier.y}
       />
       <Frog
         width={286.1794 * multiplier.x}
@@ -205,12 +236,6 @@ const Animations = ({ scale, mapImage }) => {
         height={75 * multiplier.y}
         left={70 * multiplier.x}
         top={1672 * multiplier.y}
-      />
-      <Chameleon
-        width={264 * multiplier.x}
-        height={200 * multiplier.y}
-        left={2250 * multiplier.x}
-        top={1924 * multiplier.y}
       />
     </>
   );
