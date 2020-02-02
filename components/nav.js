@@ -21,13 +21,14 @@ const colorMap = {
 };
 
 const Nav = ({
+  aboutTabContent,
   activeCategory,
+  categories,
+  hostname,
   recenterMap,
   setActiveCategory,
-  categories,
-  aboutTabContent,
-  submitTabContent,
-  hostname
+  setThankYouForSharingVisible,
+  submitTabContent
 }) => {
   const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
@@ -90,6 +91,11 @@ const Nav = ({
             `}
             url={`https://${hostname}`}
             resetButtonStyle={false}
+            onClick={() => {
+              setTimeout(() => {
+                setThankYouForSharingVisible(true);
+              }, 2000);
+            }}
           >
             <Facebook className="w-8 fill-current" />
           </FacebookShareButton>
@@ -99,6 +105,11 @@ const Nav = ({
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
             url={`https://${hostname}`}
             resetButtonStyle={false}
+            onClick={() => {
+              setTimeout(() => {
+                setThankYouForSharingVisible(true);
+              }, 2000);
+            }}
           >
             <Twitter className="w-8 fill-current" />
           </TwitterShareButton>

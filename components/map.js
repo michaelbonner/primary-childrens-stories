@@ -9,6 +9,7 @@ import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
 import { useCookies } from "react-cookie";
 import { toDate, addYears } from "date-fns";
+import ThankYouForSharingOverlay from "./thank-you-for-sharing-overlay";
 
 const Map = ({
   aboutTabContent,
@@ -17,7 +18,8 @@ const Map = ({
   hostname,
   setActiveCategory,
   stories,
-  submitTabContent
+  submitTabContent,
+  thankYouForSharingContent
 }) => {
   const bgImageDimensions = {
     width: 3200,
@@ -38,6 +40,9 @@ const Map = ({
   const [minScale, setMinScale] = useState(0.75);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([37, 57]);
+  const [thankYouForSharingVisible, setThankYouForSharingVisible] = useState(
+    false
+  );
 
   const size = useWindowSize();
   const mapImage = useRef(null);
@@ -172,6 +177,7 @@ const Map = ({
             recenterMap={recenterMap}
             setActiveCategory={setActiveCategory}
             submitTabContent={submitTabContent}
+            setThankYouForSharingVisible={setThankYouForSharingVisible}
           />
         </div>
       </div>
@@ -284,6 +290,11 @@ const Map = ({
         activeStory={activeStory}
         hostname={hostname}
         setActiveStory={setActiveStory}
+      />
+      <ThankYouForSharingOverlay
+        visible={thankYouForSharingVisible}
+        setVisible={setThankYouForSharingVisible}
+        content={thankYouForSharingContent}
       />
     </div>
   );

@@ -8,7 +8,8 @@ const Home = ({
   categories,
   hostname,
   stories,
-  submitTabContent
+  submitTabContent,
+  thankYouForSharingContent
 }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   return (
@@ -33,6 +34,7 @@ const Home = ({
         aboutTabContent={aboutTabContent}
         submitTabContent={submitTabContent}
         hostname={hostname}
+        thankYouForSharingContent={thankYouForSharingContent}
       />
     </div>
   );
@@ -51,6 +53,11 @@ Home.getInitialProps = async ({ req }) => {
   const aboutTabContent = fetchAboutTabContent.fields.content;
   const fetchSubmitTabContent = await client.getEntry("1ZTYTOO0n0PIHlo1dUtD0v");
   const submitTabContent = fetchSubmitTabContent.fields.content;
+  const fetchThankYouForSharingContent = await client.getEntry(
+    "6Dd6zTG7pogLpeEkvteHu0"
+  );
+  const thankYouForSharingContent =
+    fetchThankYouForSharingContent.fields.content;
 
   const hostname = req ? req.headers.host : window.location.hostname;
 
@@ -66,6 +73,7 @@ Home.getInitialProps = async ({ req }) => {
     }),
     aboutTabContent,
     submitTabContent,
+    thankYouForSharingContent,
     hostname
   };
 };
