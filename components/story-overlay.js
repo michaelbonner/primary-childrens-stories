@@ -88,7 +88,6 @@ const StoryOverlay = ({ activeStory, setActiveStory, hostname }) => {
   }, [activeStory]);
 
   const printMedia = media => {
-    console.log(media);
     if (!media) {
       return;
     }
