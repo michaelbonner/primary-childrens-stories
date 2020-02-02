@@ -3,7 +3,13 @@ import Head from "next/head";
 import Map from "../components/map";
 import client from "../shared/contentful";
 
-const Home = ({ stories, categories, aboutTabContent, submitTabContent }) => {
+const Home = ({
+  aboutTabContent,
+  categories,
+  hostname,
+  stories,
+  submitTabContent
+}) => {
   const [activeCategory, setActiveCategory] = useState("all");
   return (
     <div>
@@ -26,12 +32,13 @@ const Home = ({ stories, categories, aboutTabContent, submitTabContent }) => {
         categories={categories}
         aboutTabContent={aboutTabContent}
         submitTabContent={submitTabContent}
+        hostname={hostname}
       />
     </div>
   );
 };
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async ({ req }) => {
   const stories = await client.getEntries({
     content_type: "story"
   });
@@ -45,6 +52,8 @@ Home.getInitialProps = async () => {
   const fetchSubmitTabContent = await client.getEntry("1ZTYTOO0n0PIHlo1dUtD0v");
   const submitTabContent = fetchSubmitTabContent.fields.content;
 
+  const hostname = req ? req.headers.host : window.location.hostname;
+
   return {
     stories: stories.items,
     categories: categories.items.sort((a, b) => {
@@ -56,7 +65,8 @@ Home.getInitialProps = async () => {
       return 0;
     }),
     aboutTabContent,
-    submitTabContent
+    submitTabContent,
+    hostname
   };
 };
 

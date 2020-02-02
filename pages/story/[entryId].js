@@ -128,10 +128,10 @@ Story.getInitialProps = async function(context) {
 
   let media = [];
 
-  const hostName = process.browser
-    ? `https://${window.location.hostname}`
-    : "https://primary-childrens-stories.now.sh";
-  const url = `${hostName}/story/${story && story.sys.id}`;
+  const hostname = context.req
+    ? context.req.headers.host
+    : window.location.hostname;
+  const url = `${hostname}/story/${story && story.sys.id}`;
 
   if (story.fields && story.fields.media && story.fields.media.length) {
     media = story.fields.media.map(media => {

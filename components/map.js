@@ -11,11 +11,12 @@ import { useCookies } from "react-cookie";
 import { toDate, addYears } from "date-fns";
 
 const Map = ({
+  aboutTabContent,
   activeCategory,
+  categories,
+  hostname,
   setActiveCategory,
   stories,
-  categories,
-  aboutTabContent,
   submitTabContent
 }) => {
   const bgImageDimensions = {
@@ -164,11 +165,12 @@ const Map = ({
       <div className="fixed z-10 w-full">
         <div className="relative">
           <Nav
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            recenterMap={recenterMap}
-            categories={categories}
             aboutTabContent={aboutTabContent}
+            activeCategory={activeCategory}
+            categories={categories}
+            hostname={hostname}
+            recenterMap={recenterMap}
+            setActiveCategory={setActiveCategory}
             submitTabContent={submitTabContent}
           />
         </div>
@@ -270,7 +272,11 @@ const Map = ({
           </MapInteractionCSS>
         </div>
       </div>
-      <StoryOverlay activeStory={activeStory} setActiveStory={setActiveStory} />
+      <StoryOverlay
+        activeStory={activeStory}
+        setActiveStory={setActiveStory}
+        hostname={hostname}
+      />
     </div>
   );
 };

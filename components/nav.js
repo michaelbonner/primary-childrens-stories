@@ -26,7 +26,8 @@ const Nav = ({
   setActiveCategory,
   categories,
   aboutTabContent,
-  submitTabContent
+  submitTabContent,
+  hostname
 }) => {
   const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
@@ -87,11 +88,7 @@ const Nav = ({
             className={`
               flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm rounded-b-lg shadow-md z-20 focus:outline-none
             `}
-            url={
-              process.browser
-                ? window.location.href
-                : "https://primary-childrens-stories.michaelbonner.now.sh/"
-            }
+            url={`https://${hostname}`}
             resetButtonStyle={false}
           >
             <Facebook className="w-8 fill-current" />
@@ -100,11 +97,7 @@ const Nav = ({
         {shareOpen && (
           <TwitterShareButton
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
-            url={
-              process.browser
-                ? window.location.href
-                : "https://primary-childrens-stories.michaelbonner.now.sh/"
-            }
+            url={`https://${hostname}`}
             resetButtonStyle={false}
           >
             <Twitter className="w-8 fill-current" />

@@ -4,22 +4,13 @@ import { FacebookShareButton, TwitterShareButton } from "react-share";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 
-const StoryOverlay = ({ activeStory, setActiveStory }) => {
+const StoryOverlay = ({ activeStory, setActiveStory, hostname }) => {
   const [shareOpen, setShareOpen] = useState(false);
-  const [hostName, setHostName] = useState("");
   const [media, setMedia] = useState([]);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
-
-  useEffect(() => {
-    setHostName(
-      process.browser
-        ? `https://${window.location.hostname}`
-        : "https://primary-childrens-stories.now.sh"
-    );
-  }, []);
 
   useEffect(() => {
     if (
@@ -61,7 +52,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
             : ""
         )
       );
-      setUrl(`${hostName}/story/${activeStory && activeStory.sys.id}`);
+      setUrl(`https://${hostname}/story/${activeStory && activeStory.sys.id}`);
     } else {
       setTitle(``);
       setBody(
@@ -92,7 +83,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
           </a>
         </p>`
       );
-      setUrl(hostName);
+      setUrl(hostname);
     }
   }, [activeStory]);
 
