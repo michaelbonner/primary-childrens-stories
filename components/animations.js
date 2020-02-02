@@ -163,10 +163,10 @@ const Animations = ({ scale, mapImage }) => {
         top={770 * multiplier.y}
       />
       <Frog
-        width={330 * multiplier.x}
-        height={254 * multiplier.y}
-        left={1745 * multiplier.x}
-        top={1350 * multiplier.y}
+        width={286.1794 * multiplier.x}
+        height={263.2227 * multiplier.y}
+        left={1765 * multiplier.x}
+        top={1330 * multiplier.y}
       />
       <Frog
         width={242 * multiplier.x}
