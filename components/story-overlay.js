@@ -8,6 +8,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [hostName, setHostName] = useState("");
   const [media, setMedia] = useState([]);
+  const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
@@ -45,6 +46,9 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
     }
 
     if (activeStory && activeStory !== "main") {
+      setTitle(
+        activeStory && activeStory.fields ? activeStory.fields.title : ""
+      );
       setBody(
         documentToHtmlString(
           activeStory && activeStory.fields ? activeStory.fields.story : ""
@@ -59,6 +63,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
       );
       setUrl(`${hostName}/story/${activeStory && activeStory.sys.id}`);
     } else {
+      setTitle(``);
       setBody(
         `
         <div>
@@ -81,7 +86,7 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
         `<p>
           <a
             href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/"
-            title="Primary Chilren's Website"
+            title="Primary Children's Website"
           >
             Learn how our services can help your child here.
           </a>
@@ -171,11 +176,14 @@ const StoryOverlay = ({ activeStory, setActiveStory }) => {
                 </div>
                 <div className="h-full pt-12 flex flex-col">
                   <div className="story-content overflow-y-scroll flex-1">
+                    <div className="text-xl font-bold leading-relaxed mb-6">
+                      {title}
+                    </div>
                     {media.map(item => {
                       return printMedia(item);
                     })}
                     <div
-                      className="text-lg leading-relaxed"
+                      className="text-base leading-relaxed mt-4"
                       dangerouslySetInnerHTML={{
                         __html: body
                       }}
