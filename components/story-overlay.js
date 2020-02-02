@@ -88,11 +88,25 @@ const StoryOverlay = ({ activeStory, setActiveStory, hostname }) => {
   }, [activeStory]);
 
   const printMedia = media => {
+    console.log(media);
     if (!media) {
       return;
     }
     if (media.type.startsWith("image")) {
       return <img key={media.url} src={media.url} title={media.title} />;
+    }
+    if (media.type.startsWith("video")) {
+      return (
+        <video
+          width="100%"
+          key={media.url}
+          controls
+          controlsList="nodownload"
+          onContextMenu={e => e.preventDefault()}
+        >
+          <source src={media.url} />
+        </video>
+      );
     }
     return media.url;
   };
