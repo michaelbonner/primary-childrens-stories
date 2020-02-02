@@ -19,6 +19,7 @@ import Squirrel from "./animations/squirrel.js";
 import Tiger from "./animations/tiger.js";
 import Toucan from "./animations/toucan.js";
 import Windmill from "./animations/windmill.js";
+import BirdsCastle from "./animations/birds-castle.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -129,6 +130,12 @@ const Animations = ({ scale, mapImage }) => {
         height={270 * multiplier.y}
         left={500 * multiplier.x}
         top={815 * multiplier.y}
+      />
+      <BirdsCastle
+        width={698.4 * multiplier.x}
+        height={194.6 * multiplier.y}
+        left={2337 * multiplier.x}
+        top={825 * multiplier.y}
       />
 
       {/* Lottie animations */}
