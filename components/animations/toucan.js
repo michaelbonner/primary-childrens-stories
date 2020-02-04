@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "./toucan.css";
+import React, { useState } from "react";
 import useInterval from "../../shared/hooks/useInterval";
 
 const Toucan = ({ width, height, left, top }) => {
@@ -29,7 +28,7 @@ const Toucan = ({ width, height, left, top }) => {
       >
         <g>
           <linearGradient
-            id="TOUCAN_SVGID_1_"
+            id="TOUCAN_1_"
             gradientUnits="userSpaceOnUse"
             x1="90.1115"
             y1="55.8478"
@@ -87,7 +86,7 @@ const Toucan = ({ width, height, left, top }) => {
         </g>
         <g id="toucanOnTree" className={flipped ? "flipped" : ""}>
           <linearGradient
-            id="TOUCAN_SVGID_2_"
+            id="TOUCAN_2_"
             gradientUnits="userSpaceOnUse"
             x1="55.2493"
             y1="66.4185"
@@ -102,7 +101,7 @@ const Toucan = ({ width, height, left, top }) => {
             d="M55.2,81.4l5.1,4.2l27.1-32.9c1.1-1.4,0.9-3.5-0.4-4.6c-1.4-1.1-3.5-0.9-4.6,0.4L55.2,81.4z"
           />
           <linearGradient
-            id="TOUCAN_SVGID_3_"
+            id="TOUCAN_3_"
             gradientUnits="userSpaceOnUse"
             x1="54.6291"
             y1="56.4671"
@@ -122,7 +121,7 @@ const Toucan = ({ width, height, left, top }) => {
             d="M54.6,71.4l5.1,4.2l27.1-32.9c1.1-1.4,0.9-3.5-0.4-4.6c-1.4-1.1-3.5-0.9-4.6,0.4L54.6,71.4z"
           />
           <linearGradient
-            id="TOUCAN_SVGID_4_"
+            id="TOUCAN_4_"
             gradientUnits="userSpaceOnUse"
             x1="45.5263"
             y1="57.5361"
@@ -142,7 +141,7 @@ const Toucan = ({ width, height, left, top }) => {
             d="M46,48.2c0-8.5-6.9-15.4-15.4-15.4s-15.4,6.9-15.4,15.4c0,0-2,27.1,21.6,27.3"
           />
           <linearGradient
-            id="TOUCAN_SVGID_5_"
+            id="TOUCAN_5_"
             gradientUnits="userSpaceOnUse"
             x1="45.0578"
             y1="28.3496"
@@ -162,7 +161,7 @@ const Toucan = ({ width, height, left, top }) => {
           />
           <g>
             <linearGradient
-              id="TOUCAN_SVGID_6_"
+              id="TOUCAN_6_"
               gradientUnits="userSpaceOnUse"
               x1="49.2807"
               y1="18.6292"
@@ -186,7 +185,7 @@ const Toucan = ({ width, height, left, top }) => {
               d="M65.9,29.1h14.6c0-3.8-0.8-6.7-2.1-9L65.9,29.1"
             />
             <linearGradient
-              id="TOUCAN_SVGID_7_"
+              id="TOUCAN_7_"
               gradientUnits="userSpaceOnUse"
               x1="45.5045"
               y1="31.686"
@@ -206,7 +205,7 @@ const Toucan = ({ width, height, left, top }) => {
               d="M69.2,29.1c-5.2,5.8-14,5.1-14,5.1h-9.7v-5.1L69.2,29.1z"
             />
             <linearGradient
-              id="TOUCAN_SVGID_8_"
+              id="TOUCAN_8_"
               gradientUnits="userSpaceOnUse"
               x1="56.383"
               y1="22.2189"
@@ -223,7 +222,7 @@ const Toucan = ({ width, height, left, top }) => {
           </g>
           <circle className="toucan9" cx="45.1" cy="20.9" r="8.2" />
           <linearGradient
-            id="TOUCAN_SVGID_9_"
+            id="TOUCAN_9_"
             gradientUnits="userSpaceOnUse"
             x1="38.6953"
             y1="20.7309"
@@ -237,7 +236,7 @@ const Toucan = ({ width, height, left, top }) => {
           <circle className="toucan1" cx="45.5" cy="20.5" r="4.4" />
 
           <linearGradient
-            id="TOUCAN_SVGID_10_"
+            id="TOUCAN_10_"
             gradientUnits="userSpaceOnUse"
             x1="816.8846"
             y1="11.6964"
@@ -253,7 +252,7 @@ const Toucan = ({ width, height, left, top }) => {
             d="M42.7,21.7c0,0,0.3-4.4,4.7-4c0,0,1.7,0.6,0.7,1.8c0,0-2.8,0.7-2.2,3.2C45.9,22.6,42.9,25.2,42.7,21.7z"
           />
           <linearGradient
-            id="TOUCAN_SVGID_11_"
+            id="TOUCAN_11_"
             gradientUnits="userSpaceOnUse"
             x1="40.2206"
             y1="78.5815"
@@ -270,7 +269,7 @@ const Toucan = ({ width, height, left, top }) => {
           </linearGradient>
           <circle className="toucan12" cx="43.5" cy="78.6" r="3.3" />
           <linearGradient
-            id="TOUCAN_SVGID_12_"
+            id="TOUCAN_12_"
             gradientUnits="userSpaceOnUse"
             x1="46.6283"
             y1="78.5815"
@@ -287,7 +286,7 @@ const Toucan = ({ width, height, left, top }) => {
           </linearGradient>
           <circle className="toucan13" cx="49.9" cy="78.6" r="3.3" />
           <linearGradient
-            id="TOUCAN_SVGID_13_"
+            id="TOUCAN_13_"
             gradientUnits="userSpaceOnUse"
             x1="53.0361"
             y1="78.5815"
@@ -304,7 +303,7 @@ const Toucan = ({ width, height, left, top }) => {
           </linearGradient>
           <circle className="toucan14" cx="56.3" cy="78.6" r="3.3" />
           <linearGradient
-            id="TOUCAN_SVGID_14_"
+            id="TOUCAN_14_"
             gradientUnits="userSpaceOnUse"
             x1="17.5073"
             y1="78.5815"
@@ -321,7 +320,7 @@ const Toucan = ({ width, height, left, top }) => {
           </linearGradient>
           <circle className="toucan15" cx="20.8" cy="78.6" r="3.3" />
           <linearGradient
-            id="TOUCAN_SVGID_15_"
+            id="TOUCAN_15_"
             gradientUnits="userSpaceOnUse"
             x1="23.9151"
             y1="78.5815"
@@ -338,7 +337,7 @@ const Toucan = ({ width, height, left, top }) => {
           </linearGradient>
           <circle className="toucan16" cx="27.2" cy="78.6" r="3.3" />
           <linearGradient
-            id="TOUCAN_SVGID_16_"
+            id="TOUCAN_16_"
             gradientUnits="userSpaceOnUse"
             x1="30.3228"
             y1="78.5815"
@@ -356,6 +355,69 @@ const Toucan = ({ width, height, left, top }) => {
           <circle className="toucan17" cx="33.6" cy="78.6" r="3.3" />
         </g>
       </svg>
+      <style jsx>{`
+        .toucan0 {
+          fill: url(#TOUCAN_1_);
+        }
+        .toucan1 {
+          fill: #231f20;
+        }
+        .toucan2 {
+          fill: url(#TOUCAN_2_);
+        }
+        .toucan3 {
+          fill: url(#TOUCAN_3_);
+        }
+        .toucan4 {
+          fill: url(#TOUCAN_4_);
+        }
+        .toucan5 {
+          fill: url(#TOUCAN_5_);
+        }
+        .toucan6 {
+          fill: url(#TOUCAN_6_);
+        }
+        .toucan7 {
+          fill: url(#TOUCAN_7_);
+        }
+        .toucan8 {
+          fill: url(#TOUCAN_8_);
+        }
+        .toucan9 {
+          fill: #f9ec31;
+        }
+        .toucan10 {
+          fill: url(#TOUCAN_9_);
+        }
+        .toucan11 {
+          opacity: 0.6;
+          fill: url(#TOUCAN_10_);
+        }
+        .toucan12 {
+          fill: url(#TOUCAN_11_);
+        }
+        .toucan13 {
+          fill: url(#TOUCAN_12_);
+        }
+        .toucan14 {
+          fill: url(#TOUCAN_13_);
+        }
+        .toucan15 {
+          fill: url(#TOUCAN_14_);
+        }
+        .toucan16 {
+          fill: url(#TOUCAN_15_);
+        }
+        .toucan17 {
+          fill: url(#TOUCAN_16_);
+        }
+
+        @media (min-width: 761px) {
+          #toucanOnTree.flipped {
+            transform: scaleX(-1) translateX(-50%);
+          }
+        }
+      `}</style>
     </>
   );
 };

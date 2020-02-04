@@ -1,5 +1,4 @@
 import React from "react";
-import "./mountains-birds.css";
 
 const MountainsBirds = ({ width, height, left, top }) => {
   return (
@@ -61,7 +60,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           </g>
 
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_1_"
+            id="MOUNTAINS_BIRDS_1_"
             gradientUnits="userSpaceOnUse"
             x1="1020.9944"
             y1="84.6482"
@@ -122,7 +121,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           </g>
 
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_2_"
+            id="MOUNTAINS_BIRDS_2_"
             gradientUnits="userSpaceOnUse"
             x1="1095.7664"
             y1="105.6682"
@@ -144,7 +143,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
         </g>
         <g className="mountains">
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_3_"
+            id="MOUNTAINS_BIRDS_3_"
             gradientUnits="userSpaceOnUse"
             x1="240.104"
             y1="122.1231"
@@ -159,7 +158,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="207,204.3 237.1,117 273.2,204.3 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_4_"
+            id="MOUNTAINS_BIRDS_4_"
             gradientUnits="userSpaceOnUse"
             x1="209.8929"
             y1="159.5717"
@@ -174,7 +173,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="191.9,204.3 208.3,156.8 227.9,204.3 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_5_"
+            id="MOUNTAINS_BIRDS_5_"
             gradientUnits="userSpaceOnUse"
             x1="464.6186"
             y1="26.4112"
@@ -189,7 +188,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="380.3,235.9 457,13.4 549,235.9 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_6_"
+            id="MOUNTAINS_BIRDS_6_"
             gradientUnits="userSpaceOnUse"
             x1="414.5175"
             y1="112.1124"
@@ -204,7 +203,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="364.7,235.9 410,104.4 464.4,235.9 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_7_"
+            id="MOUNTAINS_BIRDS_7_"
             gradientUnits="userSpaceOnUse"
             x1="463.8591"
             y1="112.1124"
@@ -219,7 +218,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="414,235.9 459.3,104.4 513.7,235.9 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_8_"
+            id="MOUNTAINS_BIRDS_8_"
             gradientUnits="userSpaceOnUse"
             x1="513.2007"
             y1="112.1124"
@@ -234,7 +233,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="463.4,235.9 508.7,104.4 563,235.9 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_9_"
+            id="MOUNTAINS_BIRDS_9_"
             gradientUnits="userSpaceOnUse"
             x1="371.6912"
             y1="173.9895"
@@ -251,7 +250,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           <g>
             <g>
               <linearGradient
-                id="MOUNTAINS_BIRDS_SVGID_10_"
+                id="MOUNTAINS_BIRDS_10_"
                 gradientUnits="userSpaceOnUse"
                 x1="459.405"
                 y1="177.7103"
@@ -307,7 +306,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           <g>
             <g>
               <linearGradient
-                id="MOUNTAINS_BIRDS_SVGID_11_"
+                id="MOUNTAINS_BIRDS_11_"
                 gradientUnits="userSpaceOnUse"
                 x1="511.3668"
                 y1="177.7103"
@@ -363,7 +362,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           <g>
             <g>
               <linearGradient
-                id="MOUNTAINS_BIRDS_SVGID_12_"
+                id="MOUNTAINS_BIRDS_12_"
                 gradientUnits="userSpaceOnUse"
                 x1="408.0108"
                 y1="177.7103"
@@ -417,7 +416,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_13_"
+            id="MOUNTAINS_BIRDS_13_"
             gradientUnits="userSpaceOnUse"
             x1="352.7137"
             y1="222.7191"
@@ -434,7 +433,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
 	C325,242.1,322.1,240.6,323.6,239z"
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_14_"
+            id="MOUNTAINS_BIRDS_14_"
             gradientUnits="userSpaceOnUse"
             x1="434.9366"
             y1="243.3473"
@@ -450,7 +449,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
 	L425.2,251.9z"
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_15_"
+            id="MOUNTAINS_BIRDS_15_"
             gradientUnits="userSpaceOnUse"
             x1="484.5922"
             y1="243.3473"
@@ -466,7 +465,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
 	L474.9,251.9z"
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_16_"
+            id="MOUNTAINS_BIRDS_16_"
             gradientUnits="userSpaceOnUse"
             x1="75.9027"
             y1="41.9386"
@@ -481,7 +480,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="10.5,204.3 70,31.9 141.3,204.3 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_17_"
+            id="MOUNTAINS_BIRDS_17_"
             gradientUnits="userSpaceOnUse"
             x1="137.0821"
             y1="122.1231"
@@ -496,7 +495,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             points="104,204.3 134.1,117 170.2,204.3 "
           />
           <linearGradient
-            id="MOUNTAINS_BIRDS_SVGID_18_"
+            id="MOUNTAINS_BIRDS_18_"
             gradientUnits="userSpaceOnUse"
             x1="79.2141"
             y1="140.2894"
@@ -514,7 +513,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             <g>
               <g>
                 <linearGradient
-                  id="MOUNTAINS_BIRDS_SVGID_19_"
+                  id="MOUNTAINS_BIRDS_19_"
                   gradientUnits="userSpaceOnUse"
                   x1="239.3118"
                   y1="169.1741"
@@ -571,7 +570,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
           <g>
             <g>
               <linearGradient
-                id="MOUNTAINS_BIRDS_SVGID_20_"
+                id="MOUNTAINS_BIRDS_20_"
                 gradientUnits="userSpaceOnUse"
                 x1="55.7479"
                 y1="120.8664"
@@ -621,6 +620,130 @@ const MountainsBirds = ({ width, height, left, top }) => {
           </g>
         </g>
       </svg>
+      <style jsx>{`
+        .mountainsBirds0 {
+          fill: #f8d940;
+        }
+        .mountainsBirds1 {
+          fill: #231f20;
+        }
+        .mountainsBirds2 {
+          fill: #d8a170;
+        }
+        .mountainsBirds3 {
+          fill: #ffffff;
+        }
+        .mountainsBirds4 {
+          fill: #be2026;
+        }
+        .mountainsBirds5 {
+          fill: #3b2314;
+        }
+        .mountainsBirds6 {
+          opacity: 0.6;
+          fill: url(#MOUNTAINS_BIRDS_1_);
+        }
+        .mountainsBirds7 {
+          opacity: 0.6;
+          fill: url(#MOUNTAINS_BIRDS_2_);
+        }
+        .mountainsBirds8 {
+          fill: url(#MOUNTAINS_BIRDS_3_);
+        }
+        .mountainsBirds9 {
+          fill: url(#MOUNTAINS_BIRDS_4_);
+        }
+        .mountainsBirds10 {
+          fill: url(#MOUNTAINS_BIRDS_5_);
+        }
+        .mountainsBirds11 {
+          fill: url(#MOUNTAINS_BIRDS_6_);
+        }
+        .mountainsBirds12 {
+          fill: url(#MOUNTAINS_BIRDS_7_);
+        }
+        .mountainsBirds13 {
+          fill: url(#MOUNTAINS_BIRDS_8_);
+        }
+        .mountainsBirds14 {
+          fill: url(#MOUNTAINS_BIRDS_9_);
+        }
+        .mountainsBirds15 {
+          fill: url(#MOUNTAINS_BIRDS_10_);
+        }
+        .mountainsBirds16 {
+          fill: url(#MOUNTAINS_BIRDS_11_);
+        }
+        .mountainsBirds17 {
+          fill: url(#MOUNTAINS_BIRDS_12_);
+        }
+        .mountainsBirds18 {
+          fill: url(#MOUNTAINS_BIRDS_13_);
+        }
+        .mountainsBirds19 {
+          fill: url(#MOUNTAINS_BIRDS_14_);
+        }
+        .mountainsBirds20 {
+          fill: url(#MOUNTAINS_BIRDS_15_);
+        }
+        .mountainsBirds21 {
+          fill: url(#MOUNTAINS_BIRDS_16_);
+        }
+        .mountainsBirds22 {
+          fill: url(#MOUNTAINS_BIRDS_17_);
+        }
+        .mountainsBirds23 {
+          fill: url(#MOUNTAINS_BIRDS_18_);
+        }
+        .mountainsBirds24 {
+          fill: url(#MOUNTAINS_BIRDS_19_);
+        }
+        .mountainsBirds25 {
+          fill: url(#MOUNTAINS_BIRDS_20_);
+        }
+
+        @media (min-width: 761px) {
+          .bird-1 {
+            z-index: 25;
+            animation: bird1Fly 5s linear infinite;
+          }
+          .bird-2 {
+            z-index: 25;
+            animation: bird2Fly 5s linear infinite;
+          }
+          .bird-1 .wing.flipped,
+          .bird-2 .wing.flipped {
+            transform: scaleX(-1);
+          }
+          .mountains {
+            z-index: 30;
+          }
+        }
+
+        @keyframes bird1Fly {
+          0% {
+            transform: translate(-27%, 15%);
+          }
+          50% {
+            transform: translate(10%, 0);
+          }
+          100% {
+            transform: translate(40%, 10%);
+          }
+        }
+
+        @keyframes bird2Fly {
+          0% {
+            transform: translate(-27%, 15%);
+          }
+          50% {
+            transform: translate(10%, 0);
+          }
+          100% {
+            transform: translate(30%, 10%);
+          }
+        }
+      `}</style>
     </>
   );
 };

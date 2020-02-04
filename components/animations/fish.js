@@ -1,5 +1,4 @@
 import React from "react";
-import "./fish.css";
 
 const Fish = ({ width, height, left, top }) => {
   return (
@@ -21,7 +20,7 @@ const Fish = ({ width, height, left, top }) => {
       >
         <g>
           <linearGradient
-            id="SVGID_1_"
+            id="FISH_1_"
             gradientUnits="userSpaceOnUse"
             x1="18.1034"
             y1="9.4246"
@@ -39,7 +38,7 @@ const Fish = ({ width, height, left, top }) => {
 			C9.7,28.6,11.5,23.5,14.6,19.3z"
             />
             <linearGradient
-              id="SVGID_2_"
+              id="FISH_2_"
               gradientUnits="userSpaceOnUse"
               x1="9.7332"
               y1="34.348"
@@ -55,7 +54,7 @@ const Fish = ({ width, height, left, top }) => {
 			C24.9,24,21.2,20.1,14.6,19.3z"
             />
             <linearGradient
-              id="SVGID_3_"
+              id="FISH_3_"
               gradientUnits="userSpaceOnUse"
               x1="37.7002"
               y1="17.5706"
@@ -80,7 +79,7 @@ const Fish = ({ width, height, left, top }) => {
 			c3.7-2.3,8.1-3.6,12.8-3.6C40.9,16.6,37.8,9.3,37.7,9.2z"
             />
             <linearGradient
-              id="SVGID_4_"
+              id="FISH_4_"
               gradientUnits="userSpaceOnUse"
               x1="14.8841"
               y1="57.9496"
@@ -104,7 +103,7 @@ const Fish = ({ width, height, left, top }) => {
             />
 
             <linearGradient
-              id="SVGID_5_"
+              id="FISH_5_"
               gradientUnits="userSpaceOnUse"
               x1="-2710.5454"
               y1="829.0463"
@@ -125,7 +124,7 @@ const Fish = ({ width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="SVGID_6_"
+            id="FISH_6_"
             gradientUnits="userSpaceOnUse"
             x1="31.9187"
             y1="17.8602"
@@ -151,7 +150,7 @@ const Fish = ({ width, height, left, top }) => {
 		C14.5,30.9,15.9,30.6,17,31.2z"
           />
           <linearGradient
-            id="SVGID_7_"
+            id="FISH_7_"
             gradientUnits="userSpaceOnUse"
             x1="24.2394"
             y1="20.201"
@@ -178,6 +177,69 @@ const Fish = ({ width, height, left, top }) => {
           background: "#422F91"
         }}
       />
+      <style jsx>{`
+        @media (min-width: 761px) {
+          #fish {
+            animation: spinFish 4s ease-in-out infinite;
+          }
+        }
+        #fish .st0 {
+          fill: url(#FISH_1_);
+        }
+        #fish .st1 {
+          fill: #d6de23;
+        }
+        #fish .st2 {
+          fill: url(#FISH_2_);
+        }
+        #fish .st3 {
+          fill: url(#FISH_3_);
+        }
+        #fish .st4 {
+          fill: #c2c32f;
+        }
+        #fish .st5 {
+          fill: url(#FISH_4_);
+        }
+        #fish .st6 {
+          fill: #231f20;
+        }
+        #fish .st7 {
+          opacity: 0.6;
+          fill: url(#FISH_5_);
+        }
+        #fish .st8 {
+          fill: url(#FISH_6_);
+        }
+        #fish .st9 {
+          fill: url(#FISH_7_);
+        }
+
+        @keyframes spinFish {
+          0% {
+            opacity: 1;
+            transform: rotate(0deg) translateY(-30px);
+          }
+          25% {
+            opacity: 1;
+          }
+          30% {
+            opacity: 0;
+            transform: rotate(180deg) translateY(-11px);
+          }
+          50% {
+            opacity: 0;
+            transform: rotate(250deg) translateY(0px);
+          }
+          65% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 1;
+            transform: rotate(360deg) translateY(-30px);
+          }
+        }
+      `}</style>
     </>
   );
 };

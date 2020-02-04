@@ -1,5 +1,4 @@
 import React from "react";
-import "./fish-colorful.css";
 
 const FishColorful = ({ width, height, left, top }) => {
   return (
@@ -22,7 +21,7 @@ const FishColorful = ({ width, height, left, top }) => {
       >
         <g>
           <linearGradient
-            id="SVGID_1_"
+            id="FISH_COLORFUL_1_"
             gradientUnits="userSpaceOnUse"
             x1="16.1385"
             y1="18.9457"
@@ -35,7 +34,7 @@ const FishColorful = ({ width, height, left, top }) => {
           <path className="st0" d="M30.6,18.8c0,0-5.8-12.2-14.5,4.6" />
           <g>
             <linearGradient
-              id="SVGID_2_"
+              id="FISH_COLORFUL_2_"
               gradientUnits="userSpaceOnUse"
               x1="9.535"
               y1="60.1706"
@@ -51,7 +50,7 @@ const FishColorful = ({ width, height, left, top }) => {
 			C9.9,33.1,11.3,29.3,13.5,26.3z"
             />
             <linearGradient
-              id="SVGID_3_"
+              id="FISH_COLORFUL_3_"
               gradientUnits="userSpaceOnUse"
               x1="9.9459"
               y1="37.3849"
@@ -67,7 +66,7 @@ const FishColorful = ({ width, height, left, top }) => {
 			C21.2,29.7,18.5,26.9,13.5,26.3z"
             />
             <linearGradient
-              id="SVGID_4_"
+              id="FISH_COLORFUL_4_"
               gradientUnits="userSpaceOnUse"
               x1="30.6369"
               y1="24.9724"
@@ -83,7 +82,7 @@ const FishColorful = ({ width, height, left, top }) => {
 			c0,0,1.5-0.1-3.5-5.4C38.6,20.9,34.8,19.2,30.6,18.8z"
             />
             <linearGradient
-              id="SVGID_5_"
+              id="FISH_COLORFUL_5_"
               gradientUnits="userSpaceOnUse"
               x1="22.7007"
               y1="35.7281"
@@ -98,7 +97,7 @@ const FishColorful = ({ width, height, left, top }) => {
               d="M24.6,41.4c5.1-3,7.1-7.3,7.6-11.3c-3.5,0-6.7,1-9.5,2.7C24.7,36.9,24.6,41.4,24.6,41.4z"
             />
             <linearGradient
-              id="SVGID_6_"
+              id="FISH_COLORFUL_6_"
               gradientUnits="userSpaceOnUse"
               x1="22.9503"
               y1="60.1706"
@@ -114,7 +113,7 @@ const FishColorful = ({ width, height, left, top }) => {
 			C33,24.2,30.7,18.9,30.6,18.8z"
             />
             <linearGradient
-              id="SVGID_7_"
+              id="FISH_COLORFUL_7_"
               gradientUnits="userSpaceOnUse"
               x1="17.8055"
               y1="60.1706"
@@ -137,7 +136,7 @@ const FishColorful = ({ width, height, left, top }) => {
             />
 
             <linearGradient
-              id="SVGID_8_"
+              id="FISH_COLORFUL_8_"
               gradientUnits="userSpaceOnUse"
               x1="-2657.0376"
               y1="815.1434"
@@ -158,7 +157,7 @@ const FishColorful = ({ width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="SVGID_9_"
+            id="FISH_COLORFUL_9_"
             gradientUnits="userSpaceOnUse"
             x1="26.3596"
             y1="25.1866"
@@ -183,7 +182,7 @@ const FishColorful = ({ width, height, left, top }) => {
 		C13.5,34.8,14.5,34.6,15.3,35.1z"
           />
           <linearGradient
-            id="SVGID_10_"
+            id="FISH_COLORFUL_10_"
             gradientUnits="userSpaceOnUse"
             x1="20.6781"
             y1="26.9184"
@@ -211,6 +210,74 @@ const FishColorful = ({ width, height, left, top }) => {
           background: "#422F91"
         }}
       />
+      <style jsx>{`
+        @media (min-width: 761px) {
+          #fishColorful {
+            animation: spin 3.8s ease-in-out infinite;
+          }
+        }
+        #fishColorful .st0 {
+          fill: url(#FISH_COLORFUL_1_);
+        }
+        #fishColorful .st1 {
+          fill: url(#FISH_COLORFUL_2_);
+        }
+        #fishColorful .st2 {
+          fill: url(#FISH_COLORFUL_3_);
+        }
+        #fishColorful .st3 {
+          fill: url(#FISH_COLORFUL_4_);
+        }
+        #fishColorful .st4 {
+          fill: url(#FISH_COLORFUL_5_);
+        }
+        #fishColorful .st5 {
+          fill: url(#FISH_COLORFUL_6_);
+        }
+        #fishColorful .st6 {
+          fill: url(#FISH_COLORFUL_7_);
+        }
+        #fishColorful .st7 {
+          fill: #231f20;
+        }
+        #fishColorful .st8 {
+          opacity: 0.6;
+          fill: url(#FISH_COLORFUL_8_);
+        }
+        #fishColorful .st9 {
+          fill: url(#FISH_COLORFUL_9_);
+        }
+        #fishColorful .st10 {
+          fill: #d6de23;
+        }
+        #fishColorful .st11 {
+          fill: url(#FISH_COLORFUL_10_);
+        }
+
+        @keyframes spin {
+          0% {
+            opacity: 1;
+            transform: rotate(0deg) translateY(-30px);
+          }
+          25% {
+            opacity: 1;
+          }
+          30% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0;
+            transform: rotate(200deg) translateY(0px);
+          }
+          65% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 1;
+            transform: rotate(360deg) translateY(-30px);
+          }
+        }
+      `}</style>
     </>
   );
 };

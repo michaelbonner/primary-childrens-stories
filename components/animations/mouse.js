@@ -21,7 +21,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
         <g id="gopherAnimation">
           <g>
             <linearGradient
-              id="MOUSE_SVGID_1_"
+              id="MOUSE_1_"
               gradientUnits="userSpaceOnUse"
               x1="25.0627"
               y1="43.3063"
@@ -33,7 +33,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             </linearGradient>
             <circle className="st0" cx="25.1" cy="54.6" r="8.1" />
             <linearGradient
-              id="MOUSE_SVGID_2_"
+              id="MOUSE_2_"
               gradientUnits="userSpaceOnUse"
               x1="25.0627"
               y1="37.8306"
@@ -54,7 +54,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           />
           <g>
             <linearGradient
-              id="MOUSE_SVGID_3_"
+              id="MOUSE_3_"
               gradientUnits="userSpaceOnUse"
               x1="-2988.9568"
               y1="33.8133"
@@ -68,7 +68,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             <circle className="st3" cx="19.5" cy="47.9" r="2.5" />
 
             <linearGradient
-              id="MOUSE_SVGID_4_"
+              id="MOUSE_4_"
               gradientUnits="userSpaceOnUse"
               x1="-2988.9568"
               y1="33.8133"
@@ -86,7 +86,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </g>
           <g>
             <linearGradient
-              id="MOUSE_SVGID_5_"
+              id="MOUSE_5_"
               gradientUnits="userSpaceOnUse"
               x1="-3000.2102"
               y1="33.8133"
@@ -100,7 +100,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             <circle className="st5" cx="30.7" cy="47.9" r="2.5" />
 
             <linearGradient
-              id="MOUSE_SVGID_6_"
+              id="MOUSE_6_"
               gradientUnits="userSpaceOnUse"
               x1="-3000.2102"
               y1="33.8133"
@@ -117,7 +117,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="MOUSE_SVGID_7_"
+            id="MOUSE_7_"
             gradientUnits="userSpaceOnUse"
             x1="24.5169"
             y1="57.3744"
@@ -128,7 +128,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             <stop offset="0.6856" style={{ stopColor: "#239AC3" }} />
           </linearGradient>
           <linearGradient
-            id="MOUSE_SVGID_8_"
+            id="MOUSE_8_"
             gradientUnits="userSpaceOnUse"
             x1="25.1542"
             y1="40.0633"
@@ -140,7 +140,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="st8" cx="25.2" cy="33.6" r="4.7" />
           <linearGradient
-            id="MOUSE_SVGID_9_"
+            id="MOUSE_9_"
             gradientUnits="userSpaceOnUse"
             x1="25.1078"
             y1="34.799"
@@ -152,7 +152,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="st9" cx="25.1" cy="24.3" r="11.1" />
           <linearGradient
-            id="MOUSE_SVGID_10_"
+            id="MOUSE_10_"
             gradientUnits="userSpaceOnUse"
             x1="17.1817"
             y1="34.799"
@@ -164,7 +164,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="st10" cx="17.2" cy="14.5" r="7.9" />
           <linearGradient
-            id="MOUSE_SVGID_11_"
+            id="MOUSE_11_"
             gradientUnits="userSpaceOnUse"
             x1="33.034"
             y1="34.799"
@@ -176,7 +176,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="st11" cx="33" cy="14.5" r="7.9" />
           <linearGradient
-            id="MOUSE_SVGID_12_"
+            id="MOUSE_12_"
             gradientUnits="userSpaceOnUse"
             x1="33.034"
             y1="9.6883"
@@ -188,7 +188,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="st12" cx="33" cy="14.9" r="5.5" />
           <linearGradient
-            id="MOUSE_SVGID_13_"
+            id="MOUSE_13_"
             gradientUnits="userSpaceOnUse"
             x1="17.1817"
             y1="9.6883"
@@ -205,7 +205,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           />
 
           <linearGradient
-            id="MOUSE_SVGID_14_"
+            id="MOUSE_14_"
             gradientUnits="userSpaceOnUse"
             x1="460.3039"
             y1="-1716.9697"
@@ -229,7 +229,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
             d="M31.3,22.5c-1.5,1-2,3-1,4.5c1,1.5,3,2,4.5,1c1.5-1,2-3,1-4.5C34.8,22,32.8,21.6,31.3,22.5z"
           />
           <linearGradient
-            id="MOUSE_SVGID_15_"
+            id="MOUSE_15_"
             gradientUnits="userSpaceOnUse"
             x1="25.1542"
             y1="34.7785"
@@ -246,7 +246,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           />
 
           <linearGradient
-            id="MOUSE_SVGID_16_"
+            id="MOUSE_16_"
             gradientUnits="userSpaceOnUse"
             x1="472.5893"
             y1="-1726.8405"
@@ -294,60 +294,60 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
         #mouse {
         }
         #mouse .st0 {
-          fill: url(#MOUSE_SVGID_1_);
+          fill: url(#MOUSE_1_);
         }
         #mouse .st1 {
-          fill: url(#MOUSE_SVGID_2_);
+          fill: url(#MOUSE_2_);
         }
         #mouse .st2 {
           fill: #ffffff;
         }
         #mouse .st3 {
-          fill: url(#MOUSE_SVGID_3_);
+          fill: url(#MOUSE_3_);
         }
         #mouse .st4 {
-          fill: url(#MOUSE_SVGID_4_);
+          fill: url(#MOUSE_4_);
         }
         #mouse .st5 {
-          fill: url(#MOUSE_SVGID_5_);
+          fill: url(#MOUSE_5_);
         }
         #mouse .st6 {
-          fill: url(#MOUSE_SVGID_6_);
+          fill: url(#MOUSE_6_);
         }
         #mouse .st7 {
-          fill: url(#MOUSE_SVGID_7_);
+          fill: url(#MOUSE_7_);
         }
         #mouse .st8 {
-          fill: url(#MOUSE_SVGID_8_);
+          fill: url(#MOUSE_8_);
         }
         #mouse .st9 {
-          fill: url(#MOUSE_SVGID_9_);
+          fill: url(#MOUSE_9_);
         }
         #mouse .st10 {
-          fill: url(#MOUSE_SVGID_10_);
+          fill: url(#MOUSE_10_);
         }
         #mouse .st11 {
-          fill: url(#MOUSE_SVGID_11_);
+          fill: url(#MOUSE_11_);
         }
         #mouse .st12 {
-          fill: url(#MOUSE_SVGID_12_);
+          fill: url(#MOUSE_12_);
         }
         #mouse .st13 {
-          fill: url(#MOUSE_SVGID_13_);
+          fill: url(#MOUSE_13_);
         }
         #mouse .st14 {
           fill: #231f20;
         }
         #mouse .st15 {
           opacity: 0.6;
-          fill: url(#MOUSE_SVGID_14_);
+          fill: url(#MOUSE_14_);
         }
         #mouse .st16 {
-          fill: url(#MOUSE_SVGID_15_);
+          fill: url(#MOUSE_15_);
         }
         #mouse .st17 {
           opacity: 0.6;
-          fill: url(#MOUSE_SVGID_16_);
+          fill: url(#MOUSE_16_);
         }
         #mouse .st18 {
           fill: none;

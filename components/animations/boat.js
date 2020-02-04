@@ -25,7 +25,7 @@ const Boat = ({ width, height, left, top }) => {
               d="M21.3,10.8c0,0,7.2,22.9-2.6,49.8c0,0,12-9.8,24.6-5.9C43.3,54.7,48,25.8,21.3,10.8z"
             />
             <linearGradient
-              id="BOAT_SVGID_1_"
+              id="BOAT_1_"
               gradientUnits="userSpaceOnUse"
               x1="14.7283"
               y1="16.5462"
@@ -50,7 +50,7 @@ const Boat = ({ width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="BOAT_SVGID_2_"
+            id="BOAT_2_"
             gradientUnits="userSpaceOnUse"
             x1="25.1458"
             y1="56.9238"
@@ -77,13 +77,13 @@ const Boat = ({ width, height, left, top }) => {
           fill: #ffffff;
         }
         .boat1 {
-          fill: url(#BOAT_SVGID_1_);
+          fill: url(#BOAT_1_);
         }
         .boat2 {
           fill: #423091;
         }
         .boat3 {
-          fill: url(#BOAT_SVGID_2_);
+          fill: url(#BOAT_2_);
         }
 
         @keyframes bob {

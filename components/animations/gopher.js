@@ -22,7 +22,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
           <g>
             <g>
               <linearGradient
-                id="GOPHER_SVGID_1_"
+                id="GOPHER_1_"
                 gradientUnits="userSpaceOnUse"
                 x1="21.5968"
                 y1="36.8629"
@@ -34,7 +34,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
               </linearGradient>
               <circle className="st0" cx="21.6" cy="45.9" r="6.5" />
               <linearGradient
-                id="GOPHER_SVGID_2_"
+                id="GOPHER_2_"
                 gradientUnits="userSpaceOnUse"
                 x1="21.5968"
                 y1="32.4632"
@@ -55,7 +55,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             />
             <g>
               <linearGradient
-                id="GOPHER_SVGID_3_"
+                id="GOPHER_3_"
                 gradientUnits="userSpaceOnUse"
                 x1="-2970.5876"
                 y1="37.7894"
@@ -69,7 +69,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
               <circle className="st3" cx="17.1" cy="40.6" r="2" />
 
               <linearGradient
-                id="GOPHER_SVGID_4_"
+                id="GOPHER_4_"
                 gradientUnits="userSpaceOnUse"
                 x1="-2970.5876"
                 y1="29.5471"
@@ -87,7 +87,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             </g>
             <g>
               <linearGradient
-                id="GOPHER_SVGID_5_"
+                id="GOPHER_5_"
                 gradientUnits="userSpaceOnUse"
                 x1="-2979.6296"
                 y1="37.7894"
@@ -101,7 +101,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
               <circle className="st5" cx="26.2" cy="40.6" r="2" />
 
               <linearGradient
-                id="GOPHER_SVGID_6_"
+                id="GOPHER_6_"
                 gradientUnits="userSpaceOnUse"
                 x1="-2979.6296"
                 y1="29.5471"
@@ -118,7 +118,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
               />
             </g>
             <linearGradient
-              id="GOPHER_SVGID_7_"
+              id="GOPHER_7_"
               gradientUnits="userSpaceOnUse"
               x1="21.6942"
               y1="5.3046"
@@ -149,7 +149,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             />
 
             <linearGradient
-              id="GOPHER_SVGID_8_"
+              id="GOPHER_8_"
               gradientUnits="userSpaceOnUse"
               x1="459.9062"
               y1="-1721.1459"
@@ -175,7 +175,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             />
 
             <linearGradient
-              id="GOPHER_SVGID_9_"
+              id="GOPHER_9_"
               gradientUnits="userSpaceOnUse"
               x1="467.5329"
               y1="-1727.2736"
@@ -197,7 +197,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             <ellipse className="st2" cx="21.6" cy="22.5" rx="9.4" ry="5.2" />
             <g>
               <linearGradient
-                id="GOPHER_SVGID_10_"
+                id="GOPHER_10_"
                 gradientUnits="userSpaceOnUse"
                 x1="16.5486"
                 y1="18.292"
@@ -218,7 +218,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
               d="M21.6,22.6c0,0,0.3,2.3,2.4,3.4c0,0-2.1,1.5-4.8,0C19.2,26,21.2,25.2,21.6,22.6z"
             />
             <linearGradient
-              id="GOPHER_SVGID_11_"
+              id="GOPHER_11_"
               gradientUnits="userSpaceOnUse"
               x1="29.6077"
               y1="10.4695"
@@ -234,7 +234,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             />
 
             <linearGradient
-              id="GOPHER_SVGID_12_"
+              id="GOPHER_12_"
               gradientUnits="userSpaceOnUse"
               x1="-2721.8005"
               y1="10.4695"
@@ -251,7 +251,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
             />
           </g>
           <linearGradient
-            id="GOPHER_SVGID_13_"
+            id="GOPHER_13_"
             gradientUnits="userSpaceOnUse"
             x1="21.5149"
             y1="46.8351"
@@ -276,51 +276,51 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
       />
       <style jsx>{`
         #gopher .st0 {
-          fill: url(#GOPHER_SVGID_1_);
+          fill: url(#GOPHER_1_);
         }
         #gopher .st1 {
-          fill: url(#GOPHER_SVGID_2_);
+          fill: url(#GOPHER_2_);
         }
         #gopher .st2 {
           fill: #ffffff;
         }
         #gopher .st3 {
-          fill: url(#GOPHER_SVGID_3_);
+          fill: url(#GOPHER_3_);
         }
         #gopher .st4 {
-          fill: url(#GOPHER_SVGID_4_);
+          fill: url(#GOPHER_4_);
         }
         #gopher .st5 {
-          fill: url(#GOPHER_SVGID_5_);
+          fill: url(#GOPHER_5_);
         }
         #gopher .st6 {
-          fill: url(#GOPHER_SVGID_6_);
+          fill: url(#GOPHER_6_);
         }
         #gopher .st7 {
-          fill: url(#GOPHER_SVGID_7_);
+          fill: url(#GOPHER_7_);
         }
         #gopher .st8 {
           fill: #231f20;
         }
         #gopher .st9 {
           opacity: 0.6;
-          fill: url(#GOPHER_SVGID_8_);
+          fill: url(#GOPHER_8_);
         }
         #gopher .st10 {
           opacity: 0.6;
-          fill: url(#GOPHER_SVGID_9_);
+          fill: url(#GOPHER_9_);
         }
         #gopher .st11 {
-          fill: url(#GOPHER_SVGID_10_);
+          fill: url(#GOPHER_10_);
         }
         #gopher .st12 {
-          fill: url(#GOPHER_SVGID_11_);
+          fill: url(#GOPHER_11_);
         }
         #gopher .st13 {
-          fill: url(#GOPHER_SVGID_12_);
+          fill: url(#GOPHER_12_);
         }
         #gopher .st14 {
-          fill: url(#GOPHER_SVGID_13_);
+          fill: url(#GOPHER_13_);
         }
 
         @media (min-width: 761px) {

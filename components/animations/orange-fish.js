@@ -1,5 +1,4 @@
 import React from "react";
-import "./orange-fish.css";
 
 const OrangeFish = ({ width, height, left, top }) => {
   return (
@@ -60,7 +59,7 @@ const OrangeFish = ({ width, height, left, top }) => {
             />
 
             <linearGradient
-              id="ORANGE_FISH_SVGID_1_"
+              id="ORANGE_FISH_1_"
               gradientUnits="userSpaceOnUse"
               x1="-2695.1511"
               y1="823.7159"
@@ -92,6 +91,52 @@ const OrangeFish = ({ width, height, left, top }) => {
           background: "#36618E"
         }}
       />
+      <style jsx>{`
+        .orangeFish0 {
+          fill: #f05a28;
+        }
+        .orangeFish1 {
+          fill: #ffffff;
+        }
+        .orangeFish2 {
+          fill: #231f20;
+        }
+        .orangeFish3 {
+          opacity: 0.6;
+          fill: url(#ORANGE_FISH_1_);
+        }
+
+        @media (min-width: 761px) {
+          #orangeFish {
+            animation: spinOrangeFish 4.3s ease-in-out infinite;
+          }
+        }
+
+        @keyframes spinOrangeFish {
+          0% {
+            opacity: 1;
+            transform: rotate(0deg) translateY(-30px);
+          }
+          25% {
+            opacity: 1;
+          }
+          30% {
+            opacity: 0;
+            transform: rotate(180deg) translateY(-11px);
+          }
+          50% {
+            opacity: 0;
+            transform: rotate(250deg) translateY(0px);
+          }
+          65% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 1;
+            transform: rotate(360deg) translateY(-30px);
+          }
+        }
+      `}</style>
     </>
   );
 };

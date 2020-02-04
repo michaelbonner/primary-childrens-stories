@@ -20,7 +20,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
       >
         <g>
           <linearGradient
-            id="CROCSVGID_1_"
+            id="CROC_1_"
             gradientUnits="userSpaceOnUse"
             x1="14.7713"
             y1="10.8125"
@@ -35,7 +35,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
             d="M23,19.6c0-4.9-3.9-8.8-8.8-8.8s-8.8,3.9-8.8,8.8s3.9,8.8,8.8,8.8h4.8"
           />
           <linearGradient
-            id="CROCSVGID_2_"
+            id="CROC_2_"
             gradientUnits="userSpaceOnUse"
             x1="33.6431"
             y1="16.7287"
@@ -47,7 +47,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="croc1" cx="42.6" cy="16.7" r="9" />
           <linearGradient
-            id="CROCSVGID_3_"
+            id="CROC_3_"
             gradientUnits="userSpaceOnUse"
             x1="71.8563"
             y1="30.802"
@@ -59,7 +59,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="croc2" cx="63" cy="30.8" r="13" />
           <linearGradient
-            id="CROCSVGID_4_"
+            id="CROC_4_"
             gradientUnits="userSpaceOnUse"
             x1="10.8891"
             y1="19.5801"
@@ -71,7 +71,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
           </linearGradient>
           <circle className="croc3" cx="17.4" cy="19.6" r="8.8" />
           <linearGradient
-            id="CROCSVGID_5_"
+            id="CROC_5_"
             gradientUnits="userSpaceOnUse"
             x1="15.8008"
             y1="33.0937"
@@ -86,7 +86,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
             d="M65.9,28.4H15.8c0,5.2,4.2,9.5,9.5,9.5h40.6"
           />
           <linearGradient
-            id="CROCSVGID_6_"
+            id="CROC_6_"
             gradientUnits="userSpaceOnUse"
             x1="4.8296"
             y1="23.6357"
@@ -101,7 +101,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
             d="M59.6,28.4H9.5c0-5.2,4.2-9.5,9.5-9.5h40.6"
           />
           <linearGradient
-            id="CROCSVGID_7_"
+            id="CROC_7_"
             gradientUnits="userSpaceOnUse"
             x1="43.805"
             y1="16.5572"
@@ -120,7 +120,7 @@ const Croc = ({ animationLength, width, height, left, top }) => {
             />
 
             <linearGradient
-              id="CROCSVGID_8_"
+              id="CROC_8_"
               gradientUnits="userSpaceOnUse"
               x1="-2677.5798"
               y1="814.5756"
@@ -209,32 +209,32 @@ const Croc = ({ animationLength, width, height, left, top }) => {
           }
         }
         .croc0 {
-          fill: url(#CROCSVGID_1_);
+          fill: url(#CROC_1_);
         }
         .croc1 {
-          fill: url(#CROCSVGID_2_);
+          fill: url(#CROC_2_);
         }
         .croc2 {
-          fill: url(#CROCSVGID_3_);
+          fill: url(#CROC_3_);
         }
         .croc3 {
-          fill: url(#CROCSVGID_4_);
+          fill: url(#CROC_4_);
         }
         .croc4 {
-          fill: url(#CROCSVGID_5_);
+          fill: url(#CROC_5_);
         }
         .croc5 {
-          fill: url(#CROCSVGID_6_);
+          fill: url(#CROC_6_);
         }
         .croc6 {
-          fill: url(#CROCSVGID_7_);
+          fill: url(#CROC_7_);
         }
         .croc7 {
           fill: #231f20;
         }
         .croc8 {
           opacity: 0.6;
-          fill: url(#CROCSVGID_8_);
+          fill: url(#CROC_8_);
         }
         .croc9 {
           fill: #f1f1f2;
