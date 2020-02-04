@@ -3,6 +3,7 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
+import LinkIcon from "./link-icon";
 
 const StoryOverlay = ({
   activeCategory,
@@ -168,7 +169,7 @@ const StoryOverlay = ({
               <>
                 <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
                   <button
-                    className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none"
+                    className="inline-block py-3 md:py-6 px-2 md:px-4 bg-gray-200 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-50 focus:outline-none"
                     onClick={() => {
                       setShareOpen(!shareOpen);
                     }}
@@ -178,7 +179,7 @@ const StoryOverlay = ({
                   <FacebookShareButton
                     className={`${
                       shareOpen ? "flex" : "hidden"
-                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-40 focus:outline-none`}
                     url={url}
                     resetButtonStyle={false}
                   >
@@ -187,12 +188,20 @@ const StoryOverlay = ({
                   <TwitterShareButton
                     className={`${
                       shareOpen ? "flex" : "hidden"
-                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none`}
                     url={url}
                     resetButtonStyle={false}
                   >
                     <Twitter className="w-8 fill-current" />
                   </TwitterShareButton>
+                  <button
+                    className={`${
+                      shareOpen ? "flex" : "hidden"
+                    } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-500 hover:bg-gray-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    onClick={() => window.open(url)}
+                  >
+                    <LinkIcon className="w-8 fill-current" />
+                  </button>
                 </div>
                 <div className="h-full pt-12 flex flex-col">
                   <div className="story-content overflow-y-scroll flex-1">
