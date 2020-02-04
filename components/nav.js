@@ -47,7 +47,7 @@ const Nav = ({
       <button
         className={`${
           activeTab === link ? "text-blue-800" : "text-blue-600"
-        } w-1/3 py-3 px-8 text-base font-light lg:font-bold italic lg:not-italic focus:outline-none h-full js-nav-button`}
+        } w-1/3 py-3 px-8 text-base font-bold focus:outline-none h-full js-nav-button`}
         onClick={() => {
           if (activeTab === link) {
             setActiveTab("");
