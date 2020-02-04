@@ -65,7 +65,7 @@ const Map = ({
 
   useEffect(() => {
     if (size.width < 768) {
-      setMinScale(0.5);
+      setMinScale(0.35);
       setScale(0.5);
       setInitialScale(0.5);
     } else {
