@@ -43,11 +43,8 @@ const ThankYouForSharingOverlay = ({ content, visible, setVisible }) => {
               <>
                 <div className="h-full py-12 flex flex-col">
                   <div className="story-content overflow-y-scroll flex-1">
-                    <div className="text-xl font-bold leading-relaxed mb-6">
-                      Thank you for sharing
-                    </div>
                     <div
-                      className="text-base leading-relaxed mt-4"
+                      className="text-xl font-bold leading-relaxed mb-6"
                       dangerouslySetInnerHTML={{
                         __html: documentToHtmlString(content)
                       }}
