@@ -167,7 +167,7 @@ const Animations = ({ scale, mapImage }) => {
         top={1071 * multiplier.y}
       />
       <Crane
-        width={184 * multiplier.x}
+        width={212 * multiplier.x}
         height={212 * multiplier.y}
         left={1561 * multiplier.x}
         top={1541 * multiplier.y}
