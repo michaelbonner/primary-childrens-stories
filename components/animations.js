@@ -8,7 +8,6 @@ import Crab from "./animations/crab.js";
 import Crane from "./animations/crane.js";
 import Croc from "./animations/croc.js";
 import Deer from "./animations/deer.js";
-import Fish from "./animations/fish.js";
 import FishColorful from "./animations/fish-colorful.js";
 import Frog from "./animations/frog.js";
 import Gopher from "./animations/gopher.js";
@@ -23,6 +22,7 @@ import BirdsCastle from "./animations/birds-castle.js";
 import BirdsHills from "./animations/birds-hills.js";
 import FishSplash from "./animations/fish-splash.js";
 import Whale from "./animations/whale.js";
+import Walrus from "./animations/walrus.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -237,6 +237,12 @@ const Animations = ({ scale, mapImage }) => {
         height={75 * multiplier.y}
         left={70 * multiplier.x}
         top={1672 * multiplier.y}
+      />
+      <Walrus
+        width={240 * multiplier.x}
+        height={240 * multiplier.y}
+        left={1700 * multiplier.x}
+        top={98 * multiplier.y}
       />
       <Whale
         width={240 * multiplier.x}
