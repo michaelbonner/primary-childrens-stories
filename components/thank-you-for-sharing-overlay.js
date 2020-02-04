@@ -6,7 +6,7 @@ const ThankYouForSharingOverlay = ({ content, visible, setVisible }) => {
     <>
       <div
         className={
-          visible ? "fixed z-20 inset-0 bg-gray-600 opacity-50" : "hidden"
+          visible ? "fixed z-20 inset-0 bg-white opacity-50" : "hidden"
         }
         onClick={() => {
           setVisible(false);

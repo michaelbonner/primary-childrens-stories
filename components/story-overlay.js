@@ -138,7 +138,7 @@ const StoryOverlay = ({
     <>
       <div
         className={
-          activeStory ? "fixed z-20 inset-0 bg-gray-600 opacity-50" : "hidden"
+          activeStory ? "fixed z-20 inset-0 bg-white opacity-50" : "hidden"
         }
         onClick={() => {
           setShareOpen(false);
