@@ -39,7 +39,7 @@ const Map = ({
   const [scale, setScale] = useState(1);
   const [minScale, setMinScale] = useState(0.75);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
-  const [pinDimensions, setPinDimensions] = useState([37, 57]);
+  const [pinDimensions, setPinDimensions] = useState([45, 68]);
   const [thankYouForSharingVisible, setThankYouForSharingVisible] = useState(
     false
   );
@@ -99,12 +99,16 @@ const Map = ({
   }, [activeCategory, stories]);
 
   const bgLoaded = () => {
-    setPinDimensions([37 / scale, 57 / scale]);
+    if (size.width < 768) {
+      setPinDimensions([37 / scale, 57 / scale]);
+    } else {
+      setPinDimensions([45 / scale, 68 / scale]);
+    }
     setIsBgLoaded(true);
   };
 
   const trail = useTrail(filteredStories.length, {
-    from: { opacity: 0, transform: "translate3d(0,-50px,0)" },
+    from: { opacity: 0, transform: "translate3d(0,-80px,0)" },
     to: { opacity: 1, transform: "translate3d(0,0px,0)" }
   });
 
@@ -187,7 +191,11 @@ const Map = ({
             onChange={props => {
               if (scale !== props.scale) {
                 setScale(props.scale);
-                setPinDimensions([37 / props.scale, 57 / props.scale]);
+                if (size.width > 767) {
+                  setPinDimensions([45 / props.scale, 68 / props.scale]);
+                } else {
+                  setPinDimensions([37 / props.scale, 57 / props.scale]);
+                }
               }
               if (translation !== props.translation) {
                 setTranslation(props.translation);
