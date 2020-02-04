@@ -134,6 +134,7 @@ const StoryOverlay = ({
           activeStory ? "fixed z-20 inset-0 bg-gray-600 opacity-50" : "hidden"
         }
         onClick={() => {
+          setShareOpen(false);
           setActiveStory(null);
         }}
       />
@@ -145,6 +146,7 @@ const StoryOverlay = ({
         <div
           className="flex h-screen md:pb-32 pb-12 px-3"
           onClick={e => {
+            setShareOpen(false);
             setActiveStory(null);
           }}
         >
@@ -197,10 +199,10 @@ const StoryOverlay = ({
                   <button
                     className={`${
                       shareOpen ? "flex" : "hidden"
-                    } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-500 hover:bg-gray-600 text-white text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+                    } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-400 hover:bg-gray-500 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                     onClick={() => window.open(url)}
                   >
-                    <LinkIcon className="w-8 fill-current" />
+                    <LinkIcon className="w-8 p-1 fill-current" />
                   </button>
                 </div>
                 <div className="h-full pt-12 flex flex-col">
