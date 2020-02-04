@@ -32,7 +32,7 @@ const Pin = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Primary Children's Hospital Stories"
+          content="You're invited to submit your child’s story or your own story as a previous patient at Primary Children's Hospital to continue to inspire others."
         />
         <meta
           property="og:description"
