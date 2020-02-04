@@ -35,14 +35,19 @@ const Nav = ({
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
 
-  useOnClickOutside(ref, () => setActiveTab(""));
+  useOnClickOutside(ref, e => {
+    if (e.target.className.includes("js-nav-button")) {
+      return;
+    }
+    setActiveTab("");
+  });
 
   const NavButton = ({ link, text }) => {
     return (
       <button
         className={`${
           activeTab === link ? "text-blue-800" : "text-blue-600"
-        } w-1/3 py-3 px-8 text-base font-light lg:font-bold italic lg:not-italic focus:outline-none h-full`}
+        } w-1/3 py-3 px-8 text-base font-light lg:font-bold italic lg:not-italic focus:outline-none h-full js-nav-button`}
         onClick={() => {
           if (activeTab === link) {
             setActiveTab("");
@@ -51,7 +56,7 @@ const Nav = ({
           }
         }}
       >
-        <span className="inline-block mt-1">{text}</span>
+        <span className="inline-block mt-1 js-nav-button">{text}</span>
       </button>
     );
   };
