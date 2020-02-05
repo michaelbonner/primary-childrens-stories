@@ -54,12 +54,12 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         }}
       >
         <div
-          className="relative z-30 story-content max-w-3xl mx-auto my-4 bg-white px-4 lg:px-16 py-10 rounded-lg"
+          className="relative z-30 story-content max-w-3xl my-4 bg-white px-4 mx-4 lg:mx-auto lg:px-16 py-10 rounded-lg"
           onClick={e => {
             e.stopPropagation();
           }}
         >
-          <div className="absolute left:0 lg:right-0 top-0 -ml-6 lg:ml-0 mt-2 lg:mt-1 lg:-mr-12">
+          <div className="absolute left:0 lg:right-0 top-0 -ml-2 lg:ml-0 mt-2 lg:mt-1 lg:-mr-12">
             <button
               className="lg:-mr-32 bg-white px-6 py-4 shadow-lg rounded-lg font-bold text-gray-600"
               onClick={() => {

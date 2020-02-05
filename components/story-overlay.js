@@ -151,7 +151,7 @@ const StoryOverlay = ({
         }
       >
         <div
-          className="flex h-screen md:pb-32 pb-12 px-3"
+          className="flex h-full md:pb-32 px-3"
           onClick={e => {
             setShareOpen(false);
             setActiveStory(null);

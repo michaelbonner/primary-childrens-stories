@@ -51,7 +51,7 @@ img {
 
 .story-content ul,
 .story-content ol {
-  @apply ml-2;
+  @apply ml-4;
 }
 
 .story-content ol {
