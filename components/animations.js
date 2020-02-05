@@ -8,7 +8,6 @@ import Crab from "./animations/crab.js";
 import Crane from "./animations/crane.js";
 import Croc from "./animations/croc.js";
 import Deer from "./animations/deer.js";
-import FishColorful from "./animations/fish-colorful.js";
 import Frog from "./animations/frog.js";
 import Gopher from "./animations/gopher.js";
 import MountainsBirds from "./animations/mountains-birds.js";
@@ -44,12 +43,6 @@ const Animations = ({ scale, mapImage }) => {
   return (
     <>
       {/* CSS animations */}
-      <FishColorful
-        width={60 * multiplier.x}
-        height={70 * multiplier.y}
-        left={320 * multiplier.x}
-        top={785 * multiplier.y}
-      />
       <Boat
         width={70 * multiplier.x}
         height={120 * multiplier.y}
