@@ -1,5 +1,11 @@
 {
-  "cSpell.words": ["childrens", "croc", "intermountain", "svgid"],
+  "cSpell.words": [
+    "childrens",
+    "croc",
+    "intermountain",
+    "nodownload",
+    "svgid"
+  ],
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#badaff",
     "titleBar.inactiveForeground": "#badaffcc",

@@ -7,7 +7,6 @@ import Animations from "./animations";
 import StoryPin from "./story-pin";
 import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
-import { useCookies } from "react-cookie";
 import { toDate, addYears } from "date-fns";
 import ThankYouForSharingOverlay from "./thank-you-for-sharing-overlay";
 
@@ -30,7 +29,6 @@ const Map = ({
     y: 735
   };
 
-  const [cookies, setCookie] = useCookies(["name"]);
   const [hideOverlay, setHideOverlay] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
@@ -51,10 +49,6 @@ const Map = ({
     x: size.width / bgImageDimensions.width,
     y: size.height / bgImageDimensions.height
   });
-
-  useEffect(() => {
-    setHideOverlay(cookies.hideOverlay);
-  }, [cookies]);
 
   useEffect(() => {
     setMultiplier({
@@ -131,10 +125,6 @@ const Map = ({
   const dismissOverlay = () => {
     const expires = toDate(addYears(new Date(), 1));
     setHideOverlay(true);
-    setCookie("hideOverlay", true, {
-      path: "/",
-      expires
-    });
   };
 
   return (

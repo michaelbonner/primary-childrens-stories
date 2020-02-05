@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
-import { CookiesProvider } from "react-cookie";
 
 import "../styles/index.css";
 
@@ -30,9 +29,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <CookiesProvider>
-        <Component {...pageProps} />
-      </CookiesProvider>
+      <Component {...pageProps} />
     </>
   );
 }
