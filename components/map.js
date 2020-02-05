@@ -29,7 +29,7 @@ const Map = ({
     y: 735
   };
 
-  const [hideOverlay, setHideOverlay] = useState(false);
+  const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
@@ -123,13 +123,12 @@ const Map = ({
   };
 
   const dismissOverlay = () => {
-    const expires = toDate(addYears(new Date(), 1));
-    setHideOverlay(true);
+    setHideWelcomeOverlay(true);
   };
 
   return (
     <div>
-      {!hideOverlay && (
+      {!hideWelcomeOverlay && (
         <>
           <div
             className="fixed opacity-50 bg-white inset-0 z-50"
