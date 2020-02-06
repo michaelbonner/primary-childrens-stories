@@ -18,7 +18,7 @@ const Home = ({
         <title>Primary Children's Hospital Patient Stories</title>
         <meta
           property="og:title"
-          content="You're invited to submit your child’s story or your own story as a previous patient at Primary Children's Hospital to continue to inspire others."
+          content="Share your child’s story or your own childhood story as a message of hope for others."
         />
         <meta
           property="og:url"
