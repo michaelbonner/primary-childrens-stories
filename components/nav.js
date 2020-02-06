@@ -128,7 +128,7 @@ const Nav = ({
           >
             <div className="inline-block lg:hidden self-start">
               <button
-                className="bg-gray-200 inline-block pt-6 pb-4 px-3 w-16 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-thin italic"
+                className="bg-gray-200 inline-block pt-6 pb-4 px-3 w-16 text-gray-600 text-sm rounded-b-lg shadow-md z-30 focus:outline-none font-bold"
                 onClick={() => {
                   setShareOpen(!shareOpen);
                 }}
