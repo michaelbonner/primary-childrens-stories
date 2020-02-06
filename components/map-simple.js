@@ -6,7 +6,7 @@ const MapSimple = ({ children }) => {
       <div className="fixed z-10 w-full">{children}</div>
       <img
         alt="map background"
-        src="/images/pch-background.svg"
+        src="/images/pch-background-w-animations.svg"
         style={{ maxWidth: "none", width: "3200px", height: "2400px" }}
       />
     </div>
