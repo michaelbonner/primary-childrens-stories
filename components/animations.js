@@ -22,6 +22,7 @@ import BirdsHills from "./animations/birds-hills.js";
 import FishSplash from "./animations/fish-splash.js";
 import Whale from "./animations/whale.js";
 import Walrus from "./animations/walrus.js";
+import Elephant from "./animations/elephant.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -170,6 +171,12 @@ const Animations = ({ scale, mapImage }) => {
         height={170 * multiplier.y}
         left={1800 * multiplier.x}
         top={740 * multiplier.y}
+      />
+      <Elephant
+        width={200 * multiplier.x}
+        height={200 * multiplier.y}
+        left={2770 * multiplier.x}
+        top={1620 * multiplier.y}
       />
       <FishSplash
         width={250 * multiplier.x}
