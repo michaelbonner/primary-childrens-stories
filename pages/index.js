@@ -15,7 +15,7 @@ const Home = ({
   return (
     <div>
       <Head>
-        <title>Primary Children's Hospital Patient Stories</title>
+        <title>Primary Children's Hospital</title>
         <meta
           property="og:title"
           content="Share your child’s story or your own childhood story as a message of hope for others."
