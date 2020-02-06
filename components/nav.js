@@ -253,6 +253,7 @@ const Nav = ({
           />
           <a
             href="https://intermountainhealthcare.org/"
+            target="_blank"
             className="inline-block mt-6 bg-blue-400 text-blue-100 mt-2 py-3 px-12 rounded"
           >
             Submit
