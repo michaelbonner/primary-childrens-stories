@@ -11,12 +11,12 @@ const Walrus = ({ width, height, left, top }) => {
     animationData: animationData.default,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
-    }
+    },
+    renderer: "canvas"
   };
   return (
     <div
       className="absolute inline-block z-20"
-      id="walrus"
       style={{
         width: `${width}px`,
         height: `${height}px`,
