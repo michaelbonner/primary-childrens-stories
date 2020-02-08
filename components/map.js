@@ -107,8 +107,8 @@ const Map = ({
     if (size.width < 768) {
       setScale(0.5);
       setTranslation({
-        x: 0 - (intermountainPinLocation.x - size.width / 2) * 0.5,
-        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5
+        x: 0 - (intermountainPinLocation.x - size.width) * 0.5,
+        y: 0 - (intermountainPinLocation.y - size.height) * 0.5
       });
     } else {
       setScale(1);
