@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import Facebook from "../components/facebook";
-import Twitter from "../components/twitter";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { toast } from "react-toastify";
+import Facebook from "../components/facebook";
+import Twitter from "../components/twitter";
+import useWindowSize from "../shared/hooks/useWindowSize";
 import YoutubeEmbed from "./youtube-embed";
 import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
-
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 
 const colorMap = {
   all: "#14113d",
@@ -37,6 +36,7 @@ const Nav = ({
   const [activeTab, setActiveTab] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+  const size = useWindowSize();
 
   const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
 
@@ -216,6 +216,9 @@ const Nav = ({
                 }`}
                 onClick={() => {
                   setActiveCategory("all");
+                  if (size.width < 768) {
+                    setActiveTab(null);
+                  }
                 }}
                 style={{
                   background: activeCategory === "all" ? colorMap.all : "white"
@@ -234,6 +237,9 @@ const Nav = ({
                   }`}
                   onClick={() => {
                     setActiveCategory(category.sys.id);
+                    if (size.width < 768) {
+                      setActiveTab(null);
+                    }
                   }}
                   style={{
                     background:
