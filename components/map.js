@@ -231,6 +231,7 @@ const Map = ({
                 }}
               />
               {isBgLoaded &&
+                hideWelcomeOverlay &&
                 trail.map((props, index) => {
                   let pinColor;
                   if (activeCategory !== "all") {
