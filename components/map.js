@@ -7,9 +7,6 @@ import Animations from "./animations";
 import StoryPin from "./story-pin";
 import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
-import { toDate, addYears } from "date-fns";
-import ThankYouForSharingOverlay from "./thank-you-for-sharing-overlay";
-
 const Map = ({
   aboutTabContent,
   activeCategory,
@@ -38,9 +35,6 @@ const Map = ({
   const [minScale, setMinScale] = useState(0.75);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
-  const [thankYouForSharingVisible, setThankYouForSharingVisible] = useState(
-    false
-  );
 
   const size = useWindowSize();
   const mapImage = useRef(null);
@@ -170,7 +164,7 @@ const Map = ({
             recenterMap={recenterMap}
             setActiveCategory={setActiveCategory}
             submitTabContent={submitTabContent}
-            setThankYouForSharingVisible={setThankYouForSharingVisible}
+            thankYouForSharingContent={thankYouForSharingContent}
           />
         </div>
       </div>
@@ -288,11 +282,7 @@ const Map = ({
         activeStory={activeStory}
         hostname={hostname}
         setActiveStory={setActiveStory}
-      />
-      <ThankYouForSharingOverlay
-        visible={thankYouForSharingVisible}
-        setVisible={setThankYouForSharingVisible}
-        content={thankYouForSharingContent}
+        thankYouForSharingContent={thankYouForSharingContent}
       />
     </div>
   );

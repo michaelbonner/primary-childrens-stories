@@ -4,11 +4,13 @@ import { FacebookShareButton, TwitterShareButton } from "react-share";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 import LinkIcon from "./link-icon";
+import { toast } from "react-toastify";
 
 const StoryOverlay = ({
   activeCategory,
   activeStory,
   setActiveStory,
+  thankYouForSharingContent,
   hostname
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
@@ -17,6 +19,8 @@ const StoryOverlay = ({
   const [body, setBody] = useState("");
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
+
+  const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
 
   useEffect(() => {
     if (
@@ -186,6 +190,11 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-40 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
+                      onClick={() =>
+                        toast.success(thankYouMessage, {
+                          delay: 1000
+                        })
+                      }
                     >
                       <Facebook className="w-8 fill-current" />
                     </FacebookShareButton>
@@ -195,6 +204,11 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
+                      onClick={() =>
+                        toast.success(thankYouMessage, {
+                          delay: 1000
+                        })
+                      }
                     >
                       <Twitter className="w-8 fill-current" />
                     </TwitterShareButton>
@@ -202,7 +216,12 @@ const StoryOverlay = ({
                       className={`${
                         shareOpen ? "flex" : "hidden"
                       } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-400 hover:bg-gray-500 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
-                      onClick={() => window.open(url)}
+                      onClick={() => {
+                        toast.success(thankYouMessage, {
+                          delay: 1000
+                        });
+                        window.open(url);
+                      }}
                     >
                       <LinkIcon className="w-8 p-1 fill-current" />
                     </button>

@@ -1,8 +1,21 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
+import { toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/index.css";
+
+toast.configure({
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  newestOnTop: false,
+  closeOnClick: true,
+  pauseOnVisibilityChange: true,
+  draggable: true,
+  pauseOnHover: true
+});
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

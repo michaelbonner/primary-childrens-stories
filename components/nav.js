@@ -1,10 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Facebook from "../components/facebook";
 import Twitter from "../components/twitter";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import YoutubeEmbed from "./youtube-embed";
 import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
+
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const colorMap = {
   all: "#14113d",
@@ -27,13 +30,15 @@ const Nav = ({
   hostname,
   recenterMap,
   setActiveCategory,
-  setThankYouForSharingVisible,
+  thankYouForSharingContent,
   submitTabContent
 }) => {
   const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+
+  const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
 
   useOnClickOutside(ref, e => {
     if (e.target.className.includes("js-nav-button")) {
@@ -96,11 +101,11 @@ const Nav = ({
             `}
             url={`https://${hostname}`}
             resetButtonStyle={false}
-            onClick={() => {
-              setTimeout(() => {
-                setThankYouForSharingVisible(true);
-              }, 2000);
-            }}
+            onClick={() =>
+              toast.success(thankYouMessage, {
+                delay: 1000
+              })
+            }
           >
             <Facebook className="w-8 fill-current" />
           </FacebookShareButton>
@@ -110,11 +115,11 @@ const Nav = ({
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
             url={`https://${hostname}`}
             resetButtonStyle={false}
-            onClick={() => {
-              setTimeout(() => {
-                setThankYouForSharingVisible(true);
-              }, 2000);
-            }}
+            onClick={() =>
+              toast.success(thankYouMessage, {
+                delay: 1000
+              })
+            }
           >
             <Twitter className="w-8 fill-current" />
           </TwitterShareButton>
