@@ -7,9 +7,11 @@ const Home = ({
   aboutTabContent,
   categories,
   hostname,
+  mainStoryContent,
   stories,
   submitTabContent,
-  thankYouForSharingContent
+  thankYouForSharingContent,
+  welcomeOverlayContent
 }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   return (
@@ -27,14 +29,16 @@ const Home = ({
       </Head>
 
       <Map
+        aboutTabContent={aboutTabContent}
         activeCategory={activeCategory}
+        categories={categories}
+        hostname={hostname}
+        mainStoryContent={mainStoryContent}
         setActiveCategory={setActiveCategory}
         stories={stories}
-        categories={categories}
-        aboutTabContent={aboutTabContent}
         submitTabContent={submitTabContent}
-        hostname={hostname}
         thankYouForSharingContent={thankYouForSharingContent}
+        welcomeOverlayContent={welcomeOverlayContent}
       />
     </div>
   );
@@ -58,6 +62,12 @@ Home.getInitialProps = async ({ req }) => {
   );
   const thankYouForSharingContent =
     fetchThankYouForSharingContent.fields.content;
+  const fetchMainStoryContent = await client.getEntry("2iLCrYFx5ohvaGJqmVbxi2");
+  const mainStoryContent = fetchMainStoryContent.fields.content;
+  const fetchWelcomeOverlayContent = await client.getEntry(
+    "yssbnQyObL3b6UrNY1Ga4"
+  );
+  const welcomeOverlayContent = fetchWelcomeOverlayContent.fields.content;
 
   const hostname = req ? req.headers.host : window.location.hostname;
 
@@ -72,9 +82,11 @@ Home.getInitialProps = async ({ req }) => {
       return 0;
     }),
     aboutTabContent,
+    hostname,
+    mainStoryContent,
     submitTabContent,
     thankYouForSharingContent,
-    hostname
+    welcomeOverlayContent
   };
 };
 

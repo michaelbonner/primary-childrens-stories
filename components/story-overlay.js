@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const StoryOverlay = ({
   activeCategory,
   activeStory,
+  mainStoryContent,
   setActiveStory,
   thankYouForSharingContent,
   hostname
@@ -91,14 +92,8 @@ const StoryOverlay = ({
             />
           </a>
         </div>
-        <p>
-          Primary Children’s Hospital is recognized as one of the nation’s best 
-          children’s hospitals. For nearly a century, we’ve helped countless kids 
-          win. Located in Salt Lake City, Utah, we provide more than 60 medical 
-          and surgical pediatric specialties and offer care to more than 1 million 
-          children living in a 400,000 square-mile service area—one of the largest 
-          geographic areas of any children’s hospital.
-        </p>`
+        ${documentToHtmlString(mainStoryContent)}
+        `
       );
       setFooterText(
         `<p>

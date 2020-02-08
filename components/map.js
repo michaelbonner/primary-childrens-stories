@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
 import { useTrail, animated } from "react-spring";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import StoryPin from "./story-pin";
@@ -12,10 +13,12 @@ const Map = ({
   activeCategory,
   categories,
   hostname,
+  mainStoryContent,
   setActiveCategory,
   stories,
   submitTabContent,
-  thankYouForSharingContent
+  thankYouForSharingContent,
+  welcomeOverlayContent
 }) => {
   const bgImageDimensions = {
     width: 3200,
@@ -137,12 +140,12 @@ const Map = ({
                 <button className="p-2 font-bold text-gray-600">X</button>
               </div>
               <WelcomeMap className="mx-auto max-w-full inline-block z-20 w-2/3" />
-              <p className="text-lg max-w-md m-auto -mt-2 lg:-mt-16">
-                Discover newfound hope from the countless victories of children
-                throughout this landscape. Better yet, add your child’s story or
-                your own story as a previous patient, to uplift other families
-                in the community.
-              </p>
+              <div
+                className="text-lg max-w-md m-auto -mt-2 lg:-mt-16"
+                dangerouslySetInnerHTML={{
+                  __html: documentToHtmlString(welcomeOverlayContent)
+                }}
+              />
               <div className="w-full mt-4">
                 <img
                   alt={`Primary Children's Hospital`}
@@ -282,6 +285,7 @@ const Map = ({
         activeStory={activeStory}
         hostname={hostname}
         setActiveStory={setActiveStory}
+        mainStoryContent={mainStoryContent}
         thankYouForSharingContent={thankYouForSharingContent}
       />
     </div>
