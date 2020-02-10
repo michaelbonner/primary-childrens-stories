@@ -137,28 +137,28 @@ const Animations = ({ scale, mapImage }) => {
 
       {/* Lottie animations */}
       <Armadillo
-        width={270 * multiplier.x}
-        height={194.4 * multiplier.y}
-        left={695 * multiplier.x}
+        width={200 * multiplier.x}
+        height={200 * multiplier.y}
+        left={735 * multiplier.x}
         top={1750 * multiplier.y}
       />
       <Bear
-        width={90 * multiplier.x}
-        height={150 * multiplier.y}
+        width={145 * multiplier.x}
+        height={145 * multiplier.y}
         left={1062 * multiplier.x}
         top={595 * multiplier.y}
       />
       <Chameleon
         width={264 * multiplier.x}
-        height={200 * multiplier.y}
+        height={264 * multiplier.y}
         left={2250 * multiplier.x}
-        top={1924 * multiplier.y}
+        top={1890 * multiplier.y}
       />
       <Crab
         width={140 * multiplier.x}
-        height={100 * multiplier.y}
+        height={140 * multiplier.y}
         left={306 * multiplier.x}
-        top={1071 * multiplier.y}
+        top={1051 * multiplier.y}
       />
       <Crane
         width={212 * multiplier.x}
@@ -209,34 +209,34 @@ const Animations = ({ scale, mapImage }) => {
         top={150 * multiplier.y}
       />
       <Frog
-        width={286.1794 * multiplier.x}
-        height={263.2227 * multiplier.y}
+        width={286 * multiplier.x}
+        height={286 * multiplier.y}
         left={1765 * multiplier.x}
-        top={1330 * multiplier.y}
+        top={1315 * multiplier.y}
       />
       <Frog
         width={242 * multiplier.x}
-        height={222 * multiplier.y}
+        height={242 * multiplier.y}
         left={1580 * multiplier.x}
-        top={2228 * multiplier.y}
+        top={2218 * multiplier.y}
       />
       <Rams
         width={263 * multiplier.x}
-        height={128 * multiplier.y}
+        height={263 * multiplier.y}
         left={1227 * multiplier.x}
-        top={1305 * multiplier.y}
+        top={1255 * multiplier.y}
       />
       <Squirrel
         width={200 * multiplier.x}
-        height={120 * multiplier.y}
+        height={200 * multiplier.y}
         left={2225 * multiplier.x}
-        top={580 * multiplier.y}
+        top={540 * multiplier.y}
       />
       <Tiger
         width={180 * multiplier.x}
-        height={75 * multiplier.y}
+        height={180 * multiplier.y}
         left={70 * multiplier.x}
-        top={1672 * multiplier.y}
+        top={1602 * multiplier.y}
       />
       <Walrus
         width={500 * multiplier.x}
