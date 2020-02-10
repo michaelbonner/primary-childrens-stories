@@ -227,6 +227,7 @@ const Map = ({
               {isBgLoaded && hideWelcomeOverlay && (
                 <StoryPins
                   activeCategory={activeCategory}
+                  categories={categories}
                   multiplier={multiplier}
                   filteredStories={filteredStories}
                   setActiveStory={setActiveStory}

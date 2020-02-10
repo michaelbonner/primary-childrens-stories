@@ -4,6 +4,7 @@ import StoryPin from "./story-pin";
 
 const StoryPins = ({
   activeCategory,
+  categories,
   multiplier,
   pinDimensions,
   filteredStories,
