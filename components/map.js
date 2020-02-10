@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
-import { useTrail, animated } from "react-spring";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
-import StoryPin from "./story-pin";
+
 import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
+import StoryPins from "./story-pins";
 const Map = ({
   aboutTabContent,
   activeCategory,
@@ -97,11 +97,6 @@ const Map = ({
     }
     setIsBgLoaded(true);
   };
-
-  const trail = useTrail(filteredStories.length, {
-    from: { opacity: 0, transform: "translate3d(0,-80px,0)" },
-    to: { opacity: 1, transform: "translate3d(0,0px,0)" }
-  });
 
   const recenterMap = () => {
     if (size.width < 768) {
@@ -227,44 +222,15 @@ const Map = ({
                   height: bgImageDimensions.height
                 }}
               />
-              {isBgLoaded &&
-                hideWelcomeOverlay &&
-                trail.map((props, index) => {
-                  let pinColor;
-                  if (activeCategory !== "all") {
-                    pinColor = categories.filter(
-                      category => category.sys.id === activeCategory
-                    )[0].fields.color;
-                  } else {
-                    pinColor = filteredStories[index].fields.categories
-                      ? filteredStories[index].fields.categories[0].fields.color
-                      : "red";
-                  }
-                  return (
-                    <animated.div
-                      className="relative z-30"
-                      key={filteredStories[index].sys.id}
-                      style={props}
-                    >
-                      <StoryPin
-                        id={filteredStories[index].sys.id}
-                        left={
-                          multiplier.x *
-                          filteredStories[index].fields.xCoordinate
-                        }
-                        top={
-                          multiplier.y *
-                          filteredStories[index].fields.yCoordinate
-                        }
-                        setActiveStory={setActiveStory}
-                        story={filteredStories[index]}
-                        title={filteredStories[index].fields.title}
-                        pinColor={pinColor}
-                        pinDimensions={pinDimensions}
-                      />
-                    </animated.div>
-                  );
-                })}
+              {isBgLoaded && hideWelcomeOverlay && (
+                <StoryPins
+                  activeCategory={activeCategory}
+                  multiplier={multiplier}
+                  filteredStories={filteredStories}
+                  setActiveStory={setActiveStory}
+                  pinDimensions={pinDimensions}
+                />
+              )}
               {isBgLoaded && (
                 <Animations scale={initialScale} mapImage={mapImage} />
               )}
