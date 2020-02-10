@@ -20,8 +20,24 @@ const StoryOverlay = ({
   const [body, setBody] = useState("");
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
+  const [willShowThankYou, setWillShowThankYou] = useState(false);
 
   const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
+
+  const onFocus = () => {
+    if (willShowThankYou) {
+      toast.success(thankYouMessage, {});
+      setWillShowThankYou(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      window.removeEventListener("focus", onFocus);
+    };
+  });
 
   useEffect(() => {
     if (
@@ -185,11 +201,7 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-40 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
-                      onClick={() =>
-                        toast.success(thankYouMessage, {
-                          delay: 1000
-                        })
-                      }
+                      onClick={() => setWillShowThankYou(true)}
                     >
                       <Facebook className="w-8 fill-current" />
                     </FacebookShareButton>
@@ -199,11 +211,7 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
-                      onClick={() =>
-                        toast.success(thankYouMessage, {
-                          delay: 1000
-                        })
-                      }
+                      onClick={() => setWillShowThankYou(true)}
                     >
                       <Twitter className="w-8 fill-current" />
                     </TwitterShareButton>
@@ -212,9 +220,7 @@ const StoryOverlay = ({
                         shareOpen ? "flex" : "hidden"
                       } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-400 hover:bg-gray-500 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
                       onClick={() => {
-                        toast.success(thankYouMessage, {
-                          delay: 1000
-                        });
+                        setWillShowThankYou(true);
                         window.open(url);
                       }}
                     >

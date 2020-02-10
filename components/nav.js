@@ -38,7 +38,24 @@ const Nav = ({
   const [shareOpen, setShareOpen] = useState(false);
   const size = useWindowSize();
 
+  const [willShowThankYou, setWillShowThankYou] = useState(false);
+
   const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
+
+  const onFocus = () => {
+    if (willShowThankYou) {
+      toast.success(thankYouMessage, {});
+      setWillShowThankYou(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      window.removeEventListener("focus", onFocus);
+    };
+  });
 
   useOnClickOutside(ref, e => {
     if (e.target.className.includes("js-nav-button")) {
@@ -101,11 +118,7 @@ const Nav = ({
             `}
             url={`https://${hostname}`}
             resetButtonStyle={false}
-            onClick={() =>
-              toast.success(thankYouMessage, {
-                delay: 1000
-              })
-            }
+            onClick={() => setWillShowThankYou(true)}
           >
             <Facebook className="w-8 fill-current" />
           </FacebookShareButton>
@@ -115,11 +128,7 @@ const Nav = ({
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
             url={`https://${hostname}`}
             resetButtonStyle={false}
-            onClick={() =>
-              toast.success(thankYouMessage, {
-                delay: 1000
-              })
-            }
+            onClick={() => setWillShowThankYou(true)}
           >
             <Twitter className="w-8 fill-current" />
           </TwitterShareButton>
