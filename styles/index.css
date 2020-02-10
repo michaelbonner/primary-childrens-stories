@@ -23,6 +23,7 @@ img {
   -webkit-user-drag: none;
   user-drag: none;
   -webkit-touch-callout: none;
+  max-width: none;
 }
 
 .story-content {
@@ -68,4 +69,9 @@ img {
 
 .story-content p {
   @apply mt-2;
+}
+
+.story-content img,
+.story-content video {
+  @apply max-w-full h-auto;
 }

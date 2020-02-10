@@ -239,8 +239,8 @@ const Animations = ({ scale, mapImage }) => {
         top={1672 * multiplier.y}
       />
       <Walrus
-        width={240 * multiplier.x}
-        height={240 * multiplier.y}
+        width={500 * multiplier.x}
+        height={500 * multiplier.y}
         left={1700 * multiplier.x}
         top={98 * multiplier.y}
       />
