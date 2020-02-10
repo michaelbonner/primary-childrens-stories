@@ -65,6 +65,8 @@ const Map = ({
         y: 0 - (intermountainPinLocation.y - size.height / 2) * scale
       });
     }
+    // catch times when the bg image loads but doesn't call bgLoaded
+    setTimeout(() => setIsBgLoaded(true), 3000);
   }, []);
 
   useEffect(() => {
@@ -211,12 +213,12 @@ const Map = ({
             >
               <img
                 alt="map background"
-                draggable="false"
                 className="absolute z-0"
-                src="/images/pch-background.svg"
-                ref={mapImage}
+                draggable="false"
                 id={`mapImage`}
                 onLoad={bgLoaded}
+                ref={mapImage}
+                src="/images/pch-background.svg"
                 style={{
                   width: bgImageDimensions.width,
                   height: bgImageDimensions.height
