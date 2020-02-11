@@ -154,20 +154,17 @@ const Map = ({
           </div>
         </>
       )}
-      <div className="fixed z-10 w-full">
-        <div className="relative">
-          <Nav
-            aboutTabContent={aboutTabContent}
-            activeCategory={activeCategory}
-            categories={categories}
-            hostname={hostname}
-            recenterMap={recenterMap}
-            setActiveCategory={setActiveCategory}
-            submitTabContent={submitTabContent}
-            thankYouForSharingContent={thankYouForSharingContent}
-          />
-        </div>
-      </div>
+
+      <Nav
+        aboutTabContent={aboutTabContent}
+        activeCategory={activeCategory}
+        categories={categories}
+        hostname={hostname}
+        recenterMap={recenterMap}
+        setActiveCategory={setActiveCategory}
+        submitTabContent={submitTabContent}
+        thankYouForSharingContent={thankYouForSharingContent}
+      />
       <div className="absolute inset-0 z-0 h-screen w-full">
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
