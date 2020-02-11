@@ -23,6 +23,7 @@ import FishSplash from "./animations/fish-splash.js";
 import Whale from "./animations/whale.js";
 import Walrus from "./animations/walrus.js";
 import Elephant from "./animations/elephant.js";
+import Wolf from "./animations/wolf.js";
 
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
@@ -249,6 +250,18 @@ const Animations = ({ scale, mapImage }) => {
         height={240 * multiplier.y}
         left={2570 * multiplier.x}
         top={970 * multiplier.y}
+      />
+      <Wolf
+        width={330 * multiplier.x}
+        height={330 * multiplier.y}
+        left={530 * multiplier.x}
+        top={1 * multiplier.y}
+      />
+      <Wolf
+        width={330 * multiplier.x}
+        height={330 * multiplier.y}
+        left={2780 * multiplier.x}
+        top={580 * multiplier.y}
       />
     </>
   );
