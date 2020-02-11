@@ -6,31 +6,10 @@ import Facebook from "../../components/facebook";
 import client from "../../shared/contentful";
 import Twitter from "../../components/twitter";
 import contentfulRichText from "../../shared/contentfulRichText";
+import contentfulPrintMedia from "../../shared/contentfulPrintMedia";
 
 const Story = ({ story, title, body, footerText, media, url }) => {
   const [shareOpen, setShareOpen] = useState(false);
-  const printMedia = media => {
-    if (!media) {
-      return;
-    }
-    if (media.type.startsWith("image")) {
-      return <img key={media.url} src={media.url} title={media.title} />;
-    }
-    if (media.type.startsWith("video")) {
-      return (
-        <video
-          width="100%"
-          key={media.url}
-          controls
-          controlsList="nodownload"
-          onContextMenu={e => e.preventDefault()}
-        >
-          <source src={media.url} />
-        </video>
-      );
-    }
-    return media.url;
-  };
 
   return (
     <div>
@@ -101,7 +80,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
             {title}
           </div>
           {media.map(item => {
-            return printMedia(item);
+            return contentfulPrintMedia(item);
           })}
           <div className="mt-4" dangerouslySetInnerHTML={{ __html: body }} />
           <div dangerouslySetInnerHTML={{ __html: footerText }} />
