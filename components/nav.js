@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { toast } from "react-toastify";
 import Facebook from "../components/facebook";
 import Twitter from "../components/twitter";
 import useWindowSize from "../shared/hooks/useWindowSize";
-import YoutubeEmbed from "./youtube-embed";
 import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
+import contentfulRichText from "../shared/contentfulRichText";
 
 const colorMap = {
   all: "#14113d",
@@ -208,11 +207,10 @@ const Nav = ({
           </div>
         </nav>
         <TabContentWrapper tabLink="about">
-          <YoutubeEmbed youtubeId={"Q-lhnGPj_tk"} />
           <div
             className="mt-4 story-content"
             dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(aboutTabContent)
+              __html: contentfulRichText(aboutTabContent)
             }}
           ></div>
         </TabContentWrapper>
@@ -268,7 +266,7 @@ const Nav = ({
         <TabContentWrapper tabLink="submit">
           <div
             dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(submitTabContent)
+              __html: contentfulRichText(submitTabContent)
             }}
           />
           <a

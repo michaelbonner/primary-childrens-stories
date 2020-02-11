@@ -4,7 +4,8 @@
     "croc",
     "intermountain",
     "nodownload",
-    "svgid"
+    "svgid",
+    "toastify"
   ],
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#badaff",
