@@ -47,7 +47,7 @@ img {
 }
 
 .story-content p {
-  @apply mt-2;
+  @apply mt-4;
 }
 
 .story-content ul,
@@ -65,10 +65,6 @@ img {
 
 .story-content a {
   @apply text-blue-400;
-}
-
-.story-content p {
-  @apply mt-2;
 }
 
 .story-content img,

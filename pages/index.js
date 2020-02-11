@@ -55,7 +55,6 @@ Home.getInitialProps = async ({ req }) => {
 
   const fetchAboutTabContent = await client.getEntry("6xDZ66kDnvo24xY91qO7FA");
   const aboutTabContent = fetchAboutTabContent.fields.content;
-  console.log(aboutTabContent);
   const fetchSubmitTabContent = await client.getEntry("1ZTYTOO0n0PIHlo1dUtD0v");
   const submitTabContent = fetchSubmitTabContent.fields.content;
   const fetchThankYouForSharingContent = await client.getEntry(
