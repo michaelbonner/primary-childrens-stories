@@ -274,7 +274,7 @@ const Nav = ({
             }}
           />
           <a
-            href="https://intermountainhealthcare.org/"
+            href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/Hospital-Information/Here-Kids-Win-Stories/"
             target="_blank"
             className="inline-block mt-6 bg-blue-400 text-blue-100 mt-2 py-3 px-12 rounded"
           >
