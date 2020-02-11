@@ -62,7 +62,7 @@ const Map = ({
     } else {
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2) * scale,
-        y: 0 - (intermountainPinLocation.y - size.height / 2) * scale
+        y: 0 - (intermountainPinLocation.y - size.height / 3) * scale
       });
     }
     // catch times when the bg image loads but doesn't call bgLoaded
@@ -111,7 +111,7 @@ const Map = ({
       setScale(1);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
-        y: 0 - (intermountainPinLocation.y - size.height / 2)
+        y: 0 - (intermountainPinLocation.y - size.height / 3)
       });
     }
   };
