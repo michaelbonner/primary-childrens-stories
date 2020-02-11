@@ -66,7 +66,7 @@ const Map = ({
       });
     }
     // catch times when the bg image loads but doesn't call bgLoaded
-    setTimeout(() => setIsBgLoaded(true), 3000);
+    setTimeout(() => setIsBgLoaded(true), 500);
   }, []);
 
   useEffect(() => {
