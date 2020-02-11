@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import { toast } from "react-toastify";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 import LinkIcon from "./link-icon";
-import { toast } from "react-toastify";
+import contentfulRichText from "../shared/contentfulRichText";
 
 const StoryOverlay = ({
   activeCategory,
@@ -68,14 +68,14 @@ const StoryOverlay = ({
         activeStory && activeStory.fields ? activeStory.fields.title : ""
       );
       setBody(
-        documentToHtmlString(
+        contentfulRichText(
           activeStory && activeStory.fields ? activeStory.fields.story : ""
         )
       );
 
       if (activeCategory !== "all") {
         setFooterText(
-          documentToHtmlString(
+          contentfulRichText(
             activeStory.fields.categories.filter(
               category => category.sys.id === activeCategory
             )[0].fields.storyFooterText
@@ -83,7 +83,7 @@ const StoryOverlay = ({
         );
       } else {
         setFooterText(
-          documentToHtmlString(
+          contentfulRichText(
             activeStory && activeStory.fields
               ? activeStory.fields.categories[0].fields.storyFooterText
               : ""
@@ -108,7 +108,7 @@ const StoryOverlay = ({
             />
           </a>
         </div>
-        ${documentToHtmlString(mainStoryContent)}
+        ${contentfulRichText(mainStoryContent)}
         `
       );
       setFooterText(

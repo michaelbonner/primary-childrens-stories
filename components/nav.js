@@ -57,6 +57,10 @@ const Nav = ({
   });
 
   useOnClickOutside(ref, e => {
+    if (typeof e.target.className !== "string") {
+      setActiveTab("");
+      return;
+    }
     if (e.target.className.includes("js-nav-button")) {
       return;
     }

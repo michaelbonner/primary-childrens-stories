@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 
 import Nav from "./nav";
 import WelcomeMap from "./animations/welcome-map";
 import StoryPins from "./story-pins";
+import contentfulRichText from "../shared/contentfulRichText";
 const Map = ({
   aboutTabContent,
   activeCategory,
@@ -140,7 +140,7 @@ const Map = ({
               <div
                 className="text-lg max-w-md m-auto -mt-2 lg:-mt-16"
                 dangerouslySetInnerHTML={{
-                  __html: documentToHtmlString(welcomeOverlayContent)
+                  __html: contentfulRichText(welcomeOverlayContent)
                 }}
               />
               <div className="w-full mt-4">

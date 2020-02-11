@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import React from "react";
+import contentfulRichText from "../shared/contentfulRichText";
 
 const ThankYouForSharingOverlay = ({ content, visible, setVisible }) => {
   return (
@@ -41,7 +41,7 @@ const ThankYouForSharingOverlay = ({ content, visible, setVisible }) => {
                       <div
                         className="text-xl font-bold leading-relaxed mb-6"
                         dangerouslySetInnerHTML={{
-                          __html: documentToHtmlString(content)
+                          __html: contentfulRichText(content)
                         }}
                       />
                     </div>

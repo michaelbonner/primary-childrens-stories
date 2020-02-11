@@ -1,11 +1,11 @@
-import client from "../../shared/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import Head from "next/head";
 import Router from "next/router";
 import { useState } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import Facebook from "../../components/facebook";
+import client from "../../shared/contentful";
 import Twitter from "../../components/twitter";
+import contentfulRichText from "../../shared/contentfulRichText";
 
 const Story = ({ story, title, body, footerText, media, url }) => {
   const [shareOpen, setShareOpen] = useState(false);
@@ -122,11 +122,11 @@ Story.getInitialProps = async function(context) {
   const story = await client.getEntry(entryId);
 
   const title = story && story.fields ? story.fields.title : "";
-  const body = documentToHtmlString(
+  const body = contentfulRichText(
     story && story.fields ? story.fields.story : ""
   );
 
-  const footerText = documentToHtmlString(
+  const footerText = contentfulRichText(
     story && story.fields
       ? story.fields.categories[0].fields.storyFooterText
       : ""
