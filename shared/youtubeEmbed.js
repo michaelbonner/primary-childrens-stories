@@ -9,7 +9,7 @@ const youtubeEmbed = youtubeLink => {
       <YouTube
         videoId={found[2]}
         id={found[2]}
-        className={`w-full my-4`}
+        className={`w-full my-4 bg-blue-900 min-h-full`}
         containerClassName={`w-full`}
         opts={{
           playerVars: {
