@@ -6,7 +6,8 @@
     "intermountain",
     "nodownload",
     "svgid",
-    "toastify"
+    "toastify",
+    "youtu"
   ],
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#badaff",
