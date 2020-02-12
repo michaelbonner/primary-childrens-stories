@@ -16,7 +16,8 @@ const youtubeEmbed = youtubeLink => {
             rel: 0,
             showinfo: 0,
             modestbranding: 1,
-            listType: "user_uploads"
+            listType: "user_uploads",
+            origin: "https://herekidswin.org"
           }
         }}
       />
