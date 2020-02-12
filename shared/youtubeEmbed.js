@@ -16,7 +16,6 @@ const youtubeEmbed = youtubeLink => {
             enablejsapi: 1,
             listType: "user_uploads",
             modestbranding: 1,
-            origin: "https://herekidswin.org",
             rel: 0,
             showinfo: 0
           }
