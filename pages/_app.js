@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image"
-          content="https://primary-childrens-stories.michaelbonner.now.sh/og-image.jpg"
+          content="https://herekidswin.org/og-image.jpg"
         />
         <link
           href="https://fonts.googleapis.com/css?family=Public+Sans:400,400i,500,500i,600,600i,700,700i&display=swap"

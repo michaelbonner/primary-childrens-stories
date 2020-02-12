@@ -22,7 +22,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         />
         <meta
           property="og:url"
-          content={`https://primary-childrens-stories.michaelbonner.now.sh/story/${story.sys.id}`}
+          content={`https://herekidswin.org/story/${story.sys.id}`}
         />
       </Head>
       <div

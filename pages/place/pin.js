@@ -25,10 +25,7 @@ const Pin = () => {
       <Head>
         <title>Primary Children's Hospital Patient Stories</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          property="og:url"
-          content="https://primary-childrens-stories.michaelbonner.now.sh/"
-        />
+        <meta property="og:url" content="https://herekidswin.org/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
@@ -40,7 +37,7 @@ const Pin = () => {
         />
         <meta
           property="og:image"
-          content="https://primary-childrens-stories.michaelbonner.now.sh/og-image.jpg"
+          content="https://herekidswin.org/og-image.jpg"
         />
       </Head>
 

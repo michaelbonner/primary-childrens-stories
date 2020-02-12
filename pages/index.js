@@ -22,10 +22,7 @@ const Home = ({
           property="og:title"
           content="Share your child’s story or your own childhood story as a message of hope for others."
         />
-        <meta
-          property="og:url"
-          content={`https://primary-childrens-stories.michaelbonner.now.sh/`}
-        />
+        <meta property="og:url" content={`https://herekidswin.org/`} />
       </Head>
 
       <Map
