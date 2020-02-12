@@ -1,5 +1,5 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 const options = {
   renderNode: {
@@ -7,7 +7,11 @@ const options = {
       data: {
         target: { fields }
       }
-    }) => `<img src="${fields.file.url}" alt="${fields.title}"/>`
+    }) => `<img src="${fields.file.url}" alt="${fields.title}"/>`,
+    [INLINES.HYPERLINK]: node =>
+      `<a href="${node.data.uri}" target="_blank">
+          ${node.content[0].value}
+        </a>`
   }
 };
 
