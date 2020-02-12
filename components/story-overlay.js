@@ -147,7 +147,7 @@ const StoryOverlay = ({
             }}
           >
             <div
-              className="relative bg-white w-full md:w-2/3 xl:w-1/2 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md"
+              className="relative bg-white w-full md:w-2/3 xl:w-2/5 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md"
               onClick={e => {
                 e.stopPropagation();
               }}
