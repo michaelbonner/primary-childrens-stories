@@ -212,6 +212,7 @@ const StoryOverlay = ({
                         {title}
                       </div>
                       {activeStory &&
+                        activeStory.fields &&
                         activeStory.fields.youTubeLink &&
                         youtubeEmbed(activeStory.fields.youTubeLink)}
                       {media.map(item => {
