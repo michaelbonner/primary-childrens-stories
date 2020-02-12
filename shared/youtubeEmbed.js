@@ -13,11 +13,12 @@ const youtubeEmbed = youtubeLink => {
         containerClassName={`w-full`}
         opts={{
           playerVars: {
-            rel: 0,
-            showinfo: 0,
-            modestbranding: 1,
+            enablejsapi: 1,
             listType: "user_uploads",
-            origin: "https://herekidswin.org"
+            modestbranding: 1,
+            origin: "https://herekidswin.org",
+            rel: 0,
+            showinfo: 0
           }
         }}
       />
