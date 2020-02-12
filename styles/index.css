@@ -69,5 +69,5 @@ img {
 
 .story-content img,
 .story-content video {
-  @apply max-w-full h-auto;
+  @apply w-full h-auto;
 }

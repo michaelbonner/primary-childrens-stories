@@ -26,7 +26,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         />
       </Head>
       <div
-        className="py-12 relative h-screen"
+        className="py-12 relative h-screen overflow-y-scroll"
         style={{
           backgroundImage: "url(/images/pch-background.svg)",
           backgroundAttachment: "fixed",
@@ -34,7 +34,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         }}
       >
         <div
-          className="relative z-30 story-content max-w-3xl my-4 bg-white px-4 mx-4 lg:mx-auto lg:px-16 py-10 rounded-lg"
+          className="relative z-30 story-content max-w-3xl mt-4 mb-12 bg-white px-4 mx-4 lg:mx-auto lg:px-16 py-10 rounded-lg"
           onClick={e => {
             e.stopPropagation();
           }}
