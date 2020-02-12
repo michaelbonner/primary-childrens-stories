@@ -26,7 +26,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         />
       </Head>
       <div
-        className="py-12 relative"
+        className="py-12 relative h-screen"
         style={{
           backgroundImage: "url(/images/pch-background.svg)",
           backgroundAttachment: "fixed",
