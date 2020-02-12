@@ -6,6 +6,7 @@ import Twitter from "./twitter";
 import LinkIcon from "./link-icon";
 import contentfulRichText from "../shared/contentfulRichText";
 import contentfulPrintMedia from "../shared/contentfulPrintMedia";
+import youtubeEmbed from "../shared/youtubeEmbed";
 
 const StoryOverlay = ({
   activeCategory,
@@ -210,6 +211,9 @@ const StoryOverlay = ({
                       <div className="text-xl font-bold leading-relaxed mb-6">
                         {title}
                       </div>
+                      {activeStory &&
+                        activeStory.fields.youTubeLink &&
+                        youtubeEmbed(activeStory.fields.youTubeLink)}
                       {media.map(item => {
                         return contentfulPrintMedia(item);
                       })}

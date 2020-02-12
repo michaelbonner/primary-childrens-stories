@@ -7,6 +7,7 @@ import client from "../../shared/contentful";
 import Twitter from "../../components/twitter";
 import contentfulRichText from "../../shared/contentfulRichText";
 import contentfulPrintMedia from "../../shared/contentfulPrintMedia";
+import youtubeEmbed from "../../shared/youtubeEmbed";
 
 const Story = ({ story, title, body, footerText, media, url }) => {
   const [shareOpen, setShareOpen] = useState(false);
@@ -79,6 +80,9 @@ const Story = ({ story, title, body, footerText, media, url }) => {
           <div className="text-xl font-bold leading-relaxed mb-6 mt-16">
             {title}
           </div>
+          {story &&
+            story.fields.youTubeLink &&
+            youtubeEmbed(story.fields.youTubeLink)}
           {media.map(item => {
             return contentfulPrintMedia(item);
           })}
