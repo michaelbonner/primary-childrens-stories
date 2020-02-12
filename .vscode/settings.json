@@ -10,7 +10,8 @@
     "showinfo",
     "svgid",
     "toastify",
-    "youtu"
+    "youtu",
+    "youtube"
   ],
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#badaff",

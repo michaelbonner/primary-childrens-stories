@@ -140,7 +140,7 @@ const StoryOverlay = ({
         />
         <div className={"fixed z-30 w-full py-8 md:py-16 inset-y-0"}>
           <div
-            className="flex h-full md:pb-32 px-3"
+            className="flex h-full px-3"
             onClick={e => {
               setShareOpen(false);
               setActiveStory(null);
@@ -224,6 +224,11 @@ const StoryOverlay = ({
                           __html: body
                         }}
                       />
+                      {activeStory && activeStory === "main" && (
+                        <div className="pt-2">
+                          {youtubeEmbed("https://youtu.be/25KtzDQIFxA")}
+                        </div>
+                      )}
                     </div>
                     <div className="mt-6">
                       <div
