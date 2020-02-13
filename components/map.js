@@ -67,8 +67,8 @@ const Map = ({
       });
     }
     // catch times when the bg image loads but doesn't call bgLoaded
-    setTimeout(() => setIsBgLoaded(true), 500);
-  }, []);
+    setTimeout(() => bgLoaded(), 500);
+  }, [size.width]);
 
   useEffect(() => {
     if (size.width < 768) {
@@ -146,10 +146,10 @@ const Map = ({
             onChange={props => {
               if (scale !== props.scale) {
                 setScale(props.scale);
-                if (size.width > 767) {
-                  setPinDimensions([45 / props.scale, 68 / props.scale]);
-                } else {
+                if (size.width < 768) {
                   setPinDimensions([37 / props.scale, 57 / props.scale]);
+                } else {
+                  setPinDimensions([45 / props.scale, 68 / props.scale]);
                 }
               }
               if (translation !== props.translation) {
