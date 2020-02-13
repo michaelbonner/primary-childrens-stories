@@ -97,6 +97,7 @@ const StoryOverlay = ({
       setTitle(``);
       setBody(
         `
+        ${contentfulRichText(mainStoryContent)}
         <div>
         <a
             href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/"
@@ -110,7 +111,6 @@ const StoryOverlay = ({
             />
           </a>
         </div>
-        ${contentfulRichText(mainStoryContent)}
         `
       );
       setFooterText(
@@ -218,17 +218,17 @@ const StoryOverlay = ({
                       {media.map(item => {
                         return contentfulPrintMedia(item);
                       })}
+                      {activeStory && activeStory === "main" && (
+                        <div className="pb-2">
+                          {youtubeEmbed("https://youtu.be/25KtzDQIFxA")}
+                        </div>
+                      )}
                       <div
                         className="text-base leading-relaxed mt-4"
                         dangerouslySetInnerHTML={{
                           __html: body
                         }}
                       />
-                      {activeStory && activeStory === "main" && (
-                        <div className="pt-2">
-                          {youtubeEmbed("https://youtu.be/25KtzDQIFxA")}
-                        </div>
-                      )}
                     </div>
                     <div className="mt-6">
                       <div
