@@ -1,6 +1,6 @@
 import React from "react";
 
-const Croc = ({ animationLength, width, height, left, top }) => {
+const Croc = ({ animationLength, height, animate, left, top, width }) => {
   return (
     <>
       <svg
@@ -203,11 +203,10 @@ const Croc = ({ animationLength, width, height, left, top }) => {
         }}
       />
       <style jsx="true">{`
-        @media (min-width: 761px) {
-          #croc {
+        ${animate &&
+          `#croc {
             animation: revealCroc ${animationLength}s ease-in infinite;
-          }
-        }
+          }`}
         .croc0 {
           fill: url(#CROC_1_);
         }

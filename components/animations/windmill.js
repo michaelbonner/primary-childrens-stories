@@ -1,10 +1,10 @@
 import React from "react";
 
-const Windmill = ({ width, height, left, top }) => {
+const Windmill = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className={`absolute z-20${animate ? " animate" : ""}`}
         id="windmill"
         style={{
           width: `${width}px`,
@@ -123,11 +123,9 @@ const Windmill = ({ width, height, left, top }) => {
       </svg>
 
       <style jsx>{`
-        @media (min-width: 761px) {
-          #windmill .blades {
-            animation: rotateBlades 8s linear infinite;
-            transform-origin: 50% 42.5%;
-          }
+        #windmill.animate .blades {
+          animation: rotateBlades 8s linear infinite;
+          transform-origin: 50% 42.5%;
         }
 
         @keyframes rotateBlades {

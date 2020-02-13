@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import useInterval from "../../shared/hooks/useInterval";
 
-const Toucan = ({ width, height, left, top }) => {
+const Toucan = ({ animate, height, left, top, width }) => {
   const [flipped, setFlipped] = useState(false);
 
-  useInterval(() => {
-    setFlipped(!flipped);
-  }, 3200);
+  if (animate) {
+    useInterval(() => {
+      setFlipped(!flipped);
+    }, 3200);
+  }
 
   return (
     <>
@@ -412,10 +414,8 @@ const Toucan = ({ width, height, left, top }) => {
           fill: url(#TOUCAN_16_);
         }
 
-        @media (min-width: 761px) {
-          #toucanOnTree.flipped {
-            transform: scaleX(-1) translateX(-50%);
-          }
+        #toucanOnTree.flipped {
+          transform: scaleX(-1) translateX(-50%);
         }
       `}</style>
     </>

@@ -1,10 +1,10 @@
 import React from "react";
 
-const Boat = ({ width, height, left, top }) => {
+const Boat = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-20"
+        className={`absolute inline-block z-20${animate ? " animate" : ""}`}
         id="boat"
         style={{
           width: `${width}px`,
@@ -68,10 +68,8 @@ const Boat = ({ width, height, left, top }) => {
         </g>
       </svg>
       <style jsx>{`
-        @media (min-width: 761px) {
-          #boat {
-            animation: bob 8s ease-in infinite;
-          }
+        #boat.animate {
+          animation: bob 8s ease-in infinite;
         }
         .boat0 {
           fill: #ffffff;

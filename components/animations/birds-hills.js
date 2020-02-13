@@ -1,6 +1,6 @@
 import React from "react";
 
-const BirdsHills = ({ width, height, left, top }) => {
+const BirdsHills = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
@@ -456,40 +456,42 @@ const BirdsHills = ({ width, height, left, top }) => {
           </g>
         </g>
       </svg>
-      <style jsx>{`
-        @media (min-width: 761px) {
-          .frontBird {
-            animation: frontBirdFly 5s linear infinite;
+      {!animate && (
+        <style jsx="true">{`
+          @media (min-width: 761px) {
+            .frontBird {
+              animation: frontBirdFly 5s linear infinite;
+            }
+            .backBird {
+              animation: backBirdFly 5s linear infinite;
+            }
           }
-          .backBird {
-            animation: backBirdFly 5s linear infinite;
-          }
-        }
 
-        @keyframes frontBirdFly {
-          0% {
-            transform: translate(-18%, 15%);
+          @keyframes frontBirdFly {
+            0% {
+              transform: translate(-18%, 15%);
+            }
+            50% {
+              transform: translate(15%, -15%);
+            }
+            100% {
+              transform: translate(45%, 13%);
+            }
           }
-          50% {
-            transform: translate(15%, -15%);
-          }
-          100% {
-            transform: translate(45%, 13%);
-          }
-        }
 
-        @keyframes backBirdFly {
-          0% {
-            transform: translate(-12%, 15%);
+          @keyframes backBirdFly {
+            0% {
+              transform: translate(-12%, 15%);
+            }
+            50% {
+              transform: translate(20%, -10%);
+            }
+            100% {
+              transform: translate(50%, 13%);
+            }
           }
-          50% {
-            transform: translate(20%, -10%);
-          }
-          100% {
-            transform: translate(50%, 13%);
-          }
-        }
-      `}</style>
+        `}</style>
+      )}
     </>
   );
 };

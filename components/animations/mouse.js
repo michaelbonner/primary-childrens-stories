@@ -1,6 +1,6 @@
 import React from "react";
 
-const Mouse = ({ animationLength, width, height, left, top }) => {
+const Mouse = ({ animate, animationLength, height, left, top, width }) => {
   return (
     <>
       <svg
@@ -18,7 +18,7 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
         xmlns="http://www.w3.org/2000/svg"
         y="0px"
       >
-        <g id="gopherAnimation">
+        <g id="mouseAnimation" className={animate ? "animate" : ""}>
           <g>
             <linearGradient
               id="MOUSE_1_"
@@ -356,10 +356,8 @@ const Mouse = ({ animationLength, width, height, left, top }) => {
           stroke-miterlimit: 10;
         }
 
-        @media (min-width: 761px) {
-          #gopherAnimation {
-            animation: revealMouse ${animationLength}s ease-out infinite;
-          }
+        #mouseAnimation.animate {
+          animation: revealMouse ${animationLength}s ease-out infinite;
         }
 
         @keyframes revealMouse {

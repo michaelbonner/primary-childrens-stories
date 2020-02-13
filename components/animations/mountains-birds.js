@@ -1,6 +1,6 @@
 import React from "react";
 
-const MountainsBirds = ({ width, height, left, top }) => {
+const MountainsBirds = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
@@ -18,7 +18,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
         xmlns="http://www.w3.org/2000/svg"
         y="0px"
       >
-        <g className="bird-1">
+        <g className={`bird-1${animate ? " animate" : ""}`}>
           <g>
             <path
               className="mountainsBirds0"
@@ -79,7 +79,7 @@ const MountainsBirds = ({ width, height, left, top }) => {
             d="M240.2,92.1c0,0,0.1-1.5,1.6-1.4c0,0,0.6,0.2,0.3,0.6c0,0-1,0.2-0.8,1.1C241.3,92.5,240.3,93.4,240.2,92.1z"
           />
         </g>
-        <g className="bird-2">
+        <g className={`bird-2${animate ? " animate" : ""}`}>
           <g>
             <path
               className="mountainsBirds0"
@@ -702,22 +702,16 @@ const MountainsBirds = ({ width, height, left, top }) => {
           fill: url(#MOUNTAINS_BIRDS_20_);
         }
 
-        @media (min-width: 761px) {
-          .bird-1 {
-            z-index: 25;
-            animation: bird1Fly 5s linear infinite;
-          }
-          .bird-2 {
-            z-index: 25;
-            animation: bird2Fly 5s linear infinite;
-          }
-          .bird-1 .wing.flipped,
-          .bird-2 .wing.flipped {
-            transform: scaleX(-1);
-          }
-          .mountains {
-            z-index: 30;
-          }
+        .bird-1.animate {
+          z-index: 25;
+          animation: bird1Fly 5s linear infinite;
+        }
+        .bird-2.animate {
+          z-index: 25;
+          animation: bird2Fly 5s linear infinite;
+        }
+        .mountains {
+          z-index: 30;
         }
 
         @keyframes bird1Fly {

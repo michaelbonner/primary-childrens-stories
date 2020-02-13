@@ -46,100 +46,111 @@ const Animations = ({ scale, mapImage }) => {
   return (
     <>
       {/* CSS animations */}
-      {!isMobile && (
-        <>
-          <Boat
-            width={70 * multiplier.x}
-            height={120 * multiplier.y}
-            left={1150 * multiplier.x}
-            top={965 * multiplier.y}
-          />
-          <Boat
-            width={56 * multiplier.x}
-            height={96 * multiplier.y}
-            left={58 * multiplier.x}
-            top={1410 * multiplier.y}
-          />
-          <Boat
-            width={56 * multiplier.x}
-            height={96 * multiplier.y}
-            left={2678 * multiplier.x}
-            top={1479 * multiplier.y}
-          />
-          <Croc
-            animationLength={3.6}
-            width={70 * multiplier.x}
-            height={36 * multiplier.y}
-            left={1080 * multiplier.x}
-            top={1960 * multiplier.y}
-          />
-          <Croc
-            animationLength={4.2}
-            width={70 * multiplier.x}
-            height={36 * multiplier.y}
-            left={1500 * multiplier.x}
-            top={1875 * multiplier.y}
-          />
-          <Mouse
-            animationLength={3.2}
-            width={36 * multiplier.x}
-            height={57 * multiplier.y}
-            left={478 * multiplier.x}
-            top={135 * multiplier.y}
-          />
-          <Mouse
-            animationLength={3.8}
-            width={36 * multiplier.x}
-            height={57 * multiplier.y}
-            left={1185 * multiplier.x}
-            top={300 * multiplier.y}
-          />
-          <Windmill
-            width={122 * multiplier.x}
-            height={122 * multiplier.y}
-            left={1825 * multiplier.x}
-            top={538 * multiplier.y}
-          />
-          <Gopher
-            animationLength={3.4}
-            width={30 * multiplier.x}
-            height={49 * multiplier.y}
-            left={2187 * multiplier.x}
-            top={1120 * multiplier.y}
-          />
-          <Gopher
-            animationLength={3.7}
-            width={30 * multiplier.x}
-            height={49 * multiplier.y}
-            left={2141 * multiplier.x}
-            top={935 * multiplier.y}
-          />
-          <Toucan
-            width={146 * multiplier.x}
-            height={166 * multiplier.y}
-            left={2057 * multiplier.x}
-            top={1960 * multiplier.y}
-          />
-          <MountainsBirds
-            width={700 * multiplier.x}
-            height={270 * multiplier.y}
-            left={500 * multiplier.x}
-            top={815 * multiplier.y}
-          />
-          <BirdsCastle
-            width={698.4 * multiplier.x}
-            height={194.6 * multiplier.y}
-            left={2337 * multiplier.x}
-            top={825 * multiplier.y}
-          />
-          <BirdsHills
-            width={735.7 * multiplier.x}
-            height={129.5 * multiplier.y}
-            left={0 * multiplier.x}
-            top={2085 * multiplier.y}
-          />
-        </>
-      )}
+      <BirdsCastle
+        width={698.4 * multiplier.x}
+        height={194.6 * multiplier.y}
+        left={2337 * multiplier.x}
+        top={825 * multiplier.y}
+        animate={!isMobile}
+      />
+      <BirdsHills
+        width={735.7 * multiplier.x}
+        height={129.5 * multiplier.y}
+        left={0 * multiplier.x}
+        top={2085 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Boat
+        width={70 * multiplier.x}
+        height={120 * multiplier.y}
+        left={1150 * multiplier.x}
+        top={965 * multiplier.y}
+        animate={!isMobile}
+      />
+
+      <Boat
+        width={56 * multiplier.x}
+        height={96 * multiplier.y}
+        left={58 * multiplier.x}
+        top={1410 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Boat
+        width={56 * multiplier.x}
+        height={96 * multiplier.y}
+        left={2678 * multiplier.x}
+        top={1479 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Croc
+        animationLength={3.6}
+        width={70 * multiplier.x}
+        height={36 * multiplier.y}
+        left={1080 * multiplier.x}
+        top={1960 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Croc
+        animationLength={4.2}
+        width={70 * multiplier.x}
+        height={36 * multiplier.y}
+        left={1500 * multiplier.x}
+        top={1875 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Gopher
+        animationLength={3.4}
+        width={30 * multiplier.x}
+        height={49 * multiplier.y}
+        left={2187 * multiplier.x}
+        top={1120 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Gopher
+        animationLength={3.7}
+        width={30 * multiplier.x}
+        height={49 * multiplier.y}
+        left={2141 * multiplier.x}
+        top={935 * multiplier.y}
+        animate={!isMobile}
+      />
+      <MountainsBirds
+        width={700 * multiplier.x}
+        height={270 * multiplier.y}
+        left={500 * multiplier.x}
+        top={815 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Mouse
+        animationLength={3.2}
+        width={36 * multiplier.x}
+        height={57 * multiplier.y}
+        left={478 * multiplier.x}
+        top={135 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Mouse
+        animationLength={3.8}
+        width={36 * multiplier.x}
+        height={57 * multiplier.y}
+        left={1185 * multiplier.x}
+        top={300 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Toucan
+        width={146 * multiplier.x}
+        height={166 * multiplier.y}
+        left={2057 * multiplier.x}
+        top={1960 * multiplier.y}
+        animate={!isMobile}
+      />
+      <Windmill
+        width={122 * multiplier.x}
+        height={122 * multiplier.y}
+        left={1825 * multiplier.x}
+        top={538 * multiplier.y}
+        animate={!isMobile}
+      />
 
       {/* Lottie animations */}
       <Armadillo

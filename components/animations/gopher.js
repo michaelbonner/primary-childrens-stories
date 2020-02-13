@@ -1,6 +1,6 @@
 import React from "react";
 
-const Gopher = ({ animationLength, width, height, left, top }) => {
+const Gopher = ({ animate, animationLength, width, height, left, top }) => {
   return (
     <>
       <svg
@@ -18,7 +18,7 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
         xmlns="http://www.w3.org/2000/svg"
         y="0px"
       >
-        <g id="gopherAnimation">
+        <g id="gopherAnimation" className={animate ? "animate" : ""}>
           <g>
             <g>
               <linearGradient
@@ -323,10 +323,8 @@ const Gopher = ({ animationLength, width, height, left, top }) => {
           fill: url(#GOPHER_13_);
         }
 
-        @media (min-width: 761px) {
-          #gopherAnimation {
-            animation: revealGopher ${animationLength}s ease-out infinite;
-          }
+        #gopherAnimation.animate {
+          animation: revealGopher ${animationLength}s ease-out infinite;
         }
 
         @keyframes revealGopher {
