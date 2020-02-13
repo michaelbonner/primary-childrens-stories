@@ -456,7 +456,7 @@ const BirdsHills = ({ animate, height, left, top, width }) => {
           </g>
         </g>
       </svg>
-      {!animate && (
+      {animate && (
         <style jsx="true">{`
           @media (min-width: 761px) {
             .frontBird {

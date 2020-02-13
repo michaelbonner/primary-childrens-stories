@@ -1,6 +1,6 @@
 import React from "react";
 
-const BirdsCastle = ({ height, animate, left, top, width }) => {
+const BirdsCastle = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
@@ -1685,7 +1685,7 @@ const BirdsCastle = ({ height, animate, left, top, width }) => {
           </g>
         </g>
       </svg>
-      {!animate && (
+      {animate && (
         <style jsx="true">{`
           .frontBird {
             animation: frontBirdFly 5s linear infinite;
