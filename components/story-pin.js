@@ -33,6 +33,10 @@ const StoryPin = ({
         href={`/?id=${id}`}
         onClick={() => setActiveStory(story)}
         onTouchEnd={() => setActiveStory(story)}
+        style={{
+          width: `${pinDimensions[0]}px`,
+          height: `${pinDimensions[1]}px`
+        }}
       >
         <img
           alt={title}

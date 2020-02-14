@@ -17,3 +17,8 @@ If you wanted to run this site in production, you should install modules then bu
     npm install
     npm run build
     npm start
+
+## Authors
+
+- Design: [Faktory, Inc.](http://www.faktoryshowroom.com/)
+- Development: [Michael Bonner](https://bootpackdigital.com/)

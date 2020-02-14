@@ -5,9 +5,7 @@ import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 
 import Nav from "./nav";
-import WelcomeMap from "./animations/welcome-map";
 import StoryPins from "./story-pins";
-import contentfulRichText from "../shared/contentfulRichText";
 import WelcomeOverlay from "./welcome-overlay";
 const Map = ({
   aboutTabContent,
@@ -57,14 +55,17 @@ const Map = ({
 
   useEffect(() => {
     if (size.width < 768) {
+      const mobileScale = 0.5;
       setMinScale(0.35);
-      setScale(0.5);
-      setInitialScale(0.5);
+      setScale(mobileScale);
+      setInitialScale(mobileScale);
+      setPinDimensions([45 / mobileScale, 68 / mobileScale]);
     } else {
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2) * scale,
         y: 0 - (intermountainPinLocation.y - size.height / 3) * scale
       });
+      setPinDimensions([45 / scale, 68 / scale]);
     }
     // catch times when the bg image loads but doesn't call bgLoaded
     setTimeout(() => bgLoaded(), 500);
@@ -93,11 +94,6 @@ const Map = ({
   }, [activeCategory, stories]);
 
   const bgLoaded = () => {
-    if (size.width < 768) {
-      setPinDimensions([37 / scale, 57 / scale]);
-    } else {
-      setPinDimensions([45 / scale, 68 / scale]);
-    }
     setIsBgLoaded(true);
   };
 
