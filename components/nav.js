@@ -82,7 +82,7 @@ const Nav = ({
 
     return (
       <div
-        className={`w-full h-full md:w-2/3 lg:w-1/2 max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
+        className={`w-full h-full max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
         ref={ref}
       >
         <div
