@@ -61,24 +61,12 @@ const Map = ({
       setInitialScale(mobileScale);
       setPinDimensions([45 / mobileScale, 68 / mobileScale]);
     } else {
-      setTranslation({
-        x: 0 - (intermountainPinLocation.x - size.width / 2) * scale,
-        y: 0 - (intermountainPinLocation.y - size.height / 3) * scale
-      });
       setPinDimensions([45 / scale, 68 / scale]);
     }
+    recenterMap();
     // catch times when the bg image loads but doesn't call bgLoaded
     setTimeout(() => bgLoaded(), 500);
   }, [size.width]);
-
-  useEffect(() => {
-    if (size.width < 768) {
-      setTranslation({
-        x: 0 - (intermountainPinLocation.x - size.width) * scale,
-        y: 0 - (intermountainPinLocation.y - size.height) * scale
-      });
-    }
-  }, [minScale]);
 
   useEffect(() => {
     if (activeCategory === "all") {
@@ -102,7 +90,7 @@ const Map = ({
       setScale(0.5);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width) * 0.5,
-        y: 0 - (intermountainPinLocation.y - size.height) * 0.5
+        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5
       });
     } else {
       setScale(1);
