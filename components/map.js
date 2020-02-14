@@ -136,7 +136,7 @@ const Map = ({
         submitTabContent={submitTabContent}
         thankYouForSharingContent={thankYouForSharingContent}
       />
-      <div className="absolute inset-0 z-0 h-screen w-full">
+      <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={props => {
