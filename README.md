@@ -1,4 +1,4 @@
-# Here Kids Win Public Website
+# Here, Kids Win Public Website
 
 ## Running locally in development mode
 
