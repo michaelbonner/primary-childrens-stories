@@ -47,15 +47,15 @@ const Animations = ({ scale, mapImage }) => {
     <>
       {/* CSS animations */}
       <BirdsCastle
-        width={698.4 * multiplier.x}
-        height={194.6 * multiplier.y}
+        width={698 * multiplier.x}
+        height={194 * multiplier.y}
         left={2337 * multiplier.x}
         top={825 * multiplier.y}
         animate={!isMobile}
       />
       <BirdsHills
-        width={735.7 * multiplier.x}
-        height={129.5 * multiplier.y}
+        width={735 * multiplier.x}
+        height={129 * multiplier.y}
         left={0 * multiplier.x}
         top={2085 * multiplier.y}
         animate={!isMobile}
