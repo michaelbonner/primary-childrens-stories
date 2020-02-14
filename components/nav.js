@@ -99,7 +99,6 @@ const Nav = ({
     if (size.width <= 768) {
       setNavStyle({ width: "100%" });
     } else {
-      console.log(navRef.current.clientWidth);
       setNavStyle({
         left: "50%",
         marginLeft: 0 - navRef.current.clientWidth / 2 + "px",
