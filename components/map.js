@@ -27,6 +27,15 @@ const Map = ({
     x: 1535,
     y: 735
   };
+  const mobilePinDimensions = {
+    width: 36,
+    height: 54
+  };
+  const desktopPinDimensions = {
+    width: 45,
+    height: 68
+  };
+  const desktopWidth = 768;
 
   const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
@@ -54,14 +63,20 @@ const Map = ({
   }, [scale, size, mapImage]);
 
   useEffect(() => {
-    if (size.width < 768) {
+    if (size.width < desktopWidth) {
       const mobileScale = 0.5;
       setMinScale(0.35);
       setScale(mobileScale);
       setInitialScale(mobileScale);
-      setPinDimensions([45 / mobileScale, 68 / mobileScale]);
+      setPinDimensions([
+        mobilePinDimensions.width / mobileScale,
+        mobilePinDimensions.height / mobileScale
+      ]);
     } else {
-      setPinDimensions([45 / scale, 68 / scale]);
+      setPinDimensions([
+        desktopPinDimensions.width / scale,
+        desktopPinDimensions.height / scale
+      ]);
     }
     recenterMap();
     // catch times when the bg image loads but doesn't call bgLoaded
@@ -86,7 +101,7 @@ const Map = ({
   };
 
   const recenterMap = () => {
-    if (size.width < 768) {
+    if (size.width < desktopWidth) {
       setScale(0.5);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width) * 0.5,
@@ -130,10 +145,16 @@ const Map = ({
             onChange={props => {
               if (scale !== props.scale) {
                 setScale(props.scale);
-                if (size.width < 768) {
-                  setPinDimensions([37 / props.scale, 57 / props.scale]);
+                if (size.width < desktopWidth) {
+                  setPinDimensions([
+                    mobilePinDimensions.width / props.scale,
+                    mobilePinDimensions.height / props.scale
+                  ]);
                 } else {
-                  setPinDimensions([45 / props.scale, 68 / props.scale]);
+                  setPinDimensions([
+                    desktopPinDimensions.width / props.scale,
+                    desktopPinDimensions.height / props.scale
+                  ]);
                 }
               }
               if (translation !== props.translation) {
