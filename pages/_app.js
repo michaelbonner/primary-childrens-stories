@@ -20,6 +20,9 @@ toast.configure({
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     TagManager.initialize({
+      gtmId: "GTM-MWNT839"
+    });
+    TagManager.initialize({
       gtmId: "GTM-PN62ZXM"
     });
   }, []);
