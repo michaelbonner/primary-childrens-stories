@@ -1,7 +1,7 @@
 /* TEAM */
-Your title: Michael Bonner
+Developer: Michael Bonner
 Site: https://bootpackdigital.com/
-Twitter: bootpackdigital
+Twitter: @bootpackdigital
 Location: Salt Lake, Utah, USA.
 							
 /* THANKS */							
