@@ -1,0 +1,13 @@
+/* TEAM */
+Your title: Michael Bonner
+Site: https://bootpackdigital.com/
+Twitter: bootpackdigital
+Location: Salt Lake, Utah, USA.
+							
+/* THANKS */							
+Intermountain Healthcare
+Faktory
+
+
+/* SITE */
+Software: React, Next.js, Contentful
