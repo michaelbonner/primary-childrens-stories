@@ -1,5 +1,6 @@
 import client from "./contentful";
 import fs from "fs";
+import path from "path";
 
 const contentfulContent = async () => {
   const stories = await client.getEntries({
@@ -38,7 +39,19 @@ const contentfulContent = async () => {
   };
 };
 
+const ensureDirectoryExistence = filePath => {
+  var dirname = path.dirname(filePath);
+  if (fs.existsSync(dirname)) {
+    return true;
+  }
+  ensureDirectoryExistence(dirname);
+  fs.mkdirSync(dirname);
+};
+
 export const saveContent = output => {
+  ensureDirectoryExistence(
+    path.join(__dirname, "..", "data", `site-content.json`)
+  );
   fs.writeFile(
     path.join(__dirname, "..", "data", `site-content.json`),
     output,
