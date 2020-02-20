@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import fs from "fs";
 import Map from "../components/map";
 import client from "../shared/contentful";
+import contentfulContent from "../shared/contentfulContent";
 
 const Home = ({
   aboutTabContent,
@@ -42,33 +44,26 @@ const Home = ({
 };
 
 Home.getInitialProps = async ({ req }) => {
-  const stories = await client.getEntries({
-    content_type: "story"
-  });
+  let siteContent;
 
-  const categories = await client.getEntries({
-    content_type: "category"
-  });
+  try {
+    if (fs.existsSync("data/site-content.json")) {
+      siteContent = JSON.parse(
+        fs.readFileSync("data/site-content.json", "utf8")
+      );
+    } else {
+      siteContent = await contentfulContent();
+    }
+  } catch (err) {}
 
-  const contentBlocks = await client.getEntries({
-    content_type: "contentBlocks"
-  });
-
-  const aboutTabContent = contentBlocks.items.filter(item => {
-    return item.sys.id === "6xDZ66kDnvo24xY91qO7FA";
-  })[0].fields.content;
-  const submitTabContent = contentBlocks.items.filter(item => {
-    return item.sys.id === "1ZTYTOO0n0PIHlo1dUtD0v";
-  })[0].fields.content;
-  const thankYouForSharingContent = contentBlocks.items.filter(item => {
-    return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
-  })[0].fields.content;
-  const mainStoryContent = contentBlocks.items.filter(item => {
-    return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
-  })[0].fields.content;
-  const welcomeOverlayContent = contentBlocks.items.filter(item => {
-    return item.sys.id === "yssbnQyObL3b6UrNY1Ga4";
-  })[0].fields.content;
+  const stories = siteContent.stories;
+  const categories = siteContent.categories;
+  const aboutTabContent = siteContent.contentBlocks.aboutTabContent;
+  const submitTabContent = siteContent.contentBlocks.submitTabContent;
+  const thankYouForSharingContent =
+    siteContent.contentBlocks.thankYouForSharingContent;
+  const mainStoryContent = siteContent.contentBlocks.mainStoryContent;
+  const welcomeOverlayContent = siteContent.contentBlocks.welcomeOverlayContent;
 
   const hostname = req ? req.headers.host : window.location.hostname;
 
