@@ -39,11 +39,16 @@ const contentfulContent = async () => {
 };
 
 export const saveContent = output => {
-  fs.writeFile("data/site-content.json", output, "utf8", function(err) {
-    if (err) {
-      console.log("An error occured while writing JSON Object to File.");
-      return console.log(err);
+  fs.writeFile(
+    path.join(__dirname, "..", "data", `site-content.json`),
+    output,
+    "utf8",
+    function(err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
     }
-  });
+  );
 };
 export default contentfulContent;

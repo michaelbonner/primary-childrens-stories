@@ -49,13 +49,20 @@ const ensureDirectoryExistence = filePath => {
 };
 
 const saveContent = output => {
-  ensureDirectoryExistence("data/site-content.json");
-  fs.writeFile("data/site-content.json", output, "utf8", function(err) {
-    if (err) {
-      console.log("An error occured while writing JSON Object to File.");
-      return console.log(err);
+  ensureDirectoryExistence(
+    path.join(__dirname, "..", "data", `site-content.json`)
+  );
+  fs.writeFile(
+    path.join(__dirname, "..", "data", `site-content.json`),
+    output,
+    "utf8",
+    function(err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
     }
-  });
+  );
 };
 
 module.exports = {

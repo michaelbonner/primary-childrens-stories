@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import fs from "fs";
+import path from "path";
 import Map from "../components/map";
-import client from "../shared/contentful";
 import contentfulContent from "../shared/contentfulContent";
 
 const Home = ({
@@ -47,14 +47,21 @@ Home.getInitialProps = async ({ req }) => {
   let siteContent;
 
   try {
-    if (fs.existsSync("data/site-content.json")) {
+    if (
+      fs.existsSync(path.join(__dirname, "..", "data", `site-content.json`))
+    ) {
       siteContent = JSON.parse(
-        fs.readFileSync("data/site-content.json", "utf8")
+        fs.readFileSync(
+          path.join(__dirname, "..", "data", `site-content.json`),
+          "utf8"
+        )
       );
     } else {
       siteContent = await contentfulContent();
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log("err", err);
+  }
 
   const stories = siteContent.stories;
   const categories = siteContent.categories;
