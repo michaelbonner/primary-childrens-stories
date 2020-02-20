@@ -50,21 +50,25 @@ Home.getInitialProps = async ({ req }) => {
     content_type: "category"
   });
 
-  const fetchAboutTabContent = await client.getEntry("6xDZ66kDnvo24xY91qO7FA");
-  const aboutTabContent = fetchAboutTabContent.fields.content;
-  const fetchSubmitTabContent = await client.getEntry("1ZTYTOO0n0PIHlo1dUtD0v");
-  const submitTabContent = fetchSubmitTabContent.fields.content;
-  const fetchThankYouForSharingContent = await client.getEntry(
-    "6Dd6zTG7pogLpeEkvteHu0"
-  );
-  const thankYouForSharingContent =
-    fetchThankYouForSharingContent.fields.content;
-  const fetchMainStoryContent = await client.getEntry("2iLCrYFx5ohvaGJqmVbxi2");
-  const mainStoryContent = fetchMainStoryContent.fields.content;
-  const fetchWelcomeOverlayContent = await client.getEntry(
-    "yssbnQyObL3b6UrNY1Ga4"
-  );
-  const welcomeOverlayContent = fetchWelcomeOverlayContent.fields.content;
+  const contentBlocks = await client.getEntries({
+    content_type: "contentBlocks"
+  });
+
+  const aboutTabContent = contentBlocks.items.filter(item => {
+    return item.sys.id === "6xDZ66kDnvo24xY91qO7FA";
+  })[0].fields.content;
+  const submitTabContent = contentBlocks.items.filter(item => {
+    return item.sys.id === "1ZTYTOO0n0PIHlo1dUtD0v";
+  })[0].fields.content;
+  const thankYouForSharingContent = contentBlocks.items.filter(item => {
+    return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
+  })[0].fields.content;
+  const mainStoryContent = contentBlocks.items.filter(item => {
+    return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
+  })[0].fields.content;
+  const welcomeOverlayContent = contentBlocks.items.filter(item => {
+    return item.sys.id === "yssbnQyObL3b6UrNY1Ga4";
+  })[0].fields.content;
 
   const hostname = req ? req.headers.host : window.location.hostname;
 
