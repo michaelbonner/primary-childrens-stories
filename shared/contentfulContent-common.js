@@ -1,5 +1,6 @@
 const client = require("./contentful-common");
 const fs = require("fs");
+const path = require("path");
 
 const contentfulContent = async () => {
   const stories = await client.getEntries({
@@ -38,7 +39,17 @@ const contentfulContent = async () => {
   };
 };
 
+const ensureDirectoryExistence = filePath => {
+  var dirname = path.dirname(filePath);
+  if (fs.existsSync(dirname)) {
+    return true;
+  }
+  ensureDirectoryExistence(dirname);
+  fs.mkdirSync(dirname);
+};
+
 const saveContent = output => {
+  ensureDirectoryExistence("data/site-content.json");
   fs.writeFile("data/site-content.json", output, "utf8", function(err) {
     if (err) {
       console.log("An error occured while writing JSON Object to File.");
