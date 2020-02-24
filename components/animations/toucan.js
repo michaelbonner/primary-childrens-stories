@@ -20,7 +20,7 @@ const Toucan = ({ animate, height, left, top, width }) => {
           height: `${height}px`,
           left: `${left}px`,
           top: `${top}px`,
-          transform: `translateY(${height / 2}px)`
+          transform: `translate3d(0,${height / 2}px,0)`
         }}
         version="1.1"
         viewBox="0 0 178.9 208.6"

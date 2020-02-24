@@ -14,8 +14,8 @@ const StoryPin = ({
   const [isAnimated, setIsAnimated] = useState(false);
   const contentProps = useSpring({
     transform: isAnimated
-      ? "translateY(-5px), scale(1.15)"
-      : "translateY(0px) scale(1)"
+      ? "translate3d(0,-5px,0) scale(1.15)"
+      : "translate3d(0,0px,0) scale(1)"
   });
 
   return (

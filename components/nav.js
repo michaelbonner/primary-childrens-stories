@@ -102,7 +102,7 @@ const Nav = ({
       setNavStyle({
         left: "50%",
         marginLeft: 0 - navRef.current.clientWidth / 2 + "px",
-        transform: "translateY(4rem)"
+        transform: "translate3d(0,4rem,0)"
       });
     }
   }, [size.width]);

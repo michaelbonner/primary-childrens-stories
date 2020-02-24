@@ -11,7 +11,7 @@ const FishColorful = ({ width, height, left, top }) => {
           height: `${height}px`,
           left: `${left}px`,
           top: `${top}px`,
-          transform: `translateY(${height / 2}px)`
+          transform: `translate3d(0,${height / 2}px,0)`
         }}
         version="1.1"
         viewBox="0 0 49.9 74.6"

@@ -362,25 +362,25 @@ const Mouse = ({ animate, animationLength, height, left, top, width }) => {
 
         @keyframes revealMouse {
           0% {
-            transform: translateY(14px);
+            transform: translate3d(0, 14px, 0);
           }
           20% {
-            transform: translateY(16px);
+            transform: translate3d(0, 16px, 0);
           }
           40% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
           }
           50% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
           }
           60% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
           }
           80% {
-            transform: translateY(16px);
+            transform: translate3d(0, 16px, 0);
           }
           100% {
-            transform: translateY(14px);
+            transform: translate3d(0, 14px, 0);
           }
         }
       `}</style>
