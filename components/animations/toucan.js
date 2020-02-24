@@ -415,7 +415,7 @@ const Toucan = ({ animate, height, left, top, width }) => {
         }
 
         #toucanOnTree.flipped {
-          transform: scaleX(-1) translateX(-50%);
+          transform: scaleX(-1) translate3d(-50%, 0, 0);
         }
       `}</style>
     </>
