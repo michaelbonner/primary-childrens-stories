@@ -48,6 +48,7 @@ Home.getInitialProps = async ({ req }) => {
 
   try {
     if (
+      fs &&
       fs.existsSync(path.join(__dirname, "..", "data", `site-content.json`))
     ) {
       siteContent = JSON.parse(
@@ -60,6 +61,7 @@ Home.getInitialProps = async ({ req }) => {
       siteContent = await contentfulContent();
     }
   } catch (err) {
+    siteContent = await contentfulContent();
     console.log("err", err);
   }
 
