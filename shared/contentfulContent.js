@@ -23,7 +23,7 @@ const contentfulContent = async () => {
     return item.sys.id === "1ZTYTOO0n0PIHlo1dUtD0v";
   })[0].fields.content;
   contentBlocks.thankYouForSharingContent = content.items.filter(item => {
-    return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
+    return item.sys.id === "6Dd6zTG7pogLpeEkvteHu0";
   })[0].fields.content;
   contentBlocks.mainStoryContent = content.items.filter(item => {
     return item.sys.id === "2iLCrYFx5ohvaGJqmVbxi2";
