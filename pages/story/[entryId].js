@@ -2,15 +2,23 @@ import Head from "next/head";
 import Router from "next/router";
 import { useState } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import Facebook from "../../components/facebook";
 import client from "../../shared/contentful";
 import Twitter from "../../components/twitter";
 import contentfulRichText from "../../shared/contentfulRichText";
 import contentfulPrintMedia from "../../shared/contentfulPrintMedia";
 import youtubeEmbed from "../../shared/youtubeEmbed";
+import LinkIcon from "../../components/link-icon";
+import { toast } from "react-toastify";
 
 const Story = ({ story, title, body, footerText, media, url }) => {
   const [shareOpen, setShareOpen] = useState(false);
+
+  const onCopyLink = () => {
+    toast.success("A link has been copied to your clipboard", {});
+    setShareOpen(false);
+  };
 
   return (
     <div>
@@ -76,6 +84,15 @@ const Story = ({ story, title, body, footerText, media, url }) => {
             >
               <Twitter className="w-8 fill-current" />
             </TwitterShareButton>
+            <CopyToClipboard onCopy={onCopyLink} text={url}>
+              <button
+                className={`${
+                  shareOpen ? "flex" : "hidden"
+                } flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-gray-400 hover:bg-gray-500 text-gray-600 text-sm uppercase rounded-b-lg shadow-md z-20 focus:outline-none`}
+              >
+                <LinkIcon className="w-8 p-1 fill-current" />
+              </button>
+            </CopyToClipboard>
           </div>
           <div className="text-xl font-bold leading-relaxed mb-6 mt-16">
             {title}
