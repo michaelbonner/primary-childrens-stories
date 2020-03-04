@@ -137,7 +137,7 @@ Story.getInitialProps = async function(context) {
   const hostname = context.req
     ? context.req.headers.host
     : window.location.hostname;
-  const url = `${hostname}/story/${story && story.sys.id}`;
+  const url = `https://${hostname}/story/${story && story.sys.id}`;
 
   if (story.fields && story.fields.media && story.fields.media.length) {
     media = story.fields.media.map(media => {
