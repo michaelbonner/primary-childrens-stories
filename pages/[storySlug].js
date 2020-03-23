@@ -4,13 +4,13 @@ import Error from "next/error";
 import { useState } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Facebook from "../../components/facebook";
-import client from "../../shared/contentful";
-import Twitter from "../../components/twitter";
-import contentfulRichText from "../../shared/contentfulRichText";
-import contentfulPrintMedia from "../../shared/contentfulPrintMedia";
-import youtubeEmbed from "../../shared/youtubeEmbed";
-import LinkIcon from "../../components/link-icon";
+import Facebook from "../components/facebook";
+import client from "../shared/contentful";
+import Twitter from "../components/twitter";
+import contentfulRichText from "../shared/contentfulRichText";
+import contentfulPrintMedia from "../shared/contentfulPrintMedia";
+import youtubeEmbed from "../shared/youtubeEmbed";
+import LinkIcon from "../components/link-icon";
 import { toast } from "react-toastify";
 
 const Story = ({ story, title, body, footerText, media, url }) => {
@@ -123,10 +123,10 @@ const Story = ({ story, title, body, footerText, media, url }) => {
 };
 
 Story.getInitialProps = async function(context) {
-  const { entryId } = context.query;
+  const { storySlug } = context.query;
   const stories = await client.getEntries({
     content_type: "story",
-    "fields.slug": entryId
+    "fields.slug": storySlug
   });
 
   if (!stories.items.length) {
