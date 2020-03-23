@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Router from "next/router";
+import Error from "next/error";
 import { useState } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -20,6 +21,10 @@ const Story = ({ story, title, body, footerText, media, url }) => {
     setShareOpen(false);
   };
 
+  if (!story) {
+    return <Error statusCode={404} />;
+  }
+
   return (
     <div>
       <Head>
@@ -30,7 +35,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         />
         <meta
           property="og:url"
-          content={`https://herekidswin.org/story/${story.sys.id}`}
+          content={`https://herekidswin.org/story/${story.fields.slug}`}
         />
       </Head>
       <div
@@ -119,7 +124,23 @@ const Story = ({ story, title, body, footerText, media, url }) => {
 
 Story.getInitialProps = async function(context) {
   const { entryId } = context.query;
-  const story = await client.getEntry(entryId);
+  const stories = await client.getEntries({
+    content_type: "story",
+    "fields.slug": entryId
+  });
+
+  if (!stories.items.length) {
+    return {
+      body: "",
+      footerText: "",
+      media: "",
+      story: false,
+      title: "",
+      url: ""
+    };
+  }
+
+  const story = stories.items[0];
 
   const title = story && story.fields ? story.fields.title : "";
   const body = contentfulRichText(
@@ -137,9 +158,14 @@ Story.getInitialProps = async function(context) {
   const hostname = context.req
     ? context.req.headers.host
     : window.location.hostname;
-  const url = `https://${hostname}/story/${story && story.sys.id}`;
+  const url = `https://${hostname}/story/${story && story.fields.slug}`;
 
-  if (story.fields && story.fields.media && story.fields.media.length) {
+  if (
+    story &&
+    story.fields &&
+    story.fields.media &&
+    story.fields.media.length
+  ) {
     media = story.fields.media.map(media => {
       if (!media.fields) {
         return;

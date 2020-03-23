@@ -92,7 +92,9 @@ const StoryOverlay = ({
           )
         );
       }
-      setUrl(`https://${hostname}/story/${activeStory && activeStory.sys.id}`);
+      setUrl(
+        `https://${hostname}/story/${activeStory && activeStory.fields.slug}`
+      );
     } else {
       setTitle(``);
       setBody(

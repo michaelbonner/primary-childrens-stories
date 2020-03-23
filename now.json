@@ -8,5 +8,122 @@
             "CONTENTFUL_SPACE_ID": "@contentful_space_id",
             "CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
         }
-    }
+    },
+    "redirects": [
+        {
+            "source": "/story/1v6OzBisTmnS1xs4A3fJ5W",
+            "destination": "/story/matthews-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/7mBWNNWdlacSqbnfxuPipf",
+            "destination": "/story/maddies-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/7lv2Zwhh44wG7ICEuB27Em",
+            "destination": "/story/lexies-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/4FhIJLLZoyfvGrh1LRGbVu",
+            "destination": "/story/briennas-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/7hRuUjb8nin9hQXoIcnRtO",
+            "destination": "/story/steins-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/N0HJPNzoeIjVfBVsOAmJX",
+            "destination": "/story/eliza-and-rubys-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5vcdrtsjRNMZaTdWk7pj3d",
+            "destination": "/story/becketts-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/2ZLAzhzF4hnUZY4XED5f5j",
+            "destination": "/story/rylyns-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/2neDcgTuy6DUZ8utlODMc9",
+            "destination": "/story/normas-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5koXK6ctUpw9eqG4cCbCwX",
+            "destination": "/story/maxs-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/rjJ5wvG5n2hTUp6r6AZaK",
+            "destination": "/story/hailees-story",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/53mDZ0nIm9oXebjJXheKPK",
+            "destination": "/story/win-like-shelby",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5pGWuWaFQqgAOBK8SZ07ie",
+            "destination": "/story/win-like-brooklyn",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/1FbLxV7ocUfFWLEii7PhgN",
+            "destination": "/story/win-like-parker",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/1DdsiHvPPQczJNBp1dNz4c",
+            "destination": "/story/win-like-elspeth",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5xOiUKdBdxvyEuqI0RDPn",
+            "destination": "/story/win-like-branwen",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5xrVUBK7dKI3KD30FQgT3e",
+            "destination": "/story/win-like-robert",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/3nBk38b9jeY8IAaGxqa9f0",
+            "destination": "/story/win-like-drake",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/31eL99CONagFkAgCADbM6U",
+            "destination": "/story/win-like-emersyn",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/DyJoBYNgk9InJocxXWMdl",
+            "destination": "/story/win-like-isaac",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/5KeEuSWjnVnftVpqaPc8RH",
+            "destination": "/story/win-like-hallie",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/4bRErWIxHxIvGVEEH7GTt5",
+            "destination": "/story/win-like-mitt",
+            "statusCode": 301
+        },
+        {
+            "source": "/story/6Z4VpGbGeI4mwzvMZTElS0",
+            "destination": "/story/win-like-holly",
+            "statusCode": 301
+        }
+    ]
 }
