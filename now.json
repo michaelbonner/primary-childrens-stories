@@ -124,6 +124,11 @@
             "source": "/story/6Z4VpGbGeI4mwzvMZTElS0",
             "destination": "/win-like-holly",
             "statusCode": 301
+        },
+        {
+            "source": "/story/(.+)",
+            "destination": "/$1",
+            "statusCode": 301
         }
     ]
 }
