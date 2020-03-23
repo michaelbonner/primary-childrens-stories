@@ -9,8 +9,7 @@ const FishColorful = ({ width, height, left, top }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          left: `${left}px`,
-          top: `${top}px`,
+          transform: `translate3d(${left}px, ${top}px, 0)`,
           transform: `translate3d(0,${height / 2}px,0)`
         }}
         version="1.1"
@@ -205,8 +204,8 @@ const FishColorful = ({ width, height, left, top }) => {
         style={{
           width: `${width * 2}px`,
           height: `${height}px`,
-          left: `${left - width / 2}px`,
-          top: `${top + height / 3}px`,
+          transform: `translate3d(${left - width / 2}px, ${top +
+            height / 3}px, 0)`,
           background: "#422F91"
         }}
       />

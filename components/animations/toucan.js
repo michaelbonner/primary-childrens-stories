@@ -18,8 +18,7 @@ const Toucan = ({ animate, height, left, top, width }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          left: `${left}px`,
-          top: `${top}px`,
+          transform: `translate3d(${left}px, ${top}px, 0)`,
           transform: `translate3d(0,${height / 2}px,0)`
         }}
         version="1.1"

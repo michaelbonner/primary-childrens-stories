@@ -9,8 +9,7 @@ const Mouse = ({ animate, animationLength, height, left, top, width }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          left: `${left}px`,
-          top: `${top}px`
+          transform: `translate3d(${left}px, ${top}px, 0)`
         }}
         version="1.1"
         viewBox="0 0 50 70"
@@ -285,8 +284,7 @@ const Mouse = ({ animate, animationLength, height, left, top, width }) => {
         style={{
           width: `${width}px`,
           height: `${height * 0.6}px`,
-          left: `${left}px`,
-          top: `${top + height * 0.8}px`,
+          transform: `translate3d(${left}px, ${top + height * 0.8}px, 0)`,
           background: "#E0F3FB"
         }}
       />

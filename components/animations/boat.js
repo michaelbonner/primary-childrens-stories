@@ -9,8 +9,7 @@ const Boat = ({ animate, height, left, top, width }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          left: `${left}px`,
-          top: `${top}px`
+          transform: `translate3d(${left}px, ${top}px, 0)`
         }}
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"

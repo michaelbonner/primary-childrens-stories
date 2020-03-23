@@ -9,8 +9,7 @@ const BirdsHills = ({ animate, height, left, top, width }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          left: `${left}px`,
-          top: `${top}px`
+          transform: `translate3d(${left}px, ${top}px, 0)`
         }}
         version="1.1"
         viewBox="0 0 735.7 129.5"

@@ -217,7 +217,7 @@ const Map = ({
               {isBgLoaded && (
                 <button
                   className="w-64 h-64 z-40 absolute opacity-0"
-                  style={{ left: "1430px", top: "690px" }}
+                  style={{ transform: "translate3d(1430px, 690px, 0)" }}
                   onClick={() => setActiveStory("main")}
                   onTouchEnd={() => setActiveStory("main")}
                 />

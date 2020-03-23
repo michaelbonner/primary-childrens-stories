@@ -20,8 +20,7 @@ const Crane = ({ width, height, left, top }) => {
       style={{
         width: `${width}px`,
         height: `${height}px`,
-        left: `${left}px`,
-        top: `${top}px`
+        transform: `translate3d(${left}px, ${top}px, 0)`
       }}
     >
       <Lottie
