@@ -35,7 +35,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
         />
         <meta
           property="og:url"
-          content={`https://herekidswin.org/story/${story.fields.slug}`}
+          content={`https://herekidswin.org/${story.fields.slug}`}
         />
       </Head>
       <div
@@ -158,7 +158,7 @@ Story.getInitialProps = async function(context) {
   const hostname = context.req
     ? context.req.headers.host
     : window.location.hostname;
-  const url = `https://${hostname}/story/${story && story.fields.slug}`;
+  const url = `https://${hostname}/${story && story.fields.slug}`;
 
   if (
     story &&
