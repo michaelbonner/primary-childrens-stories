@@ -17,7 +17,12 @@
         },
         {
             "source": "/story/7mBWNNWdlacSqbnfxuPipf",
-            "destination": "/story/maddies-story",
+            "destination": "/story/maddy",
+            "statusCode": 301
+        },
+        {
+            "source": "/maddy",
+            "destination": "/story/maddy",
             "statusCode": 301
         },
         {
