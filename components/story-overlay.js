@@ -7,6 +7,7 @@ import LinkIcon from "./link-icon";
 import contentfulRichText from "../shared/contentfulRichText";
 import contentfulPrintMedia from "../shared/contentfulPrintMedia";
 import youtubeEmbed from "../shared/youtubeEmbed";
+import getHostName from "../shared/getHostName";
 
 const StoryOverlay = ({
   activeCategory,
@@ -14,7 +15,6 @@ const StoryOverlay = ({
   mainStoryContent,
   setActiveStory,
   thankYouForSharingContent,
-  hostname
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [media, setMedia] = useState([]);
@@ -49,7 +49,7 @@ const StoryOverlay = ({
       activeStory.fields.media.length
     ) {
       setMedia(
-        activeStory.fields.media.map(media => {
+        activeStory.fields.media.map((media) => {
           if (!media.fields) {
             return;
           }
@@ -57,7 +57,7 @@ const StoryOverlay = ({
             type: media.fields.file.contentType,
             url: media.fields.file.url,
             title: media.fields.title,
-            details: media.fields.file.details
+            details: media.fields.file.details,
           };
         })
       );
@@ -79,7 +79,7 @@ const StoryOverlay = ({
         setFooterText(
           contentfulRichText(
             activeStory.fields.categories.filter(
-              category => category.sys.id === activeCategory
+              (category) => category.sys.id === activeCategory
             )[0].fields.storyFooterText
           )
         );
@@ -92,7 +92,9 @@ const StoryOverlay = ({
           )
         );
       }
-      setUrl(`https://${hostname}/${activeStory && activeStory.fields.slug}`);
+      setUrl(
+        `https://${getHostName()}/${activeStory && activeStory.fields.slug}`
+      );
     } else {
       setTitle(``);
       setBody(
@@ -124,7 +126,7 @@ const StoryOverlay = ({
           </a>
         </p>`
       );
-      setUrl(hostname);
+      setUrl(getHostName());
     }
   }, [activeStory]);
 
@@ -141,14 +143,14 @@ const StoryOverlay = ({
         <div className={"fixed z-30 w-full py-8 md:py-16 inset-y-0"}>
           <div
             className="flex h-full px-3"
-            onClick={e => {
+            onClick={(e) => {
               setShareOpen(false);
               setActiveStory(null);
             }}
           >
             <div
               className="relative bg-white w-full md:w-2/3 xl:w-2/5 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md"
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
               }}
             >
@@ -215,7 +217,7 @@ const StoryOverlay = ({
                         activeStory.fields &&
                         activeStory.fields.youTubeLink &&
                         youtubeEmbed(activeStory.fields.youTubeLink)}
-                      {media.map(item => {
+                      {media.map((item) => {
                         return contentfulPrintMedia(item);
                       })}
                       {activeStory && activeStory === "main" && (
@@ -226,7 +228,7 @@ const StoryOverlay = ({
                       <div
                         className="text-base leading-relaxed mt-4"
                         dangerouslySetInnerHTML={{
-                          __html: body
+                          __html: body,
                         }}
                       />
                     </div>
@@ -234,7 +236,7 @@ const StoryOverlay = ({
                       <div
                         className="story-content"
                         dangerouslySetInnerHTML={{
-                          __html: footerText
+                          __html: footerText,
                         }}
                       />
                     </div>

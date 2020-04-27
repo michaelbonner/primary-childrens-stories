@@ -7,16 +7,16 @@ import useWindowSize from "../shared/hooks/useWindowSize";
 import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
 import contentfulRichText from "../shared/contentfulRichText";
 import colorMap from "../shared/colorMap";
+import getHostName from "../shared/getHostName";
 
 const Nav = ({
   aboutTabContent,
   activeCategory,
   categories,
-  hostname,
   recenterMap,
   setActiveCategory,
   thankYouForSharingContent,
-  submitTabContent
+  submitTabContent,
 }) => {
   const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
@@ -45,7 +45,7 @@ const Nav = ({
     };
   });
 
-  useOnClickOutside(ref, e => {
+  useOnClickOutside(ref, (e) => {
     if (typeof e.target.className !== "string") {
       setActiveTab("");
       return;
@@ -102,7 +102,7 @@ const Nav = ({
       setNavStyle({
         left: "50%",
         marginLeft: 0 - navRef.current.clientWidth / 2 + "px",
-        transform: "translate3d(0,4rem,0)"
+        transform: "translate3d(0,4rem,0)",
       });
     }
   }, [size.width]);
@@ -123,7 +123,7 @@ const Nav = ({
             className={`
               flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm rounded-b-lg shadow-md z-20 focus:outline-none
             `}
-            url={`https://${hostname}`}
+            url={`https://${getHostName()}`}
             resetButtonStyle={false}
             onClick={() => setWillShowThankYou(true)}
           >
@@ -133,7 +133,7 @@ const Nav = ({
         {shareOpen && (
           <TwitterShareButton
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
-            url={`https://${hostname}`}
+            url={`https://${getHostName()}`}
             resetButtonStyle={false}
             onClick={() => setWillShowThankYou(true)}
           >
@@ -224,7 +224,7 @@ const Nav = ({
               <div
                 className="h-full story-content overflow-y-scroll"
                 dangerouslySetInnerHTML={{
-                  __html: contentfulRichText(aboutTabContent)
+                  __html: contentfulRichText(aboutTabContent),
                 }}
                 style={{ maxHeight: "calc(-17rem + 100vh)" }}
               ></div>
@@ -244,13 +244,13 @@ const Nav = ({
                     }}
                     style={{
                       background:
-                        activeCategory === "all" ? colorMap.all : "white"
+                        activeCategory === "all" ? colorMap.all : "white",
                     }}
                   >
                     <span className="inline-block mt-1">All</span>
                   </button>
                 </div>
-                {categories.map(category => (
+                {categories.map((category) => (
                   <div
                     className="w-1/2 lg:w-1/3 h-16 p-1"
                     key={category.sys.id}
@@ -271,7 +271,7 @@ const Nav = ({
                         background:
                           activeCategory === category.sys.id
                             ? colorMap[category.fields.color]
-                            : "white"
+                            : "white",
                       }}
                     >
                       <span className="inline-block mt-1">
@@ -285,7 +285,7 @@ const Nav = ({
             <TabContentWrapper tabLink="submit">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: contentfulRichText(submitTabContent)
+                  __html: contentfulRichText(submitTabContent),
                 }}
               />
               <a
