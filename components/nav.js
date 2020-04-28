@@ -102,7 +102,6 @@ const Nav = ({
       setNavStyle({
         left: "50%",
         marginLeft: 0 - navRef.current.clientWidth / 2 + "px",
-        transform: "translate3d(0,4rem,0)",
       });
     }
   }, [size.width]);
@@ -141,6 +140,7 @@ const Nav = ({
           </TwitterShareButton>
         )}
       </div>
+
       <div
         className="fixed z-10 h-auto max-h-screen w-full lg:w-4/5 2xl:w-1/2 lg:max-w-3xl mx-auto"
         ref={navRef}
@@ -150,7 +150,7 @@ const Nav = ({
           <div className="relative p-0 lg:px-4 h-full w-full">
             <nav className="relative mt-0 flex flex-wrap text-blue-600 text-center z-30">
               <div
-                className="relative flex w-full items-center lg:w-auto lg:rounded-lg bg-white shadow-md px-4 pb-1 lg:py-1"
+                className="relative flex w-full items-center lg:w-auto lg:rounded-b-lg bg-white shadow-md px-4 pb-1 lg:py-1"
                 id="primaryChildrensLogo"
               >
                 <div className="inline-block lg:hidden self-start">
@@ -213,7 +213,7 @@ const Nav = ({
               <div
                 className={`${
                   isMobileNavOpen ? "inline-block" : "hidden"
-                } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-lg bg-white lg:shadow-md items-center flex-1`}
+                } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-b-lg bg-white lg:shadow-md items-center flex-1`}
               >
                 <NavButton text="About" link="about" />
                 <NavButton text="Filter" link="filter" />
