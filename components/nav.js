@@ -82,7 +82,7 @@ const Nav = ({
 
     return (
       <div
-        className={`w-full h-full max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
+        className={`w-full h-full max-w-4xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
         ref={ref}
       >
         <div
@@ -142,7 +142,7 @@ const Nav = ({
         )}
       </div>
       <div
-        className="fixed z-10 h-auto max-h-screen w-full lg:w-2/3 xl:w-1/2 lg:max-w-2xl mx-auto"
+        className="fixed z-10 h-auto max-h-screen w-full lg:w-4/5 2xl:w-1/2 lg:max-w-3xl mx-auto"
         ref={navRef}
         style={navStyle}
       >
@@ -216,8 +216,8 @@ const Nav = ({
                 } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-lg bg-white lg:shadow-md items-center flex-1`}
               >
                 <NavButton text="About" link="about" />
-                <NavButton text="Search" link="search" />
-                <NavButton text="Submit" link="submit" />
+                <NavButton text="Filter" link="filter" />
+                <NavButton text="Submit Story" link="submit" />
               </div>
             </nav>
             <TabContentWrapper tabLink="about">
@@ -229,11 +229,11 @@ const Nav = ({
                 style={{ maxHeight: "calc(-17rem + 100vh)" }}
               ></div>
             </TabContentWrapper>
-            <TabContentWrapper tabLink="search">
+            <TabContentWrapper tabLink="filter">
               <div className="flex flex-wrap">
                 <div className="w-1/2 lg:w-1/3 h-16 p-1">
                   <button
-                    className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                    className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border rounded ${
                       activeCategory === "all" ? "text-white" : "text-gray-700"
                     }`}
                     onClick={() => {
@@ -256,7 +256,7 @@ const Nav = ({
                     key={category.sys.id}
                   >
                     <button
-                      className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                      className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border rounded ${
                         activeCategory === category.sys.id
                           ? "text-white"
                           : "text-gray-700"
@@ -291,9 +291,9 @@ const Nav = ({
               <a
                 href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/"
                 target="_blank"
-                className="inline-block mt-6 bg-blue-400 text-blue-100 mt-2 py-3 px-12 rounded"
+                className="inline-block mt-6 bg-blue-500 text-blue-100 mt-2 py-3 px-12 rounded"
               >
-                Submit
+                Get Started
               </a>
             </TabContentWrapper>
           </div>
