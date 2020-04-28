@@ -19,9 +19,9 @@ const WelcomeOverlay = ({ dismissOverlay, welcomeOverlayContent }) => {
           </div>
           <WelcomeMap className="mx-auto max-w-full inline-block z-20 w-2/3" />
           <div
-            className="text-lg max-w-md m-auto -mt-2 lg:-mt-16"
+            className="text-lg max-w-lg m-auto -mt-2 lg:-mt-16"
             dangerouslySetInnerHTML={{
-              __html: contentfulRichText(welcomeOverlayContent)
+              __html: contentfulRichText(welcomeOverlayContent),
             }}
           />
           <div className="w-full mt-4">
