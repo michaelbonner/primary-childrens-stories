@@ -17,23 +17,23 @@ const Map = ({
   stories,
   submitTabContent,
   thankYouForSharingContent,
-  welcomeOverlayContent
+  welcomeOverlayContent,
 }) => {
   const bgImageDimensions = {
     width: 3200,
-    height: 2400
+    height: 2400,
   };
   const intermountainPinLocation = {
     x: 1535,
-    y: 735
+    y: 735,
   };
   const mobilePinDimensions = {
     width: 36,
-    height: 54
+    height: 54,
   };
   const desktopPinDimensions = {
     width: 45,
-    height: 68
+    height: 68,
   };
   const desktopWidth = 768;
 
@@ -52,13 +52,13 @@ const Map = ({
 
   const [multiplier, setMultiplier] = useState({
     x: size.width / bgImageDimensions.width,
-    y: size.height / bgImageDimensions.height
+    y: size.height / bgImageDimensions.height,
   });
 
   useEffect(() => {
     setMultiplier({
       x: mapImage.current.width / bgImageDimensions.width,
-      y: mapImage.current.height / bgImageDimensions.height
+      y: mapImage.current.height / bgImageDimensions.height,
     });
   }, [scale, size, mapImage]);
 
@@ -70,12 +70,12 @@ const Map = ({
       setInitialScale(mobileScale);
       setPinDimensions([
         mobilePinDimensions.width / mobileScale,
-        mobilePinDimensions.height / mobileScale
+        mobilePinDimensions.height / mobileScale,
       ]);
     } else {
       setPinDimensions([
         desktopPinDimensions.width / scale,
-        desktopPinDimensions.height / scale
+        desktopPinDimensions.height / scale,
       ]);
     }
     recenterMap();
@@ -87,9 +87,9 @@ const Map = ({
     if (activeCategory === "all") {
       setFilteredStories(stories);
     } else {
-      const filtered = stories.filter(story => {
+      const filtered = stories.filter((story) => {
         return story.fields.categories
-          .map(category => category.sys.id)
+          .map((category) => category.sys.id)
           .includes(activeCategory);
       });
       setFilteredStories(filtered);
@@ -105,13 +105,13 @@ const Map = ({
       setScale(0.5);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width) * 0.5,
-        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5
+        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5,
       });
     } else {
       setScale(1);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
-        y: 0 - (intermountainPinLocation.y - size.height / 3)
+        y: 0 - (intermountainPinLocation.y - size.height / 3),
       });
     }
   };
@@ -139,21 +139,21 @@ const Map = ({
         submitTabContent={submitTabContent}
         thankYouForSharingContent={thankYouForSharingContent}
       />
-      <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
-        <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
+      <div className='absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0'>
+        <div className='relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden'>
           <MapInteractionCSS
-            onChange={props => {
+            onChange={(props) => {
               if (scale !== props.scale) {
                 setScale(props.scale);
                 if (size.width < desktopWidth) {
                   setPinDimensions([
                     mobilePinDimensions.width / props.scale,
-                    mobilePinDimensions.height / props.scale
+                    mobilePinDimensions.height / props.scale,
                   ]);
                 } else {
                   setPinDimensions([
                     desktopPinDimensions.width / props.scale,
-                    desktopPinDimensions.height / props.scale
+                    desktopPinDimensions.height / props.scale,
                   ]);
                 }
               }
@@ -171,7 +171,7 @@ const Map = ({
                 0 -
                 bgImageDimensions.height * multiplier.y * scale +
                 size.height,
-              yMax: 0
+              yMax: 0,
             }}
             minScale={minScale}
             maxScale={4}
@@ -179,26 +179,24 @@ const Map = ({
             disableZoom={activeStory ? true : false}
             showControls={true}
             controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
-            btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
-          >
+            btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}>
             <div
-              className="relative"
+              className='relative'
               style={{
                 width: bgImageDimensions.width,
-                height: bgImageDimensions.height
-              }}
-            >
+                height: bgImageDimensions.height,
+              }}>
               <img
-                alt="map background"
-                className="absolute z-0"
-                draggable="false"
+                alt='map background'
+                className='absolute z-0'
+                draggable='false'
                 id={`mapImage`}
                 onLoad={bgLoaded}
                 ref={mapImage}
-                src="/images/pch-background.svg"
+                src='/images/pch-background.svg'
                 style={{
                   width: bgImageDimensions.width,
-                  height: bgImageDimensions.height
+                  height: bgImageDimensions.height,
                 }}
               />
               {isBgLoaded && hideWelcomeOverlay && (
@@ -216,7 +214,7 @@ const Map = ({
               )}
               {isBgLoaded && (
                 <button
-                  className="w-64 h-64 z-40 absolute opacity-0"
+                  className='w-64 h-64 z-40 absolute opacity-0'
                   style={{ transform: "translate3d(1430px, 690px, 0)" }}
                   onClick={() => setActiveStory("main")}
                   onTouchEnd={() => setActiveStory("main")}
@@ -233,6 +231,7 @@ const Map = ({
         setActiveStory={setActiveStory}
         mainStoryContent={mainStoryContent}
         thankYouForSharingContent={thankYouForSharingContent}
+        index={filteredStories}
       />
     </div>
   );
