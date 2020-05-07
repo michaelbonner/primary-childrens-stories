@@ -9,22 +9,22 @@ const StoryPin = ({
   setActiveStory,
   story,
   title,
-  top
+  top,
 }) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const contentProps = useSpring({
     transform: isAnimated
       ? "translate3d(0,-5px,0) scale(1.15)"
-      : "translate3d(0,0px,0) scale(1)"
+      : "translate3d(0,0px,0) scale(1)",
   });
 
   return (
     <animated.div
-      className="absolute z-30"
+      className="absolute z-30 flex text-base"
       style={{
         left,
         top,
-        ...contentProps
+        ...contentProps,
       }}
       onMouseEnter={() => setIsAnimated(true)}
       onMouseLeave={() => setIsAnimated(false)}
@@ -35,18 +35,31 @@ const StoryPin = ({
         onTouchEnd={() => setActiveStory(story)}
         style={{
           width: `${pinDimensions[0]}px`,
-          height: `${pinDimensions[1]}px`
+          height: `${pinDimensions[1]}px`,
         }}
       >
         <img
           alt={title}
           style={{
             width: `${pinDimensions[0]}px`,
-            height: `${pinDimensions[1]}px`
+            height: `${pinDimensions[1]}px`,
           }}
           src={`/pins/${pinColor}.svg`}
         />
       </button>
+      <div
+        className={`${
+          isAnimated ? "" : "hidden"
+        } relative z-50 w-16 h-16 rounded-full shadow bg-blue-100 border-2 border-white cursor-pointer`}
+        onClick={() => setActiveStory(story)}
+        onTouchEnd={() => setActiveStory(story)}
+        style={{
+          backgroundImage: `url(${story.fields.featuredImage.fields.file.url})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        title={story.fields.title}
+      ></div>
     </animated.div>
   );
 };
