@@ -63,7 +63,7 @@ const StoryPin = ({
         <span
           className={`relative block z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white`}
           style={{
-            backgroundImage: `url(${story.fields.featuredImage.fields.file.url})`,
+            backgroundImage: `url(${story.fields.featuredImage.fields.file.url}?w=150)`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
