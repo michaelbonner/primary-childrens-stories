@@ -1,11 +1,5 @@
 module.exports = {
-  purge: {
-    content: ["./pages/**/*.js", "./components/**/*.js"],
-    options: {
-      whitelist: ["html", "body"],
-      whitelistPatterns: [/^Toastify/],
-    },
-  },
+  purge: false,
   theme: {
     extend: {
       colors: {
