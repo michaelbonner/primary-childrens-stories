@@ -20,7 +20,7 @@ const StoryPin = ({
 
   return (
     <animated.div
-      className="absolute z-30 flex text-base"
+      className={`absolute ${isAnimated ? "z-40" : "z-30"} flex text-base`}
       style={{
         left,
         top,
@@ -30,6 +30,7 @@ const StoryPin = ({
       onMouseLeave={() => setIsAnimated(false)}
     >
       <button
+        className="z-30"
         href={`/?id=${id}`}
         onClick={() => setActiveStory(story)}
         onTouchEnd={() => setActiveStory(story)}
@@ -50,16 +51,24 @@ const StoryPin = ({
       <div
         className={`${
           isAnimated ? "" : "hidden"
-        } relative z-50 w-16 h-16 rounded-full shadow bg-blue-100 border-2 border-white cursor-pointer`}
-        onClick={() => setActiveStory(story)}
-        onTouchEnd={() => setActiveStory(story)}
-        style={{
-          backgroundImage: `url(${story.fields.featuredImage.fields.file.url})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        title={story.fields.title}
-      ></div>
+        } shadow-lg z-20 bg-white py-3 px-6 text-right rounded-lg`}
+        style={{ transform: `translate3d(-30px, 0, 0)` }}
+      >
+        <div
+          className={`relative z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white cursor-pointer`}
+          onClick={() => setActiveStory(story)}
+          onTouchEnd={() => setActiveStory(story)}
+          style={{
+            backgroundImage: `url(${story.fields.featuredImage.fields.file.url})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+          title={story.fields.title}
+        ></div>
+        <p className="text-base font-normal mt-3 normal-case">
+          {story.fields.title}
+        </p>
+      </div>
     </animated.div>
   );
 };
