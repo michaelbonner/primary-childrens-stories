@@ -7,6 +7,7 @@ const StoryPin = ({
   pinColor,
   pinDimensions,
   setActiveStory,
+  setHoveredPin,
   story,
   title,
   top,
@@ -26,7 +27,10 @@ const StoryPin = ({
         top,
         ...contentProps,
       }}
-      onMouseEnter={() => setIsAnimated(true)}
+      onMouseEnter={() => {
+        setHoveredPin(story.sys.id);
+        setIsAnimated(true);
+      }}
       onMouseLeave={() => setIsAnimated(false)}
     >
       <button
@@ -51,8 +55,8 @@ const StoryPin = ({
       <div
         className={`${
           isAnimated ? "" : "hidden"
-        } shadow-lg z-20 bg-white py-3 px-6 text-right rounded-lg`}
-        style={{ transform: `translate3d(-30px, 0, 0)` }}
+        } shadow-lg z-20 bg-white py-3 px-8 text-right rounded-lg`}
+        style={{ transform: `translate3d(-33px, -66px, 0)` }}
       >
         <div
           className={`relative z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white cursor-pointer`}
