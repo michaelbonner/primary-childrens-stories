@@ -11,7 +11,6 @@ const Map = ({
   aboutTabContent,
   activeCategory,
   categories,
-  hostname,
   mainStoryContent,
   setActiveCategory,
   stories,
@@ -133,14 +132,13 @@ const Map = ({
         aboutTabContent={aboutTabContent}
         activeCategory={activeCategory}
         categories={categories}
-        hostname={hostname}
         recenterMap={recenterMap}
         setActiveCategory={setActiveCategory}
         submitTabContent={submitTabContent}
         thankYouForSharingContent={thankYouForSharingContent}
       />
-      <div className='absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0'>
-        <div className='relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden'>
+      <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
+        <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={(props) => {
               if (scale !== props.scale) {
@@ -179,21 +177,23 @@ const Map = ({
             disableZoom={activeStory ? true : false}
             showControls={true}
             controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
-            btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}>
+            btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
+          >
             <div
-              className='relative'
+              className="relative"
               style={{
                 width: bgImageDimensions.width,
                 height: bgImageDimensions.height,
-              }}>
+              }}
+            >
               <img
-                alt='map background'
-                className='absolute z-0'
-                draggable='false'
+                alt="map background"
+                className="absolute z-0"
+                draggable="false"
                 id={`mapImage`}
                 onLoad={bgLoaded}
                 ref={mapImage}
-                src='/images/pch-background.svg'
+                src="/images/pch-background.svg"
                 style={{
                   width: bgImageDimensions.width,
                   height: bgImageDimensions.height,
@@ -214,7 +214,7 @@ const Map = ({
               )}
               {isBgLoaded && (
                 <button
-                  className='w-64 h-64 z-40 absolute opacity-0'
+                  className="w-64 h-64 z-40 absolute opacity-0"
                   style={{ transform: "translate3d(1430px, 690px, 0)" }}
                   onClick={() => setActiveStory("main")}
                   onTouchEnd={() => setActiveStory("main")}
@@ -227,7 +227,6 @@ const Map = ({
       <StoryOverlay
         activeCategory={activeCategory}
         activeStory={activeStory}
-        hostname={hostname}
         setActiveStory={setActiveStory}
         mainStoryContent={mainStoryContent}
         thankYouForSharingContent={thankYouForSharingContent}

@@ -7,6 +7,7 @@ import LinkIcon from "./link-icon";
 import contentfulRichText from "../shared/contentfulRichText";
 import contentfulPrintMedia from "../shared/contentfulPrintMedia";
 import youtubeEmbed from "../shared/youtubeEmbed";
+import getHostName from "../shared/getHostName";
 
 const StoryOverlay = ({
   activeCategory,
@@ -14,7 +15,6 @@ const StoryOverlay = ({
   mainStoryContent,
   setActiveStory,
   thankYouForSharingContent,
-  hostname,
   index,
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
@@ -118,7 +118,9 @@ const StoryOverlay = ({
           )
         );
       }
-      setUrl(`https://${hostname}/${activeStory && activeStory.fields.slug}`);
+      setUrl(
+        `https://${getHostName()}/${activeStory && activeStory.fields.slug}`
+      );
     } else {
       setTitle(``);
       setBody(
@@ -150,7 +152,7 @@ const StoryOverlay = ({
           </a>
         </p>`
       );
-      setUrl(hostname);
+      setUrl(getHostName());
     }
   }, [activeStory]);
 
@@ -166,34 +168,38 @@ const StoryOverlay = ({
         />
         <div className={"fixed z-30 w-full py-8 md:py-16 inset-y-0"}>
           <div
-            className='flex h-full px-3'
+            className="flex h-full px-3"
             onClick={(e) => {
               setShareOpen(false);
               setActiveStory(null);
-            }}>
+            }}
+          >
             <div
-              className='relative bg-white w-full md:w-2/3 xl:w-2/5 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md'
+              className="relative bg-white w-full md:w-2/3 xl:w-2/5 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md"
               onClick={(e) => {
                 e.stopPropagation();
-              }}>
-              <div className='absolute left:0 lg:right-0 top-0 -ml-6 lg:ml-0 mt-2 lg:mt-1 lg:-mr-12'>
+              }}
+            >
+              <div className="absolute left:0 lg:right-0 top-0 -ml-6 lg:ml-0 mt-2 lg:mt-1 lg:-mr-12">
                 <button
-                  className='lg:-mr-32 bg-white px-6 py-4 shadow-lg rounded-lg font-bold text-gray-600'
+                  className="lg:-mr-32 bg-white px-6 py-4 shadow-lg rounded-lg font-bold text-gray-600"
                   onClick={() => {
                     setShareOpen(false);
                     setActiveStory(null);
-                  }}>
+                  }}
+                >
                   X
                 </button>
               </div>
               {activeStory && (
                 <>
-                  <div className='absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center'>
+                  <div className="absolute right-0 top-0 flex flex-col justify-end mr-8 md:mr-16 w-24 text-center">
                     <button
-                      className='inline-block py-3 md:pt-8 md:pb-3 px-2 md:px-4 bg-blue-500 text-blue-100 text-sm font-bold rounded-b-lg shadow-md z-50 focus:outline-none'
+                      className="inline-block py-3 md:pt-8 md:pb-3 px-2 md:px-4 bg-blue-500 text-blue-100 text-sm font-bold rounded-b-lg shadow-md z-50 focus:outline-none"
                       onClick={() => {
                         setShareOpen(!shareOpen);
-                      }}>
+                      }}
+                    >
                       Share
                     </button>
                     <FacebookShareButton
@@ -202,8 +208,9 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm uppercase rounded-b-lg shadow-md z-40 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
-                      onClick={() => setWillShowThankYou(true)}>
-                      <Facebook className='w-8 fill-current' />
+                      onClick={() => setWillShowThankYou(true)}
+                    >
+                      <Facebook className="w-8 fill-current" />
                     </FacebookShareButton>
                     <TwitterShareButton
                       className={`${
@@ -211,8 +218,9 @@ const StoryOverlay = ({
                       } items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm uppercase rounded-b-lg shadow-md z-30 focus:outline-none`}
                       url={url}
                       resetButtonStyle={false}
-                      onClick={() => setWillShowThankYou(true)}>
-                      <Twitter className='w-8 fill-current' />
+                      onClick={() => setWillShowThankYou(true)}
+                    >
+                      <Twitter className="w-8 fill-current" />
                     </TwitterShareButton>
                     <button
                       className={`${
@@ -221,13 +229,14 @@ const StoryOverlay = ({
                       onClick={() => {
                         setWillShowThankYou(true);
                         window.open(url);
-                      }}>
-                      <LinkIcon className='w-8 p-1 fill-current' />
+                      }}
+                    >
+                      <LinkIcon className="w-8 p-1 fill-current" />
                     </button>
                   </div>
-                  <div className='h-full pt-12 flex flex-col'>
-                    <div className='story-content overflow-y-scroll flex-1'>
-                      <div className='text-xl font-bold leading-relaxed mb-6'>
+                  <div className="h-full pt-12 flex flex-col">
+                    <div className="story-content overflow-y-scroll flex-1">
+                      <div className="text-xl font-bold leading-relaxed mb-6">
                         {title}
                       </div>
                       {activeStory &&
@@ -238,44 +247,45 @@ const StoryOverlay = ({
                         return contentfulPrintMedia(item);
                       })}
                       {activeStory && activeStory === "main" && (
-                        <div className='pb-2'>
+                        <div className="pb-2">
                           {youtubeEmbed("https://youtu.be/25KtzDQIFxA")}
                         </div>
                       )}
                       <div
-                        className='text-base leading-relaxed mt-4'
+                        className="text-base leading-relaxed mt-4"
                         dangerouslySetInnerHTML={{
                           __html: body,
                         }}
                       />
                     </div>
-                    <div className='w-full flex mt-4'>
-                      <div onClick={prevStory} className='inline-block  w-1/3'>
+                    <div className="w-full flex mt-4">
+                      <div onClick={prevStory} className="inline-block  w-1/3">
                         <img
-                          className='h-8'
-                          alt='back arrow'
-                          src='/images/arrow-back-outline.svg'
+                          className="h-8"
+                          alt="back arrow"
+                          src="/images/arrow-back-outline.svg"
                         />
                       </div>
-                      <div className='inline-block w-1/3 text-center'>
+                      <div className="inline-block w-1/3 text-center">
                         <a
-                          href='https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/'
-                          target='_blank'
-                          className='inline-block bg-blue-400 text-blue-100 py-2 px-4 rounded'>
+                          href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/"
+                          target="_blank"
+                          className="inline-block bg-blue-400 text-blue-100 py-2 px-4 rounded"
+                        >
                           Share Your Story
                         </a>
                       </div>
-                      <div onClick={nextStory} className='inline-block  w-1/3'>
+                      <div onClick={nextStory} className="inline-block  w-1/3">
                         <img
-                          className='h-8 float-right'
-                          alt='next arrow'
-                          src='/images/arrow-forward-outline.svg'
+                          className="h-8 float-right"
+                          alt="next arrow"
+                          src="/images/arrow-forward-outline.svg"
                         />
                       </div>
                     </div>
                     <div>
                       <div
-                        className='story-content'
+                        className="story-content"
                         dangerouslySetInnerHTML={{
                           __html: footerText,
                         }}

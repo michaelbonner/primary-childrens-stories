@@ -8,12 +8,11 @@ import contentfulContent from "../shared/contentfulContent";
 const Home = ({
   aboutTabContent,
   categories,
-  hostname,
   mainStoryContent,
   stories,
   submitTabContent,
   thankYouForSharingContent,
-  welcomeOverlayContent
+  welcomeOverlayContent,
 }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   return (
@@ -31,7 +30,6 @@ const Home = ({
         aboutTabContent={aboutTabContent}
         activeCategory={activeCategory}
         categories={categories}
-        hostname={hostname}
         mainStoryContent={mainStoryContent}
         setActiveCategory={setActiveCategory}
         stories={stories}
@@ -43,17 +41,16 @@ const Home = ({
   );
 };
 
-Home.getInitialProps = async ({ req }) => {
+export async function getStaticProps() {
   let siteContent;
-
   try {
     if (
       fs &&
-      fs.existsSync(path.join(__dirname, "..", "data", `site-content.json`))
+      fs.existsSync(path.join(process.cwd(), "..", "data", `site-content.json`))
     ) {
       siteContent = JSON.parse(
         fs.readFileSync(
-          path.join(__dirname, "..", "data", `site-content.json`),
+          path.join(process.cwd(), "..", "data", `site-content.json`),
           "utf8"
         )
       );
@@ -74,25 +71,24 @@ Home.getInitialProps = async ({ req }) => {
   const mainStoryContent = siteContent.contentBlocks.mainStoryContent;
   const welcomeOverlayContent = siteContent.contentBlocks.welcomeOverlayContent;
 
-  const hostname = req ? req.headers.host : window.location.hostname;
-
   return {
-    stories: stories.items,
-    categories: categories.items.sort((a, b) => {
-      if (a.fields.order > b.fields.order) {
-        return 1;
-      } else if (a.fields.order < b.fields.order) {
-        return -1;
-      }
-      return 0;
-    }),
-    aboutTabContent,
-    hostname,
-    mainStoryContent,
-    submitTabContent,
-    thankYouForSharingContent,
-    welcomeOverlayContent
+    props: {
+      stories: stories.items,
+      categories: categories.items.sort((a, b) => {
+        if (a.fields.order > b.fields.order) {
+          return 1;
+        } else if (a.fields.order < b.fields.order) {
+          return -1;
+        }
+        return 0;
+      }),
+      aboutTabContent,
+      mainStoryContent,
+      submitTabContent,
+      thankYouForSharingContent,
+      welcomeOverlayContent,
+    },
   };
-};
+}
 
 export default Home;
