@@ -27,12 +27,12 @@ const Map = ({
     y: 735,
   };
   const mobilePinDimensions = {
-    width: 36,
-    height: 54,
+    width: 38,
+    height: 57,
   };
   const desktopPinDimensions = {
-    width: 45,
-    height: 68,
+    width: 58,
+    height: 88,
   };
   const desktopWidth = 768;
 
