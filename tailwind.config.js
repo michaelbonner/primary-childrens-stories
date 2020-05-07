@@ -1,4 +1,11 @@
 module.exports = {
+  purge: {
+    content: ["./pages/**/*.js", "./components/**/*.js"],
+    options: {
+      whitelist: ["html", "body"],
+      whitelistPatterns: [/^Toastify/],
+    },
+  },
   theme: {
     extend: {
       colors: {
@@ -11,7 +18,7 @@ module.exports = {
           600: "#355089",
           700: "#23355B",
           800: "#1B2844",
-          900: "#121B2E"
+          900: "#121B2E",
         },
         twitter: {
           100: "#E6F7FD",
@@ -22,7 +29,7 @@ module.exports = {
           600: "#009BD5",
           700: "#00678E",
           800: "#004D6B",
-          900: "#003447"
+          900: "#003447",
         },
         blue: {
           100: "#ECF3F9",
@@ -33,11 +40,11 @@ module.exports = {
           600: "#3C78B1",
           700: "#285076",
           800: "#1E3C59",
-          900: "#14283B"
-        }
-      }
-    }
+          900: "#14283B",
+        },
+      },
+    },
   },
   variants: {},
-  plugins: [require("tailwindcss-padding-safe")()]
+  plugins: [require("tailwindcss-padding-safe")()],
 };
