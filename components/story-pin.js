@@ -52,26 +52,27 @@ const StoryPin = ({
           src={`/pins/${pinColor}.svg`}
         />
       </button>
-      <div
+      <button
         className={`${
           isAnimated ? "" : "hidden"
-        } ml-2 shadow-lg z-20 bg-white py-3 px-8 text-right rounded-lg`}
+        } ml-2 shadow-lg z-20 bg-white py-3 px-8 text-right rounded-lg cursor-pointer`}
+        onClick={() => setActiveStory(story)}
+        onTouchEnd={() => setActiveStory(story)}
+        type="button"
       >
-        <div
-          className={`relative z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white cursor-pointer`}
-          onClick={() => setActiveStory(story)}
-          onTouchEnd={() => setActiveStory(story)}
+        <span
+          className={`relative block z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white`}
           style={{
             backgroundImage: `url(${story.fields.featuredImage.fields.file.url})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
           title={story.fields.title}
-        ></div>
-        <p className="text-base font-normal mt-3 normal-case">
+        ></span>
+        <span className="block text-base font-normal mt-3 normal-case text-blue-500">
           {story.fields.title}
-        </p>
-      </div>
+        </span>
+      </button>
     </animated.div>
   );
 };
