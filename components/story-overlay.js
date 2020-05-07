@@ -14,8 +14,8 @@ const StoryOverlay = ({
   activeStory,
   mainStoryContent,
   setActiveStory,
+  stories,
   thankYouForSharingContent,
-  index,
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [media, setMedia] = useState([]);
@@ -43,26 +43,25 @@ const StoryOverlay = ({
   });
 
   const nextStory = () => {
-    let currentTitle = activeStory.fields.title;
-    let sec = index.findIndex((i) => i.fields.title === currentTitle);
-    if (sec === index.length - 1) {
-      sec = 0;
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex === stories.length - 1) {
+      setActiveStory(stories[0]);
     } else {
-      sec = sec + 1;
+      setActiveStory(stories[currentIndex + 1]);
     }
-
-    setActiveStory(index[sec]);
   };
 
   const prevStory = () => {
-    let currentTitle = activeStory.fields.title;
-    let sec = index.findIndex((i) => i.fields.title === currentTitle);
-    if (sec === index.length - 1) {
-      sec = 0;
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex) {
+      setActiveStory(stories[currentIndex - 1]);
     } else {
-      sec = sec + 1;
+      setActiveStory(stories[stories.length - 1]);
     }
-    setActiveStory(index[sec - 1]);
   };
 
   useEffect(() => {
