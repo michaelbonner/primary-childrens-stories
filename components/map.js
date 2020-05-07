@@ -41,8 +41,8 @@ const Map = ({
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
-  const [scale, setScale] = useState(0.75);
-  const [minScale, setMinScale] = useState(0.75);
+  const [scale, setScale] = useState(1);
+  const [minScale, setMinScale] = useState(1);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
 
@@ -107,7 +107,7 @@ const Map = ({
         y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5,
       });
     } else {
-      setScale(0.75);
+      setScale(1);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
         y: 0 - (intermountainPinLocation.y - size.height / 3),
@@ -117,14 +117,14 @@ const Map = ({
 
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
-    let currentScale = 0.75;
-    const newScale = 1;
-    while (currentScale < newScale) {
-      currentScale = currentScale + 0.1;
-      setTimeout(() => {
-        setScale(currentScale);
-      }, 100 * currentScale);
-    }
+    // let currentScale = 0.75;
+    // const newScale = 1;
+    // while (currentScale < newScale) {
+    //   currentScale = currentScale + 0.1;
+    //   setTimeout(() => {
+    //     setScale(currentScale);
+    //   }, 100 * currentScale);
+    // }
   };
 
   return (
