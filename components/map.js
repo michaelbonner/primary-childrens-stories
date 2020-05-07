@@ -230,6 +230,7 @@ const Map = ({
         setActiveStory={setActiveStory}
         mainStoryContent={mainStoryContent}
         thankYouForSharingContent={thankYouForSharingContent}
+        stories={filteredStories}
       />
     </div>
   );

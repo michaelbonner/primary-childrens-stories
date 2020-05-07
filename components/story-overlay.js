@@ -14,6 +14,7 @@ const StoryOverlay = ({
   activeStory,
   mainStoryContent,
   setActiveStory,
+  stories,
   thankYouForSharingContent,
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
@@ -40,6 +41,28 @@ const StoryOverlay = ({
       window.removeEventListener("focus", onFocus);
     };
   });
+
+  const nextStory = () => {
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex === stories.length - 1) {
+      setActiveStory(stories[0]);
+    } else {
+      setActiveStory(stories[currentIndex + 1]);
+    }
+  };
+
+  const prevStory = () => {
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex) {
+      setActiveStory(stories[currentIndex - 1]);
+    } else {
+      setActiveStory(stories[stories.length - 1]);
+    }
+  };
 
   useEffect(() => {
     if (
@@ -209,7 +232,7 @@ const StoryOverlay = ({
                     </button>
                   </div>
                   <div className="h-full pt-12 flex flex-col">
-                    <div className="story-content overflow-y-scroll flex-1">
+                    <div className="overflow-y-scroll flex-1">
                       <div className="text-xl font-bold leading-relaxed mb-6">
                         {title}
                       </div>
@@ -226,19 +249,102 @@ const StoryOverlay = ({
                         </div>
                       )}
                       <div
-                        className="text-base leading-relaxed mt-4"
+                        className="story-content text-base leading-relaxed mt-4"
                         dangerouslySetInnerHTML={{
                           __html: body,
                         }}
                       />
+                      <div className="flex justify-center text-center mb-8">
+                        <a
+                          href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/"
+                          target="_blank"
+                          className="inline-block mt-6 bg-blue-500 text-blue-100 mt-2 py-3 px-12 rounded"
+                        >
+                          Share Your Story
+                        </a>
+                      </div>
                     </div>
-                    <div className="mt-6">
+                    <div>
                       <div
                         className="story-content"
                         dangerouslySetInnerHTML={{
                           __html: footerText,
                         }}
                       />
+                    </div>
+                    <div className="w-full flex justify-between items-center mt-4 text-blue-400 text-sm">
+                      <button
+                        onClick={prevStory}
+                        className="inline-block flex items-center stroke-current justify-start focus:outline-none focus:text-blue-900"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="512"
+                          height="512"
+                          viewBox="0 0 512 512"
+                        >
+                          <title>Previous Story</title>
+                          <polyline
+                            points="244 400 100 256 244 112"
+                            style={{
+                              fill: "none",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              strokeWidth: "48px",
+                            }}
+                          />
+                          <line
+                            x1="120"
+                            y1="256"
+                            x2="412"
+                            y2="256"
+                            style={{
+                              fill: "none",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              strokeWidth: "48px",
+                            }}
+                          />
+                        </svg>
+                        <span>Previous Story</span>
+                      </button>
+                      <button
+                        onClick={nextStory}
+                        className="inline-block flex items-center stroke-current justify-end focus:outline-none focus:text-blue-900"
+                      >
+                        <span>Next Story</span>
+                        <svg
+                          className="w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="512"
+                          height="512"
+                          viewBox="0 0 512 512"
+                        >
+                          <title>Next Story</title>
+                          <polyline
+                            points="268 112 412 256 268 400"
+                            style={{
+                              fill: "none",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              strokeWidth: "48px",
+                            }}
+                          />
+                          <line
+                            x1="392"
+                            y1="256"
+                            x2="100"
+                            y2="256"
+                            style={{
+                              fill: "none",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              strokeWidth: "48px",
+                            }}
+                          />
+                        </svg>
+                      </button>
                     </div>
                   </div>
                 </>
