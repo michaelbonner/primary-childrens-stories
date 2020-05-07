@@ -272,80 +272,82 @@ const StoryOverlay = ({
                         }}
                       />
                     </div>
-                    <div className="w-full flex justify-between items-center mt-4 text-blue-400 text-sm">
-                      <button
-                        onClick={prevStory}
-                        className="inline-block flex items-center stroke-current justify-start focus:outline-none focus:text-blue-900"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="512"
-                          height="512"
-                          viewBox="0 0 512 512"
+                    {activeStory && activeStory !== "main" && (
+                      <div className="w-full flex justify-between items-center mt-4 text-blue-400 text-sm">
+                        <button
+                          onClick={prevStory}
+                          className="inline-block flex items-center stroke-current justify-start focus:outline-none focus:text-blue-900"
                         >
-                          <title>Previous Story</title>
-                          <polyline
-                            points="244 400 100 256 244 112"
-                            style={{
-                              fill: "none",
-                              strokeLinecap: "round",
-                              strokeLinejoin: "round",
-                              strokeWidth: "48px",
-                            }}
-                          />
-                          <line
-                            x1="120"
-                            y1="256"
-                            x2="412"
-                            y2="256"
-                            style={{
-                              fill: "none",
-                              strokeLinecap: "round",
-                              strokeLinejoin: "round",
-                              strokeWidth: "48px",
-                            }}
-                          />
-                        </svg>
-                        <span>Previous Story</span>
-                      </button>
-                      <button
-                        onClick={nextStory}
-                        className="inline-block flex items-center stroke-current justify-end focus:outline-none focus:text-blue-900"
-                      >
-                        <span>Next Story</span>
-                        <svg
-                          className="w-5 h-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="512"
-                          height="512"
-                          viewBox="0 0 512 512"
+                          <svg
+                            className="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="512"
+                            height="512"
+                            viewBox="0 0 512 512"
+                          >
+                            <title>Previous Story</title>
+                            <polyline
+                              points="244 400 100 256 244 112"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                            <line
+                              x1="120"
+                              y1="256"
+                              x2="412"
+                              y2="256"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                          </svg>
+                          <span>Previous Story</span>
+                        </button>
+                        <button
+                          onClick={nextStory}
+                          className="inline-block flex items-center stroke-current justify-end focus:outline-none focus:text-blue-900"
                         >
-                          <title>Next Story</title>
-                          <polyline
-                            points="268 112 412 256 268 400"
-                            style={{
-                              fill: "none",
-                              strokeLinecap: "round",
-                              strokeLinejoin: "round",
-                              strokeWidth: "48px",
-                            }}
-                          />
-                          <line
-                            x1="392"
-                            y1="256"
-                            x2="100"
-                            y2="256"
-                            style={{
-                              fill: "none",
-                              strokeLinecap: "round",
-                              strokeLinejoin: "round",
-                              strokeWidth: "48px",
-                            }}
-                          />
-                        </svg>
-                      </button>
-                    </div>
+                          <span>Next Story</span>
+                          <svg
+                            className="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="512"
+                            height="512"
+                            viewBox="0 0 512 512"
+                          >
+                            <title>Next Story</title>
+                            <polyline
+                              points="268 112 412 256 268 400"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                            <line
+                              x1="392"
+                              y1="256"
+                              x2="100"
+                              y2="256"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </>
               )}

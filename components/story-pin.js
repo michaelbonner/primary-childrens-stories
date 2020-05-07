@@ -55,8 +55,7 @@ const StoryPin = ({
       <div
         className={`${
           isAnimated ? "" : "hidden"
-        } shadow-lg z-20 bg-white py-3 px-8 text-right rounded-lg`}
-        style={{ transform: `translate3d(-33px, -66px, 0)` }}
+        } ml-2 shadow-lg z-20 bg-white py-3 px-8 text-right rounded-lg`}
       >
         <div
           className={`relative z-50 w-20 h-20 mx-auto mt-1 rounded-full shadow-md bg-blue-100 border-2 border-white cursor-pointer`}
