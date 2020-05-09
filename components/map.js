@@ -37,7 +37,7 @@ const Map = ({
   };
   const desktopWidth = 768;
 
-  const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(true);
+  const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
