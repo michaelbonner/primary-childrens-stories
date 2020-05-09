@@ -10,15 +10,15 @@ const WelcomeMap = ({ width, height, className }) => {
     animationData: animationData.default,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
-      className: "max-w-full"
-    }
+      className: "max-w-full",
+    },
   };
   return (
     <div
       className={className}
       id="welcomeMap"
       style={{
-        maxWidth: "100%"
+        maxWidth: "100%",
       }}
     >
       <Lottie ariaRole="figure" options={defaultOptions} />

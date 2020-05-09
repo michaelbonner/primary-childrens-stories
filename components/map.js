@@ -7,6 +7,7 @@ import Animations from "./animations";
 import Nav from "./nav";
 import StoryPins from "./story-pins";
 import WelcomeOverlay from "./welcome-overlay";
+import TemporaryWelcomeMap from "./temporary-welcome-map";
 const Map = ({
   aboutTabContent,
   activeCategory,
@@ -36,7 +37,7 @@ const Map = ({
   };
   const desktopWidth = 768;
 
-  const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
+  const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(true);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
@@ -45,6 +46,7 @@ const Map = ({
   const [minScale, setMinScale] = useState(1);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
+  const [userHasMovedMap, setUserHasMovedMap] = useState(false);
 
   const size = useWindowSize();
   const mapImage = useRef(null);
@@ -117,14 +119,6 @@ const Map = ({
 
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
-    // let currentScale = 0.75;
-    // const newScale = 1;
-    // while (currentScale < newScale) {
-    //   currentScale = currentScale + 0.1;
-    //   setTimeout(() => {
-    //     setScale(currentScale);
-    //   }, 100 * currentScale);
-    // }
   };
 
   return (
@@ -146,6 +140,9 @@ const Map = ({
         thankYouForSharingContent={thankYouForSharingContent}
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
+        {isBgLoaded && hideWelcomeOverlay && !userHasMovedMap && (
+          <TemporaryWelcomeMap />
+        )}
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={(props) => {
@@ -189,6 +186,16 @@ const Map = ({
           >
             <div
               className="relative"
+              onMouseUp={() => {
+                if (!userHasMovedMap) {
+                  setUserHasMovedMap(true);
+                }
+              }}
+              onTouchEnd={() => {
+                if (!userHasMovedMap) {
+                  setUserHasMovedMap(true);
+                }
+              }}
               style={{
                 width: bgImageDimensions.width,
                 height: bgImageDimensions.height,
