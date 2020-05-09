@@ -3,11 +3,12 @@ import { MapInteractionCSS } from "react-map-interaction";
 import useWindowSize from "../shared/hooks/useWindowSize";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
-
 import Nav from "./nav";
 import StoryPins from "./story-pins";
 import WelcomeOverlay from "./welcome-overlay";
 import TemporaryWelcomeMap from "./temporary-welcome-map";
+import PageArrows from "./page-arrows";
+
 const Map = ({
   aboutTabContent,
   activeCategory,
@@ -141,7 +142,13 @@ const Map = ({
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
         {isBgLoaded && hideWelcomeOverlay && !userHasMovedMap && (
-          <TemporaryWelcomeMap />
+          <>
+            <TemporaryWelcomeMap />
+            <PageArrows
+              translation={translation}
+              setTranslation={setTranslation}
+            />
+          </>
         )}
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
