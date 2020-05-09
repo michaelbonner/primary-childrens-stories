@@ -24,6 +24,10 @@ const Home = ({
           content="Share your child’s story or your own childhood story as a message of hope for others."
         />
         <meta property="og:url" content={`https://herekidswin.org/`} />
+        <meta
+          name="description"
+          content="When a child receives a difficult diagnosis, it’s helpful to see the journey and success of others who were in similar circumstances. We hope you’ll find strength and inspiration in the countless stories of children who have won in unique ways. We invite you to share your child’s victory or your own victory as a child at Primary Children’s Hospital."
+        />
       </Head>
 
       <Map
