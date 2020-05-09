@@ -1,9 +1,11 @@
-const contentfulPrintMedia = media => {
+const contentfulPrintMedia = (media) => {
   if (!media) {
     return;
   }
   if (media.type.startsWith("image")) {
-    return <img key={media.url} src={media.url} title={media.title} />;
+    return (
+      <img key={media.url} src={`${media.url}?w=800`} title={media.title} />
+    );
   }
   if (media.type.startsWith("video")) {
     return (
@@ -12,7 +14,7 @@ const contentfulPrintMedia = media => {
         key={media.url}
         controls
         controlsList="nodownload"
-        onContextMenu={e => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <source src={media.url} />
       </video>
@@ -26,7 +28,7 @@ const contentfulPrintMedia = media => {
         key={media.url}
         controls
         controlsList="nodownload"
-        onContextMenu={e => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <source src={media.url} />
       </audio>

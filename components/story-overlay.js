@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
 import Facebook from "./facebook";
@@ -24,6 +24,9 @@ const StoryOverlay = ({
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
   const [willShowThankYou, setWillShowThankYou] = useState(false);
+  const scrollDiv = useRef(null);
+
+  const scrollToTop = (ref) => (ref.current.scrollTop = 0);
 
   const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
 
@@ -51,6 +54,7 @@ const StoryOverlay = ({
     } else {
       setActiveStory(stories[currentIndex + 1]);
     }
+    scrollToTop(scrollDiv);
   };
 
   const prevStory = () => {
@@ -62,6 +66,7 @@ const StoryOverlay = ({
     } else {
       setActiveStory(stories[stories.length - 1]);
     }
+    scrollToTop(scrollDiv);
   };
 
   useEffect(() => {
@@ -232,7 +237,7 @@ const StoryOverlay = ({
                     </button>
                   </div>
                   <div className="h-full pt-12 flex flex-col">
-                    <div className="overflow-y-scroll flex-1">
+                    <div className="overflow-y-scroll flex-1" ref={scrollDiv}>
                       <div className="text-xl font-bold leading-relaxed mb-6">
                         {title}
                       </div>
