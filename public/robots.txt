@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://herekidswin.com/sitemap.xml
