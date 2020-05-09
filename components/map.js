@@ -236,6 +236,7 @@ const Map = ({
               )}
               {isBgLoaded && (
                 <button
+                  aria-label="Primary Children's Hospital"
                   className="w-64 h-64 z-40 absolute opacity-0"
                   style={{ transform: "translate3d(1430px, 690px, 0)" }}
                   onClick={() => setActiveStory("main")}
