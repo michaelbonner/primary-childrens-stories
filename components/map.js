@@ -82,7 +82,7 @@ const Map = ({
     }
     recenterMap();
     // catch times when the bg image loads but doesn't call bgLoaded
-    setTimeout(() => bgLoaded(), 500);
+    setTimeout(() => bgLoaded(), 2500);
   }, [size.width]);
 
   useEffect(() => {
