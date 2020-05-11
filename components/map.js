@@ -82,7 +82,7 @@ const Map = ({
     }
     recenterMap();
     // catch times when the bg image loads but doesn't call bgLoaded
-    setTimeout(() => bgLoaded(), 2500);
+    setTimeout(() => bgLoaded(), 5000);
   }, [size.width]);
 
   useEffect(() => {
@@ -208,19 +208,35 @@ const Map = ({
                 height: bgImageDimensions.height,
               }}
             >
-              <img
-                alt="map background"
-                className="absolute z-0"
-                draggable="false"
-                id={`mapImage`}
-                onLoad={bgLoaded}
-                ref={mapImage}
-                src="/images/pch-background.svg"
-                style={{
-                  width: bgImageDimensions.width,
-                  height: bgImageDimensions.height,
-                }}
-              />
+              <picture>
+                <source
+                  srcset="/images/pch-background.webp"
+                  type="image/webp"
+                  alt="map background"
+                  className="absolute z-0"
+                  draggable="false"
+                  id={`mapImage`}
+                  onLoad={bgLoaded}
+                  ref={mapImage}
+                  style={{
+                    width: bgImageDimensions.width,
+                    height: bgImageDimensions.height,
+                  }}
+                />
+                <img
+                  alt="map background"
+                  className="absolute z-0"
+                  draggable="false"
+                  id={`mapImage`}
+                  onLoad={bgLoaded}
+                  ref={mapImage}
+                  src="/images/pch-background.png"
+                  style={{
+                    width: bgImageDimensions.width,
+                    height: bgImageDimensions.height,
+                  }}
+                />
+              </picture>
               {isBgLoaded && hideWelcomeOverlay && (
                 <StoryPins
                   activeCategory={activeCategory}
