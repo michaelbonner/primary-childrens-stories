@@ -159,7 +159,7 @@ const Map = ({
         thankYouForSharingContent={thankYouForSharingContent}
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
-        {isBgLoaded && hideWelcomeOverlay && !userHasMovedMap && (
+        {welcomeFinished && !userHasMovedMap && (
           <>
             <TemporaryWelcomeMap />
             <PageArrows
@@ -255,7 +255,7 @@ const Map = ({
                   }}
                 />
               </picture>
-              {isBgLoaded && hideWelcomeOverlay && (
+              {isBgLoaded && welcomeFinished && (
                 <StoryPins
                   activeCategory={activeCategory}
                   categories={categories}

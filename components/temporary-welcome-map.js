@@ -10,7 +10,7 @@ const TemporaryWelcomeMap = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => setToggle(true), 5000);
+    setTimeout(() => setToggle(true), 3500);
   }, []);
 
   return (
