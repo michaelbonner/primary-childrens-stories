@@ -71,3 +71,8 @@ img {
 .story-content video {
   @apply w-full h-auto;
 }
+
+.map-picture,
+.animation {
+  cursor: url("/images/cursor.png"), move;
+}

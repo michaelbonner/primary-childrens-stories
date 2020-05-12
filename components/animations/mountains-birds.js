@@ -4,12 +4,12 @@ const MountainsBirds = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className="absolute z-20 animation"
         id="MOUNTAINS_BIRDS_mountainsBirds"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 578.9 276.6"

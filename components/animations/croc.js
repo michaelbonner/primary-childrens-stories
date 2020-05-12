@@ -4,12 +4,12 @@ const Croc = ({ animationLength, height, animate, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-20"
+        className="absolute inline-block z-20 animation"
         id="croc"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 85.9 53.6"
@@ -197,12 +197,12 @@ const Croc = ({ animationLength, height, animate, left, top, width }) => {
           width: `${width}px`,
           height: `${height * 0.6}px`,
           transform: `translate3d(${left}px, ${top + height * 0.8}px, 0)`,
-          background: "#23BBAC"
+          background: "#23BBAC",
         }}
       />
       <style jsx="true">{`
         ${animate &&
-          `#croc {
+        `#croc {
             animation: revealCroc ${animationLength}s ease-in infinite;
           }`}
         .croc0 {

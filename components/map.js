@@ -237,7 +237,7 @@ const Map = ({
                   srcset="/images/pch-background.webp"
                   type="image/webp"
                   alt="map background"
-                  className="absolute z-0"
+                  className="absolute z-0 map-picture"
                   draggable="false"
                   id={`mapImage`}
                   onLoad={bgLoaded}
@@ -249,7 +249,7 @@ const Map = ({
                 />
                 <img
                   alt="map background"
-                  className="absolute z-0"
+                  className="absolute z-0 map-picture"
                   draggable="false"
                   id={`mapImage`}
                   onLoad={bgLoaded}

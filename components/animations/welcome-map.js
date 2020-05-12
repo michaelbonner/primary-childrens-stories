@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import * as animationData from "./welcome-map.json";
 
-const WelcomeMap = ({ width, height, className }) => {
+const WelcomeMap = ({ className }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,

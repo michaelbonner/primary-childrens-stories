@@ -4,12 +4,12 @@ const Gopher = ({ animate, animationLength, width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className="absolute z-20 animation"
         id="gopher"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 42.9 56.6"
@@ -269,7 +269,7 @@ const Gopher = ({ animate, animationLength, width, height, left, top }) => {
           width: `${width}px`,
           height: `${height * 0.6}px`,
           transform: `translate3d(${left}px, ${top + height * 0.8}px, 0)`,
-          background: "#F3C678"
+          background: "#F3C678",
         }}
       />
       <style jsx>{`
