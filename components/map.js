@@ -39,6 +39,7 @@ const Map = ({
   const desktopWidth = 768;
 
   const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
+  const [initialZoomFinished, setInitialZoomFinished] = useState(false);
   const [welcomeFinished, setWelcomeFinished] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
@@ -125,20 +126,25 @@ const Map = ({
     setHideWelcomeOverlay(true);
   };
 
+  // initial zoom and pan
   useEffect(() => {
     if (!hideWelcomeOverlay) {
       return;
     }
     if (!welcomeFinished) {
-      if (scale < 1) {
-        setTimeout(() => {
-          setScale(scale + 0.025);
-        }, 100 + scale);
+      if (!initialZoomFinished) {
+        if (scale < 1) {
+          setTimeout(() => {
+            setScale(scale + 0.025);
+          }, 100 + scale);
+        } else {
+          setInitialZoomFinished(true);
+        }
       } else {
         setWelcomeFinished(true);
       }
     }
-  }, [hideWelcomeOverlay, scale]);
+  }, [initialZoomFinished, hideWelcomeOverlay, scale, translation]);
 
   return (
     <div>
