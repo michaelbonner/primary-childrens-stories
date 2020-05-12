@@ -39,12 +39,13 @@ const Map = ({
   const desktopWidth = 768;
 
   const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
+  const [welcomeFinished, setWelcomeFinished] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
-  const [scale, setScale] = useState(1);
-  const [minScale, setMinScale] = useState(1);
+  const [scale, setScale] = useState(0.8);
+  const [minScale, setMinScale] = useState(0.8);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
   const [userHasMovedMap, setUserHasMovedMap] = useState(false);
@@ -76,8 +77,8 @@ const Map = ({
       ]);
     } else {
       setPinDimensions([
-        desktopPinDimensions.width / scale,
-        desktopPinDimensions.height / scale,
+        desktopPinDimensions.width,
+        desktopPinDimensions.height,
       ]);
     }
     recenterMap();
@@ -110,7 +111,9 @@ const Map = ({
         y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5,
       });
     } else {
-      setScale(1);
+      if (welcomeFinished) {
+        setScale(1);
+      }
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
         y: 0 - (intermountainPinLocation.y - size.height / 3),
@@ -121,6 +124,21 @@ const Map = ({
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
   };
+
+  useEffect(() => {
+    if (!hideWelcomeOverlay) {
+      return;
+    }
+    if (!welcomeFinished) {
+      if (scale < 1) {
+        setTimeout(() => {
+          setScale(scale + 0.025);
+        }, 100 + scale);
+      } else {
+        setWelcomeFinished(true);
+      }
+    }
+  }, [hideWelcomeOverlay, scale]);
 
   return (
     <div>
@@ -185,8 +203,8 @@ const Map = ({
             }}
             minScale={minScale}
             maxScale={4}
-            disablePan={activeStory ? true : false}
-            disableZoom={activeStory ? true : false}
+            disablePan={!welcomeFinished || activeStory ? true : false}
+            disableZoom={!welcomeFinished || activeStory ? true : false}
             showControls={true}
             controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
             btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
