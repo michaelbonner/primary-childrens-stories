@@ -128,6 +128,11 @@ const Map = ({
 
   // initial zoom and pan
   useEffect(() => {
+    if (size.width < desktopWidth) {
+      setWelcomeFinished(true);
+      setInitialZoomFinished(true);
+      return;
+    }
     if (!hideWelcomeOverlay) {
       return;
     }
