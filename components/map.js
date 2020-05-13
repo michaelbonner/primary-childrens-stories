@@ -182,6 +182,9 @@ const Map = ({
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={(props) => {
+              if (!welcomeFinished) {
+                return;
+              }
               if (scale !== props.scale) {
                 setScale(props.scale);
                 if (size.width < desktopWidth) {
