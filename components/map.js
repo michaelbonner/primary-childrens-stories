@@ -140,8 +140,8 @@ const Map = ({
       if (!initialZoomFinished) {
         if (scale < 1) {
           setTimeout(() => {
-            setScale(scale + 0.025);
-          }, 100 + scale);
+            setScale(scale + 0.00625);
+          }, 10);
         } else {
           setInitialZoomFinished(true);
         }
@@ -239,7 +239,7 @@ const Map = ({
             >
               <picture>
                 <source
-                  srcset="/images/pch-background.webp"
+                  srcSet="/images/pch-background.webp"
                   type="image/webp"
                   alt="map background"
                   className="absolute z-0 map-picture"
