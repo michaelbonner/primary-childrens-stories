@@ -34,7 +34,7 @@ const PageArrows = ({ translation, setTranslation }) => {
   ];
 
   const trail = useTrail(arrows.length, {
-    from: { opacity: 1, transform: `translate3d(20px, 0, 0)` },
+    from: { opacity: 1, transform: `translate3d(0px, 0, 0)` },
     to: [
       { opacity: 0.5, transform: `translate3d(-10px, 0, 0)` },
       { opacity: 1, transform: `translate3d(-10px, 0, 0)` },
