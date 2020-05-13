@@ -56,7 +56,7 @@ const PageArrows = ({ translation, setTranslation }) => {
       {trail.map((props, index) => {
         return (
           <div
-            className={`absolute ${arrows[index].positionClass} z-50 w-20 h-20 rounded-full flex items-center justify-center text-white focus:outline-none focus:text-blue-100`}
+            className={`absolute overflow-hidden ${arrows[index].positionClass} z-50 w-20 h-20 rounded-full flex items-center justify-center text-white focus:outline-none focus:text-blue-100`}
             key={index}
             style={{ transform: arrows[index].transform }}
           >
