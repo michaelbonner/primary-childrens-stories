@@ -3,15 +3,12 @@ import { useSpring, animated } from "react-spring";
 import WelcomeMap from "./animations/welcome-map";
 
 const TemporaryWelcomeMap = () => {
-  const [toggle, setToggle] = useState(false);
   const props = useSpring({
-    opacity: toggle ? 1 : 0,
-    config: { duration: 1000 },
+    from: { opacity: 0, transform: `translate3d(-50px, 50px, 0) scale(0.5)` },
+    to: { opacity: 1, transform: `translate3d(0, 0, 0) scale(1)` },
+    config: { duration: 750 },
+    delay: 3500,
   });
-
-  useEffect(() => {
-    setTimeout(() => setToggle(true), 3500);
-  }, []);
 
   return (
     <animated.div
