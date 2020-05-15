@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import MapSimple from "../../components/map-simple";
+import MapSimple from "components/map-simple";
 
 const Pin = () => {
   useEffect(() => {
@@ -12,12 +12,8 @@ const Pin = () => {
     };
   }, []);
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     alert(`x: ${e.pageX} | y: ${e.pageY} `);
-    // if (node.current.contains(e.target)) {
-    //   // inside click
-    //   return;
-    // }
   };
 
   return (
