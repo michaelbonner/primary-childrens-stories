@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTrail, animated } from "react-spring";
+import { animated, useSpring } from "react-spring";
 import useWindowSize from "../shared/hooks/useWindowSize";
 
 const PageArrows = ({ translation, setTranslation }) => {
@@ -33,16 +33,17 @@ const PageArrows = ({ translation, setTranslation }) => {
     },
   ];
 
-  const trail = useTrail(arrows.length, {
-    from: { opacity: 0, transform: `translate3d(-40px, 0, 0)` },
+  const props = useSpring({
+    from: { opacity: 0, transform: `translate3d(-60px, 0, 0)` },
     to: [
-      { opacity: 1, transform: `translate3d(-10px, 0, 0)` },
-      { transform: `translate3d(-30px, 0, 0)` },
-      { transform: `translate3d(0px, 0, 0)` },
+      { opacity: 1, transform: `translate3d(0, 0, 0)` },
+      { opacity: 1, transform: `translate3d(-20px, 0, 0)` },
+      { opacity: 1, transform: `translate3d(0, 0, 0)` },
     ],
     config: {
       duration: 1000,
     },
+    delay: 2500,
   });
 
   useEffect(() => {
@@ -53,16 +54,16 @@ const PageArrows = ({ translation, setTranslation }) => {
 
   return showArrows ? (
     <>
-      {trail.map((props, index) => {
+      {arrows.map((arrow) => {
         return (
           <div
-            className={`absolute overflow-hidden ${arrows[index].positionClass} z-50 w-20 h-20 rounded-full flex items-center justify-center text-white focus:outline-none focus:text-blue-100`}
-            key={index}
-            style={{ transform: arrows[index].transform }}
+            className={`absolute overflow-hidden ${arrow.positionClass} z-50 w-20 h-20 rounded-full flex items-center justify-center text-white focus:outline-none focus:text-blue-100`}
+            key={arrow.positionClass}
+            style={{ transform: arrow.transform }}
           >
             <animated.button
               onClick={() => {
-                arrows[index].onClickFunction();
+                arrow.onClickFunction();
               }}
               type="button"
               style={props}

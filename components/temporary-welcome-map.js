@@ -6,7 +6,6 @@ const TemporaryWelcomeMap = () => {
   const [toggle, setToggle] = useState(false);
   const props = useSpring({
     opacity: toggle ? 1 : 0,
-    scale: toggle ? 0.5 : 1,
     config: { duration: 1000 },
   });
 
