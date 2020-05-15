@@ -25,7 +25,7 @@ const PageArrows = ({ translation, setTranslation }) => {
     },
     // bottom arrow
     {
-      transform: `translate3d(${size.width / 2 - 10}px, 0, 0) rotate(-90deg)`,
+      transform: `translate3d(${size.width / 2 - 40}px, 0, 0) rotate(-90deg)`,
       positionClass: `left-0 bottom-0`,
       onClickFunction: () => {
         setTranslation({ ...translation, y: translation.y - 50 });
@@ -34,10 +34,10 @@ const PageArrows = ({ translation, setTranslation }) => {
   ];
 
   const trail = useTrail(arrows.length, {
-    from: { opacity: 1, transform: `translate3d(0px, 0, 0)` },
+    from: { opacity: 0, transform: `translate3d(-40px, 0, 0)` },
     to: [
-      { opacity: 0.5, transform: `translate3d(-10px, 0, 0)` },
       { opacity: 1, transform: `translate3d(-10px, 0, 0)` },
+      { transform: `translate3d(-30px, 0, 0)` },
       { transform: `translate3d(0px, 0, 0)` },
     ],
     config: {

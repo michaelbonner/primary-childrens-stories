@@ -39,17 +39,16 @@ const Map = ({
   const desktopWidth = 768;
 
   const [hideWelcomeOverlay, setHideWelcomeOverlay] = useState(false);
-  const [initialZoomFinished, setInitialZoomFinished] = useState(false);
-  const [welcomeFinished, setWelcomeFinished] = useState(false);
   const [filteredStories, setFilteredStories] = useState([]);
   const [activeStory, setActiveStory] = useState(null);
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
-  const [scale, setScale] = useState(0.8);
-  const [minScale, setMinScale] = useState(0.8);
+  const [scale, setScale] = useState(1);
+  const [minScale, setMinScale] = useState(1);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
   const [userHasMovedMap, setUserHasMovedMap] = useState(false);
+  const [showHelpers, setShowHelpers] = useState(false);
 
   const size = useWindowSize();
   const mapImage = useRef(null);
@@ -112,9 +111,6 @@ const Map = ({
         y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5,
       });
     } else {
-      if (welcomeFinished) {
-        setScale(1);
-      }
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
         y: 0 - (intermountainPinLocation.y - size.height / 3),
@@ -122,34 +118,15 @@ const Map = ({
     }
   };
 
+  useEffect(() => {
+    if (hideWelcomeOverlay) {
+      setShowHelpers(true);
+    }
+  }, [hideWelcomeOverlay]);
+
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
   };
-
-  // initial zoom and pan
-  useEffect(() => {
-    if (size.width < desktopWidth) {
-      setWelcomeFinished(true);
-      setInitialZoomFinished(true);
-      return;
-    }
-    if (!hideWelcomeOverlay) {
-      return;
-    }
-    if (!welcomeFinished) {
-      if (!initialZoomFinished) {
-        if (scale < 1) {
-          setTimeout(() => {
-            setScale(scale + 0.00625);
-          }, 10);
-        } else {
-          setInitialZoomFinished(true);
-        }
-      } else {
-        setWelcomeFinished(true);
-      }
-    }
-  }, [initialZoomFinished, hideWelcomeOverlay, scale, translation]);
 
   return (
     <div>
@@ -170,7 +147,7 @@ const Map = ({
         thankYouForSharingContent={thankYouForSharingContent}
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
-        {welcomeFinished && !userHasMovedMap && (
+        {showHelpers && !userHasMovedMap && (
           <>
             <TemporaryWelcomeMap />
             <PageArrows
@@ -182,9 +159,6 @@ const Map = ({
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
             onChange={(props) => {
-              if (!welcomeFinished) {
-                return;
-              }
               if (scale !== props.scale) {
                 setScale(props.scale);
                 if (size.width < desktopWidth) {
@@ -217,8 +191,8 @@ const Map = ({
             }}
             minScale={minScale}
             maxScale={4}
-            disablePan={!welcomeFinished || activeStory ? true : false}
-            disableZoom={!welcomeFinished || activeStory ? true : false}
+            disablePan={activeStory ? true : false}
+            disableZoom={activeStory ? true : false}
             showControls={true}
             controlsClass={`absolute z-50 right-0 bottom-0 mr-3 mb-3 bg-white rounded-lg`}
             btnClass={`hidden lg:inline-block relative w-12 p-3 hover:bg-gray-200 rounded-lg`}
@@ -269,7 +243,7 @@ const Map = ({
                   }}
                 />
               </picture>
-              {isBgLoaded && welcomeFinished && (
+              {hideWelcomeOverlay && (
                 <StoryPins
                   activeCategory={activeCategory}
                   categories={categories}
