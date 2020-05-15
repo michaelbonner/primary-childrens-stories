@@ -119,10 +119,19 @@ const Map = ({
   };
 
   useEffect(() => {
-    if (hideWelcomeOverlay) {
-      setShowHelpers(true);
+    if (userHasMovedMap) {
+      setShowHelpers(false);
+      return;
     }
-  }, [hideWelcomeOverlay]);
+
+    if (hideWelcomeOverlay) {
+      setTimeout(() => {
+        setShowHelpers(true);
+      }, 2500);
+      return;
+    }
+    setShowHelpers(false);
+  }, [hideWelcomeOverlay, userHasMovedMap]);
 
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
@@ -147,7 +156,7 @@ const Map = ({
         thankYouForSharingContent={thankYouForSharingContent}
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
-        {showHelpers && !userHasMovedMap && (
+        {showHelpers && (
           <>
             <TemporaryWelcomeMap />
             <PageArrows

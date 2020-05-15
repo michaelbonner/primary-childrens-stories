@@ -7,7 +7,6 @@ const TemporaryWelcomeMap = () => {
     from: { opacity: 0, transform: `translate3d(-50px, 50px, 0) scale(0.5)` },
     to: { opacity: 1, transform: `translate3d(0, 0, 0) scale(1)` },
     config: { duration: 750 },
-    delay: 3500,
   });
 
   return (

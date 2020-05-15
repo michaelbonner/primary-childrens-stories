@@ -1,10 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import useWindowSize from "shared/hooks/useWindowSize";
 
+const Arrow = ({ arrow }) => {
+  const [resetAnimation, setResetAnimation] = useState(false);
+  const [animating, setAnimating] = useState(true);
+
+  const props = useSpring(
+    animating
+      ? {
+          from: { opacity: 0, transform: `translate3d(-60px, 0, 0)` },
+          to: [
+            { opacity: 1, transform: `translate3d(0, 0, 0)` },
+            { opacity: 1, transform: `translate3d(-20px, 0, 0)` },
+            { opacity: 1, transform: `translate3d(0, 0, 0)` },
+          ],
+          config: {
+            duration: 1000,
+            mass: 1,
+            tension: 140,
+            friction: 12,
+          },
+          delay: 1000,
+        }
+      : {}
+  );
+
+  useEffect(() => {
+    setInterval(() => {
+      setAnimating(false);
+
+      setTimeout(() => {
+        setAnimating(true);
+      }, 100);
+    }, 6000);
+  }, []);
+
+  return (
+    <animated.button
+      onClick={() => {
+        arrow.onClickFunction();
+      }}
+      type="button"
+      style={props}
+    >
+      <svg
+        className="w-full h-full stroke-current"
+        xmlns="http://www.w3.org/2000/svg"
+        width="512"
+        height="512"
+        viewBox="0 0 512 512"
+      >
+        <title>arrow</title>
+        <polyline
+          points="328 112 184 256 328 400"
+          style={{
+            fill: "none",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeWidth: "48px",
+          }}
+        />
+      </svg>
+    </animated.button>
+  );
+};
+
 const PageArrows = ({ translation, setTranslation }) => {
   const size = useWindowSize();
-  const [showArrows, setShowArrows] = useState(false);
 
   const arrows = [
     // left arrow
@@ -33,26 +96,7 @@ const PageArrows = ({ translation, setTranslation }) => {
     },
   ];
 
-  const props = useSpring({
-    from: { opacity: 0, transform: `translate3d(-60px, 0, 0)` },
-    to: [
-      { opacity: 1, transform: `translate3d(0, 0, 0)` },
-      { opacity: 1, transform: `translate3d(-20px, 0, 0)` },
-      { opacity: 1, transform: `translate3d(0, 0, 0)` },
-    ],
-    config: {
-      duration: 1000,
-    },
-    delay: 2500,
-  });
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowArrows(true);
-    }, 2500);
-  }, []);
-
-  return showArrows ? (
+  return (
     <>
       {arrows.map((arrow) => {
         return (
@@ -61,38 +105,11 @@ const PageArrows = ({ translation, setTranslation }) => {
             key={arrow.positionClass}
             style={{ transform: arrow.transform }}
           >
-            <animated.button
-              onClick={() => {
-                arrow.onClickFunction();
-              }}
-              type="button"
-              style={props}
-            >
-              <svg
-                className="w-full h-full stroke-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="512"
-                height="512"
-                viewBox="0 0 512 512"
-              >
-                <title>arrow</title>
-                <polyline
-                  points="328 112 184 256 328 400"
-                  style={{
-                    fill: "none",
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    strokeWidth: "48px",
-                  }}
-                />
-              </svg>
-            </animated.button>
+            <Arrow arrow={arrow} />
           </div>
         );
       })}
     </>
-  ) : (
-    ""
   );
 };
 export default PageArrows;
