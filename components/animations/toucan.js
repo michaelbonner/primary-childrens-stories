@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useInterval from "../../shared/hooks/useInterval";
+import useInterval from "shared/hooks/useInterval";
 
 const Toucan = ({ animate, height, left, top, width }) => {
   const [flipped, setFlipped] = useState(false);

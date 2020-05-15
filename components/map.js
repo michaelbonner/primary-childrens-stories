@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MapInteractionCSS } from "react-map-interaction";
-import useWindowSize from "../shared/hooks/useWindowSize";
+import useWindowSize from "shared/hooks/useWindowSize";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
 import Nav from "./nav";

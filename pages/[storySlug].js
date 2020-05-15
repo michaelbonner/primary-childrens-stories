@@ -1,18 +1,18 @@
+import Error from "next/error";
 import Head from "next/head";
 import Router from "next/router";
-import Error from "next/error";
-import { useState } from "react";
-import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Facebook from "../components/facebook";
-import client from "../shared/contentful";
-import Twitter from "../components/twitter";
-import contentfulRichText from "../shared/contentfulRichText";
-import contentfulPrintMedia from "../shared/contentfulPrintMedia";
-import youtubeEmbed from "../shared/youtubeEmbed";
-import LinkIcon from "../components/link-icon";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
-import getHostName from "../shared/getHostName";
+import { useState } from "react";
+import Facebook from "components/facebook";
+import client from "shared/contentful";
+import Twitter from "components/twitter";
+import contentfulRichText from "shared/contentfulRichText";
+import contentfulPrintMedia from "shared/contentfulPrintMedia";
+import youtubeEmbed from "shared/youtubeEmbed";
+import LinkIcon from "components/link-icon";
+import getHostName from "shared/getHostName";
 
 const Story = ({ story, title, body, footerText, media }) => {
   const [shareOpen, setShareOpen] = useState(false);

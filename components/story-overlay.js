@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 import LinkIcon from "./link-icon";
-import contentfulRichText from "../shared/contentfulRichText";
-import contentfulPrintMedia from "../shared/contentfulPrintMedia";
-import youtubeEmbed from "../shared/youtubeEmbed";
-import getHostName from "../shared/getHostName";
+import contentfulRichText from "shared/contentfulRichText";
+import contentfulPrintMedia from "shared/contentfulPrintMedia";
+import youtubeEmbed from "shared/youtubeEmbed";
+import getHostName from "shared/getHostName";
 
 const StoryOverlay = ({
   activeCategory,

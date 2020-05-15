@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Head from "next/head";
 import fs from "fs";
 import path from "path";
-import Map from "../components/map";
-import contentfulContent from "../shared/contentfulContent";
+import Map from "components/map";
+import contentfulContent from "shared/contentfulContent";
 
 const Home = ({
   aboutTabContent,

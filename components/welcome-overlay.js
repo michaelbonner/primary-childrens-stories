@@ -1,6 +1,6 @@
 import React from "react";
-import contentfulRichText from "../shared/contentfulRichText";
-import WelcomeMap from "./animations/welcome-map";
+import contentfulRichText from "shared/contentfulRichText";
+import WelcomeMap from "components/animations/welcome-map";
 
 const WelcomeOverlay = ({ dismissOverlay, welcomeOverlayContent }) => {
   return (

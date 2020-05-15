@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
-import Facebook from "../components/facebook";
-import Twitter from "../components/twitter";
-import useWindowSize from "../shared/hooks/useWindowSize";
-import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
-import contentfulRichText from "../shared/contentfulRichText";
-import colorMap from "../shared/colorMap";
-import getHostName from "../shared/getHostName";
+import Facebook from "components/facebook";
+import Twitter from "components/twitter";
+import useWindowSize from "shared/hooks/useWindowSize";
+import useOnClickOutside from "shared/hooks/useOnOutsideClick";
+import contentfulRichText from "shared/contentfulRichText";
+import colorMap from "shared/colorMap";
+import getHostName from "shared/getHostName";
 
 const Nav = ({
   aboutTabContent,
