@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useInterval from "../../shared/hooks/useInterval";
+import useInterval from "shared/hooks/useInterval";
 
 const Toucan = ({ animate, height, left, top, width }) => {
   const [flipped, setFlipped] = useState(false);
@@ -13,13 +13,13 @@ const Toucan = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute inline-block z-20"
+        className="absolute inline-block z-20 animation"
         id="toucan"
         style={{
           width: `${width}px`,
           height: `${height}px`,
           transform: `translate3d(${left}px, ${top}px, 0)`,
-          transform: `translate3d(0,${height / 2}px,0)`
+          transform: `translate3d(0,${height / 2}px,0)`,
         }}
         version="1.1"
         viewBox="0 0 178.9 208.6"

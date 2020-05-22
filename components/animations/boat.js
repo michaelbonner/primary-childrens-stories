@@ -4,12 +4,14 @@ const Boat = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className={`absolute inline-block z-20${animate ? " animate" : ""}`}
+        className={`absolute inline-block z-20 animation${
+          animate ? " animate" : ""
+        }`}
         id="boat"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"

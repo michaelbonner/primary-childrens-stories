@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 import LinkIcon from "./link-icon";
-import contentfulRichText from "../shared/contentfulRichText";
-import contentfulPrintMedia from "../shared/contentfulPrintMedia";
-import youtubeEmbed from "../shared/youtubeEmbed";
+import contentfulRichText from "shared/contentfulRichText";
+import contentfulPrintMedia from "shared/contentfulPrintMedia";
+import youtubeEmbed from "shared/youtubeEmbed";
+import getHostName from "shared/getHostName";
 
 const StoryOverlay = ({
   activeCategory,
   activeStory,
   mainStoryContent,
   setActiveStory,
+  stories,
   thankYouForSharingContent,
-  hostname
 }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [media, setMedia] = useState([]);
@@ -23,6 +24,9 @@ const StoryOverlay = ({
   const [url, setUrl] = useState("");
   const [footerText, setFooterText] = useState("");
   const [willShowThankYou, setWillShowThankYou] = useState(false);
+  const scrollDiv = useRef(null);
+
+  const scrollToTop = (ref) => (ref.current.scrollTop = 0);
 
   const thankYouMessage = thankYouForSharingContent.content[0].content[0].value;
 
@@ -41,6 +45,30 @@ const StoryOverlay = ({
     };
   });
 
+  const nextStory = () => {
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex === stories.length - 1) {
+      setActiveStory(stories[0]);
+    } else {
+      setActiveStory(stories[currentIndex + 1]);
+    }
+    scrollToTop(scrollDiv);
+  };
+
+  const prevStory = () => {
+    const currentIndex = stories.findIndex(
+      (story) => story.fields.title === activeStory.fields.title
+    );
+    if (currentIndex) {
+      setActiveStory(stories[currentIndex - 1]);
+    } else {
+      setActiveStory(stories[stories.length - 1]);
+    }
+    scrollToTop(scrollDiv);
+  };
+
   useEffect(() => {
     if (
       activeStory &&
@@ -49,7 +77,7 @@ const StoryOverlay = ({
       activeStory.fields.media.length
     ) {
       setMedia(
-        activeStory.fields.media.map(media => {
+        activeStory.fields.media.map((media) => {
           if (!media.fields) {
             return;
           }
@@ -57,7 +85,7 @@ const StoryOverlay = ({
             type: media.fields.file.contentType,
             url: media.fields.file.url,
             title: media.fields.title,
-            details: media.fields.file.details
+            details: media.fields.file.details,
           };
         })
       );
@@ -79,7 +107,7 @@ const StoryOverlay = ({
         setFooterText(
           contentfulRichText(
             activeStory.fields.categories.filter(
-              category => category.sys.id === activeCategory
+              (category) => category.sys.id === activeCategory
             )[0].fields.storyFooterText
           )
         );
@@ -92,7 +120,9 @@ const StoryOverlay = ({
           )
         );
       }
-      setUrl(`https://${hostname}/${activeStory && activeStory.fields.slug}`);
+      setUrl(
+        `https://${getHostName()}/${activeStory && activeStory.fields.slug}`
+      );
     } else {
       setTitle(``);
       setBody(
@@ -124,7 +154,7 @@ const StoryOverlay = ({
           </a>
         </p>`
       );
-      setUrl(hostname);
+      setUrl(getHostName());
     }
   }, [activeStory]);
 
@@ -141,14 +171,14 @@ const StoryOverlay = ({
         <div className={"fixed z-30 w-full py-8 md:py-16 inset-y-0"}>
           <div
             className="flex h-full px-3"
-            onClick={e => {
+            onClick={(e) => {
               setShareOpen(false);
               setActiveStory(null);
             }}
           >
             <div
               className="relative bg-white w-full md:w-2/3 xl:w-2/5 mx-auto py-8 md:py-8 px-8 md:px-16 rounded-lg shadow-md"
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
               }}
             >
@@ -207,7 +237,7 @@ const StoryOverlay = ({
                     </button>
                   </div>
                   <div className="h-full pt-12 flex flex-col">
-                    <div className="story-content overflow-y-scroll flex-1">
+                    <div className="overflow-y-scroll flex-1" ref={scrollDiv}>
                       <div className="text-xl font-bold leading-relaxed mb-6">
                         {title}
                       </div>
@@ -215,7 +245,7 @@ const StoryOverlay = ({
                         activeStory.fields &&
                         activeStory.fields.youTubeLink &&
                         youtubeEmbed(activeStory.fields.youTubeLink)}
-                      {media.map(item => {
+                      {media.map((item) => {
                         return contentfulPrintMedia(item);
                       })}
                       {activeStory && activeStory === "main" && (
@@ -224,20 +254,105 @@ const StoryOverlay = ({
                         </div>
                       )}
                       <div
-                        className="text-base leading-relaxed mt-4"
+                        className="story-content text-base leading-relaxed mt-4"
                         dangerouslySetInnerHTML={{
-                          __html: body
+                          __html: body,
                         }}
                       />
+                      <div className="flex justify-center text-center mb-8">
+                        <a
+                          href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/"
+                          target="_blank"
+                          className="inline-block mt-6 bg-blue-500 text-blue-100 mt-2 py-3 px-12 rounded"
+                        >
+                          Share Your Story
+                        </a>
+                      </div>
                     </div>
-                    <div className="mt-6">
+                    <div>
                       <div
                         className="story-content"
                         dangerouslySetInnerHTML={{
-                          __html: footerText
+                          __html: footerText,
                         }}
                       />
                     </div>
+                    {activeStory && activeStory !== "main" && (
+                      <div className="w-full flex justify-between items-center mt-4 text-blue-400 text-sm">
+                        <button
+                          onClick={prevStory}
+                          className="inline-block flex items-center stroke-current justify-start focus:outline-none focus:text-blue-900"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="512"
+                            height="512"
+                            viewBox="0 0 512 512"
+                          >
+                            <title>Previous Story</title>
+                            <polyline
+                              points="244 400 100 256 244 112"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                            <line
+                              x1="120"
+                              y1="256"
+                              x2="412"
+                              y2="256"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                          </svg>
+                          <span>Previous Story</span>
+                        </button>
+                        <button
+                          onClick={nextStory}
+                          className="inline-block flex items-center stroke-current justify-end focus:outline-none focus:text-blue-900"
+                        >
+                          <span>Next Story</span>
+                          <svg
+                            className="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="512"
+                            height="512"
+                            viewBox="0 0 512 512"
+                          >
+                            <title>Next Story</title>
+                            <polyline
+                              points="268 112 412 256 268 400"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                            <line
+                              x1="392"
+                              y1="256"
+                              x2="100"
+                              y2="256"
+                              style={{
+                                fill: "none",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: "48px",
+                              }}
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </>
               )}

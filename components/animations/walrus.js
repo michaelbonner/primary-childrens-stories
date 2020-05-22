@@ -11,17 +11,17 @@ const Walrus = ({ width, height, left, top }) => {
     animationData: animationData.default,
     renderer: "html",
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
   return (
     <div
-      className="absolute inline-block z-20"
+      className="absolute inline-block z-20 animation"
       id="walrus"
       style={{
         width: `${width}px`,
         height: `${height}px`,
-        transform: `translate3d(${left}px, ${top}px, 0)`
+        transform: `translate3d(${left}px, ${top}px, 0)`,
       }}
     >
       <Lottie

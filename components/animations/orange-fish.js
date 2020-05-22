@@ -4,12 +4,12 @@ const OrangeFish = ({ width, height, left, top }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className="absolute z-20 animation"
         id="orangeFish"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 57.9 70.6"
@@ -85,9 +85,10 @@ const OrangeFish = ({ width, height, left, top }) => {
         style={{
           width: `${width * 2.4}px`,
           height: `${height}px`,
-          transform: `translate3d(${left - width / 2}px, ${top +
-            height / 3}px, 0)`,
-          background: "#36618E"
+          transform: `translate3d(${left - width / 2}px, ${
+            top + height / 3
+          }px, 0)`,
+          background: "#36618E",
         }}
       />
       <style jsx>{`

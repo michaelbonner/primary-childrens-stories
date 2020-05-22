@@ -4,12 +4,12 @@ const Windmill = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className={`absolute z-20${animate ? " animate" : ""}`}
+        className={`absolute z-20 animation${animate ? " animate" : ""}`}
         id="windmill"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"

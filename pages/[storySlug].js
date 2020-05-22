@@ -1,20 +1,23 @@
+import Error from "next/error";
 import Head from "next/head";
 import Router from "next/router";
-import Error from "next/error";
-import { useState } from "react";
-import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Facebook from "../components/facebook";
-import client from "../shared/contentful";
-import Twitter from "../components/twitter";
-import contentfulRichText from "../shared/contentfulRichText";
-import contentfulPrintMedia from "../shared/contentfulPrintMedia";
-import youtubeEmbed from "../shared/youtubeEmbed";
-import LinkIcon from "../components/link-icon";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import Facebook from "components/facebook";
+import client from "shared/contentful";
+import Twitter from "components/twitter";
+import contentfulRichText from "shared/contentfulRichText";
+import contentfulPrintMedia from "shared/contentfulPrintMedia";
+import youtubeEmbed from "shared/youtubeEmbed";
+import LinkIcon from "components/link-icon";
+import getHostName from "shared/getHostName";
 
-const Story = ({ story, title, body, footerText, media, url }) => {
+const Story = ({ story, title, body, footerText, media }) => {
   const [shareOpen, setShareOpen] = useState(false);
+
+  const url = `https://${getHostName()}/${story && story.fields.slug}`;
 
   const onCopyLink = () => {
     toast.success("A link has been copied to your clipboard", {});
@@ -41,14 +44,14 @@ const Story = ({ story, title, body, footerText, media, url }) => {
       <div
         className="py-12 relative h-screen overflow-y-scroll"
         style={{
-          backgroundImage: "url(/images/pch-background.svg)",
+          backgroundImage: "url(/images/pch-background.png)",
           backgroundAttachment: "fixed",
-          backgroundSize: "cover"
+          backgroundSize: "cover",
         }}
       >
         <div
           className="relative z-30 story-content max-w-3xl mt-4 mb-12 bg-white px-4 mx-4 lg:mx-auto lg:px-16 py-10 rounded-lg"
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation();
           }}
         >
@@ -105,7 +108,7 @@ const Story = ({ story, title, body, footerText, media, url }) => {
           {story &&
             story.fields.youTubeLink &&
             youtubeEmbed(story.fields.youTubeLink)}
-          {media.map(item => {
+          {media.map((item) => {
             return contentfulPrintMedia(item);
           })}
           <div className="mt-4" dangerouslySetInnerHTML={{ __html: body }} />
@@ -122,11 +125,25 @@ const Story = ({ story, title, body, footerText, media, url }) => {
   );
 };
 
-Story.getInitialProps = async function(context) {
-  const { storySlug } = context.query;
+export async function getStaticPaths() {
   const stories = await client.getEntries({
     content_type: "story",
-    "fields.slug": storySlug
+  });
+
+  const paths = stories.items.map((story) => ({
+    params: { storySlug: story.fields.slug },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const stories = await client.getEntries({
+    content_type: "story",
+    "fields.slug": params.storySlug,
   });
 
   if (!stories.items.length) {
@@ -136,7 +153,7 @@ Story.getInitialProps = async function(context) {
       media: "",
       story: false,
       title: "",
-      url: ""
+      url: "",
     };
   }
 
@@ -155,18 +172,13 @@ Story.getInitialProps = async function(context) {
 
   let media = [];
 
-  const hostname = context.req
-    ? context.req.headers.host
-    : window.location.hostname;
-  const url = `https://${hostname}/${story && story.fields.slug}`;
-
   if (
     story &&
     story.fields &&
     story.fields.media &&
     story.fields.media.length
   ) {
-    media = story.fields.media.map(media => {
+    media = story.fields.media.map((media) => {
       if (!media.fields) {
         return;
       }
@@ -174,19 +186,20 @@ Story.getInitialProps = async function(context) {
         type: media.fields.file.contentType,
         url: media.fields.file.url,
         title: media.fields.title,
-        details: media.fields.file.details
+        details: media.fields.file.details,
       };
     });
   }
 
   return {
-    body,
-    footerText,
-    media,
-    story,
-    title,
-    url
+    props: {
+      body,
+      footerText,
+      media,
+      story,
+      title,
+    },
   };
-};
+}
 
 export default Story;

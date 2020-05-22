@@ -1,22 +1,22 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { toast } from "react-toastify";
-import Facebook from "../components/facebook";
-import Twitter from "../components/twitter";
-import useWindowSize from "../shared/hooks/useWindowSize";
-import useOnClickOutside from "../shared/hooks/useOnOutsideClick";
-import contentfulRichText from "../shared/contentfulRichText";
-import colorMap from "../shared/colorMap";
+import Facebook from "components/facebook";
+import Twitter from "components/twitter";
+import useWindowSize from "shared/hooks/useWindowSize";
+import useOnClickOutside from "shared/hooks/useOnOutsideClick";
+import contentfulRichText from "shared/contentfulRichText";
+import colorMap from "shared/colorMap";
+import getHostName from "shared/getHostName";
 
 const Nav = ({
   aboutTabContent,
   activeCategory,
   categories,
-  hostname,
   recenterMap,
   setActiveCategory,
   thankYouForSharingContent,
-  submitTabContent
+  submitTabContent,
 }) => {
   const ref = useRef();
   const [activeTab, setActiveTab] = useState("");
@@ -45,7 +45,7 @@ const Nav = ({
     };
   });
 
-  useOnClickOutside(ref, e => {
+  useOnClickOutside(ref, (e) => {
     if (typeof e.target.className !== "string") {
       setActiveTab("");
       return;
@@ -82,7 +82,7 @@ const Nav = ({
 
     return (
       <div
-        className={`w-full h-full max-w-2xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
+        className={`w-full h-full max-w-4xl mt-0 lg:mt-2 mx-auto px-4 lg:px-0`}
         ref={ref}
       >
         <div
@@ -102,7 +102,6 @@ const Nav = ({
       setNavStyle({
         left: "50%",
         marginLeft: 0 - navRef.current.clientWidth / 2 + "px",
-        transform: "translate3d(0,4rem,0)"
       });
     }
   }, [size.width]);
@@ -123,7 +122,7 @@ const Nav = ({
             className={`
               flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-facebook-500 hover:bg-facebook-600 text-white text-sm rounded-b-lg shadow-md z-20 focus:outline-none
             `}
-            url={`https://${hostname}`}
+            url={`https://${getHostName()}`}
             resetButtonStyle={false}
             onClick={() => setWillShowThankYou(true)}
           >
@@ -133,7 +132,7 @@ const Nav = ({
         {shareOpen && (
           <TwitterShareButton
             className={`flex items-center justify-center -mt-1 pt-3 pb-2 px-4 bg-twitter-500 hover:bg-twitter-600 text-white text-sm rounded-b-lg shadow-md z-10 focus:outline-none`}
-            url={`https://${hostname}`}
+            url={`https://${getHostName()}`}
             resetButtonStyle={false}
             onClick={() => setWillShowThankYou(true)}
           >
@@ -141,8 +140,9 @@ const Nav = ({
           </TwitterShareButton>
         )}
       </div>
+
       <div
-        className="fixed z-10 h-auto max-h-screen w-full lg:w-2/3 xl:w-1/2 lg:max-w-2xl mx-auto"
+        className="fixed z-10 h-auto max-h-screen w-full lg:w-4/5 2xl:w-1/2 lg:max-w-3xl mx-auto"
         ref={navRef}
         style={navStyle}
       >
@@ -150,7 +150,7 @@ const Nav = ({
           <div className="relative p-0 lg:px-4 h-full w-full">
             <nav className="relative mt-0 flex flex-wrap text-blue-600 text-center z-30">
               <div
-                className="relative flex w-full items-center lg:w-auto lg:rounded-lg bg-white shadow-md px-4 pb-1 lg:py-1"
+                className="relative flex w-full items-center lg:w-auto lg:rounded-b-lg bg-white shadow-md px-4 pb-1 lg:py-1"
                 id="primaryChildrensLogo"
               >
                 <div className="inline-block lg:hidden self-start">
@@ -213,27 +213,27 @@ const Nav = ({
               <div
                 className={`${
                   isMobileNavOpen ? "inline-block" : "hidden"
-                } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-lg bg-white lg:shadow-md items-center flex-1`}
+                } lg:block w-full md:w-auto mx-4 md:ml-2 md:mr-0 md:mt-0 lg:rounded-b-lg bg-white lg:shadow-md items-center flex-1`}
               >
                 <NavButton text="About" link="about" />
-                <NavButton text="Search" link="search" />
-                <NavButton text="Submit" link="submit" />
+                <NavButton text="Filter" link="filter" />
+                <NavButton text="Submit Story" link="submit" />
               </div>
             </nav>
             <TabContentWrapper tabLink="about">
               <div
                 className="h-full story-content overflow-y-scroll"
                 dangerouslySetInnerHTML={{
-                  __html: contentfulRichText(aboutTabContent)
+                  __html: contentfulRichText(aboutTabContent),
                 }}
                 style={{ maxHeight: "calc(-17rem + 100vh)" }}
               ></div>
             </TabContentWrapper>
-            <TabContentWrapper tabLink="search">
+            <TabContentWrapper tabLink="filter">
               <div className="flex flex-wrap">
                 <div className="w-1/2 lg:w-1/3 h-16 p-1">
                   <button
-                    className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                    className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border rounded ${
                       activeCategory === "all" ? "text-white" : "text-gray-700"
                     }`}
                     onClick={() => {
@@ -244,19 +244,19 @@ const Nav = ({
                     }}
                     style={{
                       background:
-                        activeCategory === "all" ? colorMap.all : "white"
+                        activeCategory === "all" ? colorMap.all : "white",
                     }}
                   >
                     <span className="inline-block mt-1">All</span>
                   </button>
                 </div>
-                {categories.map(category => (
+                {categories.map((category) => (
                   <div
                     className="w-1/2 lg:w-1/3 h-16 p-1"
                     key={category.sys.id}
                   >
                     <button
-                      className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border ${
+                      className={`w-full h-full py-0 px-8 text-sm font-medium focus:outline-none border rounded ${
                         activeCategory === category.sys.id
                           ? "text-white"
                           : "text-gray-700"
@@ -271,7 +271,7 @@ const Nav = ({
                         background:
                           activeCategory === category.sys.id
                             ? colorMap[category.fields.color]
-                            : "white"
+                            : "white",
                       }}
                     >
                       <span className="inline-block mt-1">
@@ -285,15 +285,15 @@ const Nav = ({
             <TabContentWrapper tabLink="submit">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: contentfulRichText(submitTabContent)
+                  __html: contentfulRichText(submitTabContent),
                 }}
               />
               <a
                 href="https://intermountainhealthcare.org/locations/primary-childrens-hospital/here-kids-win-stories/"
                 target="_blank"
-                className="inline-block mt-6 bg-blue-400 text-blue-100 mt-2 py-3 px-12 rounded"
+                className="inline-block mt-6 bg-blue-500 text-blue-100 mt-2 py-3 px-12 rounded"
               >
-                Submit
+                Get Started
               </a>
             </TabContentWrapper>
           </div>

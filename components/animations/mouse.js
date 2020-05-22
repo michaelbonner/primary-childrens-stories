@@ -4,12 +4,12 @@ const Mouse = ({ animate, animationLength, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className="absolute z-20 animation"
         id="mouse"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 50 70"
@@ -285,7 +285,7 @@ const Mouse = ({ animate, animationLength, height, left, top, width }) => {
           width: `${width}px`,
           height: `${height * 0.6}px`,
           transform: `translate3d(${left}px, ${top + height * 0.8}px, 0)`,
-          background: "#E0F3FB"
+          background: "#E0F3FB",
         }}
       />
       <style jsx>{`

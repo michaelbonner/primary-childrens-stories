@@ -1,39 +1,40 @@
 import React, { useEffect, useState, useRef } from "react";
-import useWindowSize from "../shared/hooks/useWindowSize";
 import { MapInteractionCSS } from "react-map-interaction";
+import useWindowSize from "shared/hooks/useWindowSize";
 import StoryOverlay from "./story-overlay";
 import Animations from "./animations";
-
 import Nav from "./nav";
 import StoryPins from "./story-pins";
 import WelcomeOverlay from "./welcome-overlay";
+import TemporaryWelcomeMap from "./temporary-welcome-map";
+import PageArrows from "./page-arrows";
+
 const Map = ({
   aboutTabContent,
   activeCategory,
   categories,
-  hostname,
   mainStoryContent,
   setActiveCategory,
   stories,
   submitTabContent,
   thankYouForSharingContent,
-  welcomeOverlayContent
+  welcomeOverlayContent,
 }) => {
   const bgImageDimensions = {
     width: 3200,
-    height: 2400
+    height: 2400,
   };
   const intermountainPinLocation = {
     x: 1535,
-    y: 735
+    y: 735,
   };
   const mobilePinDimensions = {
-    width: 36,
-    height: 54
+    width: 38,
+    height: 57,
   };
   const desktopPinDimensions = {
-    width: 45,
-    height: 68
+    width: 58,
+    height: 88,
   };
   const desktopWidth = 768;
 
@@ -43,22 +44,24 @@ const Map = ({
   const [translation, setTranslation] = useState({ x: 0, y: 0 });
   const [initialScale, setInitialScale] = useState(1);
   const [scale, setScale] = useState(1);
-  const [minScale, setMinScale] = useState(0.75);
+  const [minScale, setMinScale] = useState(1);
   const [isBgLoaded, setIsBgLoaded] = useState(false);
   const [pinDimensions, setPinDimensions] = useState([45, 68]);
+  const [userHasMovedMap, setUserHasMovedMap] = useState(false);
+  const [showHelpers, setShowHelpers] = useState(false);
 
   const size = useWindowSize();
   const mapImage = useRef(null);
 
   const [multiplier, setMultiplier] = useState({
     x: size.width / bgImageDimensions.width,
-    y: size.height / bgImageDimensions.height
+    y: size.height / bgImageDimensions.height,
   });
 
   useEffect(() => {
     setMultiplier({
       x: mapImage.current.width / bgImageDimensions.width,
-      y: mapImage.current.height / bgImageDimensions.height
+      y: mapImage.current.height / bgImageDimensions.height,
     });
   }, [scale, size, mapImage]);
 
@@ -70,26 +73,26 @@ const Map = ({
       setInitialScale(mobileScale);
       setPinDimensions([
         mobilePinDimensions.width / mobileScale,
-        mobilePinDimensions.height / mobileScale
+        mobilePinDimensions.height / mobileScale,
       ]);
     } else {
       setPinDimensions([
-        desktopPinDimensions.width / scale,
-        desktopPinDimensions.height / scale
+        desktopPinDimensions.width,
+        desktopPinDimensions.height,
       ]);
     }
     recenterMap();
     // catch times when the bg image loads but doesn't call bgLoaded
-    setTimeout(() => bgLoaded(), 500);
+    setTimeout(() => bgLoaded(), 5000);
   }, [size.width]);
 
   useEffect(() => {
     if (activeCategory === "all") {
       setFilteredStories(stories);
     } else {
-      const filtered = stories.filter(story => {
+      const filtered = stories.filter((story) => {
         return story.fields.categories
-          .map(category => category.sys.id)
+          .map((category) => category.sys.id)
           .includes(activeCategory);
       });
       setFilteredStories(filtered);
@@ -105,16 +108,30 @@ const Map = ({
       setScale(0.5);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width) * 0.5,
-        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5
+        y: 0 - (intermountainPinLocation.y - size.height / 2) * 0.5,
       });
     } else {
-      setScale(1);
       setTranslation({
         x: 0 - (intermountainPinLocation.x - size.width / 2),
-        y: 0 - (intermountainPinLocation.y - size.height / 3)
+        y: 0 - (intermountainPinLocation.y - size.height / 3),
       });
     }
   };
+
+  useEffect(() => {
+    if (userHasMovedMap) {
+      setShowHelpers(false);
+      return;
+    }
+
+    if (hideWelcomeOverlay) {
+      setTimeout(() => {
+        setShowHelpers(true);
+      }, 2500);
+      return;
+    }
+    setShowHelpers(false);
+  }, [hideWelcomeOverlay, userHasMovedMap]);
 
   const dismissOverlay = () => {
     setHideWelcomeOverlay(true);
@@ -133,27 +150,35 @@ const Map = ({
         aboutTabContent={aboutTabContent}
         activeCategory={activeCategory}
         categories={categories}
-        hostname={hostname}
         recenterMap={recenterMap}
         setActiveCategory={setActiveCategory}
         submitTabContent={submitTabContent}
         thankYouForSharingContent={thankYouForSharingContent}
       />
       <div className="absolute inset-0 z-0 h-screen w-full pt-16 lg:pt-0">
+        {showHelpers && (
+          <>
+            <TemporaryWelcomeMap />
+            <PageArrows
+              translation={translation}
+              setTranslation={setTranslation}
+            />
+          </>
+        )}
         <div className="relative z-0 font-bold text-2xl text-gray-600 uppercase w-full h-screen overflow-hidden">
           <MapInteractionCSS
-            onChange={props => {
+            onChange={(props) => {
               if (scale !== props.scale) {
                 setScale(props.scale);
                 if (size.width < desktopWidth) {
                   setPinDimensions([
                     mobilePinDimensions.width / props.scale,
-                    mobilePinDimensions.height / props.scale
+                    mobilePinDimensions.height / props.scale,
                   ]);
                 } else {
                   setPinDimensions([
                     desktopPinDimensions.width / props.scale,
-                    desktopPinDimensions.height / props.scale
+                    desktopPinDimensions.height / props.scale,
                   ]);
                 }
               }
@@ -171,7 +196,7 @@ const Map = ({
                 0 -
                 bgImageDimensions.height * multiplier.y * scale +
                 size.height,
-              yMax: 0
+              yMax: 0,
             }}
             minScale={minScale}
             maxScale={4}
@@ -183,25 +208,51 @@ const Map = ({
           >
             <div
               className="relative"
+              onMouseUp={() => {
+                if (!userHasMovedMap) {
+                  setUserHasMovedMap(true);
+                }
+              }}
+              onTouchEnd={() => {
+                if (!userHasMovedMap) {
+                  setUserHasMovedMap(true);
+                }
+              }}
               style={{
                 width: bgImageDimensions.width,
-                height: bgImageDimensions.height
+                height: bgImageDimensions.height,
               }}
             >
-              <img
-                alt="map background"
-                className="absolute z-0"
-                draggable="false"
-                id={`mapImage`}
-                onLoad={bgLoaded}
-                ref={mapImage}
-                src="/images/pch-background.svg"
-                style={{
-                  width: bgImageDimensions.width,
-                  height: bgImageDimensions.height
-                }}
-              />
-              {isBgLoaded && hideWelcomeOverlay && (
+              <picture>
+                <source
+                  srcSet="/images/pch-background.webp"
+                  type="image/webp"
+                  alt="map background"
+                  className="absolute z-0 map-picture"
+                  draggable="false"
+                  id={`mapImage`}
+                  onLoad={bgLoaded}
+                  ref={mapImage}
+                  style={{
+                    width: bgImageDimensions.width,
+                    height: bgImageDimensions.height,
+                  }}
+                />
+                <img
+                  alt="map background"
+                  className="absolute z-0 map-picture"
+                  draggable="false"
+                  id={`mapImage`}
+                  onLoad={bgLoaded}
+                  ref={mapImage}
+                  src="/images/pch-background.png"
+                  style={{
+                    width: bgImageDimensions.width,
+                    height: bgImageDimensions.height,
+                  }}
+                />
+              </picture>
+              {hideWelcomeOverlay && (
                 <StoryPins
                   activeCategory={activeCategory}
                   categories={categories}
@@ -216,6 +267,7 @@ const Map = ({
               )}
               {isBgLoaded && (
                 <button
+                  aria-label="Primary Children's Hospital"
                   className="w-64 h-64 z-40 absolute opacity-0"
                   style={{ transform: "translate3d(1430px, 690px, 0)" }}
                   onClick={() => setActiveStory("main")}
@@ -229,10 +281,10 @@ const Map = ({
       <StoryOverlay
         activeCategory={activeCategory}
         activeStory={activeStory}
-        hostname={hostname}
         setActiveStory={setActiveStory}
         mainStoryContent={mainStoryContent}
         thankYouForSharingContent={thankYouForSharingContent}
+        stories={filteredStories}
       />
     </div>
   );

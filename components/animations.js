@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useWindowSize from "../shared/hooks/useWindowSize.js";
+import useWindowSize from "shared/hooks/useWindowSize.js";
 import Armadillo from "./animations/armadillo.js";
 import Bear from "./animations/bear.js";
 import Boat from "./animations/boat.js";
@@ -29,18 +29,18 @@ import { isMobile } from "react-device-detect";
 const Animations = ({ scale, mapImage }) => {
   const bgImageDimensions = {
     width: 3200,
-    height: 2400
+    height: 2400,
   };
 
   const size = useWindowSize();
   const [multiplier, setMultiplier] = useState({
     x: size.width / bgImageDimensions.width,
-    y: size.height / bgImageDimensions.height
+    y: size.height / bgImageDimensions.height,
   });
   useEffect(() => {
     setMultiplier({
       x: mapImage.current.width / bgImageDimensions.width,
-      y: mapImage.current.height / bgImageDimensions.height
+      y: mapImage.current.height / bgImageDimensions.height,
     });
   }, [scale, size, mapImage]);
   return (

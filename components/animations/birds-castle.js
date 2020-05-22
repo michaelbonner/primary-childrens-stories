@@ -4,12 +4,12 @@ const BirdsCastle = ({ animate, height, left, top, width }) => {
   return (
     <>
       <svg
-        className="absolute z-20"
+        className="absolute z-20 animation"
         id="BirdsCastle"
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          transform: `translate3d(${left}px, ${top}px, 0)`
+          transform: `translate3d(${left}px, ${top}px, 0)`,
         }}
         version="1.1"
         viewBox="0 0 698.4 194.6"
