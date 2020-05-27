@@ -31,7 +31,7 @@ const Home = ({
         <link rel="preload" href="https://www.googletagmanager.com" />
         <link rel="preload" href="https://pubads.g.doubleclick.net" />
         <link rel="preload" href="https://www.google-analytics.com" />
-        <link rel="canonical" content={`https://herekidswin.com/`} />
+        <link rel="canonical" href={`https://herekidswin.com/`} />
       </Head>
 
       <Map

@@ -44,7 +44,7 @@ const Story = ({ story, title, body, footerText, media }) => {
         />
         <link
           rel="canonical"
-          content={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
+          href={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
         />
       </Head>
       <div
