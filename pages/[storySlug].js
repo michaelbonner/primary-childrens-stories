@@ -17,7 +17,9 @@ import getHostName from "shared/getHostName";
 const Story = ({ story, title, body, footerText, media }) => {
   const [shareOpen, setShareOpen] = useState(false);
 
-  const url = `https://${getHostName()}/${story && story.fields.slug}`;
+  const url = `https://${getHostName()}/${
+    story && story.fields.slug.toLowerCase()
+  }`;
 
   const onCopyLink = () => {
     toast.success("A link has been copied to your clipboard", {});
@@ -38,7 +40,7 @@ const Story = ({ story, title, body, footerText, media }) => {
         />
         <meta
           property="og:url"
-          content={`https://herekidswin.org/${story.fields.slug}`}
+          content={`https://herekidswin.org/${story.fields.slug.toLowerCase()}`}
         />
       </Head>
       <div
@@ -131,7 +133,7 @@ export async function getStaticPaths() {
   });
 
   const paths = stories.items.map((story) => ({
-    params: { storySlug: story.fields.slug },
+    params: { storySlug: story.fields.slug.toLowerCase() },
   }));
 
   return {
@@ -143,7 +145,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const stories = await client.getEntries({
     content_type: "story",
-    "fields.slug": params.storySlug,
+    "fields.slug": params.storySlug.toLowerCase(),
   });
 
   if (!stories.items.length) {
