@@ -131,8 +131,19 @@ export async function getStaticPaths() {
   });
 
   const paths = stories.items.map((story) => ({
-    params: { storySlug: story.fields.slug },
+    params: { storySlug: story.fields.slug.toLowerCase() },
   }));
+
+  stories.items.forEach((story) => {
+    paths.push({
+      params: {
+        storySlug: story.fields.slug
+          .split("-")
+          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+          .join("-"),
+      },
+    });
+  });
 
   return {
     paths,
@@ -143,17 +154,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const stories = await client.getEntries({
     content_type: "story",
-    "fields.slug": params.storySlug,
+    "fields.slug": params.storySlug.toLowerCase(),
   });
 
   if (!stories.items.length) {
     return {
-      body: "",
-      footerText: "",
-      media: "",
-      story: false,
-      title: "",
-      url: "",
+      props: {
+        body: "",
+        footerText: "",
+        media: "",
+        story: false,
+        title: "",
+      },
     };
   }
 
