@@ -28,9 +28,9 @@ const Home = ({
           name="description"
           content="When a child receives a difficult diagnosis, it’s helpful to see the journey and success of others who were in similar circumstances. We hope you’ll find strength and inspiration in the countless stories of children who have won in unique ways. We invite you to share your child’s victory or your own victory as a child at Primary Children’s Hospital."
         />
-        <link rel="preload" href="https://www.googletagmanager.com" />
-        <link rel="preload" href="https://pubads.g.doubleclick.net" />
-        <link rel="preload" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pubads.g.doubleclick.net" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="canonical" href={`https://herekidswin.com/`} />
       </Head>
 
