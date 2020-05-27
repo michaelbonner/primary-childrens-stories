@@ -40,7 +40,11 @@ const Story = ({ story, title, body, footerText, media }) => {
         />
         <meta
           property="og:url"
-          content={`https://herekidswin.org/${story.fields.slug.toLowerCase()}`}
+          content={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
+        />
+        <link
+          rel="canonical"
+          content={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
         />
       </Head>
       <div
