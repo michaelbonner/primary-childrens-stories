@@ -17,7 +17,9 @@ import getHostName from "shared/getHostName";
 const Story = ({ story, title, body, footerText, media }) => {
   const [shareOpen, setShareOpen] = useState(false);
 
-  const url = `https://${getHostName()}/${story && story.fields.slug}`;
+  const url = `https://${getHostName()}/${
+    story && story.fields.slug.toLowerCase()
+  }`;
 
   const onCopyLink = () => {
     toast.success("A link has been copied to your clipboard", {});
@@ -38,7 +40,11 @@ const Story = ({ story, title, body, footerText, media }) => {
         />
         <meta
           property="og:url"
-          content={`https://herekidswin.org/${story.fields.slug}`}
+          content={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
+        />
+        <link
+          rel="canonical"
+          content={`https://herekidswin.com/${story.fields.slug.toLowerCase()}`}
         />
       </Head>
       <div

@@ -14,16 +14,16 @@ toast.configure({
   closeOnClick: true,
   pauseOnVisibilityChange: true,
   draggable: true,
-  pauseOnHover: true
+  pauseOnHover: true,
 });
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     TagManager.initialize({
-      gtmId: "GTM-MWNT839"
+      gtmId: "GTM-MWNT839",
     });
     TagManager.initialize({
-      gtmId: "GTM-PN62ZXM"
+      gtmId: "GTM-PN62ZXM",
     });
   }, []);
 
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image"
-          content="https://herekidswin.org/og-image.jpg"
+          content="https://herekidswin.com/og-image.jpg"
         />
         <link
           href="https://fonts.googleapis.com/css?family=Public+Sans:400,400i,500,500i,600,600i,700,700i&display=swap"

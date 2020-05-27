@@ -21,7 +21,7 @@ const Pin = () => {
       <Head>
         <title>Primary Children's Hospital Patient Stories</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:url" content="https://herekidswin.org/" />
+        <meta property="og:url" content="https://herekidswin.com/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
@@ -33,7 +33,7 @@ const Pin = () => {
         />
         <meta
           property="og:image"
-          content="https://herekidswin.org/og-image.jpg"
+          content="https://herekidswin.com/og-image.jpg"
         />
       </Head>
 

@@ -23,7 +23,7 @@ const Home = ({
           property="og:title"
           content="Share your child’s story or your own childhood story as a message of hope for others."
         />
-        <meta property="og:url" content={`https://herekidswin.org/`} />
+        <meta property="og:url" content={`https://herekidswin.com/`} />
         <meta
           name="description"
           content="When a child receives a difficult diagnosis, it’s helpful to see the journey and success of others who were in similar circumstances. We hope you’ll find strength and inspiration in the countless stories of children who have won in unique ways. We invite you to share your child’s victory or your own victory as a child at Primary Children’s Hospital."
@@ -31,6 +31,7 @@ const Home = ({
         <link rel="preload" href="https://www.googletagmanager.com" />
         <link rel="preload" href="https://pubads.g.doubleclick.net" />
         <link rel="preload" href="https://www.google-analytics.com" />
+        <link rel="canonical" content={`https://herekidswin.com/`} />
       </Head>
 
       <Map
