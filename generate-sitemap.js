@@ -6,7 +6,7 @@ const data = JSON.parse(
 const storiesSlugs = data.stories.items
   .map(
     (story) => `  <url>
-    <loc>https://herekidswin.com/${story.fields.slug}<loc>
+    <loc>https://herekidswin.com/${story.fields.slug}</loc>
   </url>`
   )
   .sort((a, b) => {
@@ -23,7 +23,7 @@ fs.writeFileSync(
   `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://herekidswin.com/<loc>
+    <loc>https://herekidswin.com/</loc>
   </url>
 ${storiesSlugs.join(`
 `)}
