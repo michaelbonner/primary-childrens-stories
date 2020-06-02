@@ -28,6 +28,10 @@ const Home = ({
           name="description"
           content="When a child receives a difficult diagnosis, it’s helpful to see the journey and success of others who were in similar circumstances. We hope you’ll find strength and inspiration in the countless stories of children who have won in unique ways. We invite you to share your child’s victory or your own victory as a child at Primary Children’s Hospital."
         />
+        <meta
+          name="google-site-verification"
+          content="01m_tUsGD8vqhLGkLQf2EQh4t3Q0GNc3PbNplcV3-Y8"
+        />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://pubads.g.doubleclick.net" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
