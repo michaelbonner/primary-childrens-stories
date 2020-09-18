@@ -24,9 +24,12 @@ const StoryPins = ({
         (category) => category.sys.id === activeCategory
       )[0].fields.color;
     } else {
-      pinColor = filteredStories[index].fields.categories
-        ? filteredStories[index].fields.categories[0].fields.color
-        : "red";
+      pinColor =
+        filteredStories[index].fields.categories &&
+        filteredStories[index].fields.categories[0] &&
+        filteredStories[index].fields.categories[0].fields
+          ? filteredStories[index].fields.categories[0].fields.color
+          : "red";
     }
     return (
       <animated.div
