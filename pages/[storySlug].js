@@ -140,16 +140,16 @@ export async function getStaticPaths() {
     params: { storySlug: story.fields.slug.toLowerCase() },
   }));
 
-  stories.items.forEach((story) => {
-    paths.push({
-      params: {
-        storySlug: story.fields.slug
-          .split("-")
-          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-          .join("-"),
-      },
-    });
-  });
+  // stories.items.forEach((story) => {
+  //   paths.push({
+  //     params: {
+  //       storySlug: story.fields.slug
+  //         .split("-")
+  //         .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+  //         .join("-"),
+  //     },
+  //   });
+  // });
 
   return {
     paths,
