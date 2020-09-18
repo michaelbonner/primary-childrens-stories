@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^13.4.0",
+    "@contentful/rich-text-html-renderer": "^14.1.1",
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@zeit/next-css": "^1.0.1",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.0.0",
     "contentful": "^7.14.6",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
