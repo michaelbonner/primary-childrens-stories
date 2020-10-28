@@ -1,10 +1,12 @@
+import Image from "next/image";
+
 const contentfulPrintMedia = (media) => {
   if (!media) {
     return;
   }
   if (media.type.startsWith("image")) {
     return (
-      <img key={media.url} src={`${media.url}?w=800`} title={media.title} />
+      <Image key={media.url} src={`${media.url}?w=800`} title={media.title} />
     );
   }
   if (media.type.startsWith("video")) {
