@@ -51,7 +51,6 @@ const Story = ({ story, title, body, footerText, media }) => {
         className="py-12 relative h-screen overflow-y-scroll"
         style={{
           backgroundImage: "url(/images/pch-background-2000.jpg)",
-          backgroundImage: "url(/images/pch-background-2000.webp)",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
         }}
